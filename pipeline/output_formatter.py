@@ -166,7 +166,8 @@ def format_output(pipeline_result, output_dir: str) -> Dict[str, Any]:
         parts = ["📝 写作模式：增强草拟模式"]
         if exp_report_summary:
             total_exp = sum(v for k, v in exp_report_summary.items()
-                           if k not in ("confirmation_required", "unsafe_expansion_warnings"))
+                           if k not in ("confirmation_required", "unsafe_expansion_warnings")
+                           and isinstance(v, (int, bool, float)))
             if total_exp > 0:
                 parts.append(f"本稿含 {total_exp} 处表达/结构/口径扩写")
         if confirm_count > 0:

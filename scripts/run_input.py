@@ -52,14 +52,21 @@ def run(raw_input, output_dir=None, output_formats=None, stdout_mode=False):
     # 解析输入
     parsed = parse_input(raw_input)
 
-    # 构建 PipelineInput
+    # 构建 PipelineInput（v0.1.4: 传入 generation_mode）
     pipeline_input = PipelineInput(
         requirement=parsed.get("requirement", ""),
         draft=parsed.get("draft", ""),
         specified_doc_type=parsed.get("specified_doc_type"),
         target_unit=parsed.get("target_unit"),
         scene=parsed.get("scene"),
+        generation_mode=parsed.get("generation_mode", "safe_official"),
     )
+
+    # generation_mode 警告提示
+    gen_warnings = parsed.get("generation_mode_warnings", [])
+    if gen_warnings:
+        for w in gen_warnings:
+            print(f"  ⚠️ {w}")
 
     # 输出目录
     ts = datetime.now().strftime("%Y%m%d-%H%M%S")
