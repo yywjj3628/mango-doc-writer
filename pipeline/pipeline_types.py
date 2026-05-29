@@ -5,6 +5,16 @@ mango-doc-writer pipeline 类型定义
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional
 
+# v0.1.4 generation mode 合法值
+VALID_GENERATION_MODES = ["safe_official", "assisted_expansion", "creative_mimic"]
+
+# generation mode → expansion_enabled / official_use_allowed 映射
+GENERATION_MODE_FLAGS = {
+    "safe_official": {"expansion_enabled": False, "official_use_allowed": True},
+    "assisted_expansion": {"expansion_enabled": True, "official_use_allowed": "requires_human_confirmation"},
+    "creative_mimic": {"expansion_enabled": True, "official_use_allowed": False},
+}
+
 # 六阶段顺序
 STAGES = ["classify", "extract", "plan", "draft", "review", "rewrite"]
 
@@ -30,6 +40,7 @@ class PipelineInput:
     target_unit: Optional[str] = None
     scene: Optional[str] = None
     output_preference: Optional[str] = None
+    generation_mode: str = "safe_official"  # v0.1.4: "safe_official" | "assisted_expansion" | "creative_mimic"
 
     def to_dict(self) -> dict:
         d = {"requirement": self.requirement, "draft": self.draft}
@@ -41,6 +52,7 @@ class PipelineInput:
             d["scene"] = self.scene
         if self.output_preference:
             d["output_preference"] = self.output_preference
+        d["generation_mode"] = self.generation_mode
         return d
 
 
@@ -113,6 +125,22 @@ class PipelineReport:
     human_review_required: bool = False
     quality_gate_error: Optional[str] = None
     quality_rewrite_applied: bool = False
+
+    # ─── v0.1.4 generation mode 字段 ──────────────────────────────
+    generation_mode: str = "safe_official"
+    generation_mode_valid: bool = True
+    generation_mode_warnings: List[str] = field(default_factory=list)
+    official_use_allowed: bool = True
+    expansion_enabled: bool = False
+
+    # ─── v0.1.4 expansion summary 字段 ────────────────────────────
+    expansion_report_summary: Dict[str, int] = field(default_factory=dict)
+    expansion_review_summary: Optional[Dict[str, Any]] = None
+    expansion_quality_summary: Optional[Dict[str, Any]] = None
+    draft_disclaimer: Optional[str] = None
+    confirmation_required_count: int = 0
+    unsafe_expansion_detected: bool = False
+    unsafe_expansion_warnings: List[str] = field(default_factory=list)
 
 
 @dataclass

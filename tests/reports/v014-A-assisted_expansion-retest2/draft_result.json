@@ -1,0 +1,168 @@
+{
+  "draft_summary": "按新闻稿文种生成初稿。素材包含时间、主办方、参赛团队数量、一等奖作品及成果，缺少地点和团队名称，已使用概括性表述。",
+  "doc_type": "新闻稿",
+  "direction": "对外宣传",
+  "style_level": 3,
+  "risk_level": "low",
+  "markdown_draft": "# 芒果超媒举办AI内容创作大赛 《AI导演》获一等奖实现全流程AI辅助制作\n\n4月15日，芒果超媒举办AI内容创作大赛。来自12支团队的参赛作品经过激烈角逐，一等奖作品《AI导演》脱颖而出，实现了全流程AI辅助制作。\n\n本次大赛聚焦AI内容创作领域，12支团队围绕技术创新与应用展开比拼，展现了芒果体系在人工智能与内容融合方面的积极探索。\n\n一等奖作品《AI导演》依托芒果大模型等技术能力，实现了从创意生成、脚本编写到后期制作的全流程AI辅助，为内容生产提供了全新思路。该作品充分体现了AI技术在提升创作效率、拓展内容边界方面的潜力。\n\n此次大赛是芒果超媒推动“文化+科技”深度融合的重要举措，通过以赛促创、以赛聚才，进一步激发内部创新活力，为构建数智化平台型媒体集团蓄势赋能。\n\n未来，芒果超媒将持续深化AI技术应用，以融合创新激活发展动能，加速从工具应用到智媒跃升的进程。",
+  "fact_usage_report": [
+    {
+      "draft_text": "4月15日",
+      "fact_type": "time",
+      "fact_value": "4月15日",
+      "source_text": "4月15日，芒果超媒举办AI内容创作大赛。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.98
+    },
+    {
+      "draft_text": "芒果超媒",
+      "fact_type": "organization",
+      "fact_value": "芒果超媒",
+      "source_text": "芒果超媒举办AI内容创作大赛。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.98
+    },
+    {
+      "draft_text": "AI内容创作大赛",
+      "fact_type": "event",
+      "fact_value": "AI内容创作大赛",
+      "source_text": "芒果超媒举办AI内容创作大赛。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.98
+    },
+    {
+      "draft_text": "12支团队",
+      "fact_type": "person",
+      "fact_value": "12个团队",
+      "source_text": "来自12个团队参加。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.95
+    },
+    {
+      "draft_text": "一等奖作品《AI导演》实现了全流程AI辅助制作",
+      "fact_type": "achievement",
+      "fact_value": "一等奖作品《AI导演》实现了全流程AI辅助制作",
+      "source_text": "一等奖作品《AI导演》实现了全流程AI辅助制作。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.95
+    },
+    {
+      "draft_text": "《AI导演》",
+      "fact_type": "product",
+      "fact_value": "《AI导演》",
+      "source_text": "一等奖作品《AI导演》实现了全流程AI辅助制作。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.98
+    }
+  ],
+  "rag_usage_report": [
+    {
+      "used_for": "整体文风和升华表达",
+      "reference_source": "芒果系新闻稿风格参考",
+      "style_element": "使用‘融合创新’‘智媒跃升’等战略词汇，结尾展望句式",
+      "copied_verbatim": false,
+      "fact_risk": false,
+      "note": "仅借鉴表达风格，未使用事实。"
+    }
+  ],
+  "terminology_usage_report": [
+    {
+      "raw_value": "芒果超媒",
+      "used_value": "芒果超媒",
+      "type": "organization",
+      "source": "org-title-dictionary.yaml",
+      "confidence": 0.95,
+      "needs_manual_confirmation": false,
+      "note": "首次出现使用简称，符合新闻稿习惯。"
+    },
+    {
+      "raw_value": "AI内容创作大赛",
+      "used_value": "AI内容创作大赛",
+      "type": "other",
+      "source": "extract_result",
+      "confidence": 0.98,
+      "needs_manual_confirmation": false,
+      "note": "事件名称直接引用。"
+    },
+    {
+      "raw_value": "《AI导演》",
+      "used_value": "《AI导演》",
+      "type": "product",
+      "source": "extract_result",
+      "confidence": 0.98,
+      "needs_manual_confirmation": false,
+      "note": "产品名称直接引用。"
+    }
+  ],
+  "blocked_items_check": [
+    {
+      "item": "编造领导出席",
+      "status": "not_used",
+      "reason": "正文未提及任何领导。"
+    },
+    {
+      "item": "编造领导评价",
+      "status": "not_used",
+      "reason": "正文未出现领导评价。"
+    },
+    {
+      "item": "编造成果数据",
+      "status": "not_used",
+      "reason": "仅使用提取的‘全流程AI辅助制作’，未添加其他数据。"
+    },
+    {
+      "item": "编造活动地点",
+      "status": "not_used",
+      "reason": "正文未写活动地点。"
+    },
+    {
+      "item": "编造团队具体名称",
+      "status": "not_used",
+      "reason": "正文仅写‘12支团队’，未具体化。"
+    }
+  ],
+  "warnings": [
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "message": "活动地点未提供，正文未提及地点。",
+      "related_field": "location",
+      "action": "如有地点信息，可补充以增强完整性。"
+    },
+    {
+      "level": "low",
+      "type": "missing_field",
+      "message": "参赛团队具体名称未提供，正文仅用‘12支团队’概括。",
+      "related_field": "team_names",
+      "action": "如需具体团队名称，可后续补充。"
+    },
+    {
+      "level": "low",
+      "type": "rag_style_only",
+      "message": "RAG风格参考用于升华表达，未引入事实。",
+      "related_field": "style_rag",
+      "action": "无。"
+    }
+  ],
+  "manual_confirmation_fields": [],
+  "draft_policy": {
+    "body_generated": true,
+    "no_new_facts": true,
+    "use_only_extract_facts": true,
+    "rag_used_for_style_only": true,
+    "follow_plan_structure": true,
+    "follow_doc_type_rules": true,
+    "follow_org_title_dictionary": true
+  },
+  "generation_mode": "safe_official",
+  "official_use_allowed": true,
+  "expansion_report": {
+    "style_expansion": [],
+    "structure_expansion": [],
+    "rhetoric_expansion": [],
+    "policy_phrase_expansion": [],
+    "leadership_style_expansion": [],
+    "confirmation_required": [],
+    "unsafe_expansion_warnings": []
+  }
+}

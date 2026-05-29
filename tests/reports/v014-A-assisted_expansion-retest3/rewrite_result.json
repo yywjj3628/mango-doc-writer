@@ -1,0 +1,179 @@
+{
+  "rewrite_summary": "根据review结果，删除了第3段中无事实依据的“AI编剧、AI视觉生成、智能剪辑”等具体领域表述；将第2段中“从剧本生成、拍摄调度到后期制作”替换为“实现了全流程AI辅助制作”；在manual_confirmation_fields中添加了意义价值段落人工确认项。其他内容保持不变。",
+  "doc_type": "新闻稿",
+  "direction": "对外宣传",
+  "style_level": 3,
+  "risk_level": "medium",
+  "final_markdown": "# 芒果超媒AI内容创作大赛圆满落幕——一等奖作品《AI导演》实现全流程AI辅助制作\n\n4月15日，芒果超媒股份有限公司举办AI内容创作大赛。来自12个团队参赛，围绕AI技术在内容创作中的应用展开角逐。\n\n经过激烈比拼，一等奖作品《AI导演》脱颖而出。该作品实现了全流程AI辅助制作，充分展现了AI与内容创作的深度融合。\n\n本次大赛聚焦AI内容创作前沿方向，体现了芒果超媒在文化科技融合方面的积极探索。\n\nAI内容创作大赛的举办，是芒果超媒推动AI技术赋能内容生产的重要举措，为行业探索智能化内容创作提供了有益参考。\n\n未来，芒果超媒将持续深化AI技术应用，以融合创新激活发展动能，助力内容产业智能化升级。",
+  "revision_report": [
+    {
+      "revision_id": "REV001",
+      "issue_id": "R001",
+      "action": "replace",
+      "before": "参赛作品涵盖AI编剧、AI视觉生成、智能剪辑等领域",
+      "after": "",
+      "reason": "原文具体领域无extract事实支撑，属于编造成果技术细节，直接删除。",
+      "basis": "extract_result中无对应事实；blocked_items规则禁止编造成果技术细节"
+    },
+    {
+      "revision_id": "REV002",
+      "issue_id": "R002",
+      "action": "replace",
+      "before": "从剧本生成、拍摄调度到后期制作的全流程AI辅助制作",
+      "after": "全流程AI辅助制作",
+      "reason": "原文对“全流程”的具体环节描述无直接extract来源，替换为与extract一致的表述。",
+      "basis": "extract_result.fact_items中仅提供“一等奖作品《AI导演》实现了全流程AI辅助制作”，未提供具体环节"
+    }
+  ],
+  "fact_usage_report": [
+    {
+      "final_text": "4月15日",
+      "fact_type": "time",
+      "fact_value": "4月15日",
+      "source_text": "4月15日，芒果超媒举办AI内容创作大赛。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.98
+    },
+    {
+      "final_text": "芒果超媒股份有限公司",
+      "fact_type": "organization",
+      "fact_value": "芒果超媒",
+      "source_text": "芒果超媒举办AI内容创作大赛。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.96
+    },
+    {
+      "final_text": "AI内容创作大赛",
+      "fact_type": "event",
+      "fact_value": "AI内容创作大赛",
+      "source_text": "芒果超媒举办AI内容创作大赛。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.95
+    },
+    {
+      "final_text": "12个团队",
+      "fact_type": "person",
+      "fact_value": "12个团队",
+      "source_text": "来自12个团队参加。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.9
+    },
+    {
+      "final_text": "一等奖作品《AI导演》",
+      "fact_type": "product",
+      "fact_value": "《AI导演》",
+      "source_text": "一等奖作品《AI导演》实现了全流程AI辅助制作。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.96
+    },
+    {
+      "final_text": "实现了全流程AI辅助制作",
+      "fact_type": "achievement",
+      "fact_value": "一等奖作品《AI导演》实现了全流程AI辅助制作",
+      "source_text": "一等奖作品《AI导演》实现了全流程AI辅助制作。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.94
+    }
+  ],
+  "terminology_usage_report": [
+    {
+      "raw_value": "芒果超媒",
+      "used_value": "芒果超媒股份有限公司",
+      "type": "organization",
+      "source": "org-title-dictionary.yaml",
+      "confidence": 0.98,
+      "needs_manual_confirmation": false,
+      "note": "首次出现使用全称，后续简称。"
+    },
+    {
+      "raw_value": "AI内容创作大赛",
+      "used_value": "AI内容创作大赛",
+      "type": "product",
+      "source": "extract_result",
+      "confidence": 0.95,
+      "needs_manual_confirmation": false,
+      "note": "用户素材原文。"
+    },
+    {
+      "raw_value": "《AI导演》",
+      "used_value": "《AI导演》",
+      "type": "product",
+      "source": "extract_result",
+      "confidence": 0.96,
+      "needs_manual_confirmation": false,
+      "note": "用户素材原文。"
+    }
+  ],
+  "resolved_issues": [
+    {
+      "issue_id": "R001",
+      "resolution": "删除了无依据的“参赛作品涵盖AI编剧、AI视觉生成、智能剪辑等领域”",
+      "basis": "rewrite_instruction优先级high，删除具体领域"
+    },
+    {
+      "issue_id": "R002",
+      "resolution": "将“从剧本生成、拍摄调度到后期制作”替换为与extract一致的“全流程AI辅助制作”",
+      "basis": "rewrite_instruction优先级medium，替换为extract事实"
+    },
+    {
+      "issue_id": "R003",
+      "resolution": "由于删除了新增事实，fact_usage_report不再需要补充，已通过修订正文解决",
+      "basis": "删除新增事实后，fact_usage_report无需补充"
+    },
+    {
+      "issue_id": "R004",
+      "resolution": "在manual_confirmation_fields中添加了意义价值段落内容人工确认项",
+      "basis": "rewrite_instruction优先级medium，添加占位确认项"
+    },
+    {
+      "issue_id": "R005",
+      "resolution": "删除了具体领域，blocked_item已移除",
+      "basis": "与R001同步解决"
+    }
+  ],
+  "unresolved_issues": [],
+  "remaining_risks": [
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "detail": "活动地点缺失，正文未写地点。",
+      "action": "如有地点信息，后续可补充。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "detail": "团队具体名称缺失，正文使用概括性表述。",
+      "action": "如有具体名称，后续可补充。"
+    },
+    {
+      "level": "low",
+      "type": "missing_field",
+      "detail": "意义价值段无事实支撑，使用了概括性升华表述。",
+      "action": "人工可酌情补充具体意义。"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "意义价值段落内容",
+      "reason": "该段无事实支撑，使用了概括性升华表述，需人工确认是否保留或补充具体意义。",
+      "impact": "影响新闻稿内容真实性及芒果系风格表达",
+      "required_before_final": false
+    }
+  ],
+  "final_checks": {
+    "doc_type_fixed": true,
+    "unsupported_facts_removed": true,
+    "blocked_items_removed": true,
+    "terminology_checked": true,
+    "manual_confirmations_preserved": true
+  },
+  "rewrite_policy": {
+    "body_rewritten": true,
+    "no_new_facts": true,
+    "use_only_extract_facts": true,
+    "no_rag_call": true,
+    "follow_review_instructions": true,
+    "follow_doc_type_rules": true,
+    "follow_org_title_dictionary": true
+  }
+}

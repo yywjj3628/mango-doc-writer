@@ -371,6 +371,32 @@ remaining_risks 记录最终稿仍存在的风险。
 3. 修正文种结尾；
 4. 保留缺失字段占位符。
 
+## generation_mode 感知（v0.1.4）
+
+当前写作模式由输入变量 `{{generation_mode}}` 指定。
+
+rewrite 阶段必须根据 generation_mode 调整修订策略。
+
+### safe_official 模式
+
+按 v0.1.3 原规则修订。任何新增事实都应删除。
+
+### assisted_expansion 模式
+
+- 可接受扩写（style_expansion、structure_expansion、rhetoric_expansion 等）应保留
+- 危险虚构（unsafe_fabrication）必须删除或标记待确认
+- 需确认内容（confirmation_required）应保留并标记 manual_confirmation_fields
+- 不得删除所有扩写内容——只删除危险虚构
+- 修订后仍不得新增具体事实
+
+### creative_mimic 模式
+
+- 风格仿写内容应保留（不删除 style_mimic）
+- 危险虚构必须删除
+- draft_disclaimer 必须保留
+- official_use_allowed 必须保持 false
+- 修订后仍不得新增具体事实
+
 ## 示例 1：修复无依据拔高
 
 输入：

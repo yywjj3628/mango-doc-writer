@@ -1,0 +1,11 @@
+[
+  {
+    "stage": "review",
+    "path": ".manual_confirmation_fields[0].required_before_final",
+    "before": "(missing)",
+    "after": false,
+    "fix_type": "fill_missing_boolean",
+    "risk": "medium",
+    "reason": "required field, type=boolean"
+  }
+]

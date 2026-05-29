@@ -46,7 +46,7 @@ mango-doc-writer/
 ## 生成流程
 
 ```
-用户初稿 + 文种需求
+用户初稿 + 文种需求 + [generation_mode]
   → classify（识别文种）
   → extract（抽取事实）
   → plan（结构规划）
@@ -56,6 +56,20 @@ mango-doc-writer/
   → [quality gate（后置质量门禁）]  ← 可选，不改变六阶段主结构
   → output Markdown 成稿
 ```
+
+### Generation Mode（v0.1.4 新增）
+
+通过 `generation_mode` 参数控制扩写行为：
+
+| 模式 | 阈值 | 扩写 | official_use_allowed | 用途 |
+|------|:----:|:----:|:-------------------:|------|
+| `safe_official`（默认） | 8.0 | 禁止 | true | 正式公文 |
+| `assisted_expansion` | 7.0 | 允许 | requires_human_confirmation | 内部草稿 |
+| `creative_mimic` | 6.0 | 允许 | false | 灵感参考 |
+
+**fact_safety / risk_control 始终保持 8.0 最低阈值，不随模式降低。**
+
+默认 `safe_official` 与 v0.1.3 完全兼容，无需修改任何现有输入。
 
 ### 质量门禁（v0.1.3 新增）
 
@@ -91,11 +105,32 @@ rewrite 完成后，系统可选执行后置质量门禁，对 final_markdown �
 
 ### 输入
 
+**safe_official（默认，v0.1.3 兼容）：**
+
 ```json
 {
   "requirement": "请改成向集团汇报的正式报告，芒果系正式文风。",
-  "draft": "上个月我们做了很多工作，劲舞团DAU稳定在XX万...",
-  "output_format": "markdown"
+  "draft": "上个月我们做了很多工作，劲舞团DAU稳定在XX万..."
+}
+```
+
+**assisted_expansion（增强草拟）：**
+
+```json
+{
+  "requirement": "请帮我写一篇芒果系新闻稿初稿。",
+  "draft": "4月15日芒果超媒办了AI大赛，12个团队参加。",
+  "generation_mode": "assisted_expansion"
+}
+```
+
+**creative_mimic（风格仿写）：**
+
+```json
+{
+  "requirement": "请模仿芒果系领导讲话风格写一篇稿子。",
+  "draft": "会上讨论了明年的工作方向。",
+  "generation_mode": "creative_mimic"
 }
 ```
 

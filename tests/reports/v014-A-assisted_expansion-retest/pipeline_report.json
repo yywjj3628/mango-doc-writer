@@ -1,0 +1,87 @@
+{
+  "status": "failed",
+  "doc_type": null,
+  "risk_level": null,
+  "review_pass": null,
+  "rewrite_required": null,
+  "manual_confirmation_count": 0,
+  "remaining_risk_count": 0,
+  "schema_validation_status": {
+    "classify": true,
+    "extract": true,
+    "plan": true,
+    "draft": false,
+    "review": false,
+    "rewrite": false
+  },
+  "rag_status": "success",
+  "style_references_count": 6,
+  "rag_collection": "mango_style_docs",
+  "rag_index": "mango_style_docs",
+  "rag_query": "mango_style_docs:芒果系 新闻稿 活动 通稿 标题 开头 | mango_style_docs:广电 芒果 重大活动 新闻稿 传播表达 | jiuyou_docs:芒果系 新闻稿 活动 通稿 标题 开头 | jiuyou_docs:广电 芒果 重大活动 新闻稿 传播表达",
+  "rag_sources": [
+    "广电 芒果 重大活动 新闻稿 传播表达",
+    "广电 芒果 重大活动 新闻稿 传播表达",
+    "广电 芒果 重大活动 新闻稿 传播表达",
+    "芒果系 新闻稿 活动 通稿 标题 开头",
+    "芒果系 新闻稿 活动 通稿 标题 开头"
+  ],
+  "rag_collections_used": [
+    "mango_style_docs",
+    "jiuyou_docs"
+  ],
+  "rag_primary_collection": "mango_style_docs",
+  "rag_fallback_collection": "jiuyou_docs",
+  "failed_stage": "draft",
+  "error_type": "schema_validation_error",
+  "error_message": "schema_validation_error (fallback也失败): [draft] Schema 校验失败 (schema: /home/ywj/.openclaw/workspace/skills/mango-doc-writer/schemas/draft.schema.json): [] is not of type 'object'\n\nFailed validating 'type' in schema['properties']['expansion_report']:\n    {'description': 'v0.1.4: 扩写报告，记录所有非用户明确提供的内容',\n     'properties': {'confirmation_required': {'items': {'properties': {'reason': {'type': 'string'},\n                                                                       'text': {'type': 'string'}},\n                                                        'type': 'object'},\n                                              'type': 'array'},\n                    'leadership_style_expansion': {'items': {'properties': {'description': {'type': 'string'},\n                                                                            'text': {'type': 'string'}},\n                                                             'type': 'object'},\n                                                   'type': 'array'},\n                    'policy_phrase_expansion': {'items': {'properties': {'description': {'type': 'string'},\n                                                                         'text': {'type': 'string'}},\n                                                          'type': 'object'},\n                                                'type': 'array'},\n                    'rhetoric_expansion': {'items': {'properties': {'description': {'type': 'string'},\n                                                                    'text': {'type': 'string'}},\n                                                     'type': 'object'},\n                                           'type': 'array'},\n                    'structure_expansion': {'items': {'properties': {'description': {'type': 'string'},\n                                                                     'text': {'type': 'string'}},\n                                                      'type': 'object'},\n                                            'type': 'array'},\n                    'style_expansion': {'items': {'properties': {'description': {'type': 'string'},\n                                                                 'text': {'type': 'string'}},\n                                                  'type': 'object'},\n                                        'type': 'array'},\n                    'unsafe_expansion_warnings': {'items': {'type': 'string'},\n                                                  'type': 'array'}},\n     'type': 'object'}\n\nOn instance['expansion_report']:\n    []",
+  "schema_path": "schemas/draft.schema.json",
+  "sanitizer_high_risk": false,
+  "model_provider": "deepseek",
+  "default_model": "deepseek-v4-flash",
+  "fallback_model": "deepseek-v4-pro",
+  "fallback_enabled": true,
+  "stage_model_usage": {
+    "classify": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    },
+    "extract": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    },
+    "plan": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    }
+  },
+  "fallback_count": 0,
+  "output_files": [],
+  "quality_gate_enabled": true,
+  "quality_gate_pass": null,
+  "quality_gate_threshold": 8.0,
+  "quality_gate_rounds_used": 0,
+  "quality_gate_max_rounds": 2,
+  "final_quality_scores": null,
+  "failed_dimensions": [],
+  "quality_score_history": [],
+  "final_output_policy": null,
+  "human_review_required": false,
+  "quality_gate_error": null,
+  "quality_rewrite_applied": false,
+  "generation_mode": "assisted_expansion",
+  "generation_mode_valid": true,
+  "generation_mode_warnings": [],
+  "official_use_allowed": "requires_human_confirmation",
+  "expansion_enabled": true,
+  "expansion_report_summary": {},
+  "expansion_review_summary": null,
+  "expansion_quality_summary": null,
+  "draft_disclaimer": null,
+  "confirmation_required_count": 0,
+  "unsafe_expansion_detected": false,
+  "unsafe_expansion_warnings": []
+}

@@ -1,0 +1,246 @@
+{
+  "draft_summary": "已按汇报材料文种生成初稿。素材包含本季度三项主要工作和下一步两项重点，缺少具体季度名称、党建活动名称、党建品牌名称、数据支撑及落款单位。正文使用概括性表述，保留待确认占位符。",
+  "doc_type": "汇报材料",
+  "direction": "上行文",
+  "style_level": 2,
+  "risk_level": "medium",
+  "markdown_draft": "# 关于本季度工作情况的汇报\n\n电广传媒：\n\n现将本季度有关工作情况汇报如下：\n\n## 一、背景情况\n\n本季度，我司围绕年度目标任务，重点推进劲舞团手游版上线筹备、党建活动按计划推进、与韩国T3续约谈判启动等三项工作，整体进展有序。\n\n## 二、主要进展\n\n（一）劲舞团手游版上线筹备。按计划推进上线筹备相关工作。\n（二）党建活动。按计划推进党建活动开展，具体活动名称待确认。\n（三）与韩国T3续约谈判。已启动与韩国T3的续约谈判工作。\n\n## 三、亮点成效\n\n本季度各项工作按计划推进，取得阶段性进展。具体量化数据及亮点成果待补充。\n\n## 四、问题挑战\n\n当前工作中存在的具体问题和挑战待进一步梳理。\n\n## 五、下一步思路\n\n（一）手游版内测。重点推进劲舞团手游版内测工作。\n（二）党建品牌打造。围绕党建品牌打造开展相关工作，品牌具体名称待确认。\n\n以上汇报，请领导批评指正。\n\n【落款单位待确认】\n\n【日期待确认】",
+  "fact_usage_report": [
+    {
+      "draft_text": "本季度",
+      "fact_type": "time",
+      "fact_value": "本季度",
+      "source_text": "本季度主要做了三件事",
+      "source": "extract_result.fact_items",
+      "confidence": 0.9
+    },
+    {
+      "draft_text": "劲舞团手游版上线筹备",
+      "fact_type": "project",
+      "fact_value": "劲舞团手游版上线筹备",
+      "source_text": "劲舞团手游版上线筹备",
+      "source": "extract_result.fact_items",
+      "confidence": 0.95
+    },
+    {
+      "draft_text": "党建活动",
+      "fact_type": "project",
+      "fact_value": "党建活动",
+      "source_text": "党建活动按计划推进",
+      "source": "extract_result.fact_items",
+      "confidence": 0.9
+    },
+    {
+      "draft_text": "与韩国T3续约谈判",
+      "fact_type": "project",
+      "fact_value": "与韩国T3续约谈判",
+      "source_text": "与韩国T3续约谈判启动",
+      "source": "extract_result.fact_items",
+      "confidence": 0.95
+    },
+    {
+      "draft_text": "韩国T3",
+      "fact_type": "organization",
+      "fact_value": "韩国T3",
+      "source_text": "与韩国T3续约谈判启动",
+      "source": "extract_result.fact_items",
+      "confidence": 0.85
+    },
+    {
+      "draft_text": "手游版内测",
+      "fact_type": "project",
+      "fact_value": "手游版内测",
+      "source_text": "下一步重点是手游版内测和党建品牌打造",
+      "source": "extract_result.fact_items",
+      "confidence": 0.95
+    },
+    {
+      "draft_text": "党建品牌打造",
+      "fact_type": "project",
+      "fact_value": "党建品牌打造",
+      "source_text": "下一步重点是手游版内测和党建品牌打造",
+      "source": "extract_result.fact_items",
+      "confidence": 0.9
+    },
+    {
+      "draft_text": "本季度，我司围绕年度目标任务，重点推进劲舞团手游版上线筹备、党建活动按计划推进、与韩国T3续约谈判启动等三项工作",
+      "fact_type": "achievement",
+      "fact_value": "本季度主要做了三件事：劲舞团手游版上线筹备、党建活动按计划推进、与韩国T3续约谈判启动",
+      "source_text": "本季度主要做了三件事：1）劲舞团手游版上线筹备；2）党建活动按计划推进；3）与韩国T3续约谈判启动。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.95
+    }
+  ],
+  "rag_usage_report": [
+    {
+      "used_for": "开头句式",
+      "reference_source": "芒果系汇报材料常见开头",
+      "style_element": "现将XX工作有关情况汇报如下",
+      "copied_verbatim": false,
+      "fact_risk": false,
+      "note": "仅借鉴句式节奏，未使用旧稿事实。"
+    },
+    {
+      "used_for": "结尾表达",
+      "reference_source": "芒果系汇报材料常见结尾",
+      "style_element": "以上汇报，请领导批评指正",
+      "copied_verbatim": false,
+      "fact_risk": false,
+      "note": "仅借鉴结尾语气。"
+    }
+  ],
+  "terminology_usage_report": [
+    {
+      "raw_value": "电广传媒",
+      "used_value": "电广传媒",
+      "type": "organization",
+      "source": "user_input",
+      "confidence": 0.95,
+      "needs_manual_confirmation": false,
+      "note": "用户明确指定主送单位。"
+    },
+    {
+      "raw_value": "韩国T3",
+      "used_value": "韩国T3",
+      "type": "organization",
+      "source": "extract_result",
+      "confidence": 0.85,
+      "needs_manual_confirmation": true,
+      "note": "是否为正式公司全称，需确认。"
+    },
+    {
+      "raw_value": "劲舞团手游版",
+      "used_value": "劲舞团手游版",
+      "type": "product",
+      "source": "extract_result",
+      "confidence": 0.95,
+      "needs_manual_confirmation": false,
+      "note": ""
+    }
+  ],
+  "blocked_items_check": [
+    {
+      "item": "夹带请示事项",
+      "status": "not_used",
+      "reason": "正文未出现请示事项或审批请求表达。"
+    },
+    {
+      "item": "编造工作数据和领导评价",
+      "status": "not_used",
+      "reason": "正文未编造任何数据或评价。"
+    },
+    {
+      "item": "编造具体季度名称",
+      "status": "not_used",
+      "reason": "正文使用本季度，未自行补充具体季度名称。"
+    },
+    {
+      "item": "编造党建活动具体名称",
+      "status": "not_used",
+      "reason": "正文仅概括表述，未编造活动名称。"
+    },
+    {
+      "item": "编造党建品牌名称",
+      "status": "not_used",
+      "reason": "正文仅概括表述，未编造品牌名称。"
+    },
+    {
+      "item": "使用过度宣传化表达",
+      "status": "not_used",
+      "reason": "正文语言克制，未使用宣传化表达。"
+    }
+  ],
+  "warnings": [
+    {
+      "level": "high",
+      "type": "missing_field",
+      "message": "具体季度名称缺失，正文使用本季度概括表述。",
+      "related_field": "季度名称",
+      "action": "正式成稿前需确认具体季度名称，如2023年第一季度。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "message": "党建活动具体名称缺失，正文使用概括表述。",
+      "related_field": "党建活动名称",
+      "action": "建议与党建部门确认活动名称。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "message": "党建品牌名称缺失，正文使用概括表述。",
+      "related_field": "党建品牌名称",
+      "action": "建议与党建部门确认品牌名称。"
+    },
+    {
+      "level": "high",
+      "type": "missing_field",
+      "message": "落款单位缺失，正文使用【落款单位待确认】占位。",
+      "related_field": "落款单位",
+      "action": "需确认发文单位全称。"
+    },
+    {
+      "level": "high",
+      "type": "missing_field",
+      "message": "日期缺失，正文使用【日期待确认】占位。",
+      "related_field": "日期",
+      "action": "需确认成文日期。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "message": "数据支撑缺失，正文未提供任何量化数据。",
+      "related_field": "数据支撑",
+      "action": "如有阶段性数据，建议补充以增强说服力。"
+    },
+    {
+      "level": "medium",
+      "type": "section_no_fact_support",
+      "message": "亮点成效和问题挑战段落无事实支撑，正文仅作概括表述。",
+      "related_field": "S3_S4",
+      "action": "需人工补充亮点和问题内容。"
+    },
+    {
+      "level": "low",
+      "type": "ambiguous_fact",
+      "message": "组织名称韩国T3需确认是否为正式公司全称。",
+      "related_field": "韩国T3",
+      "action": "建议确认正式全称并替换。"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "具体季度名称",
+      "reason": "用户仅写本季度，需确认具体季度编号或时间段",
+      "impact": "影响汇报时间定位",
+      "required_before_final": true
+    },
+    {
+      "field": "党建活动具体名称",
+      "reason": "用户仅写党建活动，需确认活动正式名称",
+      "impact": "影响汇报内容清晰度",
+      "required_before_final": false
+    },
+    {
+      "field": "党建品牌名称",
+      "reason": "用户仅写党建品牌打造，需确认品牌具体名称",
+      "impact": "影响下一步计划针对性",
+      "required_before_final": false
+    },
+    {
+      "field": "落款单位",
+      "reason": "汇报材料需明确发文单位，用户未提供",
+      "impact": "影响公文完整性",
+      "required_before_final": true
+    }
+  ],
+  "draft_policy": {
+    "body_generated": true,
+    "no_new_facts": true,
+    "use_only_extract_facts": true,
+    "rag_used_for_style_only": true,
+    "follow_plan_structure": true,
+    "follow_doc_type_rules": true,
+    "follow_org_title_dictionary": true
+  }
+}

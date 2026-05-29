@@ -18,6 +18,8 @@ sys.path.insert(0, os.path.dirname(__file__))
 
 from pipeline_types import (
     STAGES,
+    VALID_GENERATION_MODES,
+    GENERATION_MODE_FLAGS,
     PipelineInput,
     PipelineReport,
     PipelineResult,
@@ -119,6 +121,14 @@ def _build_stage_prompt(stage: str, payload: Dict[str, Any], rag_info: dict = No
     if stage == "quality_score":
         template_vars["quality_rewrite_round"] = str(payload.get("quality_rewrite_round", 0))
         template_vars["max_quality_rewrite_rounds"] = str(payload.get("max_quality_rewrite_rounds", 2))
+        # v0.1.4: 注入模式感知阈值
+        _mode_thresholds = {"safe_official": 8.0, "assisted_expansion": 7.0, "creative_mimic": 6.0}
+        template_vars["mode_adjusted_threshold"] = str(
+            payload.get("mode_adjusted_threshold", _mode_thresholds.get(payload.get("generation_mode", "safe_official"), 8.0))
+        )
+
+    # v0.1.4: generation_mode 传递到 Prompt context
+    template_vars["generation_mode"] = payload.get("generation_mode", "safe_official")
 
     return _render_template(prompt_template, template_vars)
 
@@ -158,6 +168,8 @@ def _build_stage_payload(
         base["target_unit"] = input_data.target_unit
     if input_data.scene:
         base["scene"] = input_data.scene
+    # v0.1.4: 传递 generation_mode 到各阶段
+    base["generation_mode"] = input_data.generation_mode
 
     # 逐阶段叠加已完成的结果
     payload = {**base, **completed}
@@ -462,6 +474,24 @@ def run_pipeline(input_data: PipelineInput) -> PipelineResult:
     all_sanitizer_fixes: list = []  # 全局 sanitizer 记录
     any_high_risk = False
 
+    # v0.1.4: generation_mode 设置到 report
+    gen_mode = input_data.generation_mode
+    gen_flags = GENERATION_MODE_FLAGS.get(gen_mode, GENERATION_MODE_FLAGS["safe_official"])
+    report.generation_mode = gen_mode
+    report.generation_mode_valid = gen_mode in VALID_GENERATION_MODES
+    report.generation_mode_warnings = []
+    report.official_use_allowed = gen_flags["official_use_allowed"]
+    report.expansion_enabled = gen_flags["expansion_enabled"]
+
+    # v0.1.4: 模式默认阈值（可被 QUALITY_GATE_THRESHOLD 环境变量覆盖）
+    MODE_DEFAULT_THRESHOLDS = {
+        "safe_official": 8.0,
+        "assisted_expansion": 7.0,
+        "creative_mimic": 6.0,
+    }
+    # fact_safety / risk_control 的最低阈值（不随模式降低）
+    STRICT_DIMENSION_MIN = 8.0
+
     # 模型配置记录
     import os as _os
     report.default_model = _os.getenv("DEEPSEEK_MODEL", "deepseek-v4-flash")
@@ -606,13 +636,86 @@ def run_pipeline(input_data: PipelineInput) -> PipelineResult:
     report.rag_fallback_collection = rag_info.get("fallback_collection")
     report.sanitizer_high_risk = any_high_risk
 
+    # ─── v0.1.4: 提取 expansion 摘要字段 ─────────────────────────────
+    draft_result = completed.get("draft", {})
+    review_result_data = completed.get("review", {})
+
+    # 从 draft_result 提取
+    report.draft_disclaimer = draft_result.get("draft_disclaimer")
+    exp_report = draft_result.get("expansion_report", {})
+    if isinstance(exp_report, list):
+        exp_report = {}  # 空数组视为无扩写
+    if exp_report and isinstance(exp_report, dict) and any(exp_report.values()):
+        report.expansion_report_summary = {
+            "style_expansion": len(exp_report.get("style_expansion", [])),
+            "structure_expansion": len(exp_report.get("structure_expansion", [])),
+            "rhetoric_expansion": len(exp_report.get("rhetoric_expansion", [])),
+            "policy_phrase_expansion": len(exp_report.get("policy_phrase_expansion", [])),
+            "leadership_style_expansion": len(exp_report.get("leadership_style_expansion", [])),
+            "confirmation_required": len(exp_report.get("confirmation_required", [])),
+            "unsafe_expansion_warnings": len(exp_report.get("unsafe_expansion_warnings", [])),
+        }
+        report.confirmation_required_count = len(exp_report.get("confirmation_required", []))
+    else:
+        # v0.1.4 fallback: 如果 expansion 模式下 expansion_report 缺失
+        if input_data.generation_mode != "safe_official":
+            report.expansion_report_summary = {
+                "missing": True,
+                "warning": "模型未输出 expansion_report，扩写内容未被追踪",
+                "manual_review_required": True,
+            }
+            print(f"  ⚠️ expansion_report 缺失 ({input_data.generation_mode})")
+
+    # v0.1.4 fallback: draft_disclaimer 缺失检测
+    if input_data.generation_mode == "creative_mimic" and not report.draft_disclaimer:
+        report.draft_disclaimer = "⚠️ [系统自动补充] 本文为内部灵感稿，仅供参考。正式使用前需人工全面审核。"
+        print(f"  ⚠️ draft_disclaimer 缺失，已自动补充 (creative_mimic)")
+
+    # 从 review_result 提取
+    exp_review = review_result_data.get("expansion_review", {})
+    if exp_review:
+        report.expansion_review_summary = {
+            "status": exp_review.get("status"),
+            "acceptable_count": len(exp_review.get("acceptable_expansion", [])),
+            "unsafe_count": len(exp_review.get("unsafe_fabrication", [])),
+            "confirmation_count": len(exp_review.get("confirmation_required", [])),
+        }
+        unsafe_fabs = exp_review.get("unsafe_fabrication", [])
+        if unsafe_fabs:
+            report.unsafe_expansion_detected = True
+            report.unsafe_expansion_warnings = [
+                f.get("reason", "") if isinstance(f, dict) else str(f)
+                for f in unsafe_fabs
+            ]
+    else:
+        # v0.1.4 fallback: 如果 expansion 模式下 expansion_review 缺失
+        if input_data.generation_mode != "safe_official":
+            report.expansion_review_summary = {
+                "missing": True,
+                "warning": "模型未输出 expansion_review，扩写安全未审查",
+                "manual_review_required": True,
+            }
+            print(f"  ⚠️ expansion_review 缺失 ({input_data.generation_mode})")
+
+    # official_use_allowed：以 input_data.generation_mode 为准，不被 draft 模型误判覆盖
+    # draft_result 中的 official_use_allowed 仅供参考，仅当 report 未设置时使用
+    if report.official_use_allowed is None and draft_official is not None:
+        report.official_use_allowed = draft_official
+
     # 从 rewrite_result 提取最终 Markdown
     final_markdown = rewrite_result.get("final_markdown", "")
 
     # ─── 质量门禁（后置评估，不改变六阶段结构） ───────────────────
     _os = os
     qg_enabled = _os.getenv("QUALITY_GATE_ENABLED", "true").lower() == "true"
-    qg_threshold = float(_os.getenv("QUALITY_GATE_THRESHOLD", "8"))
+
+    # v0.1.4: 模式感知阈值 — 环境变量可覆盖，否则按模式默认
+    _env_threshold = _os.getenv("QUALITY_GATE_THRESHOLD")
+    if _env_threshold is not None:
+        qg_threshold = float(_env_threshold)
+    else:
+        qg_threshold = MODE_DEFAULT_THRESHOLDS.get(gen_mode, 8.0)
+
     qg_max_rounds = int(_os.getenv("QUALITY_GATE_MAX_ROUNDS", "2"))
 
     report.quality_gate_enabled = qg_enabled
@@ -635,6 +738,7 @@ def run_pipeline(input_data: PipelineInput) -> PipelineResult:
                 **_build_stage_payload("quality_score", input_data, completed),
                 "quality_rewrite_round": qg_round - 1,
                 "max_quality_rewrite_rounds": qg_max_rounds,
+                "mode_adjusted_threshold": report.quality_gate_threshold,
             }
 
             # 调用 quality gate（复用现有机制：call_llm_json + sanitizer + schema validation）
@@ -663,6 +767,22 @@ def run_pipeline(input_data: PipelineInput) -> PipelineResult:
             # quality gate 成功
             qg_result = qg_stage_result.result
 
+            # v0.1.4: 提取 expansion quality summary
+            report.expansion_quality_summary = qg_result.get("expansion_quality_check")
+
+            # v0.1.4: 强制 fact_safety / risk_control 最低阈值
+            scores = qg_result.get("scores", {})
+            fact_safety_score = scores.get("fact_safety", 10)
+            risk_control_score = scores.get("risk_control", 10)
+            strict_violation = False
+            if fact_safety_score < STRICT_DIMENSION_MIN:
+                strict_violation = True
+            if risk_control_score < STRICT_DIMENSION_MIN:
+                strict_violation = True
+            # unsafe_expansion_detected 也强制 human_review
+            if report.unsafe_expansion_detected:
+                strict_violation = True
+
             # 记录本轮评分历史
             round_record = {
                 "round": qg_round,
@@ -680,13 +800,32 @@ def run_pipeline(input_data: PipelineInput) -> PipelineResult:
                   f"failed={qg_result.get('failed_dimensions', [])}")
 
             # 判断是否需要返修
-            if qg_result.get("overall_pass", False):
+            overall_pass = qg_result.get("overall_pass")
+            if overall_pass is None:
+                # v0.1.4: fallback — 基于 scores 重新计算
+                scores = qg_result.get("scores", {})
+                mode_threshold = report.quality_gate_threshold
+                fs = scores.get("fact_safety", 10)
+                rc = scores.get("risk_control", 10)
+                other_dims = ["doc_type_fit", "mango_style_fit", "logic_completeness", "language_quality"]
+                all_above = all(scores.get(d, 0) >= mode_threshold for d in other_dims)
+                strict_ok = fs >= STRICT_DIMENSION_MIN and rc >= STRICT_DIMENSION_MIN
+                unsafe_count = len(qg_result.get("expansion_quality_check", {}).get("unsafe_expansion_count", 0) or 0)
+                overall_pass = (all_above and strict_ok and unsafe_count == 0)
+                report.quality_gate_pass_computed = True  # 标记使用了 fallback
+                print(f"     ⚠️ overall_pass=None, fallback computed: {overall_pass}")
+
+            if overall_pass:
                 # 质量达标
                 report.quality_gate_pass = True
                 report.final_quality_scores = qg_result.get("scores")
                 report.failed_dimensions = []
                 report.final_output_policy = "pass"
-                report.human_review_required = qg_result.get("human_review_required", False)
+                # v0.1.4: 强制严格维度检查
+                if strict_violation:
+                    report.human_review_required = True
+                else:
+                    report.human_review_required = qg_result.get("human_review_required", False)
                 print(f"  ✅ 质量门禁通过")
                 break
 
@@ -747,15 +886,17 @@ def run_pipeline(input_data: PipelineInput) -> PipelineResult:
             final_markdown = rewrite_result.get("final_markdown", prev_final_markdown)
             output_files.append(f"quality_rewrite_round_{qg_round}_result.json")
 
-            if rewrite_result.sanitizer_fixes:
+            _san_fixes = rewrite_result.get("sanitizer_fixes") if isinstance(rewrite_result, dict) else getattr(rewrite_result, 'sanitizer_fixes', None)
+            if _san_fixes:
                 all_sanitizer_fixes.extend([
                     {"stage": f"quality_rewrite_round_{qg_round}", **fix}
-                    for fix in rewrite_result.sanitizer_fixes
+                    for fix in _san_fixes
                 ])
-            if rewrite_result.model_meta:
+            _model_meta = rewrite_result.get("model_meta") if isinstance(rewrite_result, dict) else getattr(rewrite_result, 'model_meta', None)
+            if _model_meta:
                 report.stage_model_usage[f"quality_rewrite_round_{qg_round}"] = {
-                    "model": rewrite_result.model_meta.get("model"),
-                    "fallback_used": rewrite_result.model_meta.get("fallback_used", False),
+                    "model": _model_meta.get("model"),
+                    "fallback_used": _model_meta.get("fallback_used", False),
                     "fallback_reason": "quality_gate_rewrite",
                 }
 
@@ -853,6 +994,20 @@ def save_results(
             "human_review_required": pipeline_result.pipeline_report.human_review_required,
             "quality_gate_error": pipeline_result.pipeline_report.quality_gate_error,
             "quality_rewrite_applied": pipeline_result.pipeline_report.quality_rewrite_applied,
+            # v0.1.4: generation mode 字段
+            "generation_mode": pipeline_result.pipeline_report.generation_mode,
+            "generation_mode_valid": pipeline_result.pipeline_report.generation_mode_valid,
+            "generation_mode_warnings": pipeline_result.pipeline_report.generation_mode_warnings,
+            "official_use_allowed": pipeline_result.pipeline_report.official_use_allowed,
+            "expansion_enabled": pipeline_result.pipeline_report.expansion_enabled,
+            # v0.1.4: expansion summary 字段
+            "expansion_report_summary": pipeline_result.pipeline_report.expansion_report_summary,
+            "expansion_review_summary": pipeline_result.pipeline_report.expansion_review_summary,
+            "expansion_quality_summary": pipeline_result.pipeline_report.expansion_quality_summary,
+            "draft_disclaimer": pipeline_result.pipeline_report.draft_disclaimer,
+            "confirmation_required_count": pipeline_result.pipeline_report.confirmation_required_count,
+            "unsafe_expansion_detected": pipeline_result.pipeline_report.unsafe_expansion_detected,
+            "unsafe_expansion_warnings": pipeline_result.pipeline_report.unsafe_expansion_warnings,
         }
         filepath = os.path.join(output_dir, "pipeline_report.json")
         with open(filepath, "w", encoding="utf-8") as f:

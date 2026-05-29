@@ -1,0 +1,83 @@
+{
+  "review_summary": "初稿符合新闻稿文种要求，结构完整，事实均有据可查，称谓规范，无禁止内容，未编造缺失信息。风格到位，格式正确。仅存在活动地点缺失等已知风险，已在warnings中妥善提示。",
+  "pass": true,
+  "score": 95,
+  "rewrite_required": false,
+  "risk_level": "low",
+  "checks": {
+    "doc_type_check": {
+      "status": "pass",
+      "summary": "文种为新闻稿，方向对外宣传，style_level=3，符合 classify 结果。正文结构符合新闻稿规范。",
+      "issues_count": 0
+    },
+    "structure_check": {
+      "status": "pass",
+      "summary": "按 plan 要求生成标题、导语、事件主体、主要内容、意义价值、结尾，顺序正确。",
+      "issues_count": 0
+    },
+    "fact_grounding_check": {
+      "status": "pass",
+      "summary": "正文中所有事实均能对应 extract_result.fact_items，未发现无依据事实。",
+      "issues_count": 0
+    },
+    "fact_usage_report_check": {
+      "status": "pass",
+      "summary": "fact_usage_report 完整覆盖正文重要事实，source 均为 extract_result，无伪造。",
+      "issues_count": 0
+    },
+    "rag_usage_check": {
+      "status": "pass",
+      "summary": "RAG 仅用于风格参考，copied_verbatim=false，fact_risk=false，无事实污染。",
+      "issues_count": 0
+    },
+    "terminology_check": {
+      "status": "pass",
+      "summary": "机构首次使用全称“芒果超媒股份有限公司”，后续简称“芒果超媒”，符合 org-title-dictionary。产品名称“《AI导演》”正确。无禁用称谓。",
+      "issues_count": 0
+    },
+    "blocked_items_check": {
+      "status": "pass",
+      "summary": "blocked_items 均未出现在正文中，未编造领导、地点、数据等。",
+      "issues_count": 0
+    },
+    "warnings_check": {
+      "status": "warning",
+      "summary": "warnings 已全面承接 extract 和 plan 中的风险（活动地点缺失、领导出席缺失、活动影响缺失），但均为 medium 级，未遗漏。",
+      "issues_count": 1
+    },
+    "manual_confirmation_check": {
+      "status": "pass",
+      "summary": "manual_confirmation_fields 保留了活动地点确认项，其他无需确认。",
+      "issues_count": 0
+    },
+    "style_check": {
+      "status": "pass",
+      "summary": "style_level=3 芒果系新闻宣传风，使用了“融合创新、智媒跃升、AI赋能”等战略表达，无过度拔高。",
+      "issues_count": 0
+    },
+    "format_check": {
+      "status": "pass",
+      "summary": "Markdown 格式正确，标题为一级标题，段落清晰，无乱码。",
+      "issues_count": 0
+    }
+  },
+  "issues": [],
+  "rewrite_instructions": [],
+  "manual_confirmation_fields": [
+    {
+      "field": "活动地点",
+      "reason": "用户未提供，影响导语完整性",
+      "impact": "新闻稿导语缺少地点要素",
+      "required_before_final": false
+    }
+  ],
+  "review_policy": {
+    "no_body_generation": true,
+    "no_rewrite": true,
+    "no_new_facts": true,
+    "no_rag_call": true,
+    "check_fact_grounding": true,
+    "check_doc_type_rules": true,
+    "check_org_title_dictionary": true
+  }
+}

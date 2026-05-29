@@ -1,0 +1,342 @@
+{
+  "plan_summary": "用户需起草公司年度总结会上的讲话提纲，classify判定为领导讲话，结构按开场、形势、肯定、部署、要求、号召规划。主要风险：讲话领导姓名、职务缺失，具体数据缺失，需人工确认。",
+  "doc_type": "领导讲话",
+  "direction": "综合材料",
+  "style_level": 2,
+  "risk_level": "medium",
+  "title_plan": {
+    "recommended_title": "在公司2025年度工作总结与2026年展望会议上的讲话",
+    "title_type": "在XX会议上的讲话",
+    "title_confidence": 0.75,
+    "title_basis": [
+      "classify.doc_type = 领导讲话",
+      "extract.event = 年度总结会",
+      "用户初稿会议主题"
+    ],
+    "title_risks": [
+      "缺少讲话领导姓名，标题未体现讲话人身份"
+    ],
+    "alternative_titles": [
+      "在公司年度总结会上的讲话提纲",
+      "在2025年度工作总结与2026年展望大会上的讲话"
+    ]
+  },
+  "addressee_plan": {
+    "recommended_addressee": "",
+    "source": "not_applicable",
+    "confidence": 0,
+    "needs_manual_confirmation": false,
+    "note": "领导讲话通常无主送单位"
+  },
+  "signer_plan": {
+    "recommended_signer": "",
+    "source": "missing",
+    "confidence": 0,
+    "needs_manual_confirmation": true,
+    "note": "用户未提供讲话领导姓名，需确认后决定是否署名"
+  },
+  "sections": [
+    {
+      "section_id": "S1",
+      "section_name": "开场与背景",
+      "purpose": "点明会议主题，问候与会人员，简要回顾年度背景",
+      "content_guidance": "可使用extract中的时间（2025年度、2026年）和事件（年度总结会），但未提供具体日期和参会人员，需概括表述。避免编造领导个人表态。",
+      "fact_bindings": [
+        {
+          "fact_type": "time",
+          "fact_value": "2025年度",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "time",
+          "fact_value": "2026年",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "event",
+          "fact_value": "年度总结会",
+          "source_from_extract": true
+        }
+      ],
+      "blocked_items": [
+        "不得编造领导个人表态",
+        "不得新增未经提供的政策判断",
+        "不得使用与领导身份不匹配的口语表达"
+      ],
+      "word_count_estimate": 150,
+      "needs_manual_input": true
+    },
+    {
+      "section_id": "S2",
+      "section_name": "形势判断",
+      "purpose": "分析当前行业形势与公司面临的机遇挑战",
+      "content_guidance": "用户未提供任何形势判断素材，该段需人工补充或使用概括性表述。严禁编造政策判断。",
+      "fact_bindings": [],
+      "blocked_items": [
+        "不得新增未经提供的政策判断",
+        "不得编造领导个人表态"
+      ],
+      "word_count_estimate": 200,
+      "needs_manual_input": true
+    },
+    {
+      "section_id": "S3",
+      "section_name": "工作肯定",
+      "purpose": "肯定过去一年的工作成绩，重点围绕三个工作方向",
+      "content_guidance": "可使用extract中的三个项目方向，但未提供具体数据或成效，需概括性表述。避免编造成果数据。",
+      "fact_bindings": [
+        {
+          "fact_type": "project",
+          "fact_value": "游戏业务稳中有进",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "project",
+          "fact_value": "AI赋能内容生产",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "project",
+          "fact_value": "党建与业务深度融合",
+          "source_from_extract": true
+        }
+      ],
+      "blocked_items": [
+        "不得编造成果数据",
+        "不得编造领导个人表态"
+      ],
+      "word_count_estimate": 200,
+      "needs_manual_input": true
+    },
+    {
+      "section_id": "S4",
+      "section_name": "重点部署",
+      "purpose": "部署2026年重点工作，围绕三个方向展开",
+      "content_guidance": "可基于三个项目方向提出要求，但未提供具体措施，需概括表述。避免编造具体项目名称。",
+      "fact_bindings": [
+        {
+          "fact_type": "project",
+          "fact_value": "游戏业务稳中有进",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "project",
+          "fact_value": "AI赋能内容生产",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "project",
+          "fact_value": "党建与业务深度融合",
+          "source_from_extract": true
+        }
+      ],
+      "blocked_items": [
+        "不得编造具体项目名称",
+        "不得新增未经提供的政策判断"
+      ],
+      "word_count_estimate": 250,
+      "needs_manual_input": true
+    },
+    {
+      "section_id": "S5",
+      "section_name": "具体要求",
+      "purpose": "提出落实工作的保障措施和纪律要求",
+      "content_guidance": "用户未提供具体要求素材，该段需人工补充或使用通用要求。避免编造领导表态。",
+      "fact_bindings": [],
+      "blocked_items": [
+        "不得编造领导个人表态",
+        "不得使用与领导身份不匹配的口语表达"
+      ],
+      "word_count_estimate": 200,
+      "needs_manual_input": true
+    },
+    {
+      "section_id": "S6",
+      "section_name": "结尾号召",
+      "purpose": "总结号召，鼓舞士气",
+      "content_guidance": "使用领导讲话常见结尾句式，如“让我们以……为契机，……”，避免具体号召内容。",
+      "fact_bindings": [],
+      "blocked_items": [
+        "不得编造领导个人表态",
+        "不得新增未经提供的政策判断"
+      ],
+      "word_count_estimate": 100,
+      "needs_manual_input": false
+    }
+  ],
+  "style_directives": {
+    "overall_tone": "芒果系正式公文风",
+    "key_expressions": [
+      "同志们",
+      "今天，我们召开……",
+      "提高站位",
+      "认清形势",
+      "明确任务",
+      "强化保障",
+      "让我们以……为契机"
+    ],
+    "forbidden_expressions": [
+      "不得写成普通新闻稿",
+      "不得编造领导个人表态",
+      "不得新增未经提供的政策判断",
+      "不得使用与领导身份不匹配的口语表达"
+    ],
+    "style_reference": "doc-type-rules.md 领导讲话章节"
+  },
+  "title_rules": [
+    "领导讲话标题格式：在XX会议上的讲话",
+    "标题只能使用extract中已有信息"
+  ],
+  "addressee_resolution": {
+    "recommended_addressee": "",
+    "source": "not_applicable",
+    "confidence": 0,
+    "needs_manual_confirmation": false,
+    "note": "领导讲话无需主送单位"
+  },
+  "signer_resolution": {
+    "recommended_signer": "",
+    "source": "missing",
+    "confidence": 0,
+    "needs_manual_confirmation": true,
+    "note": "讲话领导姓名缺失，需确认后决定是否署名"
+  },
+  "title_suggestions": {
+    "recommended_title": "在公司2025年度工作总结与2026年展望会议上的讲话",
+    "alternative_titles": [
+      "在公司年度总结会上的讲话提纲",
+      "在2025年度工作总结与2026年展望大会上的讲话"
+    ],
+    "title_rules": [
+      "领导讲话标题格式：在XX会议上的讲话"
+    ]
+  },
+  "missing_fields": [
+    {
+      "field": "讲话领导姓名",
+      "reason": "用户未提供",
+      "impact": "high",
+      "suggestion": "后续确认"
+    },
+    {
+      "field": "讲话领导职务",
+      "reason": "用户未提供",
+      "impact": "high",
+      "suggestion": "后续确认"
+    },
+    {
+      "field": "具体会议日期",
+      "reason": "用户仅提供年度",
+      "impact": "medium",
+      "suggestion": "可补充具体日期或使用概括时间"
+    },
+    {
+      "field": "会议地点",
+      "reason": "用户未提供",
+      "impact": "medium",
+      "suggestion": "可补充"
+    },
+    {
+      "field": "参会人员",
+      "reason": "用户未提供",
+      "impact": "medium",
+      "suggestion": "可补充"
+    },
+    {
+      "field": "游戏业务具体数据",
+      "reason": "用户仅说稳中有进",
+      "impact": "medium",
+      "suggestion": "可后续确认或概括表述"
+    }
+  ],
+  "cannot_infer": [
+    {
+      "field": "领导个人表态",
+      "reason": "用户素材未提供，不得自动补充"
+    },
+    {
+      "field": "具体项目名称",
+      "reason": "用户仅写工作方向，未提供具体项目名称"
+    },
+    {
+      "field": "政策判断",
+      "reason": "用户素材未提供政策依据或形势判断"
+    }
+  ],
+  "risk_flags": [
+    {
+      "type": "missing_leader_title",
+      "detail": "领导讲话提纲缺少讲话领导姓名和职务",
+      "level": "high"
+    },
+    {
+      "type": "event_without_time_location",
+      "detail": "年度总结会缺少具体会议日期和地点",
+      "level": "medium"
+    },
+    {
+      "type": "achievement_without_data",
+      "detail": "游戏业务稳中有进缺少具体数据支撑",
+      "level": "medium"
+    },
+    {
+      "type": "section_no_fact_support",
+      "detail": "S2、S5、S6缺少事实支撑",
+      "level": "medium"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "讲话领导姓名",
+      "reason": "领导讲话必备，用户未提供",
+      "suggestion": "确认领导姓名"
+    },
+    {
+      "field": "讲话领导职务",
+      "reason": "影响开头身份定位",
+      "suggestion": "确认领导职务"
+    },
+    {
+      "field": "会议具体日期",
+      "reason": "影响背景准确性",
+      "suggestion": "补充具体日期"
+    },
+    {
+      "field": "会议地点",
+      "reason": "影响开场表述",
+      "suggestion": "补充地点"
+    },
+    {
+      "field": "参会人员范围",
+      "reason": "影响讲话对象定位",
+      "suggestion": "确认参会人员"
+    },
+    {
+      "field": "游戏业务数据",
+      "reason": "影响工作肯定段的可信度",
+      "suggestion": "确认具体数据或使用概括表述"
+    }
+  ],
+  "draft_directives": {
+    "total_word_count_estimate": 1200,
+    "must_use_facts": [
+      "2025年度",
+      "2026年",
+      "年度总结会",
+      "公司",
+      "游戏业务稳中有进",
+      "AI赋能内容生产",
+      "党建与业务深度融合"
+    ],
+    "must_avoid": [
+      "不得写成普通新闻稿",
+      "不得编造领导个人表态",
+      "不得新增未经提供的政策判断",
+      "不得使用与领导身份不匹配的口语表达"
+    ],
+    "format_requirements": [
+      "领导讲话结构：开场、形势、肯定、部署、要求、号召",
+      "使用正式公文语言"
+    ]
+  }
+}

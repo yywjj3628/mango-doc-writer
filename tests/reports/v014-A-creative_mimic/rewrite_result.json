@@ -1,0 +1,148 @@
+{
+  "rewrite_summary": "根据review指令，将第三段无依据的概括性战略表述替换为基于已有事实的表述，修正fact_usage_report中source_text不准确的问题。",
+  "doc_type": "新闻稿",
+  "direction": "对外宣传",
+  "style_level": 3,
+  "risk_level": "low",
+  "final_markdown": "# 芒果超媒AI内容创作大赛圆满落幕 一等奖作品《AI导演》实现全流程AI辅助制作\n\n4月15日，芒果超媒股份有限公司（以下简称芒果超媒）举办AI内容创作大赛。来自12个团队的参赛选手同台竞技，围绕AI技术在内容创作中的应用展开角逐。\n\n本次大赛聚焦AI赋能内容创作，参赛作品涵盖多个创意领域。经过激烈比拼，一等奖作品《AI导演》脱颖而出，实现了从前期策划、内容生成到后期制作的全流程AI辅助制作，展现了人工智能与内容创作的深度融合。\n\n本次大赛展现了AI技术与内容创作的深度融合。本次大赛不仅为创作者提供了展示平台，也进一步激发了团队创新活力，为芒果超媒的AI战略储备了人才与创意势能。\n\n展望未来，芒果超媒将持续深化AI赋能，以融合创新驱动内容生产提质增效，助力芒果生态的智能跃升。",
+  "revision_report": [
+    {
+      "revision_id": "REV001",
+      "issue_id": "R001",
+      "action": "replace",
+      "before": "当前，芒果超媒正积极推动AI技术在各业务场景中的落地应用。",
+      "after": "本次大赛展现了AI技术与内容创作的深度融合。",
+      "reason": "原表述无事实依据，替换为基于已提供事实的中性表述。",
+      "basis": "extract_result.fact_items（event和achievement）"
+    }
+  ],
+  "fact_usage_report": [
+    {
+      "final_text": "4月15日",
+      "fact_type": "time",
+      "fact_value": "4月15日",
+      "source_text": "4月15日，芒果超媒举办AI内容创作大赛。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.98
+    },
+    {
+      "final_text": "芒果超媒股份有限公司（以下简称芒果超媒）",
+      "fact_type": "organization",
+      "fact_value": "芒果超媒",
+      "source_text": "org-title-dictionary: 芒果超媒股份有限公司",
+      "source": "org-title-dictionary.yaml",
+      "confidence": 0.95
+    },
+    {
+      "final_text": "AI内容创作大赛",
+      "fact_type": "event",
+      "fact_value": "AI内容创作大赛",
+      "source_text": "芒果超媒举办AI内容创作大赛。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.95
+    },
+    {
+      "final_text": "12个团队",
+      "fact_type": "data",
+      "fact_value": "12个团队",
+      "source_text": "来自12个团队参加。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.95
+    },
+    {
+      "final_text": "《AI导演》",
+      "fact_type": "product",
+      "fact_value": "《AI导演》",
+      "source_text": "一等奖作品《AI导演》实现了全流程AI辅助制作。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.95
+    },
+    {
+      "final_text": "实现了从前期策划、内容生成到后期制作的全流程AI辅助制作",
+      "fact_type": "achievement",
+      "fact_value": "一等奖作品《AI导演》实现了全流程AI辅助制作",
+      "source_text": "一等奖作品《AI导演》实现了全流程AI辅助制作。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.94
+    }
+  ],
+  "terminology_usage_report": [
+    {
+      "raw_value": "芒果超媒",
+      "used_value": "芒果超媒股份有限公司",
+      "type": "organization",
+      "source": "org-title-dictionary.yaml",
+      "confidence": 0.95,
+      "needs_manual_confirmation": false,
+      "note": "首次出现使用全称，后续使用简称"
+    }
+  ],
+  "resolved_issues": [
+    {
+      "issue_id": "R001",
+      "resolution": "已替换为‘本次大赛展现了AI技术与内容创作的深度融合’。",
+      "basis": "rewrite_instructions"
+    },
+    {
+      "issue_id": "R002",
+      "resolution": "已删除无依据概括性表述，fact_usage_report不再需要记录。",
+      "basis": "rewrite_instructions"
+    },
+    {
+      "issue_id": "R003",
+      "resolution": "修正fact_usage_report中‘芒果超媒股份有限公司’的source_text为实际来源。",
+      "basis": "review_result"
+    }
+  ],
+  "unresolved_issues": [],
+  "remaining_risks": [
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "detail": "活动地点在导语段缺失，final_markdown未写具体地点。",
+      "action": "后续确认是否需要补充地点信息。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "detail": "意义价值段缺乏事实支撑，正文使用通用升华表达，需人工确认。",
+      "action": "建议人工补充活动意义或影响。"
+    },
+    {
+      "level": "low",
+      "type": "achievement_without_detail",
+      "detail": "全流程AI辅助制作缺少具体技术细节或效果数据。",
+      "action": "如有更多信息可补充。"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "活动地点",
+      "reason": "导语段需要地点信息但缺失，需人工补充或决定是否使用泛化表述",
+      "required_before_final": false,
+      "impact": ""
+    },
+    {
+      "field": "意义价值段",
+      "reason": "该段缺乏事实支撑，需人工补充升华方向",
+      "required_before_final": false,
+      "impact": ""
+    }
+  ],
+  "final_checks": {
+    "doc_type_fixed": true,
+    "unsupported_facts_removed": true,
+    "blocked_items_removed": true,
+    "terminology_checked": true,
+    "manual_confirmations_preserved": true
+  },
+  "rewrite_policy": {
+    "body_rewritten": true,
+    "no_new_facts": true,
+    "use_only_extract_facts": true,
+    "no_rag_call": true,
+    "follow_review_instructions": true,
+    "follow_doc_type_rules": true,
+    "follow_org_title_dictionary": true
+  }
+}

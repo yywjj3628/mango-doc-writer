@@ -1,5 +1,45 @@
 # mango-doc-writer Release Notes
 
+## v0.1.4 可控扩写版（2026-05-29）
+
+### 版本主题
+
+Controlled Expansion — 增强草拟模式 / 可控自主扩写。
+
+### 新增能力
+
+1. **三种 generation_mode**：
+   - `safe_official`（默认）：正式安全模式，保持 v0.1.3 行为
+   - `assisted_expansion`：增强草拟模式，可扩写结构和表达，但需人工确认
+   - `creative_mimic`：风格仿写模式，内部灵感稿，不可正式发布
+2. **模式感知质量门禁**：
+   - safe_official threshold=8.0, assisted_expansion threshold=7.0, creative_mimic threshold=6.0
+   - fact_safety / risk_control 始终保持 8.0 最低阈值
+3. **扩写追踪**：expansion_report / expansion_review / draft_disclaimer
+4. **扩写安全审查**：review 阶段将扩写内容分为 acceptable / unsafe / confirmation_required
+5. **fallback 保障**：模型未输出追踪字段时 pipeline 自动标记
+6. **v0.1.3 完全向后兼容**
+
+### 修改文件摘要
+
+| 文件 | 变更 |
+|------|------|
+| `pipeline/pipeline_types.py` | 新增 generation_mode 路由、7 个扩写追踪字段 |
+| `pipeline/run_pipeline.py` | 模式感知阈值、None fallback、expansion fallback、防覆盖 |
+| `pipeline/output_formatter.py` | 三模式差异化 advisory |
+| `pipeline/input_parser.py` | 支持 generation_mode JSON 输入 |
+| `prompts/03-plan.md` | 新增 expansion_directives |
+| `prompts/04-draft.md` | 三模式扩写规则 + 强制字段 |
+| `prompts/05-review.md` | 扩写安全审查 + expansion_review |
+| `prompts/06-rewrite.md` | 模式感知修订策略 |
+| `prompts/07-quality-score.md` | 模式感知阈值 + strict 规则 |
+| `schemas/draft.schema.json` | expansion_report / draft_disclaimer / expansion_policy |
+| `schemas/review.schema.json` | expansion_review |
+| `schemas/plan.schema.json` | expansion_directives |
+| `schemas/quality_score.schema.json` | generation_mode / expansion_quality_check |
+
+---
+
 ## v0.1.3 质量门禁版（2026-05-29）
 
 ### 版本主题

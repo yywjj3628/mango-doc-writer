@@ -1,0 +1,316 @@
+{
+  "plan_summary": "用户需求为芒果超媒年度经营成果汇报，向电广传媒汇报，但缺少具体数据和案例，且要求编造。classify判定为汇报材料，risk_level medium，但extract风险为critical（用户要求编造数据）。结构按汇报材料五段式规划。所有section均缺乏事实支撑，需人工补充或概括表述。落款缺失，需确认。标题缺少年份，置信度低。",
+  "doc_type": "汇报材料",
+  "direction": "上行文",
+  "style_level": 2,
+  "risk_level": "critical",
+  "title_plan": {
+    "recommended_title": "关于年度经营成果的汇报",
+    "title_type": "汇报材料标题",
+    "title_confidence": 0.6,
+    "title_basis": [
+      "classify.doc_type = 汇报材料",
+      "extract.organizations 包含电广传媒"
+    ],
+    "title_risks": [
+      "缺少具体年份",
+      "缺少'芒果超媒'主体标识"
+    ],
+    "alternative_titles": [
+      "芒果超媒年度经营情况汇报"
+    ]
+  },
+  "addressee_plan": {
+    "recommended_addressee": "电广传媒",
+    "source": "extract.organizations",
+    "confidence": 0.95,
+    "needs_manual_confirmation": false,
+    "note": "口径库中电广传媒为正式名称，可直接使用"
+  },
+  "signer_plan": {
+    "recommended_signer": null,
+    "source": "missing",
+    "confidence": 0,
+    "needs_manual_confirmation": true,
+    "note": "用户未提供落款单位，汇报材料通常落款为报送单位，需确认"
+  },
+  "sections": [
+    {
+      "section_id": "S1",
+      "section_name": "背景情况",
+      "purpose": "简要说明汇报背景、时间范围和总体态势",
+      "content_guidance": "围绕'今年'这个时间点，概括经营总体情况（用户说'经营情况总体不错'），但不得编造具体数据。需人工补充年份和背景。",
+      "fact_bindings": [
+        {
+          "fact_type": "time",
+          "fact_value": "今年",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "achievement",
+          "fact_value": "经营情况总体不错",
+          "source_from_extract": true
+        }
+      ],
+      "blocked_items": [
+        "不得编造具体经营数据",
+        "不得编造行业排名",
+        "不得编造领导评价"
+      ],
+      "word_count_estimate": 150,
+      "needs_manual_input": true
+    },
+    {
+      "section_id": "S2",
+      "section_name": "主要进展",
+      "purpose": "汇报各业务板块的主要进展，重点突出游戏业务增长",
+      "content_guidance": "围绕游戏业务增长明显展开，可概括性描述，不得编造增长率、收入等具体数据。其他业务进展用户未提供，需人工补充或省略。",
+      "fact_bindings": [
+        {
+          "fact_type": "product",
+          "fact_value": "游戏业务",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "achievement",
+          "fact_value": "游戏业务增长明显",
+          "source_from_extract": true
+        }
+      ],
+      "blocked_items": [
+        "不得编造游戏业务具体产品名称",
+        "不得编造增长数据",
+        "不得编造新业务板块"
+      ],
+      "word_count_estimate": 300,
+      "needs_manual_input": true
+    },
+    {
+      "section_id": "S3",
+      "section_name": "亮点成效",
+      "purpose": "展示党建等亮点工作",
+      "content_guidance": "围绕'党建有亮点'展开，但用户未提供具体亮点内容，需人工补充或概括性表述。不得编造具体事例和荣誉。",
+      "fact_bindings": [
+        {
+          "fact_type": "achievement",
+          "fact_value": "党建有亮点",
+          "source_from_extract": true
+        }
+      ],
+      "blocked_items": [
+        "不得编造党建具体活动",
+        "不得编造领导批示",
+        "不得编造获奖信息"
+      ],
+      "word_count_estimate": 250,
+      "needs_manual_input": true
+    },
+    {
+      "section_id": "S4",
+      "section_name": "问题挑战",
+      "purpose": "分析当前存在的问题或挑战",
+      "content_guidance": "用户未提供任何问题，但汇报材料必须包含问题段。建议概括性描述行业共性问题或数据缺失情况，不得编造具体困难。",
+      "fact_bindings": [],
+      "blocked_items": [
+        "不得编造具体问题",
+        "不得编造风险事件"
+      ],
+      "word_count_estimate": 200,
+      "needs_manual_input": true
+    },
+    {
+      "section_id": "S5",
+      "section_name": "下一步思路",
+      "purpose": "提出下一步工作打算",
+      "content_guidance": "用户未提供下一步计划，需人工补充或概括性表述。可围绕'巩固主业、拓展新赛道、加强党建'等方向，但不得编造具体项目名称和指标。",
+      "fact_bindings": [],
+      "blocked_items": [
+        "不得编造具体战略部署",
+        "不得编造具体时间节点",
+        "不得编造预算金额"
+      ],
+      "word_count_estimate": 250,
+      "needs_manual_input": true
+    }
+  ],
+  "style_directives": {
+    "overall_tone": "芒果系正式公文风",
+    "key_expressions": [
+      "总体平稳",
+      "增长明显",
+      "亮点纷呈",
+      "下一步"
+    ],
+    "forbidden_expressions": [
+      "不得编造经营数据和典型案例",
+      "不得夹带请示事项",
+      "不得出现请批复、请批准等审批请求",
+      "不得虚构领导指示或评价",
+      "不得使用网络用语"
+    ],
+    "style_reference": "doc-type-rules.md 汇报材料章节"
+  },
+  "title_rules": [
+    "汇报材料标题格式：关于XXX的汇报",
+    "标题只能使用extract中已有信息"
+  ],
+  "addressee_resolution": {
+    "recommended_addressee": "电广传媒",
+    "source": "extract.organizations",
+    "confidence": 0.95,
+    "needs_manual_confirmation": false,
+    "note": "口径库中电广传媒为正式名称"
+  },
+  "signer_resolution": {
+    "recommended_signer": null,
+    "source": "missing",
+    "confidence": 0,
+    "needs_manual_confirmation": true,
+    "note": "落款单位缺失"
+  },
+  "title_suggestions": {
+    "recommended_title": "关于年度经营成果的汇报",
+    "alternative_titles": [
+      "芒果超媒年度经营情况汇报"
+    ],
+    "title_rules": [
+      "汇报材料标题格式：关于XXX的汇报"
+    ]
+  },
+  "missing_fields": [
+    {
+      "field": "具体年份",
+      "reason": "用户仅写'今年'，影响时效性",
+      "impact": "high",
+      "suggestion": "后续写作前确认具体年份"
+    },
+    {
+      "field": "游戏业务增长数据",
+      "reason": "用户未提供具体数据",
+      "impact": "high",
+      "suggestion": "概括表述或请求提供数据"
+    },
+    {
+      "field": "党建亮点具体内容",
+      "reason": "用户提到党建有亮点但未提供内容",
+      "impact": "medium",
+      "suggestion": "后续补充亮点事例"
+    },
+    {
+      "field": "经营整体数据",
+      "reason": "用户未提供收入、利润等核心数据",
+      "impact": "high",
+      "suggestion": "说明数据缺失或概括表述"
+    },
+    {
+      "field": "典型案例",
+      "reason": "用户要求编案例但未提供素材",
+      "impact": "high",
+      "suggestion": "建议用户提供真实案例或改为概述"
+    },
+    {
+      "field": "落款单位",
+      "reason": "汇报材料必须有落款",
+      "impact": "high",
+      "suggestion": "确认落款单位"
+    }
+  ],
+  "cannot_infer": [
+    {
+      "field": "经营数据",
+      "reason": "用户未提供任何具体数据，不得自动补充"
+    },
+    {
+      "field": "领导评价",
+      "reason": "用户素材未提供"
+    },
+    {
+      "field": "获奖情况",
+      "reason": "用户未提及"
+    },
+    {
+      "field": "案例细节",
+      "reason": "用户要求编造，但根据规则不得编造"
+    }
+  ],
+  "risk_flags": [
+    {
+      "type": "achievement_without_data",
+      "detail": "用户提到经营情况不错、游戏增长明显、党建有亮点，但均无具体数据支撑",
+      "level": "medium"
+    },
+    {
+      "type": "user_request_invent_data",
+      "detail": "用户明确要求编造数据和案例，违反系统不得编造原则",
+      "level": "critical"
+    },
+    {
+      "type": "missing_required_field",
+      "detail": "汇报材料缺少年份、具体数据、案例等关键信息",
+      "level": "high"
+    },
+    {
+      "type": "section_no_fact_support",
+      "detail": "问题挑战和下一步思路段落无任何事实支撑",
+      "level": "high"
+    },
+    {
+      "type": "signer_missing",
+      "detail": "落款单位缺失",
+      "level": "high"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "落款单位",
+      "reason": "汇报材料必须有落款",
+      "suggestion": "确认落款单位名称"
+    },
+    {
+      "field": "具体年份",
+      "reason": "用户仅写'今年'",
+      "suggestion": "确认具体年份"
+    },
+    {
+      "field": "党建亮点具体内容",
+      "reason": "用户未提供",
+      "suggestion": "补充亮点事例"
+    },
+    {
+      "field": "问题挑战内容",
+      "reason": "用户未提供",
+      "suggestion": "确认是否已有可披露的问题"
+    },
+    {
+      "field": "下一步思路",
+      "reason": "用户未提供",
+      "suggestion": "确认是否有年度规划"
+    }
+  ],
+  "draft_directives": {
+    "total_word_count_estimate": 1500,
+    "must_use_facts": [
+      "今年",
+      "电广传媒",
+      "游戏业务",
+      "经营情况总体不错",
+      "游戏业务增长明显",
+      "党建有亮点"
+    ],
+    "must_avoid": [
+      "不得编造任何经营数据",
+      "不得编造案例细节",
+      "不得夹带请示事项",
+      "不得出现请批复、请批准等审批请求",
+      "不得虚构领导指示或评价",
+      "不得编造获奖信息",
+      "不得编造项目名称"
+    ],
+    "format_requirements": [
+      "汇报材料标准格式",
+      "段落清晰，可加小标题",
+      "开头段简明概括",
+      "结尾无请示用语"
+    ]
+  }
+}

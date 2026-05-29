@@ -1,0 +1,40 @@
+{
+  "doc_type": "新闻稿",
+  "doc_type_confidence": 0.88,
+  "direction": "对外宣传",
+  "target_unit": "",
+  "scene": "活动新闻宣传",
+  "style_level": 3,
+  "risk_level": "low",
+  "reason": "用户明确要求写成芒果系新闻稿，素材包含活动时间、参与团队、获奖作品等新闻要素，符合新闻稿特征。",
+  "required_rules": [
+    "新闻稿"
+  ],
+  "required_structure": [
+    "标题",
+    "导语",
+    "事件主体",
+    "主要内容",
+    "意义价值",
+    "结尾"
+  ],
+  "forbidden_items": [
+    "不得编造领导出席",
+    "不得编造领导评价",
+    "不得编造成果数据",
+    "不得将内部通知写成新闻传播稿"
+  ],
+  "possible_confusions": [
+    {
+      "candidate": "会议纪要",
+      "reason": "若重点是记录会议议定事项和责任分工，而非传播活动信息，则可能是会议纪要。",
+      "distinguish_rule": "是否用于对外传播。"
+    }
+  ],
+  "user_specified_doc_type": "新闻稿",
+  "conflict_detected": false,
+  "conflict_reason": null,
+  "recommended_action": null,
+  "need_manual_confirmation": false,
+  "manual_confirmation_fields": []
+}

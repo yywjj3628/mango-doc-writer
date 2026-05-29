@@ -1,0 +1,11 @@
+[
+  {
+    "stage": "rewrite",
+    "path": ".rewrite_policy.body_rewritten",
+    "before": false,
+    "after": true,
+    "fix_type": "fix_const_field",
+    "risk": "high",
+    "reason": "const=True"
+  }
+]

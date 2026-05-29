@@ -1,0 +1,288 @@
+{
+  "plan_summary": "基于用户素材生成芒果系新闻稿规划。素材含时间、主办方、参赛团队和获奖作品信息，但缺少活动地点、团队详情和意义价值。规划按新闻稿标准结构分六段，导语和意义价值段需人工补充。",
+  "doc_type": "新闻稿",
+  "direction": "对外宣传",
+  "style_level": 3,
+  "risk_level": "low",
+  "title_plan": {
+    "recommended_title": "芒果超媒AI内容创作大赛圆满落幕 一等奖作品《AI导演》实现全流程AI辅助制作",
+    "title_type": "直述式",
+    "title_confidence": 0.88,
+    "title_basis": [
+      "extract.events = AI内容创作大赛",
+      "extract.products = 《AI导演》",
+      "extract.achievements = 一等奖作品《AI导演》实现了全流程AI辅助制作"
+    ],
+    "title_risks": [],
+    "alternative_titles": [
+      "AI赋能内容创作——芒果超媒AI内容创作大赛成功举办",
+      "芒果超媒举办AI内容创作大赛 12个团队同台竞技"
+    ]
+  },
+  "addressee_plan": {
+    "recommended_addressee": "",
+    "source": "not_applicable",
+    "confidence": 0,
+    "needs_manual_confirmation": false,
+    "note": "新闻稿对外宣传，无需主送单位"
+  },
+  "signer_plan": {
+    "recommended_signer": "",
+    "source": "not_applicable",
+    "confidence": 0,
+    "needs_manual_confirmation": false,
+    "note": "新闻稿无需落款单位"
+  },
+  "sections": [
+    {
+      "section_id": "S1",
+      "section_name": "标题",
+      "purpose": "吸引读者，突出核心信息",
+      "content_guidance": "使用直述式或概括式标题，包含事件和核心成果",
+      "fact_bindings": [
+        {
+          "fact_type": "event",
+          "fact_value": "AI内容创作大赛",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "product",
+          "fact_value": "《AI导演》",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "achievement",
+          "fact_value": "一等奖作品《AI导演》实现了全流程AI辅助制作",
+          "source_from_extract": true
+        }
+      ],
+      "blocked_items": [
+        "不得编造领导出席信息",
+        "不得编造成果数据"
+      ],
+      "word_count_estimate": 30,
+      "needs_manual_input": false
+    },
+    {
+      "section_id": "S2",
+      "section_name": "导语",
+      "purpose": "交代5W1H：时间、地点、主体、核心事件",
+      "content_guidance": "由于活动地点缺失，需人工补充或使用概括性表述（如“在马栏山”等）。围绕已有时空信息展开。",
+      "fact_bindings": [
+        {
+          "fact_type": "time",
+          "fact_value": "4月15日",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "organization",
+          "fact_value": "芒果超媒",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "event",
+          "fact_value": "AI内容创作大赛",
+          "source_from_extract": true
+        }
+      ],
+      "blocked_items": [
+        "不得编造活动地点",
+        "不得编造出席领导"
+      ],
+      "word_count_estimate": 80,
+      "needs_manual_input": true
+    },
+    {
+      "section_id": "S3",
+      "section_name": "事件主体",
+      "purpose": "介绍活动基本情况、参与团队",
+      "content_guidance": "围绕12个团队参赛、大赛主题展开。团队名称缺失可概括为“来自公司内外的12支团队”。",
+      "fact_bindings": [
+        {
+          "fact_type": "data",
+          "fact_value": "12个团队",
+          "source_from_extract": true
+        }
+      ],
+      "blocked_items": [
+        "不得编造团队名称",
+        "不得编造领导讲话"
+      ],
+      "word_count_estimate": 150,
+      "needs_manual_input": false
+    },
+    {
+      "section_id": "S4",
+      "section_name": "主要内容",
+      "purpose": "详细介绍获奖作品及其成就",
+      "content_guidance": "围绕一等奖作品《AI导演》及其全流程AI辅助制作展开。可适当说明AI辅助制作的含义，但不得编造技术细节。",
+      "fact_bindings": [
+        {
+          "fact_type": "product",
+          "fact_value": "《AI导演》",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "achievement",
+          "fact_value": "一等奖作品《AI导演》实现了全流程AI辅助制作",
+          "source_from_extract": true
+        }
+      ],
+      "blocked_items": [
+        "不得编造成果具体数据",
+        "不得编造技术指标"
+      ],
+      "word_count_estimate": 150,
+      "needs_manual_input": false
+    },
+    {
+      "section_id": "S5",
+      "section_name": "意义价值",
+      "purpose": "升华活动意义，体现芒果系AI战略",
+      "content_guidance": "可从芒果超媒推动AI赋能内容创作、融合创新等角度展开，但不得编造领导评价或行业影响。建议使用芒果系战略表达如“文化和科技融合”“智媒跃升”等。",
+      "fact_bindings": [],
+      "blocked_items": [
+        "不得编造行业影响力数据",
+        "不得编造领导评价",
+        "不得编造媒体报道"
+      ],
+      "word_count_estimate": 120,
+      "needs_manual_input": true
+    },
+    {
+      "section_id": "S6",
+      "section_name": "结尾",
+      "purpose": "展望未来，收束全文",
+      "content_guidance": "使用芒果系新闻稿常见结尾句式，如“以融合创新激活发展动能”等，但不得捏造具体计划。",
+      "fact_bindings": [],
+      "blocked_items": [
+        "不得编造下一步计划"
+      ],
+      "word_count_estimate": 60,
+      "needs_manual_input": false
+    }
+  ],
+  "style_directives": {
+    "overall_tone": "芒果系新闻宣传风",
+    "key_expressions": [
+      "AI赋能",
+      "融合创新",
+      "智媒跃升"
+    ],
+    "forbidden_expressions": [
+      "不得编造领导出席",
+      "不得编造领导评价",
+      "不得编造成果数据"
+    ],
+    "style_reference": "doc-type-rules.md 新闻稿章节"
+  },
+  "title_rules": [
+    "新闻稿标题应有传播性",
+    "可使用对仗、比喻等修辞"
+  ],
+  "addressee_resolution": {
+    "recommended_addressee": "",
+    "source": "not_applicable",
+    "confidence": 0,
+    "needs_manual_confirmation": false,
+    "note": "新闻稿无需主送单位"
+  },
+  "signer_resolution": {
+    "recommended_signer": "",
+    "source": "not_applicable",
+    "confidence": 0,
+    "needs_manual_confirmation": false,
+    "note": "新闻稿无需落款"
+  },
+  "title_suggestions": {
+    "recommended_title": "芒果超媒AI内容创作大赛圆满落幕 一等奖作品《AI导演》实现全流程AI辅助制作",
+    "alternative_titles": [
+      "AI赋能内容创作——芒果超媒AI内容创作大赛成功举办",
+      "芒果超媒举办AI内容创作大赛 12个团队同台竞技"
+    ],
+    "title_rules": [
+      "新闻稿标题应有传播性"
+    ]
+  },
+  "missing_fields": [
+    {
+      "field": "活动地点",
+      "reason": "用户仅提供日期和主办方，未提供举办地点",
+      "impact": "影响新闻稿导语完整性",
+      "suggestion": "后续确认是否需要补充地点，或使用概括性表述"
+    },
+    {
+      "field": "参与团队详情",
+      "reason": "用户仅提及12个团队，未提供团队名称或具体信息",
+      "impact": "影响新闻稿内容的具体性",
+      "suggestion": "可概括表述为‘来自多个部门/团队的12支队伍’"
+    },
+    {
+      "field": "活动意义或影响",
+      "reason": "用户未提供活动意义、行业影响等",
+      "impact": "影响新闻稿深度",
+      "suggestion": "可基于现有成就进行合理升华，不得编造"
+    }
+  ],
+  "cannot_infer": [
+    {
+      "field": "领导出席情况",
+      "reason": "用户素材未提供领导出席信息，不得自动补充"
+    },
+    {
+      "field": "领导评价",
+      "reason": "用户素材未提供领导评价，不得自动写入"
+    },
+    {
+      "field": "具体团队名称",
+      "reason": "用户只写12个团队，未提供具体团队名称"
+    }
+  ],
+  "risk_flags": [
+    {
+      "type": "event_without_location",
+      "detail": "素材提供了活动时间，但未提供活动地点",
+      "level": "medium"
+    },
+    {
+      "type": "achievement_without_detail",
+      "detail": "素材提到全流程AI辅助制作，但未提供具体技术细节或效果数据",
+      "level": "low"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "活动地点",
+      "reason": "导语段需要地点信息但缺失，需人工补充或决定是否使用泛化表述",
+      "suggestion": "建议确认实际举办地点，或使用‘在马栏山’等芒果系常见地点"
+    },
+    {
+      "field": "意义价值段",
+      "reason": "该段缺乏事实支撑，需人工补充升华方向",
+      "suggestion": "可围绕芒果超媒AI战略进行适度发挥，但不得编造具体成就"
+    }
+  ],
+  "draft_directives": {
+    "total_word_count_estimate": 600,
+    "must_use_facts": [
+      "4月15日",
+      "芒果超媒",
+      "AI内容创作大赛",
+      "12个团队",
+      "《AI导演》",
+      "一等奖作品《AI导演》实现了全流程AI辅助制作"
+    ],
+    "must_avoid": [
+      "不得编造领导出席",
+      "不得编造领导评价",
+      "不得编造活动地点",
+      "不得编造成果数据",
+      "不得编造团队名称"
+    ],
+    "format_requirements": [
+      "芒果系新闻宣传风",
+      "导语5W1H",
+      "结尾展望升华"
+    ]
+  }
+}

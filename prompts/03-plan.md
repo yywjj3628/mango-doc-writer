@@ -366,6 +366,96 @@ draft_directives 为后续 draft 阶段提供总控指令。
 - must_avoid：必须避免的内容（合并 forbidden + cannot_infer）；
 - format_requirements：格式要求（来自 doc-type-rules.md）。
 
+## generation_mode 感知（v0.1.4）
+
+当前写作模式由输入变量 `{{generation_mode}}` 指定。
+
+plan 阶段必须根据 generation_mode 生成不同的 draft_directives。
+
+### safe_official 模式
+
+保持 v0.1.3 原规则：
+- must_use_facts / must_avoid 仍严格
+- 不新增扩写指令
+- 不生成 controlled_expansion_directives
+- 不生成 creative_mimic_directives
+
+### assisted_expansion 模式
+
+在 draft_directives 中新增 `controlled_expansion_directives` 字段，指明：
+
+1. **可以扩写的地方**：
+   - 结构补足：补充新闻稿/汇报材料/会议稿等常见段落骨架
+   - 段落衔接：补充过渡句、收束句
+   - 芒果体系风格表达：使用芒果系常见修辞和句式
+   - 战略口径的通用表述：如“融入芒果生态”“推动产业升级”
+   - 产品/业务的泛化介绍：如“持续优化用户体验”“拓展业务场景”
+   - 领导讲话句式：如“会议指出”“会议强调”“会议要求”，但不得写成真实讲话
+
+2. **必须标记待确认的内容**：
+   - 推断出的业务背景
+   - 推断出的称谓
+   - 推断出的政策口径
+   - 所有非用户明确提供的战略判断
+
+3. **不得扩写的具体事实**：
+   - 领导姓名、领导职务、参会人员
+   - 具体数据、金额、日期、地点
+   - 荣誉、获奖情况
+   - 会议结论、政策依据
+   - 具体项目名称（除非 extract 已提供）
+
+controlled_expansion_directives 输出结构：
+
+```json
+{
+  "allowed_expansions": ["structure_skeleton", "transition_sentences", "mango_style_expression", "strategic_rhetoric", "product_general_description", "leadership_statement_style"],
+  "must_mark_confirmation": ["inferred_business_background", "inferred_titles", "inferred_policy_context"],
+  "forbidden_expansions": ["specific_leader_names", "specific_data", "specific_dates", "specific_locations", "specific_conclusions"]
+}
+```
+
+### creative_mimic 模式
+
+在 draft_directives 中新增 `creative_mimic_directives` 字段，指明：
+
+1. **更强风格模仿范围**：
+   - 可模仿芒果系文风和文章节奏
+   - 可使用更强烈的芒果系修辞
+   - 可补充更完整的文章骨架
+
+2. **明确约束**：
+   - official_use_allowed = false
+   - 必须生成 draft_disclaimer
+   - 不允许编造具体事实
+   - 仿写内容必须标为 style_mimic，不得标为事实
+
+creative_mimic_directives 输出结构：
+
+```json
+{
+  "style_mimic_intensity": "high",
+  "official_use_allowed": false,
+  "draft_disclaimer_required": true,
+  "allowed_mimic": ["mango_writing_style", "article_rhythm", "rhetorical_devices"],
+  "forbidden_mimic": ["specific_leader_statements", "specific_data", "specific_conclusions"]
+}
+```
+
+### 扩写边界（expansion_boundaries）
+
+plan 输出中可包含 `expansion_boundaries` 字段，汇总三种模式的扩写边界：
+
+```json
+{
+  "mode": "assisted_expansion",
+  "expansion_enabled": true,
+  "no_specific_fact_fabrication": true,
+  "rag_style_only": true,
+  "all_expansions_labeled": true
+}
+```
+
 ## 示例 1：请示（伪报告真请示）
 
 **输入：**

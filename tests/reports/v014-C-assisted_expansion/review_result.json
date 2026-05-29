@@ -1,0 +1,113 @@
+{
+  "review_summary": "初稿符合领导讲话文种和结构要求，事实均来自extract_result，无新增事实，无RAG污染，称谓使用正确，风险提示充分。整体质量高，无需修改。",
+  "pass": true,
+  "score": 100,
+  "rewrite_required": false,
+  "risk_level": "medium",
+  "checks": {
+    "doc_type_check": {
+      "status": "pass",
+      "summary": "文种为领导讲话，正文结构符合领导讲话规范，包含开场、形势、肯定、部署、保障、结尾等部分。",
+      "issues_count": 0
+    },
+    "structure_check": {
+      "status": "pass",
+      "summary": "正文按plan_result的sections顺序生成，S1开场与背景、S2形势判断、S3工作肯定、S4重点部署、S5具体要求、S6结尾号召，结构完整。",
+      "issues_count": 0
+    },
+    "fact_grounding_check": {
+      "status": "pass",
+      "summary": "正文中的所有事实（时间、事件、组织、项目）均可追溯到extract_result.fact_items，无新增或虚构事实。",
+      "issues_count": 0
+    },
+    "fact_usage_report_check": {
+      "status": "pass",
+      "summary": "fact_usage_report已完整记录正文使用的7个事实，source均为extract_result，confidence合理。",
+      "issues_count": 0
+    },
+    "rag_usage_check": {
+      "status": "pass",
+      "summary": "RAG仅用于标题风格、结尾句式和战略表达，copied_verbatim为false，fact_risk为false，无事实污染。",
+      "issues_count": 0
+    },
+    "terminology_check": {
+      "status": "pass",
+      "summary": "称谓使用正确，正文中'公司'保留用户提供表述，无禁用称谓，未使用模型知识补充领导职务。",
+      "issues_count": 0
+    },
+    "blocked_items_check": {
+      "status": "pass",
+      "summary": "blocked_items_check显示所有禁止内容均未使用，正文中无编造领导表态、政策判断、数据、项目名称等。",
+      "issues_count": 0
+    },
+    "warnings_check": {
+      "status": "pass",
+      "summary": "warnings已充分覆盖缺失信息（领导姓名、职务、日期、地点、参会人员、数据等），风险提示完整。",
+      "issues_count": 0
+    },
+    "manual_confirmation_check": {
+      "status": "pass",
+      "summary": "manual_confirmation_fields保留了6项需人工确认的字段，与warnings一致。",
+      "issues_count": 0
+    },
+    "style_check": {
+      "status": "pass",
+      "summary": "风格符合style_level=2（芒果系正式公文风），语言正式、稳重，无过度宣传。",
+      "issues_count": 0
+    },
+    "format_check": {
+      "status": "pass",
+      "summary": "Markdown格式正确，标题清晰，层级规范，无乱码或JSON外内容。",
+      "issues_count": 0
+    }
+  },
+  "issues": [],
+  "rewrite_instructions": [],
+  "manual_confirmation_fields": [
+    {
+      "field": "讲话领导姓名",
+      "reason": "领导讲话必备，用户未提供",
+      "impact": "影响讲话开头和整体身份定位",
+      "required_before_final": true
+    },
+    {
+      "field": "讲话领导职务",
+      "reason": "影响开头身份定位",
+      "impact": "影响问候语和语气",
+      "required_before_final": true
+    },
+    {
+      "field": "会议具体日期",
+      "reason": "影响背景准确性",
+      "impact": "影响开场白精确度",
+      "required_before_final": false
+    },
+    {
+      "field": "会议地点",
+      "reason": "影响开场表述",
+      "impact": "影响场景描述",
+      "required_before_final": false
+    },
+    {
+      "field": "参会人员范围",
+      "reason": "影响讲话对象定位",
+      "impact": "影响问候语和使用称谓",
+      "required_before_final": false
+    },
+    {
+      "field": "游戏业务数据",
+      "reason": "影响工作肯定段的可信度",
+      "impact": "影响说服力",
+      "required_before_final": false
+    }
+  ],
+  "review_policy": {
+    "no_body_generation": true,
+    "no_rewrite": true,
+    "no_new_facts": true,
+    "no_rag_call": true,
+    "check_fact_grounding": true,
+    "check_doc_type_rules": true,
+    "check_org_title_dictionary": true
+  }
+}

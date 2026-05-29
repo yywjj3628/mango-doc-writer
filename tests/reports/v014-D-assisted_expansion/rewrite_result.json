@@ -1,0 +1,217 @@
+{
+  "rewrite_summary": "根据review结果，删除了无依据表述'为整体营收提供了有力支撑'，并将'各业务单元积极应对市场变化，保持了稳健的发展态势'替换为'各业务单元运行平稳'。其他内容保持不变，fact_usage_report已确认覆盖所有使用事实。数据缺失等风险保留在remaining_risks和manual_confirmation_fields中。",
+  "doc_type": "汇报材料",
+  "direction": "上行文",
+  "style_level": 2,
+  "risk_level": "high",
+  "final_markdown": "# 芒果超媒年度经营成果汇报\n\n电广传媒：\n\n现将芒果超媒年度经营成果有关情况汇报如下：\n\n## 一、背景情况\n\n今年，芒果超媒在上级单位的指导支持下，围绕年度经营目标，扎实推进各项工作，整体经营情况总体平稳向好。\n\n## 二、主要进展\n\n在业务发展方面，公司核心业务板块持续发力，游戏业务增长明显。各业务单元运行平稳。\n\n## 三、亮点成效\n\n在党建方面，公司坚持党建引领，党建品牌建设取得积极进展，相关工作呈现亮点。\n\n## 四、问题挑战\n\n当前，公司在外部环境变化、行业竞争加剧等方面仍面临一定挑战，部分业务领域的数据支撑有待进一步加强。\n\n## 五、下一步思路\n\n下一步，芒果超媒将继续聚焦主业，深化融合创新，推动各项业务实现高质量发展。\n\n以上汇报，请领导批评指正。\n\n芒果超媒股份有限公司\n【日期待确认】",
+  "revision_report": [
+    {
+      "revision_id": "REV001",
+      "issue_id": "R001",
+      "action": "replace",
+      "before": "在业务发展方面，公司核心业务板块持续发力，其中游戏业务增长明显，为整体营收提供了有力支撑。同时，各业务单元积极应对市场变化，保持了稳健的发展态势。",
+      "after": "在业务发展方面，公司核心业务板块持续发力，游戏业务增长明显。各业务单元运行平稳。",
+      "reason": "删除无extract依据的推断性表述，使用extract_result中已有事实，并根据rewrite_instruction替换为中性表述。",
+      "basis": "extract_result.fact_items[achievement: 游戏业务增长明显]；review rewrite_instruction high priority"
+    },
+    {
+      "revision_id": "REV002",
+      "issue_id": "R002",
+      "action": "keep",
+      "before": "fact_usage_report未覆盖部分正文表述",
+      "after": "已确认fact_usage_report全面覆盖final_markdown中所有有来源的事实，无新增无依据表述。",
+      "reason": "删除原无依据表述后，fact_usage_report已覆盖所有使用的事实，无需补充。",
+      "basis": "review issue R002"
+    }
+  ],
+  "fact_usage_report": [
+    {
+      "final_text": "今年",
+      "fact_type": "time",
+      "fact_value": "今年",
+      "source_text": "今年经营情况总体不错",
+      "source": "extract_result.fact_items",
+      "confidence": 0.95
+    },
+    {
+      "final_text": "芒果超媒",
+      "fact_type": "organization",
+      "fact_value": "芒果超媒",
+      "source_text": "芒果超媒年度经营成果汇报",
+      "source": "extract_result.fact_items",
+      "confidence": 0.98
+    },
+    {
+      "final_text": "电广传媒",
+      "fact_type": "organization",
+      "fact_value": "电广传媒",
+      "source_text": "向电广传媒汇报",
+      "source": "extract_result.fact_items",
+      "confidence": 0.98
+    },
+    {
+      "final_text": "整体经营情况总体平稳向好",
+      "fact_type": "achievement",
+      "fact_value": "经营情况总体不错",
+      "source_text": "今年经营情况总体不错",
+      "source": "extract_result.fact_items",
+      "confidence": 0.6
+    },
+    {
+      "final_text": "游戏业务增长明显",
+      "fact_type": "achievement",
+      "fact_value": "游戏业务增长明显",
+      "source_text": "游戏业务增长明显",
+      "source": "extract_result.fact_items",
+      "confidence": 0.7
+    },
+    {
+      "final_text": "党建品牌建设取得积极进展，相关工作呈现亮点",
+      "fact_type": "achievement",
+      "fact_value": "党建有亮点",
+      "source_text": "党建有亮点",
+      "source": "extract_result.fact_items",
+      "confidence": 0.65
+    }
+  ],
+  "terminology_usage_report": [
+    {
+      "raw_value": "芒果超媒",
+      "used_value": "芒果超媒",
+      "type": "organization",
+      "source": "extract_result",
+      "confidence": 0.98,
+      "needs_manual_confirmation": false,
+      "note": "来自用户素材，符合称谓库。"
+    },
+    {
+      "raw_value": "电广传媒",
+      "used_value": "电广传媒",
+      "type": "organization",
+      "source": "extract_result",
+      "confidence": 0.98,
+      "needs_manual_confirmation": false,
+      "note": "来自用户素材，符合称谓库。"
+    },
+    {
+      "raw_value": "芒果超媒股份有限公司",
+      "used_value": "芒果超媒股份有限公司",
+      "type": "organization",
+      "source": "org-title-dictionary.yaml",
+      "confidence": 0.95,
+      "needs_manual_confirmation": false,
+      "note": "落款使用全称，符合口径库。"
+    }
+  ],
+  "resolved_issues": [
+    {
+      "issue_id": "R001",
+      "resolution": "已删除无依据表述，替换为extract中已有的事实及中性表述。",
+      "basis": "review rewrite_instruction high priority；extract_result.fact_items"
+    },
+    {
+      "issue_id": "R002",
+      "resolution": "删除无依据表述后，正文所有有来源事实已由fact_usage_report覆盖，无遗漏。",
+      "basis": "review rewrite_instruction medium priority；手动核查"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "issue_id": "R003",
+      "reason": "所有章节均缺乏具体经营数据、典型案例和党建亮点详情，这些需要用户提供真实素材，rewrite阶段无法新增事实。",
+      "required_action": "正式成稿前必须由用户提供真实经营数据、典型案例和党建亮点详情，并替换正文中的笼统表述。"
+    },
+    {
+      "issue_id": "R004",
+      "reason": "落款日期缺失，目前保留【日期待确认】占位符。",
+      "required_action": "请用户提供实际日期后替换占位符。"
+    }
+  ],
+  "remaining_risks": [
+    {
+      "level": "high",
+      "type": "missing_field",
+      "detail": "经营数据缺失，正文仅使用笼统表述，无法支撑汇报量化要求。",
+      "action": "正式汇报前必须由用户提供真实经营数据。"
+    },
+    {
+      "level": "high",
+      "type": "missing_field",
+      "detail": "游戏业务增长具体数据缺失，正文仅表述'增长明显'。",
+      "action": "需用户补充增长幅度、收入等真实数据。"
+    },
+    {
+      "level": "high",
+      "type": "missing_field",
+      "detail": "党建亮点具体内容缺失，正文仅概括表述。",
+      "action": "需用户补充真实党建活动、荣誉等。"
+    },
+    {
+      "level": "high",
+      "type": "missing_field",
+      "detail": "典型案例缺失，正文未列举。",
+      "action": "需用户提供真实案例。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "detail": "具体年份未提供，正文使用'今年'，时间表述不明确。",
+      "action": "请确认实际年份并替换。"
+    },
+    {
+      "level": "medium",
+      "type": "placeholder_used",
+      "detail": "落款日期使用【日期待确认】占位符。",
+      "action": "正式成稿前需补充日期。"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "经营数据",
+      "reason": "用户要求编造但禁止，需用户提供真实数据",
+      "impact": "汇报缺乏量化支撑",
+      "required_before_final": true
+    },
+    {
+      "field": "典型案例",
+      "reason": "用户要求编造但禁止，需用户提供真实案例",
+      "impact": "汇报缺乏具体案例",
+      "required_before_final": true
+    },
+    {
+      "field": "党建亮点详情",
+      "reason": "用户仅提供笼统表述",
+      "impact": "亮点成效部分缺乏内容",
+      "required_before_final": true
+    },
+    {
+      "field": "具体年份",
+      "reason": "用户仅写'今年'",
+      "impact": "时间表述不明确",
+      "required_before_final": true
+    },
+    {
+      "field": "落款日期",
+      "reason": "用户未提供",
+      "impact": "公文格式不完整",
+      "required_before_final": true
+    }
+  ],
+  "final_checks": {
+    "doc_type_fixed": true,
+    "unsupported_facts_removed": true,
+    "blocked_items_removed": true,
+    "terminology_checked": true,
+    "manual_confirmations_preserved": true
+  },
+  "rewrite_policy": {
+    "body_rewritten": true,
+    "no_new_facts": true,
+    "use_only_extract_facts": true,
+    "no_rag_call": true,
+    "follow_review_instructions": true,
+    "follow_doc_type_rules": true,
+    "follow_org_title_dictionary": true
+  }
+}

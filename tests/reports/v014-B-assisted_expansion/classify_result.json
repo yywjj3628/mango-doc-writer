@@ -1,0 +1,33 @@
+{
+  "doc_type": "汇报材料",
+  "doc_type_confidence": 0.92,
+  "direction": "上行文",
+  "style_level": 2,
+  "risk_level": "medium",
+  "reason": "用户要求整理成向电广传媒的季度工作汇报材料，初稿内容为本季度三件事和下一步计划，未出现请求批准、支持等请示信号，符合汇报材料特征。",
+  "required_rules": [
+    "汇报材料"
+  ],
+  "required_structure": [
+    "背景情况",
+    "主要进展",
+    "亮点成效",
+    "问题挑战",
+    "下一步思路"
+  ],
+  "forbidden_items": [
+    "不得夹带请示事项",
+    "不得出现请批准、请批复等审批请求表达",
+    "不得编造工作数据和领导评价",
+    "不得使用过度宣传化表达"
+  ],
+  "possible_confusions": [
+    {
+      "candidate": "总结",
+      "reason": "若材料仅侧重回顾与计划，无向上汇报的正式属性，可改判为总结。",
+      "distinguish_rule": "是否用于向上级正式汇报或会议汇报。"
+    }
+  ],
+  "need_manual_confirmation": false,
+  "manual_confirmation_fields": []
+}

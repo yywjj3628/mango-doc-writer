@@ -1,0 +1,181 @@
+{
+  "draft_summary": "已按新闻稿文种生成初稿。素材包含时间、主办方、参赛团队和奖项成果，缺少活动地点和团队具体名称，使用概括性表述。RAG风格参考仅作为句式借鉴，未使用具体事实。",
+  "doc_type": "新闻稿",
+  "direction": "对外宣传",
+  "style_level": 3,
+  "risk_level": "low",
+  "generation_mode": "safe_official",
+  "official_use_allowed": true,
+  "expansion_report": {
+    "style_expansion": [],
+    "structure_expansion": [],
+    "rhetoric_expansion": [],
+    "policy_phrase_expansion": [],
+    "leadership_style_expansion": [],
+    "confirmation_required": [],
+    "unsafe_expansion_warnings": []
+  },
+  "markdown_draft": "# 芒果超媒AI内容创作大赛圆满落幕——一等奖作品《AI导演》实现全流程AI辅助制作\n\n4月15日，芒果超媒股份有限公司举办AI内容创作大赛。来自12个团队参赛，围绕AI技术在内容创作中的应用展开角逐。\n\n经过激烈比拼，一等奖作品《AI导演》脱颖而出。该作品实现了从剧本生成、拍摄调度到后期制作的全流程AI辅助制作，充分展现了AI与内容创作的深度融合。\n\n本次大赛聚焦AI内容创作前沿方向，参赛作品涵盖AI编剧、AI视觉生成、智能剪辑等领域，体现了芒果超媒在文化科技融合方面的积极探索。\n\nAI内容创作大赛的举办，是芒果超媒推动AI技术赋能内容生产的重要举措，为行业探索智能化内容创作提供了有益参考。\n\n未来，芒果超媒将持续深化AI技术应用，以融合创新激活发展动能，助力内容产业智能化升级。",
+  "fact_usage_report": [
+    {
+      "draft_text": "4月15日",
+      "fact_type": "time",
+      "fact_value": "4月15日",
+      "source_text": "4月15日，芒果超媒举办AI内容创作大赛。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.98
+    },
+    {
+      "draft_text": "芒果超媒股份有限公司",
+      "fact_type": "organization",
+      "fact_value": "芒果超媒",
+      "source_text": "芒果超媒举办AI内容创作大赛。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.96
+    },
+    {
+      "draft_text": "AI内容创作大赛",
+      "fact_type": "event",
+      "fact_value": "AI内容创作大赛",
+      "source_text": "芒果超媒举办AI内容创作大赛。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.95
+    },
+    {
+      "draft_text": "12个团队",
+      "fact_type": "person",
+      "fact_value": "12个团队",
+      "source_text": "来自12个团队参加。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.9
+    },
+    {
+      "draft_text": "一等奖作品《AI导演》",
+      "fact_type": "product",
+      "fact_value": "《AI导演》",
+      "source_text": "一等奖作品《AI导演》实现了全流程AI辅助制作。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.96
+    },
+    {
+      "draft_text": "实现了全流程AI辅助制作",
+      "fact_type": "achievement",
+      "fact_value": "一等奖作品《AI导演》实现了全流程AI辅助制作",
+      "source_text": "一等奖作品《AI导演》实现了全流程AI辅助制作。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.94
+    }
+  ],
+  "rag_usage_report": [
+    {
+      "used_for": "标题风格",
+      "reference_source": "芒果日志旧稿标题风格",
+      "style_element": "主标题+破折号副标题，突出核心信息",
+      "copied_verbatim": false,
+      "fact_risk": false,
+      "note": "借鉴标题结构，未使用旧稿具体事实。"
+    },
+    {
+      "used_for": "结尾句式",
+      "reference_source": "RAG风格参考片段",
+      "style_element": "以融合创新激活发展动能等战略表达",
+      "copied_verbatim": false,
+      "fact_risk": false,
+      "note": "仅借鉴句式，未照抄原文。"
+    }
+  ],
+  "terminology_usage_report": [
+    {
+      "raw_value": "芒果超媒",
+      "used_value": "芒果超媒股份有限公司",
+      "type": "organization",
+      "source": "org-title-dictionary.yaml",
+      "confidence": 0.98,
+      "needs_manual_confirmation": false,
+      "note": "首次出现使用全称，后续简称。"
+    },
+    {
+      "raw_value": "AI内容创作大赛",
+      "used_value": "AI内容创作大赛",
+      "type": "product",
+      "source": "extract_result",
+      "confidence": 0.95,
+      "needs_manual_confirmation": false,
+      "note": "用户素材原文。"
+    },
+    {
+      "raw_value": "《AI导演》",
+      "used_value": "《AI导演》",
+      "type": "product",
+      "source": "extract_result",
+      "confidence": 0.96,
+      "needs_manual_confirmation": false,
+      "note": "用户素材原文。"
+    }
+  ],
+  "blocked_items_check": [
+    {
+      "item": "领导出席信息",
+      "status": "not_used",
+      "reason": "用户未提供领导出席信息，正文未编造。"
+    },
+    {
+      "item": "领导评价",
+      "status": "not_used",
+      "reason": "用户未提供领导评价，正文未编造。"
+    },
+    {
+      "item": "团队具体名称",
+      "status": "not_used",
+      "reason": "用户未提供具体团队名称，正文使用概括性表述。"
+    },
+    {
+      "item": "活动地点",
+      "status": "not_used",
+      "reason": "用户未提供活动地点，正文未写地点。"
+    },
+    {
+      "item": "成果技术细节",
+      "status": "not_used",
+      "reason": "用户未提供技术细节，正文未编造。"
+    },
+    {
+      "item": "活动传播效果或行业反响",
+      "status": "not_used",
+      "reason": "用户未提供，正文未编造。"
+    }
+  ],
+  "warnings": [
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "message": "活动地点缺失，正文未写地点。",
+      "related_field": "活动地点",
+      "action": "如有地点信息，后续可补充。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "message": "团队具体名称缺失，正文使用概括性表述。",
+      "related_field": "团队名称",
+      "action": "如有具体名称，后续可补充。"
+    },
+    {
+      "level": "low",
+      "type": "missing_field",
+      "message": "意义价值段无事实支撑，使用了概括性升华表述。",
+      "related_field": "意义价值",
+      "action": "人工可酌情补充具体意义。"
+    }
+  ],
+  "manual_confirmation_fields": [],
+  "draft_policy": {
+    "body_generated": true,
+    "no_new_facts": true,
+    "use_only_extract_facts": true,
+    "rag_used_for_style_only": true,
+    "follow_plan_structure": true,
+    "follow_doc_type_rules": true,
+    "follow_org_title_dictionary": true
+  }
+}

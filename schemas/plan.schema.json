@@ -397,7 +397,57 @@
           "items": {
             "type": "string"
           }
+        },
+        "controlled_expansion_directives": {
+          "type": "object",
+          "description": "assisted_expansion 模式下的扩写指令",
+          "properties": {
+            "allowed_expansions": {
+              "type": "array",
+              "items": {"type": "string"}
+            },
+            "must_mark_confirmation": {
+              "type": "array",
+              "items": {"type": "string"}
+            },
+            "forbidden_expansions": {
+              "type": "array",
+              "items": {"type": "string"}
+            }
+          }
+        },
+        "creative_mimic_directives": {
+          "type": "object",
+          "description": "creative_mimic 模式下的仿写指令",
+          "properties": {
+            "style_mimic_intensity": {"type": "string"},
+            "official_use_allowed": {"type": "boolean"},
+            "draft_disclaimer_required": {"type": "boolean"},
+            "allowed_mimic": {
+              "type": "array",
+              "items": {"type": "string"}
+            },
+            "forbidden_mimic": {
+              "type": "array",
+              "items": {"type": "string"}
+            }
+          }
         }
+      }
+    },
+    "generation_mode": {
+      "type": "string",
+      "description": "v0.1.4: 当前写作模式"
+    },
+    "expansion_boundaries": {
+      "type": "object",
+      "description": "v0.1.4: 扩写边界汇总",
+      "properties": {
+        "mode": {"type": "string"},
+        "expansion_enabled": {"type": "boolean"},
+        "no_specific_fact_fabrication": {"type": "boolean"},
+        "rag_style_only": {"type": "boolean"},
+        "all_expansions_labeled": {"type": "boolean"}
       }
     }
   }

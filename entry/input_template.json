@@ -4,5 +4,6 @@
   "specified_doc_type": "新闻稿",
   "target_unit": null,
   "scene": "对外发布",
-  "output_formats": ["markdown"]
+  "output_formats": ["markdown"],
+  "generation_mode": "safe_official"
 }

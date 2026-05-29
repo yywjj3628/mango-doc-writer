@@ -1,0 +1,101 @@
+{
+  "review_summary": "初稿按汇报材料文种生成，结构完整，事实均来自extract_result，无新增事实，无RAG污染，称谓合规，格式正确。亮点成效和问题挑战段使用概括性表述，保留待确认占位符，符合规划。整体质量较高，无需重写。",
+  "pass": true,
+  "score": 95,
+  "rewrite_required": false,
+  "risk_level": "medium",
+  "checks": {
+    "doc_type_check": {
+      "status": "pass",
+      "summary": "文种为汇报材料，符合classify结果，无文种混淆。",
+      "issues_count": 0
+    },
+    "structure_check": {
+      "status": "pass",
+      "summary": "按背景、主要进展、亮点成效、问题挑战、下一步思路五段结构生成，与plan一致。",
+      "issues_count": 0
+    },
+    "fact_grounding_check": {
+      "status": "pass",
+      "summary": "正文中所有事实可追溯至extract_result.fact_items，无未授权事实。",
+      "issues_count": 0
+    },
+    "fact_usage_report_check": {
+      "status": "pass",
+      "summary": "fact_usage_report完整覆盖正文事实，source_text均来自extract。",
+      "issues_count": 0
+    },
+    "rag_usage_check": {
+      "status": "pass",
+      "summary": "RAG仅用于开头结尾句式，无事实污染。",
+      "issues_count": 0
+    },
+    "terminology_check": {
+      "status": "warning",
+      "summary": "称谓使用正确，但'韩国T3'需人工确认正式全称，已在manual_confirmation中。",
+      "issues_count": 0
+    },
+    "blocked_items_check": {
+      "status": "pass",
+      "summary": "无blocked_item被使用。",
+      "issues_count": 0
+    },
+    "warnings_check": {
+      "status": "pass",
+      "summary": "warnings完整承接了missing_field、section_no_fact_support等风险。",
+      "issues_count": 0
+    },
+    "manual_confirmation_check": {
+      "status": "pass",
+      "summary": "manual_confirmation_fields保留了季度名称、党建活动名称、党建品牌名称、落款单位等关键确认项。",
+      "issues_count": 0
+    },
+    "style_check": {
+      "status": "pass",
+      "summary": "风格符合芒果系正式公文风（level 2），无过度宣传。",
+      "issues_count": 0
+    },
+    "format_check": {
+      "status": "pass",
+      "summary": "Markdown格式正确，标题、主送、结尾、占位符均合规。",
+      "issues_count": 0
+    }
+  },
+  "issues": [],
+  "rewrite_instructions": [],
+  "manual_confirmation_fields": [
+    {
+      "field": "具体季度名称",
+      "reason": "用户仅写本季度，需确认具体季度编号或时间段",
+      "impact": "影响汇报时间定位",
+      "required_before_final": true
+    },
+    {
+      "field": "党建活动具体名称",
+      "reason": "用户仅写党建活动，需确认活动正式名称",
+      "impact": "影响汇报内容清晰度",
+      "required_before_final": false
+    },
+    {
+      "field": "党建品牌名称",
+      "reason": "用户仅写党建品牌打造，需确认品牌具体名称",
+      "impact": "影响下一步计划针对性",
+      "required_before_final": false
+    },
+    {
+      "field": "落款单位",
+      "reason": "汇报材料需明确发文单位，用户未提供",
+      "impact": "影响公文完整性",
+      "required_before_final": true
+    }
+  ],
+  "review_policy": {
+    "no_body_generation": true,
+    "no_rewrite": true,
+    "no_new_facts": true,
+    "no_rag_call": true,
+    "check_fact_grounding": true,
+    "check_doc_type_rules": true,
+    "check_org_title_dictionary": true
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "rewrite_summary": "根据review结果，初稿已通过质检，无需要修订。保持原稿作为final_markdown。",
+  "doc_type": "新闻稿",
+  "direction": "对外宣传",
+  "style_level": 3,
+  "risk_level": "low",
+  "final_markdown": "# 芒果超媒举办AI内容创作大赛 12个团队参赛 《AI导演》获一等奖\n\n4月15日，芒果超媒股份有限公司举办AI内容创作大赛。大赛吸引了12个团队参赛，经过激烈角逐，一等奖作品《AI导演》脱颖而出，实现了全流程AI辅助制作。\n\n本次大赛以AI内容创作为主题，聚焦人工智能在内容生产中的创新应用，旨在激发团队创作活力，探索AI与内容深度融合的新路径。参赛作品涵盖AI编剧、AI剪辑、AI特效等多个方向，展现了芒果超媒在智媒领域的积极探索。\n\n一等奖作品《AI导演》凭借全流程AI辅助制作技术赢得评审青睐，标志着AI技术在内容创作领域迈出重要一步。该作品从创意策划、脚本生成到后期制作，均由AI深度参与，实现了效率与创意的双重突破。\n\n大赛的举办，是芒果超媒推动“文化+科技”融合、践行“智媒跃升”战略的重要举措。通过以赛促创，加速AI技术落地应用，为构建数智化内容生态注入新动能。\n\n未来，芒果超媒将持续深耕AI内容创作领域，以融合创新激活发展动能，在服务大局中找准坐标，探索更多AI赋能内容生产的可能性。",
+  "revision_report": [],
+  "fact_usage_report": [
+    {
+      "final_text": "4月15日",
+      "fact_type": "time",
+      "fact_value": "4月15日",
+      "source_text": "4月15日，芒果超媒举办AI内容创作大赛。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.98
+    },
+    {
+      "final_text": "芒果超媒股份有限公司",
+      "fact_type": "organization",
+      "fact_value": "芒果超媒",
+      "source_text": "芒果超媒举办AI内容创作大赛。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.98
+    },
+    {
+      "final_text": "AI内容创作大赛",
+      "fact_type": "event",
+      "fact_value": "AI内容创作大赛",
+      "source_text": "芒果超媒举办AI内容创作大赛。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.95
+    },
+    {
+      "final_text": "12个团队",
+      "fact_type": "data",
+      "fact_value": "12个团队",
+      "source_text": "来自12个团队参加。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.96
+    },
+    {
+      "final_text": "《AI导演》",
+      "fact_type": "product",
+      "fact_value": "《AI导演》",
+      "source_text": "一等奖作品《AI导演》实现了全流程AI辅助制作。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.97
+    },
+    {
+      "final_text": "一等奖作品《AI导演》实现了全流程AI辅助制作",
+      "fact_type": "achievement",
+      "fact_value": "一等奖作品《AI导演》实现了全流程AI辅助制作",
+      "source_text": "一等奖作品《AI导演》实现了全流程AI辅助制作。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.94
+    }
+  ],
+  "terminology_usage_report": [
+    {
+      "raw_value": "芒果超媒",
+      "used_value": "芒果超媒股份有限公司",
+      "type": "organization",
+      "source": "extract_result（首次出现使用全称，后续使用简称）",
+      "confidence": 0.98,
+      "needs_manual_confirmation": false,
+      "note": "根据org-title-dictionary，首次出现使用全称，后续可简称为芒果超媒。用户素材原文为芒果超媒，正文中首次使用全称。"
+    }
+  ],
+  "resolved_issues": [],
+  "unresolved_issues": [],
+  "remaining_risks": [
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "detail": "活动地点缺失，正文未写具体地点。",
+      "action": "如有具体地点，可补充在导语中。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "detail": "领导出席情况未提供，正文未提及任何领导。",
+      "action": "如有出席领导信息，后续可补充。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "detail": "活动影响未提供，正文使用概括性表达。",
+      "action": "如有具体影响数据或评价，可补充。"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "活动地点",
+      "reason": "用户未提供，影响导语完整性",
+      "impact": "新闻稿导语缺少地点要素",
+      "required_before_final": false
+    }
+  ],
+  "final_checks": {
+    "doc_type_fixed": true,
+    "unsupported_facts_removed": true,
+    "blocked_items_removed": true,
+    "terminology_checked": true,
+    "manual_confirmations_preserved": true
+  },
+  "rewrite_policy": {
+    "body_rewritten": true,
+    "no_new_facts": true,
+    "use_only_extract_facts": true,
+    "no_rag_call": true,
+    "follow_review_instructions": true,
+    "follow_doc_type_rules": true,
+    "follow_org_title_dictionary": true
+  }
+}

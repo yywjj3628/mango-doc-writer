@@ -1,0 +1,29 @@
+[
+  {
+    "stage": "draft",
+    "path": ".fact_usage_report[3].note",
+    "before": "表述笼统，无具体数据支撑",
+    "after": "(removed)",
+    "fix_type": "strip_extra_field",
+    "risk": "low",
+    "reason": "additionalProperties=false"
+  },
+  {
+    "stage": "draft",
+    "path": ".fact_usage_report[4].note",
+    "before": "未提供增长幅度、具体游戏名称等细节",
+    "after": "(removed)",
+    "fix_type": "strip_extra_field",
+    "risk": "low",
+    "reason": "additionalProperties=false"
+  },
+  {
+    "stage": "draft",
+    "path": ".fact_usage_report[5].note",
+    "before": "未提供具体亮点内容",
+    "after": "(removed)",
+    "fix_type": "strip_extra_field",
+    "risk": "low",
+    "reason": "additionalProperties=false"
+  }
+]

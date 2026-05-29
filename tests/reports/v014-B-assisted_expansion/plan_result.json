@@ -1,0 +1,343 @@
+{
+  "plan_summary": "用户需求为整理成向电广传媒的季度工作汇报材料，初稿包含三件事和下一步计划。classify判定为汇报材料，上行文，风格等级2。extract提供事实但缺失主送单位、具体季度名称、党建活动名称、党建品牌名称和数据支撑。plan按汇报材料标准结构规划，标记缺失字段和风险，需人工确认时间、活动名称及落款单位。",
+  "doc_type": "汇报材料",
+  "direction": "上行文",
+  "style_level": 2,
+  "risk_level": "medium",
+  "title_plan": {
+    "recommended_title": "关于本季度工作情况的汇报",
+    "title_type": "正式公文标题",
+    "title_confidence": 0.7,
+    "title_basis": [
+      "classify.doc_type = 汇报材料",
+      "extract.time = 本季度",
+      "extract.projects包含主要工作"
+    ],
+    "title_risks": [
+      "具体季度名称缺失，标题未明确时间范围",
+      "缺少项目名称，标题较笼统"
+    ],
+    "alternative_titles": [
+      "关于劲舞团手游版筹备等工作的汇报",
+      "本季度工作情况汇报"
+    ]
+  },
+  "addressee_plan": {
+    "recommended_addressee": "电广传媒",
+    "source": "用户输入",
+    "confidence": 0.95,
+    "needs_manual_confirmation": false,
+    "note": "用户需求中明确指定'向电广传媒'，直接使用"
+  },
+  "signer_plan": {
+    "recommended_signer": null,
+    "source": "missing",
+    "confidence": 0,
+    "needs_manual_confirmation": true,
+    "note": "用户未提供落款单位，汇报材料需明确发文单位"
+  },
+  "sections": [
+    {
+      "section_id": "S1",
+      "section_name": "背景情况",
+      "purpose": "简要说明汇报的时间背景和总体工作概况",
+      "content_guidance": "使用'本季度'这一时间表述，概括性说明当前季度主要围绕三项重点工作展开。注意：不得自行补充具体季度名称。",
+      "fact_bindings": [
+        {
+          "fact_type": "time",
+          "fact_value": "本季度",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "achievement",
+          "fact_value": "本季度主要做了三件事：劲舞团手游版上线筹备、党建活动按计划推进、与韩国T3续约谈判启动",
+          "source_from_extract": true
+        }
+      ],
+      "blocked_items": [
+        "不得夹带请示事项",
+        "不得出现请批准、请批复等审批请求表达",
+        "不得编造工作数据和领导评价",
+        "不得使用过度宣传化表达",
+        "不得自行补充本季度具体时间"
+      ],
+      "word_count_estimate": 100,
+      "needs_manual_input": false
+    },
+    {
+      "section_id": "S2",
+      "section_name": "主要进展",
+      "purpose": "分项汇报本季度主要工作的推进情况",
+      "content_guidance": "分别描述三项工作：1）劲舞团手游版上线筹备；2）党建活动按计划推进；3）与韩国T3续约谈判启动。使用用户提供的原始表述，不添加细节。党建活动具体名称缺失，需用概括性语言。组织名称'韩国T3'需确认是否为正式全称。",
+      "fact_bindings": [
+        {
+          "fact_type": "project",
+          "fact_value": "劲舞团手游版上线筹备",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "project",
+          "fact_value": "党建活动",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "project",
+          "fact_value": "与韩国T3续约谈判",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "organization",
+          "fact_value": "韩国T3",
+          "source_from_extract": true
+        }
+      ],
+      "blocked_items": [
+        "不得编造筹备具体进展",
+        "不得编造党建活动具体内容",
+        "不得编造谈判细节",
+        "不得编造韩国T3公司全称"
+      ],
+      "word_count_estimate": 300,
+      "needs_manual_input": false
+    },
+    {
+      "section_id": "S3",
+      "section_name": "亮点成效",
+      "purpose": "总结本季度工作取得的亮点和量化成果",
+      "content_guidance": "用户未提供任何亮点或数据，该段需人工补充或使用概括性表述如'各项工作按计划推进'。不得编造成果数据和评价。",
+      "fact_bindings": [],
+      "blocked_items": [
+        "不得编造数据",
+        "不得使用'取得显著成效'等无依据表述",
+        "不得编造领导评价"
+      ],
+      "word_count_estimate": 150,
+      "needs_manual_input": true
+    },
+    {
+      "section_id": "S4",
+      "section_name": "问题挑战",
+      "purpose": "指出当前工作中存在的困难或不足",
+      "content_guidance": "用户未提供任何问题信息，该段需人工补充或进行概述性表达。不得自动编造问题。",
+      "fact_bindings": [],
+      "blocked_items": [
+        "不得编造问题",
+        "不得以问题形式夹带请示事项"
+      ],
+      "word_count_estimate": 100,
+      "needs_manual_input": true
+    },
+    {
+      "section_id": "S5",
+      "section_name": "下一步思路",
+      "purpose": "明确下一步工作重点和计划",
+      "content_guidance": "围绕'手游版内测'和'党建品牌打造'两项重点展开。党建品牌具体名称缺失，需用概括表述。不得补充其他工作。",
+      "fact_bindings": [
+        {
+          "fact_type": "project",
+          "fact_value": "手游版内测",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "project",
+          "fact_value": "党建品牌打造",
+          "source_from_extract": true
+        }
+      ],
+      "blocked_items": [
+        "不得编造内测具体时间",
+        "不得编造党建品牌名称",
+        "不得编造其他工作"
+      ],
+      "word_count_estimate": 200,
+      "needs_manual_input": false
+    }
+  ],
+  "style_directives": {
+    "overall_tone": "芒果系正式公文风",
+    "key_expressions": [
+      "现将XX工作有关情况汇报如下：",
+      "（一）基本情况",
+      "（二）主要工作成效",
+      "（三）当前存在的问题",
+      "（四）下一步工作安排",
+      "以上汇报，请领导批评指正。",
+      "妥否，请领导审示。"
+    ],
+    "forbidden_expressions": [
+      "不得夹带请示事项",
+      "不得出现请批准、请批复等审批请求表达",
+      "不得编造工作数据和领导评价",
+      "不得使用过度宣传化表达",
+      "不得等同于正式报告",
+      "不得缺少数据支撑",
+      "不得只列成绩不讲问题",
+      "不得过于冗长",
+      "不得使用请示用语"
+    ],
+    "style_reference": "doc-type-rules.md 汇报材料章节"
+  },
+  "title_rules": [
+    "汇报材料标题格式：关于XXX工作的汇报 或 XXX工作汇报",
+    "标题通常不加'报告'二字",
+    "可灵活处理，但需体现汇报对象或主题"
+  ],
+  "addressee_resolution": {
+    "recommended_addressee": "电广传媒",
+    "source": "用户输入",
+    "confidence": 0.95,
+    "needs_manual_confirmation": false,
+    "note": "直接使用用户指定的主送单位"
+  },
+  "signer_resolution": {
+    "recommended_signer": null,
+    "source": "missing",
+    "confidence": 0,
+    "needs_manual_confirmation": true,
+    "note": "落款单位缺失，需人工确认"
+  },
+  "title_suggestions": {
+    "recommended_title": "关于本季度工作情况的汇报",
+    "alternative_titles": [
+      "关于劲舞团手游版筹备等工作的汇报",
+      "本季度工作情况汇报"
+    ],
+    "title_rules": [
+      "汇报材料标题格式：关于XXX工作的汇报 或 XXX工作汇报",
+      "标题通常不加'报告'二字",
+      "可灵活处理，但需体现汇报对象或主题"
+    ]
+  },
+  "missing_fields": [
+    {
+      "field": "主送单位",
+      "reason": "用户要求向电广传媒汇报，但初稿中未写明主送单位名称"
+    },
+    {
+      "field": "具体季度名称",
+      "reason": "用户仅写'本季度'，未提供季度编号或具体时间段"
+    },
+    {
+      "field": "党建活动具体名称",
+      "reason": "用户仅写'党建活动'，未提供活动正式名称"
+    },
+    {
+      "field": "党建品牌名称",
+      "reason": "用户仅写'党建品牌打造'，未提供品牌具体名称"
+    },
+    {
+      "field": "数据支撑",
+      "reason": "用户未提供任何具体数据（如筹备进度、谈判进展等）"
+    },
+    {
+      "field": "落款单位",
+      "reason": "汇报材料需明确发文单位，用户未提供"
+    }
+  ],
+  "cannot_infer": [
+    {
+      "field": "具体时间节点",
+      "reason": "用户未提供任何具体日期或阶段划分，不得自动补充"
+    },
+    {
+      "field": "工作成效与评价",
+      "reason": "用户未提供任何成效或评价，不得自动补充'取得显著成效'等表述"
+    },
+    {
+      "field": "领导指示",
+      "reason": "用户未提供领导意见或要求，不得自动补充"
+    },
+    {
+      "field": "合作细节",
+      "reason": "用户仅提到与韩国T3续约谈判启动，未提供谈判内容或进展，不得自行补充"
+    }
+  ],
+  "risk_flags": [
+    {
+      "type": "ambiguous_fact",
+      "detail": "时间表述为'本季度'，未指明具体季度，可能影响后续材料时间定位",
+      "level": "medium"
+    },
+    {
+      "type": "missing_required_field",
+      "detail": "主送单位未在初稿中出现，需在后续确认",
+      "level": "high"
+    },
+    {
+      "type": "achievement_without_data",
+      "detail": "提到本季度做了三件事，但未提供任何数据或具体进展描述",
+      "level": "medium"
+    },
+    {
+      "type": "section_no_fact_support",
+      "detail": "S3亮点成效和S4问题挑战段无事实支撑，需人工补充",
+      "level": "medium"
+    },
+    {
+      "type": "title_insufficient",
+      "detail": "标题未体现具体项目，可能不够明确",
+      "level": "low"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "具体季度名称",
+      "reason": "用户仅写'本季度'，需确认具体季度编号或时间段",
+      "suggestion": "建议确认后使用如'2023年第一季度'等表述"
+    },
+    {
+      "field": "党建活动具体名称",
+      "reason": "用户仅写'党建活动'，需确认活动正式名称",
+      "suggestion": "建议与党建部门确认活动名称"
+    },
+    {
+      "field": "党建品牌名称",
+      "reason": "用户仅写'党建品牌打造'，需确认品牌具体名称",
+      "suggestion": "建议与党建部门确认品牌名称"
+    },
+    {
+      "field": "落款单位",
+      "reason": "汇报材料需明确发文单位，用户未提供",
+      "suggestion": "建议确认落款单位，如具体部门或公司名称"
+    }
+  ],
+  "draft_directives": {
+    "total_word_count_estimate": 1000,
+    "must_use_facts": [
+      "本季度",
+      "劲舞团手游版",
+      "劲舞团手游版上线筹备",
+      "党建活动",
+      "与韩国T3续约谈判",
+      "韩国T3",
+      "手游版内测",
+      "党建品牌打造",
+      "本季度主要做了三件事：劲舞团手游版上线筹备、党建活动按计划推进、与韩国T3续约谈判启动"
+    ],
+    "must_avoid": [
+      "不得夹带请示事项",
+      "不得出现请批准、请批复等审批请求表达",
+      "不得编造工作数据和领导评价",
+      "不得使用过度宣传化表达",
+      "不得等同于正式报告",
+      "不得缺少数据支撑",
+      "不得只列成绩不讲问题",
+      "不得过于冗长",
+      "不得使用请示用语",
+      "不得编造具体时间节点",
+      "不得编造工作成效与评价",
+      "不得编造领导指示",
+      "不得编造合作细节",
+      "不得编造具体季度名称",
+      "不得编造党建活动具体名称",
+      "不得编造党建品牌名称"
+    ],
+    "format_requirements": [
+      "汇报材料格式：灵活但规范，使用公文语言",
+      "开头用'现将XX工作有关情况汇报如下：'",
+      "结尾用'以上汇报，请领导批评指正。'",
+      "分条列项使用（一）（二）（三）等",
+      "不得使用请示结尾语"
+    ]
+  }
+}

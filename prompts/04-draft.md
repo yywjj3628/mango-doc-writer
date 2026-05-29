@@ -99,6 +99,15 @@ markdown_draft 字段中放 Markdown 正文初稿。
 
 输出 JSON 必须符合 draft.schema.json。
 
+**⚠️ v0.1.4 强制字段（assisted_expansion / creative_mimic 模式）：**
+
+- `generation_mode` 必须输出当前模式名称
+- `official_use_allowed` 必须输出（safe_official=true, assisted_expansion="requires_human_confirmation", creative_mimic=false）
+- `expansion_report` 必须输出（至少包含空数组结构）
+- `draft_disclaimer` creative_mimic 模式下必须输出
+
+**如果以上字段缺失，Pipeline 会在后置报告阶段自动补充 fallback 并标记人工复核。**
+
 ## 输出 JSON 总体结构
 
 ```json
@@ -323,6 +332,180 @@ level 只能为：`low` / `medium` / `high` / `critical`
   "required_before_final": true
 }
 ```
+
+## generation_mode 感知与扩写规则（v0.1.4）
+
+当前写作模式由输入变量 `{{generation_mode}}` 指定。
+
+draft 阶段必须根据 generation_mode 分三套行为。
+
+---
+
+### safe_official 模式
+
+保持 v0.1.3 原行为：
+- 只使用 extract_result 事实
+- RAG 仅风格参考
+- 不新增事实
+- 不做自主扩写
+- draft_policy 中 generation_mode = "safe_official"
+- expansion_report 为空数组
+- official_use_allowed = true
+
+---
+
+### assisted_expansion 模式
+
+在不新增具体事实的前提下，自主草拟更完整稿件。
+
+#### 可以扩写的内容
+
+1. **新闻稿常见结构**：导语 → 事件主体 → 主要内容 → 意义价值 → 结尾
+2. **会议稿常见结构**：会议基本信息 → 主要内容 → 议定事项 → 责任分工 → 后续要求
+3. **汇报材料常见逻辑**：背景 → 主要进展 → 亮点成效 → 问题挑战 → 下一步思路
+4. **芒果体系表达**：芒果系常见修辞、句式、节奏
+5. **战略语汇**：如“融入芒果生态”“推动产业升级”“文化+科技”
+6. **产品业务通用表达**：如“持续优化用户体验”“拓展业务场景”
+7. **领导讲话句式风格**：如“会议指出”“会议强调”“会议要求”
+
+#### 不可以扩写的内容（红线）
+
+- 具体领导姓名、领导职务、参会人员
+- 具体数据、金额
+- 具体日期、地点（除非 extract 已提供）
+- 荣誉、获奖情况
+- 会议结论、政策依据
+- 具体项目名称（除非 extract 已提供）
+
+#### 扩写报告要求
+
+所有非用户明确提供的内容必须记录在 expansion_report 中，分为以下类型：
+
+```json
+{
+  "expansion_report": {
+    "style_expansion": [{"text": "扩写内容", "description": "说明"}],
+    "structure_expansion": [{"text": "扩写内容", "description": "说明"}],
+    "rhetoric_expansion": [{"text": "扩写内容", "description": "说明"}],
+    "policy_phrase_expansion": [{"text": "扩写内容", "description": "说明"}],
+    "leadership_style_expansion": [{"text": "扩写内容", "description": "说明"}],
+    "confirmation_required": [{"text": "待确认内容", "reason": "需要确认的原因"}],
+    "unsafe_expansion_warnings": []
+  }
+}
+```
+
+#### 扩写政策要求
+
+draft_policy 中：
+- generation_mode = "assisted_expansion"
+- no_new_facts = true（红线不变）
+- expansion_allowed = true
+- expansion_boundary = "style_and_structure_only"
+- all_expansions_labeled = true
+
+#### official_use_allowed
+
+assisted_expansion 模式下，official_use_allowed = "requires_human_confirmation"
+
+#### 注意事项
+
+- 不得把扩写内容伪装成已确认事实
+- 不得引入 RAG 旧稿里的具体事实
+- RAG 仍只做风格参考
+- 推断性内容必须进入 confirmation_required
+
+---
+
+### creative_mimic 模式
+
+更强烈模仿芒果系文风和文章节奏，用于内部灵感稿。
+
+#### 允许的仿写范围
+
+- 芒果系文风和文章节奏
+- 更强烈的修辞和句式
+- 更完整的文章骨架
+- 泛化战略表达
+
+#### 禁止的仿写内容
+
+- 具体领导姓名、职务
+- 具体数据、金额、日期、地点
+- 荣誉、获奖情况
+- 会议结论、政策依据
+- 冒充真实领导讲话
+
+#### 必须输出的内容
+
+1. **draft_disclaimer**：必须在输出中包含免责声明
+   示例："⚠️ 本文为内部灵感稿，仅供参考。正式使用前需人工全面审核。"
+
+2. **official_use_allowed = false**
+
+3. **expansion_report**：所有仿写内容必须标为 style_mimic
+
+4. **human_review_required = true**
+
+#### 扩写政策要求
+
+draft_policy 中：
+- generation_mode = "creative_mimic"
+- no_new_facts = true（红线不变）
+- expansion_allowed = true
+- expansion_boundary = "full_style_mimic"
+- all_expansions_labeled = true
+
+---
+
+### 示例：assisted_expansion 输出结构
+
+```json
+{
+  "generation_mode": "assisted_expansion",
+  "official_use_allowed": "requires_human_confirmation",
+  "expansion_report": {
+    "style_expansion": [{"text": "奋楫扬帆正当时", "description": "芒果系新闻稿标题风格"}],
+    "structure_expansion": [{"text": "意义价值段骨架", "description": "补充新闻稿常见意义价值段"}],
+    "rhetoric_expansion": [],
+    "policy_phrase_expansion": [{"text": "融入芒果生态", "description": "通用战略语汇"}],
+    "leadership_style_expansion": [],
+    "confirmation_required": [{"text": "活动受到与会领导高度肯定", "reason": "领导评价需确认"}],
+    "unsafe_expansion_warnings": []
+  },
+  "expansion_policy": {
+    "no_specific_fact_fabrication": true,
+    "rag_style_only": true,
+    "expansion_labeled": true
+  }
+}
+```
+
+### 示例：creative_mimic 输出结构
+
+```json
+{
+  "generation_mode": "creative_mimic",
+  "official_use_allowed": false,
+  "draft_disclaimer": "⚠️ 本文为内部灵感稿，仅供参考。正式使用前需人工全面审核。",
+  "expansion_report": {
+    "style_expansion": [{"text": "芒果系文风仿写", "description": "模仿芒果系文章节奏"}],
+    "structure_expansion": [{"text": "完整文章骨架", "description": "补充完整段落结构"}],
+    "rhetoric_expansion": [{"text": "强烈修辞", "description": "芒果系品牌表达"}],
+    "policy_phrase_expansion": [],
+    "leadership_style_expansion": [{"text": "拟讲话风格", "description": "泛化领导讲话句式"}],
+    "confirmation_required": [],
+    "unsafe_expansion_warnings": []
+  },
+  "expansion_policy": {
+    "no_specific_fact_fabrication": true,
+    "rag_style_only": true,
+    "expansion_labeled": true
+  }
+}
+```
+
+---
 
 ## 不同文种 draft 生成规则
 

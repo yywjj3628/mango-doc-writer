@@ -1,0 +1,139 @@
+{
+  "status": "success",
+  "doc_type": "领导讲话",
+  "risk_level": "low",
+  "review_pass": false,
+  "rewrite_required": true,
+  "manual_confirmation_count": 12,
+  "remaining_risk_count": 5,
+  "schema_validation_status": {
+    "classify": true,
+    "extract": true,
+    "plan": true,
+    "draft": true,
+    "review": true,
+    "rewrite": true
+  },
+  "rag_status": "success",
+  "style_references_count": 6,
+  "rag_collection": "mango_style_docs",
+  "rag_index": "mango_style_docs",
+  "rag_query": "mango_style_docs:芒果系 领导讲话 站位 判断 部署 要求 | mango_style_docs:广电系统 讲话稿 政治站位 工作部署 | jiuyou_docs:芒果系 领导讲话 站位 判断 部署 要求 | jiuyou_docs:广电系统 讲话稿 政治站位 工作部署",
+  "rag_sources": [
+    "芒果系 领导讲话 站位 判断 部署 要求",
+    "芒果系 领导讲话 站位 判断 部署 要求",
+    "芒果系 领导讲话 站位 判断 部署 要求",
+    "芒果系 领导讲话 站位 判断 部署 要求",
+    "芒果系 领导讲话 站位 判断 部署 要求"
+  ],
+  "rag_collections_used": [
+    "mango_style_docs",
+    "jiuyou_docs"
+  ],
+  "rag_primary_collection": "mango_style_docs",
+  "rag_fallback_collection": "jiuyou_docs",
+  "failed_stage": null,
+  "error_type": null,
+  "error_message": null,
+  "schema_path": null,
+  "sanitizer_high_risk": false,
+  "model_provider": "deepseek",
+  "default_model": "deepseek-v4-flash",
+  "fallback_model": "deepseek-v4-pro",
+  "fallback_enabled": true,
+  "stage_model_usage": {
+    "classify": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    },
+    "extract": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    },
+    "plan": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    },
+    "draft": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    },
+    "review": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    },
+    "rewrite": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    }
+  },
+  "fallback_count": 0,
+  "output_files": [
+    "classify_result.json",
+    "extract_result.json",
+    "plan_result.json",
+    "draft_result.json",
+    "review_result.json",
+    "rewrite_result.json"
+  ],
+  "quality_gate_enabled": true,
+  "quality_gate_pass": true,
+  "quality_gate_threshold": 8.0,
+  "quality_gate_rounds_used": 1,
+  "quality_gate_max_rounds": 2,
+  "final_quality_scores": {
+    "fact_safety": 10,
+    "doc_type_fit": 10,
+    "mango_style_fit": 8,
+    "logic_completeness": 9,
+    "language_quality": 9,
+    "risk_control": 8
+  },
+  "failed_dimensions": [],
+  "quality_score_history": [
+    {
+      "round": 1,
+      "overall_score": 9.0,
+      "scores": {
+        "fact_safety": 10,
+        "doc_type_fit": 10,
+        "mango_style_fit": 8,
+        "logic_completeness": 9,
+        "language_quality": 9,
+        "risk_control": 8
+      },
+      "failed_dimensions": [],
+      "overall_pass": true,
+      "rewrite_required": false,
+      "human_review_required": false,
+      "final_output_policy": "pass"
+    }
+  ],
+  "final_output_policy": "pass",
+  "human_review_required": false,
+  "quality_gate_error": null,
+  "quality_rewrite_applied": false,
+  "generation_mode": "safe_official",
+  "generation_mode_valid": true,
+  "generation_mode_warnings": [],
+  "official_use_allowed": true,
+  "expansion_enabled": false,
+  "expansion_report_summary": {},
+  "expansion_review_summary": null,
+  "expansion_quality_summary": {
+    "status": "not_applicable",
+    "summary": "非 assisted_expansion 模式无需检查",
+    "unsafe_expansion_count": 0,
+    "confirmation_required_count": 0
+  },
+  "draft_disclaimer": null,
+  "confirmation_required_count": 0,
+  "unsafe_expansion_detected": false,
+  "unsafe_expansion_warnings": []
+}

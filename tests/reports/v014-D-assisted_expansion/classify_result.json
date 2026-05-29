@@ -1,0 +1,48 @@
+{
+  "doc_type": "汇报材料",
+  "doc_type_confidence": 0.92,
+  "direction": "上行文",
+  "target_unit": "电广传媒",
+  "scene": "上级汇报",
+  "style_level": 2,
+  "risk_level": "high",
+  "reason": "用户指定文种为汇报材料，内容为向上级汇报芒果超媒年度经营成果，未出现请示信号，符合汇报材料特征；但用户要求补充编造数据和案例，存在虚构风险。",
+  "required_rules": [
+    "汇报材料"
+  ],
+  "required_structure": [
+    "背景情况",
+    "主要进展",
+    "亮点成效",
+    "问题挑战",
+    "下一步思路"
+  ],
+  "forbidden_items": [
+    "不得编造经营数据、典型案例和领导评价",
+    "不得夹带请示事项",
+    "不得出现请批准、请批复等审批请求表达",
+    "不得使用过度宣传化表达",
+    "数据必须真实可追溯"
+  ],
+  "possible_confusions": [
+    {
+      "candidate": "报告",
+      "reason": "若材料作为正式上行公文报送，而非会议或口头汇报配套，可改判为报告。",
+      "distinguish_rule": "是否作为正式公文格式报送，且是否需加盖公章。"
+    },
+    {
+      "candidate": "总结",
+      "reason": "若材料更侧重年度全面回顾和经验教训，则可能是总结。",
+      "distinguish_rule": "是否强调年度回顾与经验复盘。"
+    }
+  ],
+  "user_specified_doc_type": "汇报材料",
+  "conflict_detected": false,
+  "conflict_reason": null,
+  "recommended_action": null,
+  "need_manual_confirmation": true,
+  "manual_confirmation_fields": [
+    "请确认是否由用户提供真实经营数据和典型案例",
+    "请确认是否需要调整为正式报告格式"
+  ]
+}

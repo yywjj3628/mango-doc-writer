@@ -1,0 +1,158 @@
+{
+  "source_summary": "用户需求为撰写芒果超媒年度经营成果汇报，向电广传媒汇报。用户初稿提到今年经营情况总体不错，游戏业务增长明显，党建有亮点，但未提供具体数据和案例，并要求编造有说服力的内容。",
+  "facts": {
+    "time": [
+      "今年"
+    ],
+    "location": [],
+    "organizations": [
+      "电广传媒"
+    ],
+    "leaders": [],
+    "persons": [],
+    "products": [
+      "游戏业务"
+    ],
+    "projects": [],
+    "events": [],
+    "data": [],
+    "achievements": [
+      "经营情况总体不错",
+      "游戏业务增长明显",
+      "党建有亮点"
+    ],
+    "problems": [],
+    "requests": [],
+    "policies": [],
+    "documents": []
+  },
+  "fact_items": [
+    {
+      "type": "time",
+      "value": "今年",
+      "source_text": "今年经营情况总体不错",
+      "confidence": 0.85,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": true,
+      "note": "未明确具体年份，需确认"
+    },
+    {
+      "type": "organization",
+      "value": "电广传媒",
+      "source_text": "向电广传媒汇报",
+      "confidence": 0.95,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": true,
+      "note": "正式全称需后续校验"
+    },
+    {
+      "type": "product",
+      "value": "游戏业务",
+      "source_text": "游戏业务增长明显",
+      "confidence": 0.95,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": "未提供具体产品名称或数据"
+    },
+    {
+      "type": "achievement",
+      "value": "经营情况总体不错",
+      "source_text": "今年经营情况总体不错",
+      "confidence": 0.9,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": "缺乏具体数据支撑"
+    },
+    {
+      "type": "achievement",
+      "value": "游戏业务增长明显",
+      "source_text": "游戏业务增长明显",
+      "confidence": 0.9,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": "未提供增长率或绝对额"
+    },
+    {
+      "type": "achievement",
+      "value": "党建有亮点",
+      "source_text": "党建有亮点",
+      "confidence": 0.9,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": true,
+      "note": "未提供具体亮点内容"
+    }
+  ],
+  "missing_fields": [
+    {
+      "field": "具体年份",
+      "reason": "用户仅写'今年'，未提供具体财政或自然年份",
+      "impact": "影响汇报材料的时效性和准确性",
+      "suggestion": "后续写作前需确认具体年份"
+    },
+    {
+      "field": "游戏业务增长数据",
+      "reason": "用户提到增长明显但未提供具体数据",
+      "impact": "影响经营成果的说服力",
+      "suggestion": "后续写作中应避免编造，可概括表述或请求提供数据"
+    },
+    {
+      "field": "党建亮点具体内容",
+      "reason": "用户提到党建有亮点但未描述具体内容",
+      "impact": "影响汇报材料的充实性",
+      "suggestion": "后续写作前需补充亮点事例"
+    },
+    {
+      "field": "经营整体数据",
+      "reason": "用户未提供收入、利润、用户数等核心经营数据",
+      "impact": "影响汇报材料的权威性",
+      "suggestion": "后续写作中不可编造，应说明数据缺失"
+    },
+    {
+      "field": "典型案例",
+      "reason": "用户要求编典型案例但未提供任何素材",
+      "impact": "无法生成真实案例，需注明不可编造",
+      "suggestion": "建议用户提供真实案例或改为概述性表述"
+    }
+  ],
+  "cannot_infer": [
+    {
+      "field": "经营数据",
+      "reason": "用户未提供任何具体数据，不得自动补充"
+    },
+    {
+      "field": "领导评价",
+      "reason": "用户素材未提供领导评价内容"
+    },
+    {
+      "field": "获奖情况",
+      "reason": "用户未提及任何获奖信息"
+    },
+    {
+      "field": "案例细节",
+      "reason": "用户要求编造案例，但根据规则不得编造"
+    }
+  ],
+  "risk_flags": [
+    {
+      "type": "achievement_without_data",
+      "detail": "用户提到经营情况不错、游戏增长明显、党建有亮点，但均无具体数据或事例支撑",
+      "level": "medium"
+    },
+    {
+      "type": "user_request_invent_data",
+      "detail": "用户明确要求编造数据和案例，违反系统不得编造原则，生成风险高",
+      "level": "critical"
+    },
+    {
+      "type": "missing_required_field",
+      "detail": "汇报材料缺少年份、具体数据、案例等关键信息",
+      "level": "high"
+    }
+  ],
+  "extraction_policy": {
+    "only_user_provided_facts": true,
+    "no_external_knowledge": true,
+    "no_rag_facts": true,
+    "no_invented_data": true
+  }
+}

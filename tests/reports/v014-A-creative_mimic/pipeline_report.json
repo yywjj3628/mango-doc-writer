@@ -1,0 +1,161 @@
+{
+  "status": "success",
+  "doc_type": "新闻稿",
+  "risk_level": "low",
+  "review_pass": false,
+  "rewrite_required": true,
+  "manual_confirmation_count": 4,
+  "remaining_risk_count": 4,
+  "schema_validation_status": {
+    "classify": true,
+    "extract": true,
+    "plan": true,
+    "draft": true,
+    "review": true,
+    "rewrite": true
+  },
+  "rag_status": "success",
+  "style_references_count": 6,
+  "rag_collection": "mango_style_docs",
+  "rag_index": "mango_style_docs",
+  "rag_query": "mango_style_docs:芒果系 新闻稿 活动 通稿 标题 开头 | mango_style_docs:广电 芒果 重大活动 新闻稿 传播表达 | jiuyou_docs:芒果系 新闻稿 活动 通稿 标题 开头 | jiuyou_docs:广电 芒果 重大活动 新闻稿 传播表达",
+  "rag_sources": [
+    "广电 芒果 重大活动 新闻稿 传播表达",
+    "广电 芒果 重大活动 新闻稿 传播表达",
+    "广电 芒果 重大活动 新闻稿 传播表达",
+    "芒果系 新闻稿 活动 通稿 标题 开头",
+    "芒果系 新闻稿 活动 通稿 标题 开头"
+  ],
+  "rag_collections_used": [
+    "mango_style_docs",
+    "jiuyou_docs"
+  ],
+  "rag_primary_collection": "mango_style_docs",
+  "rag_fallback_collection": "jiuyou_docs",
+  "failed_stage": null,
+  "error_type": null,
+  "error_message": null,
+  "schema_path": null,
+  "sanitizer_high_risk": false,
+  "model_provider": "deepseek",
+  "default_model": "deepseek-v4-flash",
+  "fallback_model": "deepseek-v4-pro",
+  "fallback_enabled": true,
+  "stage_model_usage": {
+    "classify": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    },
+    "extract": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    },
+    "plan": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    },
+    "draft": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    },
+    "review": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    },
+    "rewrite": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    }
+  },
+  "fallback_count": 0,
+  "output_files": [
+    "classify_result.json",
+    "extract_result.json",
+    "plan_result.json",
+    "draft_result.json",
+    "review_result.json",
+    "rewrite_result.json",
+    "quality_rewrite_round_1_result.json"
+  ],
+  "quality_gate_enabled": true,
+  "quality_gate_pass": false,
+  "quality_gate_threshold": 6.0,
+  "quality_gate_rounds_used": 2,
+  "quality_gate_max_rounds": 2,
+  "final_quality_scores": {
+    "fact_safety": 9,
+    "doc_type_fit": 10,
+    "mango_style_fit": 8,
+    "logic_completeness": 7,
+    "language_quality": 9,
+    "risk_control": 8
+  },
+  "failed_dimensions": [
+    "logic_completeness"
+  ],
+  "quality_score_history": [
+    {
+      "round": 1,
+      "overall_score": 8.3,
+      "scores": {
+        "fact_safety": 9,
+        "doc_type_fit": 9,
+        "mango_style_fit": 7,
+        "logic_completeness": 8,
+        "language_quality": 8,
+        "risk_control": 9
+      },
+      "failed_dimensions": [
+        "mango_style_fit"
+      ],
+      "overall_pass": false,
+      "rewrite_required": true,
+      "human_review_required": false,
+      "final_output_policy": "rewrite"
+    },
+    {
+      "round": 2,
+      "overall_score": 8.5,
+      "scores": {
+        "fact_safety": 9,
+        "doc_type_fit": 10,
+        "mango_style_fit": 8,
+        "logic_completeness": 7,
+        "language_quality": 9,
+        "risk_control": 8
+      },
+      "failed_dimensions": [
+        "logic_completeness"
+      ],
+      "overall_pass": false,
+      "rewrite_required": true,
+      "human_review_required": false,
+      "final_output_policy": "rewrite"
+    }
+  ],
+  "final_output_policy": "warn_and_output",
+  "human_review_required": true,
+  "quality_gate_error": null,
+  "quality_rewrite_applied": true,
+  "generation_mode": "creative_mimic",
+  "generation_mode_valid": true,
+  "generation_mode_warnings": [],
+  "official_use_allowed": false,
+  "expansion_enabled": true,
+  "expansion_report_summary": {},
+  "expansion_review_summary": null,
+  "expansion_quality_summary": {
+    "status": "not_applicable",
+    "summary": ""
+  },
+  "draft_disclaimer": null,
+  "confirmation_required_count": 0,
+  "unsafe_expansion_detected": false,
+  "unsafe_expansion_warnings": []
+}

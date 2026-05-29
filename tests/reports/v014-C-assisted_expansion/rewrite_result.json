@@ -1,0 +1,178 @@
+{
+  "rewrite_summary": "初稿已通过质检，无需修订，直接输出原稿。",
+  "doc_type": "领导讲话",
+  "direction": "综合材料",
+  "style_level": 2,
+  "risk_level": "medium",
+  "final_markdown": "# 在公司2025年度工作总结与2026年展望会议上的讲话提纲\n\n同志们：\n\n今天，我们召开公司2025年度工作总结与2026年展望会议，主要任务是全面回顾过去一年的工作，分析当前面临的形势，明确下一阶段的目标任务，动员全体干部员工凝心聚力，推动公司高质量发展。\n\n## 一、认清形势，把握机遇\n\n当前，行业竞争格局深刻变化，文化与科技融合加速演进。我们要清醒认识到机遇与挑战并存，必须保持战略定力，增强忧患意识，以更加主动的姿态迎接变局。\n\n## 二、肯定成绩，增强信心\n\n过去一年，公司各项工作稳步推进，取得了积极进展。\n\n- **游戏业务稳中有进。** 在存量市场中实现了业务韧性和增长潜力。\n- **AI赋能内容生产。** 积极探索人工智能与内容创作的深度融合，提升生产效率与创意空间。\n- **党建与业务深度融合。** 以高质量党建引领保障高质量发展，将政治优势转化为发展优势。\n\n这些成绩的取得，是全体干部员工团结奋斗、顶压前行的结果。\n\n## 三、部署任务，明确方向\n\n2026年，我们要锚定目标，聚焦重点，抓好以下工作：\n\n- **游戏业务**要持续巩固基本盘，挖掘增量空间，围绕用户需求优化产品与服务。\n- **AI赋能**要加快技术应用落地，推动AI工具在内容生产全链条中的深度嵌入，提升创新效率。\n- **党建与业务**要进一步深化融合，以党建促业务，以业务强党建，形成良性循环。\n\n## 四、强化保障，狠抓落实\n\n任务已经明确，关键在于落实。各部门要增强责任意识，细化工作举措，确保各项部署落地见效。要加强协同联动，打破壁垒，形成合力。要完善考核机制，以实绩论英雄，营造干事创业的良好氛围。\n\n## 五、结语\n\n同志们，新征程催人奋进。让我们以此次会议为契机，坚定信心、锐意进取，以更加饱满的热情和务实的作风，为推动公司实现更高质量发展而不懈奋斗！\n\n谢谢大家。",
+  "revision_report": [],
+  "fact_usage_report": [
+    {
+      "final_text": "2025年度",
+      "fact_type": "time",
+      "fact_value": "2025年度",
+      "source_text": "会议主题：2025年度工作总结与2026年展望。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.95
+    },
+    {
+      "final_text": "2026年",
+      "fact_type": "time",
+      "fact_value": "2026年",
+      "source_text": "会议主题：2025年度工作总结与2026年展望。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.95
+    },
+    {
+      "final_text": "年度总结会",
+      "fact_type": "event",
+      "fact_value": "年度总结会",
+      "source_text": "请帮我起草一份在公司年度总结会上的讲话提纲。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.98
+    },
+    {
+      "final_text": "公司",
+      "fact_type": "organization",
+      "fact_value": "公司",
+      "source_text": "请帮我起草一份在公司年度总结会上的讲话提纲。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.7
+    },
+    {
+      "final_text": "游戏业务稳中有进",
+      "fact_type": "project",
+      "fact_value": "游戏业务稳中有进",
+      "source_text": "1）游戏业务稳中有进；",
+      "source": "extract_result.fact_items",
+      "confidence": 0.7
+    },
+    {
+      "final_text": "AI赋能内容生产",
+      "fact_type": "project",
+      "fact_value": "AI赋能内容生产",
+      "source_text": "2）AI赋能内容生产；",
+      "source": "extract_result.fact_items",
+      "confidence": 0.7
+    },
+    {
+      "final_text": "党建与业务深度融合",
+      "fact_type": "project",
+      "fact_value": "党建与业务深度融合",
+      "source_text": "3）党建与业务深度融合。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.7
+    }
+  ],
+  "terminology_usage_report": [
+    {
+      "raw_value": "公司",
+      "used_value": "公司",
+      "type": "organization",
+      "source": "extract_result",
+      "confidence": 0.7,
+      "needs_manual_confirmation": true,
+      "note": "用户仅写'公司'，未提供正式名称，正文保留该表述。"
+    }
+  ],
+  "resolved_issues": [],
+  "unresolved_issues": [],
+  "remaining_risks": [
+    {
+      "level": "high",
+      "type": "missing_field",
+      "detail": "讲话领导姓名缺失，正文未体现讲话人身份。",
+      "action": "正式成稿前需确认讲话领导姓名并决定是否在标题或开头体现。"
+    },
+    {
+      "level": "high",
+      "type": "missing_field",
+      "detail": "讲话领导职务缺失，影响开头称谓的精准性。",
+      "action": "正式成稿前需确认领导职务并在开头合理引用。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "detail": "具体会议日期缺失，正文使用概括性时间表述。",
+      "action": "正式成稿前可补充具体日期。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "detail": "会议地点缺失，正文未提及。",
+      "action": "正式成稿前可补充地点。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "detail": "参会人员范围缺失，正文使用'同志们'泛称。",
+      "action": "正式成稿前需确认参会对象以调整问候语。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "detail": "游戏业务具体数据缺失，正文仅写'稳中有进'。",
+      "action": "如需增强说服力，可补充具体增长数据。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "detail": "AI赋能和党建融合的具体措施未提供，正文使用概括性描述。",
+      "action": "如需更详实，可补充具体举措。"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "讲话领导姓名",
+      "reason": "领导讲话必备，用户未提供",
+      "impact": "影响讲话开头和整体身份定位",
+      "required_before_final": true
+    },
+    {
+      "field": "讲话领导职务",
+      "reason": "影响开头身份定位",
+      "impact": "影响问候语和语气",
+      "required_before_final": true
+    },
+    {
+      "field": "会议具体日期",
+      "reason": "影响背景准确性",
+      "impact": "影响开场白精确度",
+      "required_before_final": false
+    },
+    {
+      "field": "会议地点",
+      "reason": "影响开场表述",
+      "impact": "影响场景描述",
+      "required_before_final": false
+    },
+    {
+      "field": "参会人员范围",
+      "reason": "影响讲话对象定位",
+      "impact": "影响问候语和使用称谓",
+      "required_before_final": false
+    },
+    {
+      "field": "游戏业务数据",
+      "reason": "影响工作肯定段的可信度",
+      "impact": "影响说服力",
+      "required_before_final": false
+    }
+  ],
+  "final_checks": {
+    "doc_type_fixed": true,
+    "unsupported_facts_removed": true,
+    "blocked_items_removed": true,
+    "terminology_checked": true,
+    "manual_confirmations_preserved": true
+  },
+  "rewrite_policy": {
+    "body_rewritten": true,
+    "no_new_facts": true,
+    "use_only_extract_facts": true,
+    "no_rag_call": true,
+    "follow_review_instructions": true,
+    "follow_doc_type_rules": true,
+    "follow_org_title_dictionary": true
+  }
+}

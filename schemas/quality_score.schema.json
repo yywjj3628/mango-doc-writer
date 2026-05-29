@@ -373,6 +373,59 @@
           "description": "只评估，不执行修改"
         }
       }
+    },
+    "generation_mode": {
+      "type": "string",
+      "description": "v0.1.4: 当前写作模式"
+    },
+    "mode_adjusted_threshold": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 10,
+      "description": "v0.1.4: 模式调整后的阈值"
+    },
+    "official_use_allowed": {
+      "type": ["boolean", "string"],
+      "description": "v0.1.4: 是否允许正式使用"
+    },
+    "expansion_quality_check": {
+      "type": "object",
+      "description": "v0.1.4: 扩写质量检查结果",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["pass", "warning", "fail", "not_applicable"]
+        },
+        "summary": {"type": "string"},
+        "unsafe_expansion_count": {"type": "integer"},
+        "confirmation_required_count": {"type": "integer"}
+      }
+    },
+    "draft_disclaimer_check": {
+      "type": "object",
+      "description": "v0.1.4: 免责声明检查结果",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["pass", "warning", "fail", "not_applicable"]
+        },
+        "detail": {"type": "string"}
+      }
+    },
+    "confirmation_required_check": {
+      "type": "object",
+      "description": "v0.1.4: 人工确认项检查结果",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["pass", "warning", "fail", "not_applicable"]
+        },
+        "detail": {"type": "string"},
+        "items": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
     }
   }
 }

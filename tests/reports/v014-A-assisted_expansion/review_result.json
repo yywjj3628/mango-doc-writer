@@ -1,0 +1,95 @@
+{
+  "review_summary": "初稿整体合规，文种正确，事实均有来源，风格符合芒果系新闻稿要求。存在缺失年份和地点等已知问题，已在warnings中标记，无需修改。",
+  "pass": true,
+  "score": 95,
+  "rewrite_required": false,
+  "risk_level": "low",
+  "checks": {
+    "doc_type_check": {
+      "status": "pass",
+      "summary": "文种为新闻稿，符合classify结果，标题、导语、主体结构完整。",
+      "issues_count": 0
+    },
+    "structure_check": {
+      "status": "pass",
+      "summary": "段落顺序与plan一致：标题、导语、事件主体、主要内容、意义价值、结尾。",
+      "issues_count": 0
+    },
+    "fact_grounding_check": {
+      "status": "pass",
+      "summary": "正文所有事实（时间、组织、事件、团队、作品、成就）均能追溯到extract_result，无新增事实。",
+      "issues_count": 0
+    },
+    "fact_usage_report_check": {
+      "status": "pass",
+      "summary": "fact_usage_report完整覆盖正文事实，source_text来源正确。",
+      "issues_count": 0
+    },
+    "rag_usage_check": {
+      "status": "pass",
+      "summary": "RAG仅用于标题风格与芒果系表达，无事实污染，copied_verbatim为false。",
+      "issues_count": 0
+    },
+    "terminology_check": {
+      "status": "pass",
+      "summary": "机构称谓'芒果超媒'符合org-title-dictionary，未使用禁用称谓。",
+      "issues_count": 0
+    },
+    "blocked_items_check": {
+      "status": "pass",
+      "summary": "所有blocked items（领导出席、领导评价、成果数据、其他获奖等）均未进入正文。",
+      "issues_count": 0
+    },
+    "warnings_check": {
+      "status": "pass",
+      "summary": "warnings已完整承接缺失字段（年份、地点、主办方身份）及风险提示。",
+      "issues_count": 0
+    },
+    "manual_confirmation_check": {
+      "status": "pass",
+      "summary": "manual_confirmation_fields保留了年份、地点、主办方身份确认项，正文已做规避处理。",
+      "issues_count": 0
+    },
+    "style_check": {
+      "status": "pass",
+      "summary": "style_level=3，使用芒果系新闻宣传表达，无过度拔高。",
+      "issues_count": 0
+    },
+    "format_check": {
+      "status": "pass",
+      "summary": "Markdown格式正确，标题、段落结构清晰，未见格式错误。",
+      "issues_count": 0
+    }
+  },
+  "issues": [],
+  "rewrite_instructions": [],
+  "manual_confirmation_fields": [
+    {
+      "field": "具体年份",
+      "reason": "用户仅提供4月15日",
+      "impact": "影响时间准确性",
+      "required_before_final": false
+    },
+    {
+      "field": "活动地点",
+      "reason": "用户未提供",
+      "impact": "影响信息完整性",
+      "required_before_final": false
+    },
+    {
+      "field": "主办方身份确认",
+      "reason": "用户素材未明确说明芒果超媒是否为主办方",
+      "impact": "影响事实准确性",
+      "required_before_final": true
+    }
+  ],
+  "review_policy": {
+    "no_body_generation": true,
+    "no_rewrite": true,
+    "no_new_facts": true,
+    "no_rag_call": true,
+    "check_fact_grounding": true,
+    "check_doc_type_rules": true,
+    "check_org_title_dictionary": true
+  }
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "stage": "draft",
+    "path": ".manual_confirmation_fields[0].impact",
+    "before": "(missing)",
+    "after": "",
+    "fix_type": "fill_missing_string",
+    "risk": "medium",
+    "reason": "required field, type=string"
+  },
+  {
+    "stage": "draft",
+    "path": ".manual_confirmation_fields[1].impact",
+    "before": "(missing)",
+    "after": "",
+    "fix_type": "fill_missing_string",
+    "risk": "medium",
+    "reason": "required field, type=string"
+  }
+]

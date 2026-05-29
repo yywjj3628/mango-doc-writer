@@ -90,6 +90,12 @@ RAG 风格策略：
 
 输出 JSON 必须符合 review.schema.json。
 
+**⚠️ v0.1.4 强制字段（assisted_expansion / creative_mimic 模式）：**
+
+- `expansion_review` 必须输出（至少包含 status、acceptable_expansion、unsafe_fabrication、confirmation_required 四个子字段）
+
+**如果 expansion_review 缺失，Pipeline 会在后置报告阶段自动补充 fallback 并标记人工复核。**
+
 ## review 输出总体结构
 
 ```json
@@ -126,6 +132,77 @@ RAG 风格策略：
   }
 }
 ```
+
+## 扩写安全审查（v0.1.4）
+
+当 generation_mode 为 assisted_expansion 或 creative_mimic 时，review 阶段需要新增“扩写安全审查”。
+
+### 扩写分类
+
+review 必须将 draft 中的非用户明确提供的内容分为三类：
+
+1. **acceptable_expansion**：可接受扩写
+   - 结构句、过渡句
+   - 泛化战略表达
+   - 芒果体系风格表达
+   - 领导讲话句式（非冒充真实讲话）
+
+2. **unsafe_fabrication**：危险虚构
+   - 编造领导姓名、职务
+   - 编造具体数据、金额
+   - 编造会议结论
+   - 编造政策依据
+   - 编造荣誉、获奖
+
+3. **confirmation_required**：需要人工确认
+   - 系统推断出的业务背景
+   - 推断出的称谓
+   - 推断出的政策口径
+   - 非用户明确提供的战略判断
+
+### safe_official 模式
+
+按 v0.1.3 严格审查。任何新增事实都应标记为 issue。
+
+### assisted_expansion 模式
+
+- 不把所有扩写都当作错误
+- acceptable_expansion 不应标记为 issue
+- unsafe_fabrication 必须标记为 critical 或 high issue
+- confirmation_required 应标记为 medium issue，或写入 manual_confirmation_fields
+- 必须检查 expansion_report 是否完整记录了扩写内容
+- 如果扩写内容未被 expansion_report 覆盖，标记为 warning
+
+### creative_mimic 模式
+
+- 必须确认 official_use_allowed = false
+- 必须检查 draft_disclaimer 是否存在
+- 必须检查是否有冒充真实事实的内容
+- unsafe_fabrication 仍为 critical
+- 风格仿写本身不应标记为 issue
+
+### expansion_review 输出结构
+
+review 输出中新增 expansion_review 字段：
+
+```json
+{
+  "expansion_review": {
+    "status": "pass",
+    "summary": "扩写内容均在安全范围内",
+    "acceptable_expansion": [{"text": "扩写内容", "type": "style_expansion"}],
+    "unsafe_fabrication": [],
+    "confirmation_required": [{"text": "待确认内容", "reason": "原因"}],
+    "expansion_rewrite_instructions": []
+  }
+}
+```
+
+### issue 类型扩展
+
+review issues 的 type 枚举新增：
+- `unsafe_expansion`：危险虚构扩写
+- `expansion_not_labeled`：扩写内容未被 expansion_report 覆盖
 
 ## 必须检查的 11 类事项
 

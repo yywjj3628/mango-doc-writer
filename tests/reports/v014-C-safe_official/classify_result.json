@@ -1,0 +1,43 @@
+{
+  "doc_type": "领导讲话",
+  "doc_type_confidence": 0.92,
+  "direction": "内部材料",
+  "style_level": 2,
+  "risk_level": "low",
+  "reason": "用户需求为起草在公司年度总结会上的讲话提纲，用户指定文种为领导讲话，初稿内容包括会议主题、工作方向，符合领导讲话特征（工作肯定、重点部署、展望要求），无冲突信号。",
+  "required_rules": [
+    "领导讲话"
+  ],
+  "required_structure": [
+    "开场与背景",
+    "形势判断",
+    "工作肯定",
+    "重点部署",
+    "具体要求",
+    "结尾号召"
+  ],
+  "forbidden_items": [
+    "不得写成普通新闻稿",
+    "不得编造领导个人表态",
+    "不得新增未经提供的政策判断",
+    "不得使用与领导身份不匹配的口语表达"
+  ],
+  "possible_confusions": [
+    {
+      "candidate": "总结",
+      "reason": "若内容侧重于回顾成效与问题而非领导部署要求，可能为年度总结。",
+      "distinguish_rule": "讲话稿是否以领导视角展开工作部署及号召。"
+    },
+    {
+      "candidate": "汇报材料",
+      "reason": "若用于向上级口头汇报而非领导本人发言，则可能为汇报材料。",
+      "distinguish_rule": "是否以领导第一人称或讲话稿结构呈现。"
+    }
+  ],
+  "user_specified_doc_type": "领导讲话",
+  "conflict_detected": false,
+  "conflict_reason": null,
+  "recommended_action": null,
+  "need_manual_confirmation": false,
+  "manual_confirmation_fields": []
+}

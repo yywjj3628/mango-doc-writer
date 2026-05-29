@@ -1,0 +1,211 @@
+{
+  "rewrite_summary": "根据review结果修订：将背景段无依据的“2026年以来”改为“今年以来”；删除亮点成效段无依据的“涌现出一批先进典型和特色做法”；补录fact_usage_report条目；确保manual_confirmation字段以占位符保留。",
+  "doc_type": "汇报材料",
+  "direction": "上行文",
+  "style_level": 2,
+  "risk_level": "high",
+  "final_markdown": "# 关于年度经营成果的汇报\n\n电广传媒：\n\n今年以来，芒果超媒坚持稳中求进，经营情况总体平稳，游戏业务保持良好增长态势，党建工作亮点突出。现将有关情况汇报如下。\n\n## 一、背景情况\n\n今年以来，芒果超媒在湖南广电党委的坚强领导下，锚定“数智化平台型媒体集团”目标，顶压前行、攻坚克难，整体经营保持稳定。核心战略方向明确，各项工作有序推进。\n\n## 二、主要进展\n\n在主营业务方面，公司持续深耕内容生态，游戏业务增长明显，成为业绩增长的重要引擎。公司围绕用户体验和产品创新，不断拓展业务边界，巩固市场地位。\n\n## 三、亮点成效\n\n党建工作取得新成效，以高质量党建引领高质量发展。集团上下深入开展理论学习，强化组织建设，为事业发展提供了坚强政治保证。\n\n## 四、问题挑战\n\n同时我们也清醒地认识到，当前外部环境复杂多变，市场竞争日趋激烈，公司在经营发展中仍面临一些不确定因素。后续将进一步加强风险研判，补齐短板弱项。\n\n## 五、下一步思路\n\n下一步，芒果超媒将聚焦主责主业，持续加大内容和技术投入，推动游戏业务提质增效，深化党建与业务融合，确保年度目标全面完成，为湖南广电高质量发展贡献更大力量。\n\n以上汇报，请领导批评指正。\n\n【落款单位待确认】\n\n【日期待确认】",
+  "revision_report": [
+    {
+      "revision_id": "REV001",
+      "issue_id": "R001",
+      "action": "replace",
+      "before": "2026年以来",
+      "after": "今年以来",
+      "reason": "具体年份'2026'无事实依据，改用extract中'今年'的表述。",
+      "basis": "extract_result.fact_items[0]"
+    },
+    {
+      "revision_id": "REV002",
+      "issue_id": "R003",
+      "action": "delete",
+      "before": "涌现出一批先进典型和特色做法",
+      "after": "",
+      "reason": "无事实依据，删除该无依据概括。",
+      "basis": "review issue R003"
+    },
+    {
+      "revision_id": "REV003",
+      "issue_id": "R002",
+      "action": "add_warning",
+      "before": "",
+      "after": "在fact_usage_report中新增背景段'今年以来'条目",
+      "reason": "补录遗漏的事实使用记录。",
+      "basis": "review issue R002"
+    }
+  ],
+  "fact_usage_report": [
+    {
+      "final_text": "今年以来",
+      "fact_type": "time",
+      "fact_value": "今年",
+      "source_text": "今年经营情况总体不错",
+      "source": "extract_result.fact_items",
+      "confidence": 0.85
+    },
+    {
+      "final_text": "经营情况总体平稳",
+      "fact_type": "achievement",
+      "fact_value": "经营情况总体不错",
+      "source_text": "今年经营情况总体不错",
+      "source": "extract_result.fact_items",
+      "confidence": 0.9
+    },
+    {
+      "final_text": "游戏业务增长明显",
+      "fact_type": "achievement",
+      "fact_value": "游戏业务增长明显",
+      "source_text": "游戏业务增长明显",
+      "source": "extract_result.fact_items",
+      "confidence": 0.9
+    },
+    {
+      "final_text": "党建工作亮点突出",
+      "fact_type": "achievement",
+      "fact_value": "党建有亮点",
+      "source_text": "党建有亮点",
+      "source": "extract_result.fact_items",
+      "confidence": 0.9
+    },
+    {
+      "final_text": "今年以来",
+      "fact_type": "time",
+      "fact_value": "今年",
+      "source_text": "今年经营情况总体不错",
+      "source": "extract_result.fact_items",
+      "confidence": 0.85
+    }
+  ],
+  "terminology_usage_report": [
+    {
+      "raw_value": "电广传媒",
+      "used_value": "电广传媒",
+      "type": "organization",
+      "source": "extract_result.fact_items",
+      "confidence": 0.95,
+      "needs_manual_confirmation": false,
+      "note": "口径库中电广传媒为正式名称，直接使用。"
+    },
+    {
+      "raw_value": "芒果超媒",
+      "used_value": "芒果超媒股份有限公司",
+      "type": "organization",
+      "source": "org-title-dictionary.yaml",
+      "confidence": 0.98,
+      "needs_manual_confirmation": false,
+      "note": "正文首次出现使用全称，后续使用简称。"
+    },
+    {
+      "raw_value": "游戏业务",
+      "used_value": "游戏业务",
+      "type": "product",
+      "source": "extract_result.fact_items",
+      "confidence": 0.95,
+      "needs_manual_confirmation": false,
+      "note": "用户素材未提供具体产品名称，按用户原文使用。"
+    }
+  ],
+  "resolved_issues": [
+    {
+      "issue_id": "R001",
+      "resolution": "将'2026年以来'替换为'今年以来'",
+      "basis": "extract_result.fact_items[0]"
+    },
+    {
+      "issue_id": "R002",
+      "resolution": "补录了背景段'今年以来'至fact_usage_report",
+      "basis": "fact_usage_report新增条目"
+    },
+    {
+      "issue_id": "R003",
+      "resolution": "删除'涌现出一批先进典型和特色做法'",
+      "basis": "review issue R003"
+    },
+    {
+      "issue_id": "R004",
+      "resolution": "正文使用占位符代替具体年份，保留manual_confirmation字段",
+      "basis": "manual_confirmation_fields"
+    }
+  ],
+  "unresolved_issues": [],
+  "remaining_risks": [
+    {
+      "level": "high",
+      "type": "missing_field",
+      "detail": "具体年份缺失，正文使用占位符，需用户确认后方可正式使用。",
+      "action": "建议用户提供具体年份后更新正文。"
+    },
+    {
+      "level": "high",
+      "type": "missing_field",
+      "detail": "落款单位缺失，正文使用占位符。",
+      "action": "正式成稿前需确认落款单位。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "detail": "党建亮点具体内容缺失，正文仅作概括表述。",
+      "action": "建议用户补充具体事例以充实内容。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "detail": "问题挑战内容缺失，正文为通用表述。",
+      "action": "建议根据实际情况补充真实问题。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "detail": "下一步思路内容缺失，正文为通用计划。",
+      "action": "建议根据年度规划补充具体举措。"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "落款单位",
+      "reason": "汇报材料必须有落款，用户未提供",
+      "impact": "影响完整性",
+      "required_before_final": true
+    },
+    {
+      "field": "具体年份",
+      "reason": "用户仅写'今年'",
+      "impact": "影响时效性",
+      "required_before_final": true
+    },
+    {
+      "field": "党建亮点具体内容",
+      "reason": "用户未提供",
+      "impact": "影响内容充实度",
+      "required_before_final": false
+    },
+    {
+      "field": "问题挑战内容",
+      "reason": "用户未提供",
+      "impact": "影响可读性",
+      "required_before_final": false
+    },
+    {
+      "field": "下一步思路",
+      "reason": "用户未提供",
+      "impact": "影响后续指导性",
+      "required_before_final": false
+    }
+  ],
+  "final_checks": {
+    "doc_type_fixed": true,
+    "unsupported_facts_removed": true,
+    "blocked_items_removed": true,
+    "terminology_checked": true,
+    "manual_confirmations_preserved": true
+  },
+  "rewrite_policy": {
+    "body_rewritten": true,
+    "no_new_facts": true,
+    "use_only_extract_facts": true,
+    "no_rag_call": true,
+    "follow_review_instructions": true,
+    "follow_doc_type_rules": true,
+    "follow_org_title_dictionary": true
+  }
+}

@@ -1,0 +1,234 @@
+{
+  "rewrite_summary": "根据review结果，对初稿进行了定向修订：删除了无依据表述'成为公司收入的重要支撑'、'取得阶段性成效'等，将'迈出坚实步伐'改为'稳步推进'，调整了第二部分中AI和党建的描述以避免结构重复，并补充了fact_usage_report。",
+  "doc_type": "领导讲话",
+  "direction": "内部材料",
+  "style_level": 2,
+  "risk_level": "medium",
+  "final_markdown": "# 在公司年度总结会上的讲话\n\n同志们：\n\n今天，我们召开公司年度总结会，回顾2025年度工作，展望2026年发展。在此，我代表公司向全体员工的辛勤付出表示衷心感谢。\n\n## 一、认清形势，统一思想\n\n当前，行业竞争格局深刻变化，文化与科技融合加速推进。我们要清醒认识到，机遇与挑战并存。过去一年，公司游戏业务稳中有进，展现出良好的发展韧性；AI赋能内容生产、党建与业务深度融合等方向也取得了积极进展。这些为我们应对2026年新形势奠定了坚实基础。\n\n## 二、肯定成绩，坚定信心\n\n2025年，在全体员工的共同努力下，公司各项工作扎实推进。游戏业务保持稳中有进的良好态势；AI赋能内容生产稳步推进，为内容创新注入新动能；党建与业务深度融合也取得积极进展。这些成绩的取得，凝聚了大家的智慧与汗水。\n\n## 三、明确任务，重点部署\n\n展望2026年，我们要聚焦以下重点方向：\n\n一是持续巩固游戏业务基本盘，推动稳中有进再上新台阶。要深耕精品内容，拓展用户群体，提升运营效率。\n\n二是加快推进AI赋能内容生产。深化人工智能在内容策划、制作、分发等环节的应用，打造具有核心竞争力的智能内容生态。\n\n三是促进党建与业务深度融合。以党建引领业务发展，将党的政治优势转化为发展优势，确保各项工作沿着正确方向前进。\n\n## 四、强化保障，狠抓落实\n\n各部门要压实责任，细化任务，确保各项工作部署落地见效。要加强协同配合，形成工作合力。要完善考核机制，以实绩论英雄。\n\n## 五、凝心聚力，再启新程\n\n同志们，2026年的征程已经开启。让我们以更加饱满的热情、更加务实的作风，奋力开创公司发展新局面！\n\n谢谢大家！",
+  "revision_report": [
+    {
+      "revision_id": "REV001",
+      "issue_id": "R001",
+      "action": "replace",
+      "before": "游戏业务保持稳中有进的良好态势，成为公司收入的重要支撑",
+      "after": "游戏业务保持稳中有进的良好态势",
+      "reason": "原表述'成为公司收入的重要支撑'无事实依据，删除后保留extract中的'游戏业务稳中有进'。",
+      "basis": "extract_result.fact_items"
+    },
+    {
+      "revision_id": "REV002",
+      "issue_id": "R002",
+      "action": "replace",
+      "before": "党建与业务深度融合取得阶段性成效，有效促进了业务高质量发展",
+      "after": "党建与业务深度融合也取得积极进展",
+      "reason": "原表述无事实依据，替换为基于extract项目名称的概括表述。",
+      "basis": "extract_result.fact_items"
+    },
+    {
+      "revision_id": "REV003",
+      "issue_id": "R004",
+      "action": "replace",
+      "before": "AI赋能内容生产迈出坚实步伐",
+      "after": "AI赋能内容生产稳步推进",
+      "reason": "style_level=2要求稳重，避免过度宣传。",
+      "basis": "doc_type_rules 和 org_title_dictionary style 要求"
+    },
+    {
+      "revision_id": "REV004",
+      "issue_id": "R006",
+      "action": "restructure",
+      "before": "第二部分：'AI赋能内容生产迈出坚实步伐，为内容创新注入新动能；党建与业务深度融合取得阶段性成效，有效促进了业务高质量发展。'",
+      "after": "第二部分：'AI赋能内容生产稳步推进，为内容创新注入新动能；党建与业务深度融合也取得积极进展。'",
+      "reason": "将第二部分中AI和党建的描述改为成效总结，避免与第三部分部署重复。",
+      "basis": "review instruction"
+    }
+  ],
+  "fact_usage_report": [
+    {
+      "final_text": "公司年度总结会",
+      "fact_type": "event",
+      "fact_value": "公司年度总结会",
+      "source_text": "在公司年度总结会上的讲话提纲",
+      "source": "extract_result.fact_items",
+      "confidence": 0.95
+    },
+    {
+      "final_text": "2025年度",
+      "fact_type": "time",
+      "fact_value": "2025年度",
+      "source_text": "会议主题：2025年度工作总结与2026年展望。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.98
+    },
+    {
+      "final_text": "2026年",
+      "fact_type": "time",
+      "fact_value": "2026年",
+      "source_text": "会议主题：2025年度工作总结与2026年展望。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.98
+    },
+    {
+      "final_text": "游戏业务保持稳中有进的良好态势",
+      "fact_type": "achievement",
+      "fact_value": "游戏业务稳中有进",
+      "source_text": "1）游戏业务稳中有进",
+      "source": "extract_result.fact_items",
+      "confidence": 0.9
+    },
+    {
+      "final_text": "AI赋能内容生产稳步推进",
+      "fact_type": "style_expansion",
+      "fact_value": "AI赋能内容生产",
+      "source_text": "2）AI赋能内容生产",
+      "source": "extract_result.fact_items",
+      "confidence": 0.9
+    },
+    {
+      "final_text": "党建与业务深度融合也取得积极进展",
+      "fact_type": "style_expansion",
+      "fact_value": "党建与业务深度融合",
+      "source_text": "3）党建与业务深度融合",
+      "source": "extract_result.fact_items",
+      "confidence": 0.9
+    },
+    {
+      "final_text": "行业竞争格局深刻变化，文化与科技融合加速推进",
+      "fact_type": "style_expansion",
+      "fact_value": "行业竞争格局深刻变化，文化与科技融合加速推进",
+      "source_text": "none",
+      "source": "acceptable_expansion",
+      "confidence": 0.7
+    }
+  ],
+  "terminology_usage_report": [
+    {
+      "raw_value": "公司",
+      "used_value": "公司",
+      "type": "organization",
+      "source": "user_input",
+      "confidence": 0.85,
+      "needs_manual_confirmation": true,
+      "note": "未提供公司正式名称，正文沿用用户表述。"
+    }
+  ],
+  "resolved_issues": [
+    {
+      "issue_id": "R001",
+      "resolution": "删除'成为公司收入的重要支撑'，保留'游戏业务保持稳中有进的良好态势'。",
+      "basis": "extract_result.fact_items"
+    },
+    {
+      "issue_id": "R002",
+      "resolution": "删除'取得阶段性成效'和'有效促进了业务高质量发展'，改为'党建与业务深度融合也取得积极进展'。",
+      "basis": "extract_result.fact_items"
+    },
+    {
+      "issue_id": "R003",
+      "resolution": "保留原文，视为可接受扩写。",
+      "basis": "review instruction"
+    },
+    {
+      "issue_id": "R004",
+      "resolution": "将'迈出坚实步伐'改为'稳步推进'。",
+      "basis": "style_level=2要求"
+    },
+    {
+      "issue_id": "R005",
+      "resolution": "在fact_usage_report中补充了所有正文事实条目。",
+      "basis": "review instruction"
+    },
+    {
+      "issue_id": "R006",
+      "resolution": "调整第二部分描述为成效总结，避免与第三部分重复。",
+      "basis": "review instruction"
+    }
+  ],
+  "unresolved_issues": [],
+  "remaining_risks": [
+    {
+      "level": "high",
+      "type": "missing_field",
+      "detail": "讲话领导姓名和职务缺失，正文未使用具体称谓。",
+      "action": "正式使用前需补充讲话领导姓名和职务。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "detail": "公司正式名称缺失，正文使用'公司'简称。",
+      "action": "正式使用前需确认公司正式全称。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "detail": "会议具体日期缺失。",
+      "action": "如需精确背景可补充具体日期。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "detail": "会议地点缺失。",
+      "action": "如需精确背景可补充地点。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "detail": "参会人员范围缺失，正文仅用'同志们'泛指。",
+      "action": "可根据实际参会人员调整称呼。"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "公司正式名称",
+      "reason": "用户仅写'公司'，需确认正式全称。",
+      "impact": "影响称谓准确性。",
+      "required_before_final": true
+    },
+    {
+      "field": "讲话领导姓名",
+      "reason": "领导讲话必须明确讲话人。",
+      "impact": "影响讲话稿权威性。",
+      "required_before_final": true
+    },
+    {
+      "field": "讲话领导职务",
+      "reason": "影响开头称谓和语气定位。",
+      "impact": "影响开头表达。",
+      "required_before_final": true
+    },
+    {
+      "field": "会议具体日期",
+      "reason": "用户只给出年度，未提供具体日期。",
+      "impact": "影响背景完整性。",
+      "required_before_final": false
+    },
+    {
+      "field": "会议地点",
+      "reason": "用户未提供。",
+      "impact": "影响环境描述。",
+      "required_before_final": false
+    },
+    {
+      "field": "参会人员范围",
+      "reason": "用户未说明参会人员。",
+      "impact": "影响称呼语。",
+      "required_before_final": false
+    }
+  ],
+  "final_checks": {
+    "doc_type_fixed": true,
+    "unsupported_facts_removed": true,
+    "blocked_items_removed": true,
+    "terminology_checked": true,
+    "manual_confirmations_preserved": true
+  },
+  "rewrite_policy": {
+    "body_rewritten": true,
+    "no_new_facts": true,
+    "use_only_extract_facts": true,
+    "no_rag_call": true,
+    "follow_review_instructions": true,
+    "follow_doc_type_rules": true,
+    "follow_org_title_dictionary": true
+  }
+}

@@ -1,0 +1,210 @@
+{
+  "review_summary": "初稿基本符合领导讲话文种要求，结构大体匹配规划，正文使用了extract中提供的事实，未出现编造领导信息或数据。但存在多处无依据的拔高表述（如'成为公司收入的重要支撑'、'取得阶段性成效'）以及少量结构重叠，导致部分事实无溯源。缺失讲话领导姓名、职务等关键信息已通过占位和人工确认项处理。需要修订以消除无依据表述并完善事实溯源。",
+  "pass": false,
+  "score": 72,
+  "rewrite_required": true,
+  "risk_level": "medium",
+  "checks": {
+    "doc_type_check": {
+      "status": "pass",
+      "summary": "文种为领导讲话，与classify一致。正文采用讲话结构，符合文种规则。",
+      "issues_count": 0
+    },
+    "structure_check": {
+      "status": "warning",
+      "summary": "正文分为五个部分，基本对应plan的六段式，但第二部分'肯定成绩'与第三部分'重点部署'内容略有重叠（均涉及AI和党建），且缺少单独的'开场与背景'段落。",
+      "issues_count": 1
+    },
+    "fact_grounding_check": {
+      "status": "fail",
+      "summary": "正文出现多处无extract依据的表述：'成为公司收入的重要支撑'、'取得阶段性成效'、'有效促进了业务高质量发展'、'行业竞争格局深刻变化'等。",
+      "issues_count": 4
+    },
+    "fact_usage_report_check": {
+      "status": "fail",
+      "summary": "fact_usage_report仅覆盖6处事实，但正文中'行业竞争格局深刻变化'、'文化与科技融合加速推进'、'迈出坚实步伐'等未出现在报告中，存在遗漏。",
+      "issues_count": 2
+    },
+    "rag_usage_check": {
+      "status": "pass",
+      "summary": "rag_usage_report显示RAG仅用于风格借鉴，copied_verbatim为false，fact_risk为false，正文未照搬RAG事实。",
+      "issues_count": 0
+    },
+    "terminology_check": {
+      "status": "warning",
+      "summary": "正文使用'公司'简称，需人工确认正式全称。未出现禁用称谓或口语化表达。",
+      "issues_count": 1
+    },
+    "blocked_items_check": {
+      "status": "pass",
+      "summary": "blocked_items_check显示未使用编造内容，正文未出现领导姓名、具体日期等编造信息。",
+      "issues_count": 0
+    },
+    "warnings_check": {
+      "status": "pass",
+      "summary": "warnings已覆盖missing_leader_title、missing_fields等风险，表述完整。",
+      "issues_count": 0
+    },
+    "manual_confirmation_check": {
+      "status": "pass",
+      "summary": "manual_confirmation_fields保留了公司名称、领导姓名、职务等关键确认项，格式正确。",
+      "issues_count": 0
+    },
+    "style_check": {
+      "status": "warning",
+      "summary": "style_level=2要求稳重正式，正文使用了'迈出坚实步伐'等偏宣传的表述，略微超出，但整体可接受。",
+      "issues_count": 1
+    },
+    "format_check": {
+      "status": "pass",
+      "summary": "Markdown格式正确，标题、段落层次清晰，结尾有号召和谢谢。",
+      "issues_count": 0
+    }
+  },
+  "issues": [
+    {
+      "issue_id": "R001",
+      "level": "medium",
+      "type": "fact_not_grounded",
+      "location": "markdown_draft 第二段",
+      "detail": "正文出现'成为公司收入的重要支撑'，但extract_result仅提供'游戏业务稳中有进'，未提及收入构成或支撑地位。",
+      "evidence": "成为公司收入的重要支撑",
+      "suggestion": "删除该句或改为'游戏业务保持稳中有进的良好态势'。",
+      "rewrite_hint": "删除'成为公司收入的重要支撑'，仅保留'游戏业务保持稳中有进的良好态势'。"
+    },
+    {
+      "issue_id": "R002",
+      "level": "medium",
+      "type": "fact_not_grounded",
+      "location": "markdown_draft 第二段",
+      "detail": "正文出现'取得阶段性成效'和'有效促进了业务高质量发展'，但extract_result仅列出'党建与业务深度融合'项目名称，未提供成效描述。",
+      "evidence": "取得阶段性成效；有效促进了业务高质量发展",
+      "suggestion": "删除无依据的成效评价，仅保留'党建与业务深度融合'的概括表述。",
+      "rewrite_hint": "改为'党建与业务深度融合也取得积极进展'（如保留'积极进展'可视为可接受扩写，但建议更谨慎）。"
+    },
+    {
+      "issue_id": "R003",
+      "level": "low",
+      "type": "fact_not_grounded",
+      "location": "markdown_draft 第一段",
+      "detail": "正文'行业竞争格局深刻变化，文化与科技融合加速推进'为泛化形势判断，无extract来源，但属合理扩写。建议标注为可接受扩写，无需修改。",
+      "evidence": "行业竞争格局深刻变化，文化与科技融合加速推进",
+      "suggestion": "无需修改，但需在fact_usage_report中补充记录。",
+      "rewrite_hint": "保留原文。"
+    },
+    {
+      "issue_id": "R004",
+      "level": "low",
+      "type": "style_overdone",
+      "location": "markdown_draft 第二段",
+      "detail": "'迈出坚实步伐'属于偏宣传的表述，与style_level=2的稳重风格略有出入。",
+      "evidence": "迈出坚实步伐",
+      "suggestion": "可改为'稳步推进'或'取得进展'。",
+      "rewrite_hint": "将'迈出坚实步伐'改为'稳步推进'。"
+    },
+    {
+      "issue_id": "R005",
+      "level": "medium",
+      "type": "fact_usage_missing",
+      "location": "markdown_draft 全篇",
+      "detail": "正文中'行业竞争格局深刻变化'、'文化与科技融合加速推进'、'成为公司收入的重要支撑'等事实未被fact_usage_report覆盖。",
+      "evidence": "fact_usage_report仅列出6项，正文存在未记录的事实。",
+      "suggestion": "补充fact_usage_report，将所有正文事实（包括合理扩写）对应到extract或标注为style_expansion。",
+      "rewrite_hint": "在fact_usage_report中增加条目，如{'draft_text':'行业竞争格局深刻变化','fact_type':'style_expansion','source':'acceptable_expansion'}。"
+    },
+    {
+      "issue_id": "R006",
+      "level": "low",
+      "type": "structure_mismatch",
+      "location": "markdown_draft 第二、三部分",
+      "detail": "第二部分'肯定成绩'与第三部分'重点部署'均提及AI赋能和党建，内容略有重叠，结构上可优化。",
+      "evidence": "第二部分：'AI赋能内容生产、党建与业务深度融合等方向也取得了积极进展'；第三部分：'加快推进AI赋能内容生产'、'促进党建与业务深度融合'",
+      "suggestion": "将AI和党建的成效描述集中在第二部分，第三部分仅部署具体方向。",
+      "rewrite_hint": "调整第二部分描述为'AI赋能内容生产和党建与业务深度融合取得积极进展'，第三部分保留部署内容。"
+    }
+  ],
+  "rewrite_instructions": [
+    {
+      "priority": "high",
+      "target": "markdown_draft 第二段",
+      "action": "replace",
+      "instruction": "删除'成为公司收入的重要支撑'，改为'游戏业务保持稳中有进的良好态势'。",
+      "basis": "extract_result.fact_items中有'游戏业务稳中有进'，但无收入支撑表述。"
+    },
+    {
+      "priority": "high",
+      "target": "markdown_draft 第二段",
+      "action": "replace",
+      "instruction": "删除'取得阶段性成效'和'有效促进了业务高质量发展'，改为'党建与业务深度融合也取得积极进展'。",
+      "basis": "extract_result仅提供项目名称，未提供成效描述。"
+    },
+    {
+      "priority": "medium",
+      "target": "markdown_draft 第二段",
+      "action": "replace",
+      "instruction": "将'迈出坚实步伐'改为'稳步推进'。",
+      "basis": "style_level=2要求稳重，避免过度宣传。"
+    },
+    {
+      "priority": "medium",
+      "target": "fact_usage_report",
+      "action": "add_warning",
+      "instruction": "在fact_usage_report中补充正文中所有事实条目，包括合理扩写，并标注类型和来源。",
+      "basis": "fact_usage_report不完整。"
+    },
+    {
+      "priority": "low",
+      "target": "markdown_draft 第二、三部分",
+      "action": "restructure",
+      "instruction": "将第二部分中'AI赋能内容生产、党建与业务深度融合'的描述改为成效总结，第三部分保留其作为部署方向。避免重复。",
+      "basis": "结构轻微重叠。"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "公司正式名称",
+      "reason": "正文使用'公司'简称，需确认正式全称。",
+      "impact": "影响称谓准确性。",
+      "required_before_final": true
+    },
+    {
+      "field": "讲话领导姓名",
+      "reason": "领导讲话必须明确讲话人。",
+      "impact": "影响讲话稿权威性。",
+      "required_before_final": true
+    },
+    {
+      "field": "讲话领导职务",
+      "reason": "影响开头称谓和语气定位。",
+      "impact": "影响开头表达。",
+      "required_before_final": true
+    },
+    {
+      "field": "会议具体日期",
+      "reason": "用户只给出年度，未提供具体日期。",
+      "impact": "影响背景完整性。",
+      "required_before_final": false
+    },
+    {
+      "field": "会议地点",
+      "reason": "用户未提供。",
+      "impact": "影响环境描述。",
+      "required_before_final": false
+    },
+    {
+      "field": "参会人员范围",
+      "reason": "用户未说明参会人员。",
+      "impact": "影响称呼语。",
+      "required_before_final": false
+    }
+  ],
+  "review_policy": {
+    "no_body_generation": true,
+    "no_rewrite": true,
+    "no_new_facts": true,
+    "no_rag_call": true,
+    "check_fact_grounding": true,
+    "check_doc_type_rules": true,
+    "check_org_title_dictionary": true
+  }
+}

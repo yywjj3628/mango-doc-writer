@@ -1,0 +1,189 @@
+{
+  "source_summary": "用户需求为整理成向电广传媒的季度工作汇报材料，初稿包含本季度三项主要工作和下一步两个重点：劲舞团手游版上线筹备、党建活动按计划推进、与韩国T3续约谈判启动，下一步为手游版内测和党建品牌打造。",
+  "facts": {
+    "time": [
+      "本季度"
+    ],
+    "location": [],
+    "organizations": [
+      "韩国T3"
+    ],
+    "leaders": [],
+    "persons": [],
+    "products": [
+      "劲舞团手游版"
+    ],
+    "projects": [
+      "劲舞团手游版上线筹备",
+      "党建活动",
+      "与韩国T3续约谈判",
+      "手游版内测",
+      "党建品牌打造"
+    ],
+    "events": [],
+    "data": [],
+    "achievements": [
+      "本季度主要做了三件事：劲舞团手游版上线筹备、党建活动按计划推进、与韩国T3续约谈判启动"
+    ],
+    "problems": [],
+    "requests": [],
+    "policies": [],
+    "documents": []
+  },
+  "fact_items": [
+    {
+      "type": "time",
+      "value": "本季度",
+      "source_text": "本季度主要做了三件事",
+      "confidence": 0.9,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": true,
+      "note": "未指明具体季度名称（如Q1、Q2），建议确认。"
+    },
+    {
+      "type": "product",
+      "value": "劲舞团手游版",
+      "source_text": "劲舞团手游版上线筹备",
+      "confidence": 0.95,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": null
+    },
+    {
+      "type": "project",
+      "value": "劲舞团手游版上线筹备",
+      "source_text": "劲舞团手游版上线筹备",
+      "confidence": 0.95,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": null
+    },
+    {
+      "type": "project",
+      "value": "党建活动",
+      "source_text": "党建活动按计划推进",
+      "confidence": 0.9,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": true,
+      "note": "活动具体名称未提供。"
+    },
+    {
+      "type": "project",
+      "value": "与韩国T3续约谈判",
+      "source_text": "与韩国T3续约谈判启动",
+      "confidence": 0.95,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": null
+    },
+    {
+      "type": "organization",
+      "value": "韩国T3",
+      "source_text": "与韩国T3续约谈判启动",
+      "confidence": 0.85,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": true,
+      "note": "是否为正式公司全称，需确认。"
+    },
+    {
+      "type": "project",
+      "value": "手游版内测",
+      "source_text": "下一步重点是手游版内测和党建品牌打造",
+      "confidence": 0.95,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": null
+    },
+    {
+      "type": "project",
+      "value": "党建品牌打造",
+      "source_text": "下一步重点是手游版内测和党建品牌打造",
+      "confidence": 0.9,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": true,
+      "note": "品牌具体名称未提供。"
+    },
+    {
+      "type": "achievement",
+      "value": "本季度主要做了三件事：劲舞团手游版上线筹备、党建活动按计划推进、与韩国T3续约谈判启动",
+      "source_text": "本季度主要做了三件事：1）劲舞团手游版上线筹备；2）党建活动按计划推进；3）与韩国T3续约谈判启动。",
+      "confidence": 0.95,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": null
+    }
+  ],
+  "missing_fields": [
+    {
+      "field": "主送单位",
+      "reason": "用户要求向电广传媒汇报，但初稿中未写明主送单位名称",
+      "impact": "影响正式汇报材料抬头",
+      "suggestion": "后续写作前确认正式主送单位，如'电广传媒'或具体部门"
+    },
+    {
+      "field": "具体季度名称",
+      "reason": "用户仅写'本季度'，未提供季度编号或具体时间段",
+      "impact": "影响时间表述的明确性",
+      "suggestion": "后续写作前建议明确季度，如'2023年第一季度'"
+    },
+    {
+      "field": "党建活动具体名称",
+      "reason": "用户仅写'党建活动'，未提供活动正式名称",
+      "impact": "影响汇报内容的清晰度",
+      "suggestion": "后续写作前建议确认党建活动正式名称"
+    },
+    {
+      "field": "党建品牌名称",
+      "reason": "用户仅写'党建品牌打造'，未提供品牌具体名称",
+      "impact": "影响下一步计划的针对性",
+      "suggestion": "后续写作前建议确认党建品牌名称"
+    },
+    {
+      "field": "数据支撑",
+      "reason": "用户未提供任何具体数据（如筹备进度、谈判进展等）",
+      "impact": "影响汇报材料的说服力",
+      "suggestion": "后续写作前建议补充相关数据或阶段性成果"
+    }
+  ],
+  "cannot_infer": [
+    {
+      "field": "具体时间节点",
+      "reason": "用户未提供任何具体日期或阶段划分，不得自动补充"
+    },
+    {
+      "field": "工作成效与评价",
+      "reason": "用户未提供任何成效或评价，不得自动补充'取得显著成效'等表述"
+    },
+    {
+      "field": "领导指示",
+      "reason": "用户未提供领导意见或要求，不得自动补充"
+    },
+    {
+      "field": "合作细节",
+      "reason": "用户仅提到与韩国T3续约谈判启动，未提供谈判内容或进展，不得自行补充"
+    }
+  ],
+  "risk_flags": [
+    {
+      "type": "ambiguous_fact",
+      "detail": "时间表述为'本季度'，未指明具体季度，可能影响后续材料时间定位",
+      "level": "medium"
+    },
+    {
+      "type": "missing_required_field",
+      "detail": "主送单位未在初稿中出现，需在后续确认",
+      "level": "high"
+    },
+    {
+      "type": "achievement_without_data",
+      "detail": "提到本季度做了三件事，但未提供任何数据或具体进展描述",
+      "level": "medium"
+    }
+  ],
+  "extraction_policy": {
+    "only_user_provided_facts": true,
+    "no_external_knowledge": true,
+    "no_rag_facts": true,
+    "no_invented_data": true
+  }
+}

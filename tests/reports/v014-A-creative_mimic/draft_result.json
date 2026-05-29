@@ -1,0 +1,150 @@
+{
+  "draft_summary": "已按新闻稿文种生成初稿。素材包含时间、主办方、参赛团队和获奖作品信息，缺少活动地点、团队详情和意义价值，正文使用概括性表述并保留人工确认提示。",
+  "doc_type": "新闻稿",
+  "direction": "对外宣传",
+  "style_level": 3,
+  "risk_level": "low",
+  "markdown_draft": "# 芒果超媒AI内容创作大赛圆满落幕 一等奖作品《AI导演》实现全流程AI辅助制作\n\n4月15日，芒果超媒股份有限公司（以下简称芒果超媒）举办AI内容创作大赛。来自12个团队的参赛选手同台竞技，围绕AI技术在内容创作中的应用展开角逐。\n\n本次大赛聚焦AI赋能内容创作，参赛作品涵盖多个创意领域。经过激烈比拼，一等奖作品《AI导演》脱颖而出，实现了从前期策划、内容生成到后期制作的全流程AI辅助制作，展现了人工智能与内容创作的深度融合。\n\n当前，芒果超媒正积极推动AI技术在各业务场景中的落地应用。本次大赛不仅为创作者提供了展示平台，也进一步激发了团队创新活力，为芒果超媒的AI战略储备了人才与创意势能。\n\n展望未来，芒果超媒将持续深化AI赋能，以融合创新驱动内容生产提质增效，助力芒果生态的智能跃升。",
+  "fact_usage_report": [
+    {
+      "draft_text": "4月15日",
+      "fact_type": "time",
+      "fact_value": "4月15日",
+      "source_text": "4月15日，芒果超媒举办AI内容创作大赛。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.98
+    },
+    {
+      "draft_text": "芒果超媒股份有限公司（以下简称芒果超媒）",
+      "fact_type": "organization",
+      "fact_value": "芒果超媒",
+      "source_text": "芒果超媒举办AI内容创作大赛。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.95
+    },
+    {
+      "draft_text": "AI内容创作大赛",
+      "fact_type": "event",
+      "fact_value": "AI内容创作大赛",
+      "source_text": "芒果超媒举办AI内容创作大赛。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.95
+    },
+    {
+      "draft_text": "12个团队",
+      "fact_type": "data",
+      "fact_value": "12个团队",
+      "source_text": "来自12个团队参加。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.95
+    },
+    {
+      "draft_text": "《AI导演》",
+      "fact_type": "product",
+      "fact_value": "《AI导演》",
+      "source_text": "一等奖作品《AI导演》实现了全流程AI辅助制作。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.95
+    },
+    {
+      "draft_text": "实现了从前期策划、内容生成到后期制作的全流程AI辅助制作",
+      "fact_type": "achievement",
+      "fact_value": "一等奖作品《AI导演》实现了全流程AI辅助制作",
+      "source_text": "一等奖作品《AI导演》实现了全流程AI辅助制作。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.94
+    }
+  ],
+  "rag_usage_report": [],
+  "terminology_usage_report": [
+    {
+      "raw_value": "芒果超媒",
+      "used_value": "芒果超媒股份有限公司",
+      "type": "organization",
+      "source": "org-title-dictionary.yaml",
+      "confidence": 0.95,
+      "needs_manual_confirmation": false,
+      "note": "首次出现使用全称，后续使用简称"
+    }
+  ],
+  "blocked_items_check": [
+    {
+      "item": "领导出席",
+      "status": "not_used",
+      "reason": "用户未提供，正文未编造"
+    },
+    {
+      "item": "领导评价",
+      "status": "not_used",
+      "reason": "用户未提供，正文未编造"
+    },
+    {
+      "item": "活动地点",
+      "status": "not_used",
+      "reason": "用户未提供，正文未写具体地点"
+    },
+    {
+      "item": "成果数据",
+      "status": "not_used",
+      "reason": "用户仅提供定性描述，正文未编造具体数据"
+    },
+    {
+      "item": "团队名称",
+      "status": "not_used",
+      "reason": "用户未提供具体名称，正文概括为'12个团队'"
+    }
+  ],
+  "warnings": [
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "message": "活动地点缺失，导语段未写具体地点。",
+      "related_field": "活动地点",
+      "action": "后续确认是否需要补充地点信息。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "message": "参与团队详情缺失，正文仅概括表述为'12个团队'。",
+      "related_field": "团队详情",
+      "action": "如有具体团队名称可补充。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "message": "意义价值段缺乏事实支撑，正文使用通用升华表达，需人工确认。",
+      "related_field": "意义价值",
+      "action": "建议人工补充活动意义或影响。"
+    },
+    {
+      "level": "low",
+      "type": "achievement_without_detail",
+      "message": "全流程AI辅助制作缺少具体技术细节或效果数据。",
+      "related_field": "技术细节",
+      "action": "如有更多信息可补充。"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "活动地点",
+      "reason": "导语段需要地点信息但缺失，需人工补充或决定是否使用泛化表述",
+      "required_before_final": false,
+      "impact": ""
+    },
+    {
+      "field": "意义价值段",
+      "reason": "该段缺乏事实支撑，需人工补充升华方向",
+      "required_before_final": false,
+      "impact": ""
+    }
+  ],
+  "draft_policy": {
+    "body_generated": true,
+    "no_new_facts": true,
+    "use_only_extract_facts": true,
+    "rag_used_for_style_only": true,
+    "follow_plan_structure": true,
+    "follow_doc_type_rules": true,
+    "follow_org_title_dictionary": true
+  }
+}

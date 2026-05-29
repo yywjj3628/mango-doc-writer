@@ -8,7 +8,10 @@ input_parser.py — 将用户输入解析为 PipelineInput
 
 import json
 import re
-from typing import Any, Dict, Optional
+from typing import Any, Dict, Optional, Tuple
+
+# v0.1.4 generation mode 合法值
+VALID_GENERATION_MODES = ["safe_official", "assisted_expansion", "creative_mimic"]
 
 
 # 文种关键词 → 可提取的 specified_doc_type
@@ -36,8 +39,23 @@ TARGET_HINTS = {
 }
 
 
+def _validate_generation_mode(raw_value: Any) -> Tuple[str, bool, list]:
+    """校验 generation_mode，返回 (mode, is_valid, warnings)"""
+    warnings = []
+    if raw_value is None:
+        return "safe_official", True, []
+    if not isinstance(raw_value, str):
+        warnings.append(f"generation_mode 类型无效 ({type(raw_value).__name__})，回退到 safe_official")
+        return "safe_official", False, warnings
+    if raw_value not in VALID_GENERATION_MODES:
+        warnings.append(f"generation_mode 值无效 ('{raw_value}')，回退到 safe_official。合法值: {VALID_GENERATION_MODES}")
+        return "safe_official", False, warnings
+    return raw_value, True, []
+
+
 def parse_structured_input(data: Dict[str, Any]) -> Dict[str, Any]:
     """解析结构化 JSON 输入"""
+    gen_mode, gen_valid, gen_warnings = _validate_generation_mode(data.get("generation_mode"))
     return {
         "requirement": data.get("requirement", ""),
         "draft": data.get("draft", ""),
@@ -45,6 +63,9 @@ def parse_structured_input(data: Dict[str, Any]) -> Dict[str, Any]:
         "target_unit": data.get("target_unit"),
         "scene": data.get("scene"),
         "output_formats": data.get("output_formats", ["markdown"]),
+        "generation_mode": gen_mode,
+        "generation_mode_valid": gen_valid,
+        "generation_mode_warnings": gen_warnings,
     }
 
 
@@ -118,6 +139,9 @@ def parse_natural_language(text: str) -> Dict[str, Any]:
         "target_unit": target_unit,
         "scene": scene,
         "output_formats": ["markdown"],
+        "generation_mode": "safe_official",  # 自然语言输入默认 safe_official
+        "generation_mode_valid": True,
+        "generation_mode_warnings": [],
     }
 
 

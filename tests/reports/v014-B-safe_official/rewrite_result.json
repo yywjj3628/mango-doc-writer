@@ -1,0 +1,192 @@
+{
+  "rewrite_summary": "初稿通过质检，无需修订。仅保留原稿，保留占位符和待确认项。",
+  "doc_type": "汇报材料",
+  "direction": "上行文",
+  "style_level": 2,
+  "risk_level": "medium",
+  "final_markdown": "# 关于本季度工作情况的汇报\n\n电广传媒：\n\n现将本季度工作有关情况汇报如下。\n\n## 一、背景情况\n\n本季度，我们围绕各项重点工作有序推进，整体工作保持良好态势。\n\n## 二、主要进展\n\n一是劲舞团手游版上线筹备工作稳步推进；二是党建活动按计划推进；三是与韩国T3续约谈判正式启动。\n\n## 三、亮点成效\n\n本季度主要工作任务均已按计划启动或推进，为后续工作奠定了良好基础。\n\n## 四、问题挑战\n\n当前工作中仍存在一些需要关注的方面，具体问题正在进一步梳理中。\n\n## 五、下一步思路\n\n下一步，重点推进手游版内测工作，同时持续打造党建品牌。\n\n【落款单位待确认】\n\n【日期待确认】",
+  "revision_report": [],
+  "fact_usage_report": [
+    {
+      "final_text": "本季度",
+      "fact_type": "time",
+      "fact_value": "本季度",
+      "source_text": "本季度主要做了三件事",
+      "source": "extract_result.fact_items",
+      "confidence": 0.9
+    },
+    {
+      "final_text": "电广传媒",
+      "fact_type": "organization",
+      "fact_value": "电广传媒",
+      "source_text": "向电广传媒的季度工作汇报材料",
+      "source": "extract_result.fact_items",
+      "confidence": 0.98
+    },
+    {
+      "final_text": "劲舞团手游版上线筹备",
+      "fact_type": "project",
+      "fact_value": "劲舞团手游版上线筹备",
+      "source_text": "劲舞团手游版上线筹备",
+      "source": "extract_result.fact_items",
+      "confidence": 0.97
+    },
+    {
+      "final_text": "党建活动按计划推进",
+      "fact_type": "project",
+      "fact_value": "党建活动按计划推进",
+      "source_text": "党建活动按计划推进",
+      "source": "extract_result.fact_items",
+      "confidence": 0.96
+    },
+    {
+      "final_text": "与韩国T3续约谈判正式启动",
+      "fact_type": "project",
+      "fact_value": "与韩国T3续约谈判启动",
+      "source_text": "与韩国T3续约谈判启动",
+      "source": "extract_result.fact_items",
+      "confidence": 0.97
+    },
+    {
+      "final_text": "手游版内测",
+      "fact_type": "project",
+      "fact_value": "手游版内测",
+      "source_text": "下一步重点是手游版内测和党建品牌打造",
+      "source": "extract_result.fact_items",
+      "confidence": 0.96
+    },
+    {
+      "final_text": "党建品牌打造",
+      "fact_type": "project",
+      "fact_value": "党建品牌打造",
+      "source_text": "下一步重点是手游版内测和党建品牌打造",
+      "source": "extract_result.fact_items",
+      "confidence": 0.96
+    },
+    {
+      "final_text": "本季度主要工作任务均已按计划启动或推进",
+      "fact_type": "achievement",
+      "fact_value": "本季度主要做了三件事：劲舞团手游版上线筹备、党建活动按计划推进、与韩国T3续约谈判启动",
+      "source_text": "本季度主要做了三件事：1）劲舞团手游版上线筹备；2）党建活动按计划推进；3）与韩国T3续约谈判启动。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.98
+    }
+  ],
+  "terminology_usage_report": [
+    {
+      "raw_value": "电广传媒",
+      "used_value": "电广传媒",
+      "type": "organization",
+      "source": "extract_result / user_input",
+      "needs_manual_confirmation": false,
+      "confidence": 0.0,
+      "note": ""
+    },
+    {
+      "raw_value": "韩国T3",
+      "used_value": "韩国T3",
+      "type": "organization",
+      "source": "extract_result",
+      "needs_manual_confirmation": false,
+      "confidence": 0.0,
+      "note": ""
+    },
+    {
+      "raw_value": "劲舞团手游版",
+      "used_value": "劲舞团手游版",
+      "type": "product",
+      "source": "extract_result",
+      "needs_manual_confirmation": false,
+      "confidence": 0.0,
+      "note": ""
+    }
+  ],
+  "resolved_issues": [],
+  "unresolved_issues": [],
+  "remaining_risks": [
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "detail": "季度具体名称缺失，正文仅使用'本季度'。",
+      "action": "正式成稿前需确认具体季度名称，如2024年第三季度。"
+    },
+    {
+      "level": "medium",
+      "type": "incomplete_organization_name",
+      "detail": "韩国T3可能为非正式名称，需确认全称。",
+      "action": "正式成稿前需确认合作方正式全称。"
+    },
+    {
+      "level": "low",
+      "type": "ambiguous_fact",
+      "detail": "劲舞团手游版是否为产品正式名称存疑。",
+      "action": "正式成稿前需确认产品正式名称。"
+    },
+    {
+      "level": "high",
+      "type": "missing_field",
+      "detail": "落款单位缺失，正文使用【落款单位待确认】占位。",
+      "action": "正式成稿前需补充汇报单位全称。"
+    },
+    {
+      "level": "medium",
+      "type": "section_no_fact_support",
+      "detail": "亮点成效段缺乏具体数据或成果支撑，正文仅作概括表述。",
+      "action": "如有具体成效数据，建议补充。"
+    },
+    {
+      "level": "medium",
+      "type": "section_no_fact_support",
+      "detail": "问题挑战段用户未提供任何信息，正文仅提示'正在梳理中'。",
+      "action": "需人工确认是否存在问题挑战。"
+    },
+    {
+      "level": "low",
+      "type": "placeholder_used",
+      "detail": "正文包含【落款单位待确认】和【日期待确认】占位符。",
+      "action": "正式成稿前需补充落款单位和日期。"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "季度具体名称",
+      "reason": "时间明确性缺失",
+      "impact": "影响汇报材料的时间明确性",
+      "required_before_final": true
+    },
+    {
+      "field": "落款单位",
+      "reason": "汇报材料必须明确落款单位",
+      "impact": "影响材料完整性",
+      "required_before_final": true
+    },
+    {
+      "field": "韩国T3全称",
+      "reason": "可能为非正式名称",
+      "impact": "影响对外称谓准确性",
+      "required_before_final": true
+    },
+    {
+      "field": "劲舞团手游版名称确认",
+      "reason": "是否为正式产品名称存疑",
+      "impact": "影响产品表述准确性",
+      "required_before_final": false
+    }
+  ],
+  "final_checks": {
+    "doc_type_fixed": true,
+    "unsupported_facts_removed": true,
+    "blocked_items_removed": true,
+    "terminology_checked": true,
+    "manual_confirmations_preserved": true
+  },
+  "rewrite_policy": {
+    "body_rewritten": true,
+    "no_new_facts": true,
+    "use_only_extract_facts": true,
+    "no_rag_call": true,
+    "follow_review_instructions": true,
+    "follow_doc_type_rules": true,
+    "follow_org_title_dictionary": true
+  }
+}

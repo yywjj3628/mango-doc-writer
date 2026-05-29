@@ -1,0 +1,361 @@
+{
+  "plan_summary": "用户需求为起草在公司年度总结会上的讲话提纲，classify判定为领导讲话，内部材料，低风险。extract提供会议主题、三个工作方向及相关事实，但缺失讲话领导姓名、职务、具体日期、地点、参会人员等信息。标题建议用会议主题，结构按领导讲话六段式规划，每段绑定可用事实并标记需人工补充内容。",
+  "doc_type": "领导讲话",
+  "direction": "内部材料",
+  "style_level": 2,
+  "risk_level": "low",
+  "title_plan": {
+    "recommended_title": "在公司年度总结会上的讲话",
+    "title_type": "会议讲话标题",
+    "title_confidence": 0.7,
+    "title_basis": [
+      "classify.doc_type = 领导讲话",
+      "extract.event = 公司年度总结会"
+    ],
+    "title_risks": [
+      "公司正式名称缺失，标题未含具体公司名"
+    ],
+    "alternative_titles": [
+      "以2025年度工作总结与2026年展望为主题的讲话"
+    ]
+  },
+  "addressee_plan": {
+    "recommended_addressee": null,
+    "source": "not_applicable",
+    "confidence": 0,
+    "needs_manual_confirmation": false,
+    "note": "领导讲话通常无需主送单位"
+  },
+  "signer_plan": {
+    "recommended_signer": null,
+    "source": "missing",
+    "confidence": 0,
+    "needs_manual_confirmation": true,
+    "note": "用户未提供讲话领导姓名和职务，无法确定落款"
+  },
+  "sections": [
+    {
+      "section_id": "S1",
+      "section_name": "开场与背景",
+      "purpose": "点明会议主题、背景，进行问候和感谢",
+      "content_guidance": "围绕会议主题'2025年度工作总结与2026年展望'展开，使用标准讲话开场句式",
+      "fact_bindings": [
+        {
+          "fact_type": "event",
+          "fact_value": "公司年度总结会",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "time",
+          "fact_value": "2025年度",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "time",
+          "fact_value": "2026年",
+          "source_from_extract": true
+        }
+      ],
+      "blocked_items": [
+        "不得编造讲话领导姓名和职务",
+        "不得编造会议具体日期和地点"
+      ],
+      "word_count_estimate": 150,
+      "needs_manual_input": true
+    },
+    {
+      "section_id": "S2",
+      "section_name": "形势判断",
+      "purpose": "分析当前行业和公司面临的形势，统一思想",
+      "content_guidance": "围绕2025年行业形势和公司业务方向展开，可引用游戏业务稳中有进作为积极信号",
+      "fact_bindings": [
+        {
+          "fact_type": "achievement",
+          "fact_value": "游戏业务稳中有进",
+          "source_from_extract": true
+        }
+      ],
+      "blocked_items": [
+        "不得编造具体行业数据",
+        "不得编造政策判断"
+      ],
+      "word_count_estimate": 200,
+      "needs_manual_input": true
+    },
+    {
+      "section_id": "S3",
+      "section_name": "工作肯定",
+      "purpose": "肯定过去一年的工作成效",
+      "content_guidance": "重点肯定游戏业务稳中有进，可适当提及AI赋能和党建方向，但避免具体数据",
+      "fact_bindings": [
+        {
+          "fact_type": "achievement",
+          "fact_value": "游戏业务稳中有进",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "project",
+          "fact_value": "AI赋能内容生产",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "project",
+          "fact_value": "党建与业务深度融合",
+          "source_from_extract": true
+        }
+      ],
+      "blocked_items": [
+        "不得编造具体经营数据",
+        "不得编造领导评价"
+      ],
+      "word_count_estimate": 250,
+      "needs_manual_input": true
+    },
+    {
+      "section_id": "S4",
+      "section_name": "重点部署",
+      "purpose": "部署2026年重点工作方向",
+      "content_guidance": "围绕三个工作方向展开：游戏业务稳中有进、AI赋能内容生产、党建与业务深度融合，可概括性说明任务",
+      "fact_bindings": [
+        {
+          "fact_type": "product",
+          "fact_value": "游戏业务",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "project",
+          "fact_value": "AI赋能内容生产",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "project",
+          "fact_value": "党建与业务深度融合",
+          "source_from_extract": true
+        }
+      ],
+      "blocked_items": [
+        "不得编造具体措施",
+        "不得编造量化目标"
+      ],
+      "word_count_estimate": 300,
+      "needs_manual_input": true
+    },
+    {
+      "section_id": "S5",
+      "section_name": "具体要求",
+      "purpose": "提出落实工作的保障要求",
+      "content_guidance": "围绕压实责任、加强协同等通用要求展开，需人工补充具体要求",
+      "fact_bindings": [],
+      "blocked_items": [
+        "不得编造具体考核指标",
+        "不得编造领导指示"
+      ],
+      "word_count_estimate": 200,
+      "needs_manual_input": true
+    },
+    {
+      "section_id": "S6",
+      "section_name": "结尾号召",
+      "purpose": "号召全员奋进，展望未来",
+      "content_guidance": "使用激励性语言收束，可引用2026年展望主题",
+      "fact_bindings": [
+        {
+          "fact_type": "time",
+          "fact_value": "2026年",
+          "source_from_extract": true
+        }
+      ],
+      "blocked_items": [
+        "不得编造具体号召口号"
+      ],
+      "word_count_estimate": 100,
+      "needs_manual_input": false
+    }
+  ],
+  "style_directives": {
+    "overall_tone": "芒果系正式公文风",
+    "key_expressions": [
+      "提高站位",
+      "认清形势",
+      "明确任务",
+      "强化保障",
+      "稳中有进",
+      "深度融合"
+    ],
+    "forbidden_expressions": [
+      "不得编造领导表态",
+      "不得编造数据",
+      "不得使用口语化表达"
+    ],
+    "style_reference": "doc-type-rules.md 领导讲话章节"
+  },
+  "title_rules": [
+    "讲话标题格式：在XX会议上的讲话",
+    "标题应体现场合和主题"
+  ],
+  "addressee_resolution": {
+    "recommended_addressee": null,
+    "source": "not_applicable",
+    "confidence": 0,
+    "needs_manual_confirmation": false,
+    "note": null
+  },
+  "signer_resolution": {
+    "recommended_signer": null,
+    "source": "missing",
+    "confidence": 0,
+    "needs_manual_confirmation": true,
+    "note": "讲话领导姓名和职务缺失"
+  },
+  "title_suggestions": {
+    "recommended_title": "在公司年度总结会上的讲话",
+    "alternative_titles": [],
+    "title_rules": [
+      "讲话标题格式：在XX会议上的讲话"
+    ]
+  },
+  "missing_fields": [
+    {
+      "field": "讲话领导姓名",
+      "reason": "用户未提供讲话领导姓名",
+      "impact": "影响讲话稿称谓和落款",
+      "suggestion": "后续写作前需确认讲话领导姓名"
+    },
+    {
+      "field": "讲话领导职务",
+      "reason": "用户未提供讲话领导职务",
+      "impact": "影响讲话稿开头和语气定位",
+      "suggestion": "后续可由org-title-dictionary.yaml校验或人工确认"
+    },
+    {
+      "field": "会议时间（具体日期）",
+      "reason": "用户只给出年度，未提供具体会议日期",
+      "impact": "影响讲话背景完整性",
+      "suggestion": "如需正式成稿，可补充会议日期"
+    },
+    {
+      "field": "会议地点",
+      "reason": "用户未提供会议地点",
+      "impact": "影响讲话环境描述",
+      "suggestion": "后续写作前可确认"
+    },
+    {
+      "field": "参会人员范围",
+      "reason": "用户未说明参会人员",
+      "impact": "影响讲话稿称呼语",
+      "suggestion": "后续写作前可确认"
+    },
+    {
+      "field": "游戏业务具体名称",
+      "reason": "用户只写游戏业务，未提供具体产品名称",
+      "impact": "影响内容具体性",
+      "suggestion": "后续写作可概括表述"
+    },
+    {
+      "field": "AI赋能内容生产的具体措施",
+      "reason": "用户仅提出方向，无具体措施",
+      "impact": "影响讲话稿内容充实度",
+      "suggestion": "后续写作可结合实际展开"
+    },
+    {
+      "field": "党建与业务深度融合的具体做法",
+      "reason": "用户仅提出方向，无具体做法",
+      "impact": "影响讲话稿内容充实度",
+      "suggestion": "后续写作可结合实际展开"
+    }
+  ],
+  "cannot_infer": [
+    {
+      "field": "领导评价",
+      "reason": "用户素材未提供领导评价，不得自动补充"
+    },
+    {
+      "field": "经营数据",
+      "reason": "用户素材未提供任何经营数据"
+    },
+    {
+      "field": "获奖情况",
+      "reason": "用户素材未提供任何获奖信息"
+    },
+    {
+      "field": "政策依据",
+      "reason": "用户素材未提供政策依据"
+    },
+    {
+      "field": "会议结论",
+      "reason": "用户素材未提供会议结论"
+    }
+  ],
+  "risk_flags": [
+    {
+      "type": "missing_leader_title",
+      "detail": "领导讲话稿缺少讲话领导姓名和职务",
+      "level": "high"
+    },
+    {
+      "type": "achievement_without_data",
+      "detail": "素材提到游戏业务稳中有进，但未提供具体数据",
+      "level": "medium"
+    },
+    {
+      "type": "ambiguous_fact",
+      "detail": "工作方向缺乏具体内容支撑",
+      "level": "medium"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "公司正式名称",
+      "reason": "用户仅写'公司'，需确认正式全称",
+      "suggestion": "确认后填入正式机构全称"
+    },
+    {
+      "field": "讲话领导姓名",
+      "reason": "领导讲话必须明确讲话人",
+      "suggestion": "确认讲话领导姓名"
+    },
+    {
+      "field": "讲话领导职务",
+      "reason": "影响开头称谓和落款",
+      "suggestion": "确认领导职务或根据组织规则确认"
+    },
+    {
+      "field": "会议具体日期",
+      "reason": "影响讲话背景",
+      "suggestion": "补充会议日期"
+    },
+    {
+      "field": "会议地点",
+      "reason": "影响现场描述",
+      "suggestion": "补充会议地点"
+    },
+    {
+      "field": "参会人员范围",
+      "reason": "影响称呼语",
+      "suggestion": "确认参会人员范围"
+    }
+  ],
+  "draft_directives": {
+    "total_word_count_estimate": 1200,
+    "must_use_facts": [
+      "2025年度",
+      "2026年",
+      "公司年度总结会",
+      "游戏业务稳中有进",
+      "AI赋能内容生产",
+      "党建与业务深度融合"
+    ],
+    "must_avoid": [
+      "不得编造领导姓名和职务",
+      "不得编造具体数据",
+      "不得编造领导评价",
+      "不得编造政策依据",
+      "不得使用口语化表达"
+    ],
+    "format_requirements": [
+      "领导讲话标准结构",
+      "开场问候+站位+形势+部署+要求+号召",
+      "使用正式公文语言"
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "case_id": "A",
+  "case_name": "少量素材新闻稿",
+  "description": "用户只给 3-5 条事实，目标司情新闻稿。用于对比 safe_official vs assisted_expansion。",
+  "requirement": "请将以下素材整理成芒果系新闻稿，风格正式、有传播感。",
+  "draft": "4月15日，芒果超媒举办AI内容创作大赛。来自12个团队参加。一等奖作品《AI导演》实现了全流程AI辅助制作。",
+  "specified_doc_type": "新闻稿",
+  "target_unit": null,
+  "scene": "对外发布",
+  "output_formats": ["markdown"]
+}

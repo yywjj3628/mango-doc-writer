@@ -1,0 +1,187 @@
+{
+  "source_summary": "用户素材为一季度工作汇报内容，包含三件主要事项和下一步工作重点，目标单位为电广传媒。",
+  "facts": {
+    "time": [
+      "本季度"
+    ],
+    "location": [],
+    "organizations": [
+      "电广传媒",
+      "韩国T3"
+    ],
+    "leaders": [],
+    "persons": [],
+    "products": [
+      "劲舞团手游版"
+    ],
+    "projects": [
+      "劲舞团手游版上线筹备",
+      "党建活动按计划推进",
+      "与韩国T3续约谈判启动",
+      "手游版内测",
+      "党建品牌打造"
+    ],
+    "events": [
+      "劲舞团手游版上线筹备",
+      "党建活动按计划推进",
+      "与韩国T3续约谈判启动",
+      "手游版内测",
+      "党建品牌打造"
+    ],
+    "data": [],
+    "achievements": [
+      "本季度主要做了三件事：劲舞团手游版上线筹备、党建活动按计划推进、与韩国T3续约谈判启动"
+    ],
+    "problems": [],
+    "requests": [],
+    "policies": [],
+    "documents": []
+  },
+  "fact_items": [
+    {
+      "type": "time",
+      "value": "本季度",
+      "source_text": "本季度主要做了三件事",
+      "confidence": 0.9,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": true,
+      "note": "未明确季度名称，如2024年第三季度等"
+    },
+    {
+      "type": "organization",
+      "value": "电广传媒",
+      "source_text": "向电广传媒的季度工作汇报材料",
+      "confidence": 0.98,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": null
+    },
+    {
+      "type": "organization",
+      "value": "韩国T3",
+      "source_text": "与韩国T3续约谈判启动",
+      "confidence": 0.95,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": true,
+      "note": "全称未提供，可能为韩国T3公司"
+    },
+    {
+      "type": "product",
+      "value": "劲舞团手游版",
+      "source_text": "劲舞团手游版上线筹备",
+      "confidence": 0.95,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": true,
+      "note": "是否为正式产品名称，需确认"
+    },
+    {
+      "type": "project",
+      "value": "劲舞团手游版上线筹备",
+      "source_text": "劲舞团手游版上线筹备",
+      "confidence": 0.97,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": null
+    },
+    {
+      "type": "project",
+      "value": "党建活动按计划推进",
+      "source_text": "党建活动按计划推进",
+      "confidence": 0.96,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": null
+    },
+    {
+      "type": "project",
+      "value": "与韩国T3续约谈判启动",
+      "source_text": "与韩国T3续约谈判启动",
+      "confidence": 0.97,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": null
+    },
+    {
+      "type": "project",
+      "value": "手游版内测",
+      "source_text": "下一步重点是手游版内测和党建品牌打造",
+      "confidence": 0.96,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": null
+    },
+    {
+      "type": "project",
+      "value": "党建品牌打造",
+      "source_text": "下一步重点是手游版内测和党建品牌打造",
+      "confidence": 0.96,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": null
+    },
+    {
+      "type": "achievement",
+      "value": "本季度主要做了三件事：劲舞团手游版上线筹备、党建活动按计划推进、与韩国T3续约谈判启动",
+      "source_text": "本季度主要做了三件事：1）劲舞团手游版上线筹备；2）党建活动按计划推进；3）与韩国T3续约谈判启动。",
+      "confidence": 0.98,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": "作为工作进展描述"
+    }
+  ],
+  "missing_fields": [
+    {
+      "field": "季度具体名称",
+      "reason": "用户只写本季度，未提供具体季度标识（如2024年第三季度）",
+      "impact": "影响汇报材料的时间明确性",
+      "suggestion": "后续写作前需确认具体季度名称"
+    },
+    {
+      "field": "主要数据指标",
+      "reason": "用户未提供任何经营数据或量化指标",
+      "impact": "影响汇报材料的说服力",
+      "suggestion": "若有数据可补充，无则保持概括"
+    }
+  ],
+  "cannot_infer": [
+    {
+      "field": "领导姓名及职务",
+      "reason": "用户素材未提供领导信息，不得自行补充"
+    },
+    {
+      "field": "具体成果成效",
+      "reason": "用户仅描述工作进展，未提供具体成果或数据支撑"
+    },
+    {
+      "field": "问题挑战",
+      "reason": "用户未提及任何问题或困难"
+    },
+    {
+      "field": "请求事项",
+      "reason": "用户未提出任何请求"
+    }
+  ],
+  "risk_flags": [
+    {
+      "type": "missing_required_field",
+      "detail": "时间字段仅提供本季度，缺乏具体季度名称",
+      "level": "medium"
+    },
+    {
+      "type": "incomplete_organization_name",
+      "detail": "韩国T3可能为非正式名称，需确认全称",
+      "level": "medium"
+    },
+    {
+      "type": "ambiguous_fact",
+      "detail": "劲舞团手游版是否为产品正式名称存疑",
+      "level": "low"
+    }
+  ],
+  "extraction_policy": {
+    "only_user_provided_facts": true,
+    "no_external_knowledge": true,
+    "no_rag_facts": true,
+    "no_invented_data": true
+  }
+}

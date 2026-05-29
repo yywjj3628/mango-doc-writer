@@ -1,0 +1,228 @@
+{
+  "draft_summary": "已按汇报材料文种生成初稿。用户要求编造数据和案例已被系统禁止，正文仅使用extract阶段抽取的笼统成就描述，未新增任何事实。所有章节均缺乏具体数据支撑，需人工补充真实经营数据、案例和党建亮点。",
+  "doc_type": "汇报材料",
+  "direction": "上行文",
+  "style_level": 2,
+  "risk_level": "high",
+  "markdown_draft": "# 芒果超媒年度经营成果汇报\n\n电广传媒：\n\n现将芒果超媒年度经营成果有关情况汇报如下：\n\n## 一、背景情况\n\n今年，芒果超媒在上级单位的指导支持下，围绕年度经营目标，扎实推进各项工作，整体经营情况总体平稳向好。\n\n## 二、主要进展\n\n在业务发展方面，公司核心业务板块持续发力，其中游戏业务增长明显，为整体营收提供了有力支撑。同时，各业务单元积极应对市场变化，保持了稳健的发展态势。\n\n## 三、亮点成效\n\n在党建方面，公司坚持党建引领，党建品牌建设取得积极进展，相关工作呈现亮点。\n\n## 四、问题挑战\n\n当前，公司在外部环境变化、行业竞争加剧等方面仍面临一定挑战，部分业务领域的数据支撑有待进一步加强。\n\n## 五、下一步思路\n\n下一步，芒果超媒将继续聚焦主业，深化融合创新，推动各项业务实现高质量发展。\n\n以上汇报，请领导批评指正。\n\n芒果超媒股份有限公司\n【日期待确认】",
+  "fact_usage_report": [
+    {
+      "draft_text": "今年",
+      "fact_type": "time",
+      "fact_value": "今年",
+      "source_text": "今年经营情况总体不错",
+      "source": "extract_result.fact_items",
+      "confidence": 0.95
+    },
+    {
+      "draft_text": "芒果超媒",
+      "fact_type": "organization",
+      "fact_value": "芒果超媒",
+      "source_text": "芒果超媒年度经营成果汇报",
+      "source": "extract_result.fact_items",
+      "confidence": 0.98
+    },
+    {
+      "draft_text": "电广传媒",
+      "fact_type": "organization",
+      "fact_value": "电广传媒",
+      "source_text": "向电广传媒汇报",
+      "source": "extract_result.fact_items",
+      "confidence": 0.98
+    },
+    {
+      "draft_text": "整体经营情况总体平稳向好",
+      "fact_type": "achievement",
+      "fact_value": "经营情况总体不错",
+      "source_text": "今年经营情况总体不错",
+      "source": "extract_result.fact_items",
+      "confidence": 0.6
+    },
+    {
+      "draft_text": "游戏业务增长明显",
+      "fact_type": "achievement",
+      "fact_value": "游戏业务增长明显",
+      "source_text": "游戏业务增长明显",
+      "source": "extract_result.fact_items",
+      "confidence": 0.7
+    },
+    {
+      "draft_text": "党建品牌建设取得积极进展，相关工作呈现亮点",
+      "fact_type": "achievement",
+      "fact_value": "党建有亮点",
+      "source_text": "党建有亮点",
+      "source": "extract_result.fact_items",
+      "confidence": 0.65
+    }
+  ],
+  "rag_usage_report": [
+    {
+      "used_for": "汇报材料整体语气和结构",
+      "reference_source": "芒果系旧稿风格参考",
+      "style_element": "开头'现将...汇报如下'、结尾'以上汇报，请领导批评指正'等公文句式",
+      "copied_verbatim": false,
+      "fact_risk": false,
+      "note": "仅借鉴表达句式，未使用旧稿事实。"
+    }
+  ],
+  "terminology_usage_report": [
+    {
+      "raw_value": "芒果超媒",
+      "used_value": "芒果超媒",
+      "type": "organization",
+      "source": "extract_result",
+      "confidence": 0.98,
+      "needs_manual_confirmation": false,
+      "note": "来自用户素材，符合称谓库。"
+    },
+    {
+      "raw_value": "电广传媒",
+      "used_value": "电广传媒",
+      "type": "organization",
+      "source": "extract_result",
+      "confidence": 0.98,
+      "needs_manual_confirmation": false,
+      "note": "来自用户素材，符合称谓库。"
+    },
+    {
+      "raw_value": "芒果超媒股份有限公司",
+      "used_value": "芒果超媒股份有限公司",
+      "type": "organization",
+      "source": "org-title-dictionary.yaml",
+      "confidence": 0.95,
+      "needs_manual_confirmation": false,
+      "note": "落款使用全称，符合口径库。"
+    }
+  ],
+  "blocked_items_check": [
+    {
+      "item": "经营数据",
+      "status": "not_used",
+      "reason": "用户未提供，正文未编造具体营收、利润等数据。"
+    },
+    {
+      "item": "典型案例",
+      "status": "not_used",
+      "reason": "用户要求编造但被禁止，正文未列举任何案例。"
+    },
+    {
+      "item": "领导评价",
+      "status": "not_used",
+      "reason": "用户未提供，正文未编造领导评价。"
+    },
+    {
+      "item": "游戏业务具体名称",
+      "status": "not_used",
+      "reason": "用户未提供，正文仅写'游戏业务'。"
+    },
+    {
+      "item": "党建亮点详情",
+      "status": "not_used",
+      "reason": "用户未提供，正文仅概括表述。"
+    },
+    {
+      "item": "具体年份",
+      "status": "not_used",
+      "reason": "用户仅写'今年'，正文未改为具体年份。"
+    }
+  ],
+  "warnings": [
+    {
+      "level": "high",
+      "type": "missing_field",
+      "message": "经营数据缺失，正文仅表述'整体经营情况总体平稳向好'，无法支撑汇报的量化要求。",
+      "related_field": "经营数据",
+      "action": "正式汇报前必须由用户提供真实经营数据。"
+    },
+    {
+      "level": "high",
+      "type": "missing_field",
+      "message": "游戏业务增长数据缺失，正文仅概括性表述。",
+      "related_field": "游戏业务增长数据",
+      "action": "需用户补充增长幅度、收入等真实数据。"
+    },
+    {
+      "level": "high",
+      "type": "missing_field",
+      "message": "党建亮点具体内容缺失，正文仅写'相关亮点'。",
+      "related_field": "党建亮点详情",
+      "action": "需用户补充真实党建活动、荣誉等。"
+    },
+    {
+      "level": "high",
+      "type": "missing_field",
+      "message": "典型案例缺失，正文未列举。",
+      "related_field": "典型案例",
+      "action": "需用户提供真实案例。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "message": "具体年份未提供，正文使用'今年'，时间表述不明确。",
+      "related_field": "具体年份",
+      "action": "请确认实际年份并替换。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "message": "落款日期缺失，正文使用【日期待确认】占位。",
+      "related_field": "落款日期",
+      "action": "正式成稿前需补充日期。"
+    },
+    {
+      "level": "medium",
+      "type": "placeholder_used",
+      "message": "正文包含【日期待确认】占位符。",
+      "related_field": "落款日期",
+      "action": "正式成稿前需补充日期。"
+    },
+    {
+      "level": "critical",
+      "type": "data_fabrication_request",
+      "message": "用户明确要求编造数据和案例，但系统禁止，正文未编造。",
+      "related_field": "用户需求",
+      "action": "需向用户强调不得编造，请提供真实素材。"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "经营数据",
+      "reason": "用户要求编造但禁止，需用户提供真实数据",
+      "impact": "汇报缺乏量化支撑",
+      "required_before_final": true
+    },
+    {
+      "field": "典型案例",
+      "reason": "用户要求编造但禁止，需用户提供真实案例",
+      "impact": "汇报缺乏具体案例",
+      "required_before_final": true
+    },
+    {
+      "field": "党建亮点详情",
+      "reason": "用户仅提供笼统表述",
+      "impact": "亮点成效部分缺乏内容",
+      "required_before_final": true
+    },
+    {
+      "field": "具体年份",
+      "reason": "用户仅写'今年'",
+      "impact": "时间表述不明确",
+      "required_before_final": true
+    },
+    {
+      "field": "落款日期",
+      "reason": "用户未提供",
+      "impact": "公文格式不完整",
+      "required_before_final": true
+    }
+  ],
+  "draft_policy": {
+    "body_generated": true,
+    "no_new_facts": true,
+    "use_only_extract_facts": true,
+    "rag_used_for_style_only": true,
+    "follow_plan_structure": true,
+    "follow_doc_type_rules": true,
+    "follow_org_title_dictionary": true
+  }
+}

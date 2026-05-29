@@ -1,0 +1,20 @@
+[
+  {
+    "stage": "rewrite",
+    "path": ".terminology_usage_report[0].note",
+    "before": "(missing)",
+    "after": "",
+    "fix_type": "fill_missing",
+    "risk": "medium",
+    "reason": "required field, type=['string', 'null']"
+  },
+  {
+    "stage": "rewrite",
+    "path": ".rewrite_policy.body_rewritten",
+    "before": false,
+    "after": true,
+    "fix_type": "fix_const_field",
+    "risk": "high",
+    "reason": "const=True"
+  }
+]

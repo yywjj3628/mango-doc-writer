@@ -89,6 +89,16 @@ rewrite 阶段输出（本次评估对象）：
 
 {{max_quality_rewrite_rounds}}
 
+当前写作模式：
+
+{{generation_mode}}
+
+模式调整后的质量门禁阈值（overall_pass 判断依据）：
+
+{{mode_adjusted_threshold}}
+
+⚠️ fact_safety 和 risk_control 的严格底线为 8.0，不受上述阈值影响。
+
 ---
 
 ## 六大评分维度
@@ -297,7 +307,19 @@ overall_score = (fact_safety + doc_type_fit + mango_style_fit + logic_completene
 
 ### overall_pass 判断
 
-所有维度 >= threshold 时为 true。默认 threshold = 8。
+所有维度 >= threshold 时为 true。
+
+**threshold 由输入变量 `{{mode_adjusted_threshold}}` 提供。**
+
+overall_pass 的判断逻辑为：
+1. fact_safety >= 8.0（严格底线，不受模式影响）
+2. risk_control >= 8.0（严格底线，不受模式影响）
+3. 其余四个维度 >= mode_adjusted_threshold
+4. 无 P0 风险（unsafe_fabrication 数量为 0）
+
+以上四个条件**全部满足**时，overall_pass = true。
+
+**⚠️ overall_pass 必须返回布尔值 true 或 false，不允许返回 null。**
 
 ### rewrite_required 判断
 
@@ -311,7 +333,9 @@ overall_score = (fact_safety + doc_type_fit + mango_style_fit + logic_completene
 
 1. fact_safety < 8（存在疑似新增事实风险）
 2. risk_control < 8（存在风险控制隐患）
-3. 达到最大返修轮次后仍存在低于阈值的维度（由 Pipeline 执行层判断，quality gate 在 Prompt 中标记）
+3. 存在 unsafe_fabrication
+4. 达到最大返修轮次后仍存在低于阈值的维度（由 Pipeline 执行层判断，quality gate 在 Prompt 中标记）
+5. creative_mimic 模式（必须始终为 true）
 
 ### final_output_policy.recommendation 判断
 
@@ -601,6 +625,67 @@ rewrite_result.final_markdown 中出现：
     "no_rag_call": true,
     "no_doc_type_change": true,
     "evaluate_only": true
+  }
+}
+```
+
+---
+
+## generation_mode 感知评分（v0.1.4）
+
+当前写作模式由输入变量 `{{generation_mode}}` 指定。
+
+quality_score 阶段必须根据 generation_mode 调整评分口径。
+
+### safe_official 模式
+
+- 阈值默认 8
+- 按 v0.1.3 规则评分
+- 扩写内容应标记为 issue
+
+### assisted_expansion 模式
+
+- 阈值下调为 7
+- 可以容忍表达扩写（style_expansion、structure_expansion、rhetoric_expansion 等）
+- fact_safety 和 risk_control 仍必须严格
+- mango_style_fit / language_quality 应更重视“像不像”“好不好读”
+- 如果存在 confirmation_required，不一定失败，但 human_review_required = true
+- official_use_allowed 应为 "requires_human_confirmation"
+- 扩写内容不应被 fact_safety 扣分（只要不是具体事实编造）
+
+### creative_mimic 模式
+
+- 阈值下调为 6
+- 不以正式稿标准惩罚“风格化”
+- 但必须检查虚构事实风险
+- official_use_allowed = false
+- draft_disclaimer 缺失应降分（language_quality 或 risk_control）
+- human_review_required = true
+- 风格仿写本身不应被 mango_style_fit 扣分
+
+### 新增输出字段
+
+quality_score 输出中新增以下字段：
+
+```json
+{
+  "generation_mode": "assisted_expansion",
+  "mode_adjusted_threshold": 7,
+  "official_use_allowed": "requires_human_confirmation",
+  "expansion_quality_check": {
+    "status": "pass",
+    "summary": "扩写内容均在安全范围内",
+    "unsafe_expansion_count": 0,
+    "confirmation_required_count": 2
+  },
+  "draft_disclaimer_check": {
+    "status": "not_applicable",
+    "detail": "非 creative_mimic 模式，无需检查"
+  },
+  "confirmation_required_check": {
+    "status": "warning",
+    "detail": "存在 2 项需人工确认内容",
+    "items": ["推断的业务背景", "推断的政策口径"]
   }
 }
 ```

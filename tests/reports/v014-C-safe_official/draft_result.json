@@ -1,0 +1,222 @@
+{
+  "draft_summary": "已按领导讲话文种生成初稿。素材包含会议主题、三个工作方向，缺失讲话领导姓名职务、具体日期地点等信息，正文使用概括表达并标注占位。",
+  "doc_type": "领导讲话",
+  "direction": "内部材料",
+  "style_level": 2,
+  "risk_level": "low",
+  "markdown_draft": "# 在公司年度总结会上的讲话\n\n同志们：\n\n今天，我们召开公司年度总结会，回顾2025年度工作，展望2026年发展。在此，我代表公司向全体员工的辛勤付出表示衷心感谢。\n\n## 一、认清形势，统一思想\n\n当前，行业竞争格局深刻变化，文化与科技融合加速推进。我们要清醒认识到，机遇与挑战并存。过去一年，公司游戏业务稳中有进，展现出良好的发展韧性；AI赋能内容生产、党建与业务深度融合等方向也取得了积极进展。这些为我们应对2026年新形势奠定了坚实基础。\n\n## 二、肯定成绩，坚定信心\n\n2025年，在全体员工的共同努力下，公司各项工作扎实推进。游戏业务保持稳中有进的良好态势，成为公司收入的重要支撑；AI赋能内容生产迈出坚实步伐，为内容创新注入新动能；党建与业务深度融合取得阶段性成效，有效促进了业务高质量发展。这些成绩的取得，凝聚了大家的智慧与汗水。\n\n## 三、明确任务，重点部署\n\n展望2026年，我们要聚焦以下重点方向：\n\n一是持续巩固游戏业务基本盘，推动稳中有进再上新台阶。要深耕精品内容，拓展用户群体，提升运营效率。\n\n二是加快推进AI赋能内容生产。深化人工智能在内容策划、制作、分发等环节的应用，打造具有核心竞争力的智能内容生态。\n\n三是促进党建与业务深度融合。以党建引领业务发展，将党的政治优势转化为发展优势，确保各项工作沿着正确方向前进。\n\n## 四、强化保障，狠抓落实\n\n各部门要压实责任，细化任务，确保各项工作部署落地见效。要加强协同配合，形成工作合力。要完善考核机制，以实绩论英雄。\n\n## 五、凝心聚力，再启新程\n\n同志们，2026年的征程已经开启。让我们以更加饱满的热情、更加务实的作风，奋力开创公司发展新局面！\n\n谢谢大家！",
+  "fact_usage_report": [
+    {
+      "draft_text": "公司年度总结会",
+      "fact_type": "event",
+      "fact_value": "公司年度总结会",
+      "source_text": "在公司年度总结会上的讲话提纲",
+      "source": "extract_result.fact_items",
+      "confidence": 0.95
+    },
+    {
+      "draft_text": "2025年度",
+      "fact_type": "time",
+      "fact_value": "2025年度",
+      "source_text": "会议主题：2025年度工作总结与2026年展望。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.98
+    },
+    {
+      "draft_text": "2026年",
+      "fact_type": "time",
+      "fact_value": "2026年",
+      "source_text": "会议主题：2025年度工作总结与2026年展望。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.98
+    },
+    {
+      "draft_text": "游戏业务稳中有进",
+      "fact_type": "achievement",
+      "fact_value": "游戏业务稳中有进",
+      "source_text": "1）游戏业务稳中有进",
+      "source": "extract_result.fact_items",
+      "confidence": 0.9
+    },
+    {
+      "draft_text": "AI赋能内容生产",
+      "fact_type": "project",
+      "fact_value": "AI赋能内容生产",
+      "source_text": "2）AI赋能内容生产",
+      "source": "extract_result.fact_items",
+      "confidence": 0.92
+    },
+    {
+      "draft_text": "党建与业务深度融合",
+      "fact_type": "project",
+      "fact_value": "党建与业务深度融合",
+      "source_text": "3）党建与业务深度融合",
+      "source": "extract_result.fact_items",
+      "confidence": 0.92
+    }
+  ],
+  "rag_usage_report": [
+    {
+      "used_for": "开头句式",
+      "reference_source": "集团（台）2026年党风廉政建设工作会议召开 | 芒果日志",
+      "style_element": "以“同志们：”开头，直接点题",
+      "copied_verbatim": false,
+      "fact_risk": false,
+      "note": "借鉴了会议讲话的开场方式，未使用具体事实。"
+    },
+    {
+      "used_for": "结尾号召",
+      "reference_source": "龚政文：跃马扬鞭赴新程 | 芒果日志",
+      "style_element": "以号召性语句收束，如“奋力开创……新局面”",
+      "copied_verbatim": false,
+      "fact_risk": false,
+      "note": "借鉴了激励性结尾的表达节奏，未直接引用原文。"
+    }
+  ],
+  "terminology_usage_report": [
+    {
+      "raw_value": "公司",
+      "used_value": "公司",
+      "type": "organization",
+      "source": "user_input",
+      "confidence": 0.85,
+      "needs_manual_confirmation": true,
+      "note": "未提供公司正式名称，正文沿用用户表述。"
+    }
+  ],
+  "blocked_items_check": [
+    {
+      "item": "编造讲话领导姓名和职务",
+      "status": "not_used",
+      "reason": "正文未出现具体领导姓名和职务，避免编造。"
+    },
+    {
+      "item": "编造会议具体日期和地点",
+      "status": "not_used",
+      "reason": "正文未提及具体日期和地点。"
+    },
+    {
+      "item": "编造具体行业数据",
+      "status": "not_used",
+      "reason": "正文未出现任何行业数据。"
+    },
+    {
+      "item": "编造领导评价",
+      "status": "not_used",
+      "reason": "正文未出现任何领导评价。"
+    },
+    {
+      "item": "编造具体经营数据",
+      "status": "not_used",
+      "reason": "正文未出现经营数据。"
+    },
+    {
+      "item": "编造量化目标",
+      "status": "not_used",
+      "reason": "正文未设定量化目标。"
+    },
+    {
+      "item": "编造具体措施",
+      "status": "not_used",
+      "reason": "正文对工作部署仅概括性表述，未补充具体措施。"
+    }
+  ],
+  "warnings": [
+    {
+      "level": "high",
+      "type": "missing_field",
+      "message": "讲话领导姓名和职务缺失，正文未使用具体称谓。",
+      "related_field": "讲话领导姓名/职务",
+      "action": "正式使用前需补充讲话领导姓名和职务。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "message": "会议具体日期缺失。",
+      "related_field": "会议日期",
+      "action": "如需精确背景可补充具体日期。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "message": "会议地点缺失。",
+      "related_field": "会议地点",
+      "action": "如需精确背景可补充地点。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "message": "参会人员范围缺失，正文仅用“同志们”泛指。",
+      "related_field": "参会人员",
+      "action": "可根据实际参会人员调整称呼。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "message": "游戏业务具体产品名称未提供，正文仅写“游戏业务”。",
+      "related_field": "游戏业务产品名称",
+      "action": "如有具体产品可补充。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "message": "AI赋能内容生产、党建与业务深度融合的具体措施未提供，正文仅概括描述。",
+      "related_field": "具体措施",
+      "action": "后续可根据实际内容充实。"
+    },
+    {
+      "level": "medium",
+      "type": "achievement_without_data",
+      "message": "素材提到游戏业务稳中有进，但未提供具体数据，正文未编造数据。",
+      "related_field": "游戏业务数据",
+      "action": "如有数据可补充增强说服力。"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "公司正式名称",
+      "reason": "用户仅写“公司”，需确认正式全称。",
+      "impact": "影响称谓准确性。",
+      "required_before_final": true
+    },
+    {
+      "field": "讲话领导姓名",
+      "reason": "领导讲话必须明确讲话人。",
+      "impact": "影响讲话稿权威性。",
+      "required_before_final": true
+    },
+    {
+      "field": "讲话领导职务",
+      "reason": "影响开头称谓和语气定位。",
+      "impact": "影响开头表达。",
+      "required_before_final": true
+    },
+    {
+      "field": "会议具体日期",
+      "reason": "用户只给出年度，未提供具体日期。",
+      "impact": "影响背景完整性。",
+      "required_before_final": false
+    },
+    {
+      "field": "会议地点",
+      "reason": "用户未提供。",
+      "impact": "影响环境描述。",
+      "required_before_final": false
+    },
+    {
+      "field": "参会人员范围",
+      "reason": "用户未说明参会人员。",
+      "impact": "影响称呼语。",
+      "required_before_final": false
+    }
+  ],
+  "draft_policy": {
+    "body_generated": true,
+    "no_new_facts": true,
+    "use_only_extract_facts": true,
+    "rag_used_for_style_only": true,
+    "follow_plan_structure": true,
+    "follow_doc_type_rules": true,
+    "follow_org_title_dictionary": true
+  }
+}

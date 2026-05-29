@@ -1,0 +1,128 @@
+{
+  "review_summary": "新闻稿基本符合文种和结构要求，事实来源基本可靠，但存在概括性战略表述无直接依据、事实使用报告不完整等问题，需要修订。",
+  "pass": false,
+  "score": 75,
+  "rewrite_required": true,
+  "risk_level": "low",
+  "checks": {
+    "doc_type_check": {
+      "status": "pass",
+      "summary": "文种为新闻稿，正文有导语、主体、结尾，符合新闻稿规范。",
+      "issues_count": 0
+    },
+    "structure_check": {
+      "status": "pass",
+      "summary": "正文按标题-导语-事件主体-主要内容-意义价值-结尾顺序生成，符合plan结构。导语缺少地点，但plan已标注需人工确认，结构上无缺失。",
+      "issues_count": 0
+    },
+    "fact_grounding_check": {
+      "status": "fail",
+      "summary": "正文中存在概括性战略表达（如‘当前，芒果超媒正积极推动AI技术在各业务场景中的落地应用’）无直接事实依据。",
+      "issues_count": 1
+    },
+    "fact_usage_report_check": {
+      "status": "warning",
+      "summary": "fact_usage_report未记录正文中的概括性战略表达，存在溯源遗漏。",
+      "issues_count": 1
+    },
+    "rag_usage_check": {
+      "status": "pass",
+      "summary": "未使用RAG，正文无RAG事实污染。",
+      "issues_count": 0
+    },
+    "terminology_check": {
+      "status": "pass",
+      "summary": "机构称谓符合org-title-dictionary，首次使用全称，后续使用简称。",
+      "issues_count": 0
+    },
+    "blocked_items_check": {
+      "status": "pass",
+      "summary": "未发现blocked items进入正文。",
+      "issues_count": 0
+    },
+    "warnings_check": {
+      "status": "pass",
+      "summary": "warnings完整承接了extract_result和plan_result中的风险提示。",
+      "issues_count": 0
+    },
+    "manual_confirmation_check": {
+      "status": "pass",
+      "summary": "manual_confirmation_fields保留了活动地点和意义价值段确认项。",
+      "issues_count": 0
+    },
+    "style_check": {
+      "status": "warning",
+      "summary": "style_level=3允许芒果系新闻宣传风，但部分概括性战略表达（如‘积极推动AI技术落地应用’）缺乏直接事实支撑，稍显过度。",
+      "issues_count": 1
+    },
+    "format_check": {
+      "status": "pass",
+      "summary": "Markdown格式正确，标题、段落清晰。",
+      "issues_count": 0
+    }
+  },
+  "issues": [
+    {
+      "issue_id": "R001",
+      "level": "medium",
+      "type": "fact_not_grounded",
+      "location": "markdown_draft 第3段",
+      "detail": "正文出现'当前，芒果超媒正积极推动AI技术在各业务场景中的落地应用'，该表述无法从extract_result中的fact_items追溯，属于概括性战略表达，缺乏直接来源依据。",
+      "evidence": "当前，芒果超媒正积极推动AI技术在各业务场景中的落地应用",
+      "suggestion": "若需保留，建议人工确认是否基于真实情况；否则改为中性表述，如'本次大赛展现了AI技术在内容创作中的应用成果'。",
+      "rewrite_hint": "将'当前，芒果超媒正积极推动AI技术在各业务场景中的落地应用'改为'本次大赛展现了AI技术与内容创作的深度融合'。"
+    },
+    {
+      "issue_id": "R002",
+      "level": "medium",
+      "type": "fact_usage_missing",
+      "location": "fact_usage_report",
+      "detail": "fact_usage_report未记录正文中的概括性战略表达（如'当前，芒果超媒正积极推动AI技术在各业务场景中的落地应用'），存在溯源遗漏。",
+      "evidence": "fact_usage_report中无对应条目",
+      "suggestion": "在fact_usage_report中补充说明这些表述属于基于已有事实的合理引申，并标注其来源。",
+      "rewrite_hint": "无需修改正文，在fact_usage_report中补充记录即可。"
+    },
+    {
+      "issue_id": "R003",
+      "level": "low",
+      "type": "other",
+      "location": "fact_usage_report 第一条",
+      "detail": "fact_usage_report中'芒果超媒股份有限公司'的source_text为'芒果超媒举办AI内容创作大赛'，该原文不含'股份有限公司'，实际来源是terminology转换，source_text记录不准确。",
+      "evidence": "芒果超媒股份有限公司",
+      "suggestion": "修正source_text为'org-title-dictionary: 芒果超媒股份有限公司'或注明口径转换。",
+      "rewrite_hint": "无需修改正文，修正fact_usage_report记录。"
+    }
+  ],
+  "rewrite_instructions": [
+    {
+      "priority": "medium",
+      "target": "markdown_draft 第3段",
+      "action": "delete_or_replace",
+      "instruction": "将'当前，芒果超媒正积极推动AI技术在各业务场景中的落地应用'改为'本次大赛展现了AI技术与内容创作的深度融合'或类似有事实依据的表述。",
+      "basis": "extract_result.fact_items中包含event和achievement，但无此概括性表述。"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "活动地点",
+      "reason": "导语段需要地点信息但缺失，需人工补充或决定是否使用泛化表述",
+      "impact": "影响新闻稿导语完整性，可能降低信息准确性",
+      "required_before_final": false
+    },
+    {
+      "field": "意义价值段",
+      "reason": "该段缺乏事实支撑，正文使用通用升华表达，需人工确认是否与实际情况一致",
+      "impact": "影响新闻稿的深度和真实感",
+      "required_before_final": false
+    }
+  ],
+  "review_policy": {
+    "no_body_generation": true,
+    "no_rewrite": true,
+    "no_new_facts": true,
+    "no_rag_call": true,
+    "check_fact_grounding": true,
+    "check_doc_type_rules": true,
+    "check_org_title_dictionary": true
+  }
+}

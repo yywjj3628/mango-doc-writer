@@ -1,0 +1,198 @@
+{
+  "rewrite_summary": "初稿通过review，无需修订。直接输出原稿。",
+  "doc_type": "汇报材料",
+  "direction": "上行文",
+  "style_level": 2,
+  "risk_level": "medium",
+  "final_markdown": "# 关于本季度工作情况的汇报\n\n电广传媒：\n\n现将本季度有关工作情况汇报如下：\n\n## 一、背景情况\n\n本季度，我司围绕年度目标任务，重点推进劲舞团手游版上线筹备、党建活动按计划推进、与韩国T3续约谈判启动等三项工作，整体进展有序。\n\n## 二、主要进展\n\n（一）劲舞团手游版上线筹备。按计划推进上线筹备相关工作。\n（二）党建活动。按计划推进党建活动开展，具体活动名称待确认。\n（三）与韩国T3续约谈判。已启动与韩国T3的续约谈判工作。\n\n## 三、亮点成效\n\n本季度各项工作按计划推进，取得阶段性进展。具体量化数据及亮点成果待补充。\n\n## 四、问题挑战\n\n当前工作中存在的具体问题和挑战待进一步梳理。\n\n## 五、下一步思路\n\n（一）手游版内测。重点推进劲舞团手游版内测工作。\n（二）党建品牌打造。围绕党建品牌打造开展相关工作，品牌具体名称待确认。\n\n以上汇报，请领导批评指正。\n\n【落款单位待确认】\n\n【日期待确认】",
+  "revision_report": [],
+  "fact_usage_report": [
+    {
+      "final_text": "本季度",
+      "fact_type": "time",
+      "fact_value": "本季度",
+      "source_text": "本季度主要做了三件事",
+      "source": "extract_result.fact_items",
+      "confidence": 0.9
+    },
+    {
+      "final_text": "劲舞团手游版上线筹备",
+      "fact_type": "project",
+      "fact_value": "劲舞团手游版上线筹备",
+      "source_text": "劲舞团手游版上线筹备",
+      "source": "extract_result.fact_items",
+      "confidence": 0.95
+    },
+    {
+      "final_text": "党建活动",
+      "fact_type": "project",
+      "fact_value": "党建活动",
+      "source_text": "党建活动按计划推进",
+      "source": "extract_result.fact_items",
+      "confidence": 0.9
+    },
+    {
+      "final_text": "与韩国T3续约谈判",
+      "fact_type": "project",
+      "fact_value": "与韩国T3续约谈判",
+      "source_text": "与韩国T3续约谈判启动",
+      "source": "extract_result.fact_items",
+      "confidence": 0.95
+    },
+    {
+      "final_text": "韩国T3",
+      "fact_type": "organization",
+      "fact_value": "韩国T3",
+      "source_text": "与韩国T3续约谈判启动",
+      "source": "extract_result.fact_items",
+      "confidence": 0.85
+    },
+    {
+      "final_text": "手游版内测",
+      "fact_type": "project",
+      "fact_value": "手游版内测",
+      "source_text": "下一步重点是手游版内测和党建品牌打造",
+      "source": "extract_result.fact_items",
+      "confidence": 0.95
+    },
+    {
+      "final_text": "党建品牌打造",
+      "fact_type": "project",
+      "fact_value": "党建品牌打造",
+      "source_text": "下一步重点是手游版内测和党建品牌打造",
+      "source": "extract_result.fact_items",
+      "confidence": 0.9
+    },
+    {
+      "final_text": "本季度，我司围绕年度目标任务，重点推进劲舞团手游版上线筹备、党建活动按计划推进、与韩国T3续约谈判启动等三项工作",
+      "fact_type": "achievement",
+      "fact_value": "本季度主要做了三件事：劲舞团手游版上线筹备、党建活动按计划推进、与韩国T3续约谈判启动",
+      "source_text": "本季度主要做了三件事：1）劲舞团手游版上线筹备；2）党建活动按计划推进；3）与韩国T3续约谈判启动。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.95
+    }
+  ],
+  "terminology_usage_report": [
+    {
+      "raw_value": "电广传媒",
+      "used_value": "电广传媒",
+      "type": "organization",
+      "source": "user_input",
+      "confidence": 0.95,
+      "needs_manual_confirmation": false,
+      "note": "用户明确指定主送单位。"
+    },
+    {
+      "raw_value": "韩国T3",
+      "used_value": "韩国T3",
+      "type": "organization",
+      "source": "extract_result",
+      "confidence": 0.85,
+      "needs_manual_confirmation": true,
+      "note": "是否为正式公司全称，需确认。"
+    },
+    {
+      "raw_value": "劲舞团手游版",
+      "used_value": "劲舞团手游版",
+      "type": "product",
+      "source": "extract_result",
+      "confidence": 0.95,
+      "needs_manual_confirmation": false,
+      "note": ""
+    }
+  ],
+  "resolved_issues": [],
+  "unresolved_issues": [],
+  "remaining_risks": [
+    {
+      "level": "high",
+      "type": "missing_field",
+      "detail": "具体季度名称缺失，final_markdown使用'本季度'概括表述。",
+      "action": "正式报送前需确认具体季度名称。"
+    },
+    {
+      "level": "high",
+      "type": "missing_field",
+      "detail": "落款单位缺失，final_markdown使用【落款单位待确认】占位。",
+      "action": "需确认发文单位全称。"
+    },
+    {
+      "level": "high",
+      "type": "missing_field",
+      "detail": "日期缺失，final_markdown使用【日期待确认】占位。",
+      "action": "需确认成文日期。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "detail": "党建活动具体名称缺失，正文使用概括表述。",
+      "action": "建议与党建部门确认活动名称。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "detail": "党建品牌名称缺失，正文使用概括表述。",
+      "action": "建议与党建部门确认品牌名称。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "detail": "数据支撑缺失，正文未提供量化数据。",
+      "action": "如有阶段性数据，建议补充以增强说服力。"
+    },
+    {
+      "level": "medium",
+      "type": "section_no_fact_support",
+      "detail": "亮点成效和问题挑战段落无事实支撑，正文仅作概括表述。",
+      "action": "需人工补充亮点和问题内容。"
+    },
+    {
+      "level": "low",
+      "type": "ambiguous_fact",
+      "detail": "组织名称'韩国T3'需确认是否为正式公司全称。",
+      "action": "建议确认正式全称并替换。"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "具体季度名称",
+      "reason": "用户仅写本季度，需确认具体季度编号或时间段",
+      "impact": "影响汇报时间定位",
+      "required_before_final": true
+    },
+    {
+      "field": "党建活动具体名称",
+      "reason": "用户仅写党建活动，需确认活动正式名称",
+      "impact": "影响汇报内容清晰度",
+      "required_before_final": false
+    },
+    {
+      "field": "党建品牌名称",
+      "reason": "用户仅写党建品牌打造，需确认品牌具体名称",
+      "impact": "影响下一步计划针对性",
+      "required_before_final": false
+    },
+    {
+      "field": "落款单位",
+      "reason": "汇报材料需明确发文单位，用户未提供",
+      "impact": "影响公文完整性",
+      "required_before_final": true
+    }
+  ],
+  "final_checks": {
+    "doc_type_fixed": true,
+    "unsupported_facts_removed": true,
+    "blocked_items_removed": true,
+    "terminology_checked": true,
+    "manual_confirmations_preserved": true
+  },
+  "rewrite_policy": {
+    "body_rewritten": true,
+    "no_new_facts": true,
+    "use_only_extract_facts": true,
+    "no_rag_call": true,
+    "follow_review_instructions": true,
+    "follow_doc_type_rules": true,
+    "follow_org_title_dictionary": true
+  }
+}

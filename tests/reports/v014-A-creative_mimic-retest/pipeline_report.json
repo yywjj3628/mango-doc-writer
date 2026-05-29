@@ -1,0 +1,122 @@
+{
+  "status": "success",
+  "doc_type": "新闻稿",
+  "risk_level": "low",
+  "review_pass": true,
+  "rewrite_required": false,
+  "manual_confirmation_count": 0,
+  "remaining_risk_count": 4,
+  "schema_validation_status": {
+    "classify": true,
+    "extract": true,
+    "plan": true,
+    "draft": true,
+    "review": true,
+    "rewrite": true
+  },
+  "rag_status": "success",
+  "style_references_count": 6,
+  "rag_collection": "mango_style_docs",
+  "rag_index": "mango_style_docs",
+  "rag_query": "mango_style_docs:芒果系 新闻稿 活动 通稿 标题 开头 | mango_style_docs:广电 芒果 重大活动 新闻稿 传播表达 | jiuyou_docs:芒果系 新闻稿 活动 通稿 标题 开头 | jiuyou_docs:广电 芒果 重大活动 新闻稿 传播表达",
+  "rag_sources": [
+    "广电 芒果 重大活动 新闻稿 传播表达",
+    "广电 芒果 重大活动 新闻稿 传播表达",
+    "广电 芒果 重大活动 新闻稿 传播表达",
+    "芒果系 新闻稿 活动 通稿 标题 开头",
+    "芒果系 新闻稿 活动 通稿 标题 开头"
+  ],
+  "rag_collections_used": [
+    "mango_style_docs",
+    "jiuyou_docs"
+  ],
+  "rag_primary_collection": "mango_style_docs",
+  "rag_fallback_collection": "jiuyou_docs",
+  "failed_stage": null,
+  "error_type": null,
+  "error_message": null,
+  "schema_path": null,
+  "sanitizer_high_risk": true,
+  "model_provider": "deepseek",
+  "default_model": "deepseek-v4-flash",
+  "fallback_model": "deepseek-v4-pro",
+  "fallback_enabled": true,
+  "stage_model_usage": {
+    "classify": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    },
+    "extract": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    },
+    "plan": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    },
+    "draft": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    },
+    "review": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    },
+    "rewrite": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    }
+  },
+  "fallback_count": 0,
+  "output_files": [
+    "classify_result.json",
+    "extract_result.json",
+    "plan_result.json",
+    "draft_result.json",
+    "review_result.json",
+    "rewrite_result.json"
+  ],
+  "quality_gate_enabled": true,
+  "quality_gate_pass": null,
+  "quality_gate_threshold": 6.0,
+  "quality_gate_rounds_used": 1,
+  "quality_gate_max_rounds": 2,
+  "final_quality_scores": null,
+  "failed_dimensions": [],
+  "quality_score_history": [],
+  "final_output_policy": "warn_and_output",
+  "human_review_required": true,
+  "quality_gate_error": "质量门禁校验失败 (round 1): 模型调用异常: NameError: name 'MODE_DEFAULT_THRESHOLDS' is not defined",
+  "quality_rewrite_applied": false,
+  "generation_mode": "creative_mimic",
+  "generation_mode_valid": true,
+  "generation_mode_warnings": [],
+  "official_use_allowed": true,
+  "expansion_enabled": true,
+  "expansion_report_summary": {
+    "style_expansion": 0,
+    "structure_expansion": 0,
+    "rhetoric_expansion": 0,
+    "policy_phrase_expansion": 0,
+    "leadership_style_expansion": 0,
+    "confirmation_required": 0,
+    "unsafe_expansion_warnings": 0
+  },
+  "expansion_review_summary": {
+    "status": "not_applicable",
+    "acceptable_count": 0,
+    "unsafe_count": 0,
+    "confirmation_count": 0
+  },
+  "expansion_quality_summary": null,
+  "draft_disclaimer": "⚠️ [系统自动补充] 本文为内部灵感稿，仅供参考。正式使用前需人工全面审核。",
+  "confirmation_required_count": 0,
+  "unsafe_expansion_detected": false,
+  "unsafe_expansion_warnings": []
+}

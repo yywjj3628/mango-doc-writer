@@ -1,0 +1,133 @@
+{
+  "rewrite_summary": "初稿通过review，无需修订，直接输出最终稿。",
+  "doc_type": "新闻稿",
+  "direction": "对外宣传",
+  "style_level": 3,
+  "risk_level": "low",
+  "final_markdown": "# 芒果超媒AI内容创作大赛举行 《AI导演》获一等奖\n\n4月15日，芒果超媒股份有限公司举办AI内容创作大赛。来自12个团队同台竞技，围绕人工智能技术在内容创作领域的应用展开角逐。\n\n本次大赛以AI内容创作为主题，参赛团队涵盖多个业务方向，展现了芒果超媒在AI领域的创新氛围。经过激烈比拼，一等奖作品《AI导演》脱颖而出，该作品实现了全流程AI辅助制作，为内容生产提供了新的智能解决方案。\n\n此次大赛是芒果超媒推动文化和科技融合的又一实践。以大赛为契机，芒果超媒持续探索AI技术在内容创作中的应用，助力智媒跃升。\n\n未来，芒果超媒将继续以技术创新为驱动，深化AI与内容的深度融合，为行业带来更多创新可能。",
+  "revision_report": [],
+  "fact_usage_report": [
+    {
+      "final_text": "4月15日",
+      "fact_type": "time",
+      "fact_value": "4月15日",
+      "source_text": "4月15日，芒果超媒举办AI内容创作大赛。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.98
+    },
+    {
+      "final_text": "芒果超媒股份有限公司",
+      "fact_type": "organization",
+      "fact_value": "芒果超媒",
+      "source_text": "4月15日，芒果超媒举办AI内容创作大赛。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.98
+    },
+    {
+      "final_text": "AI内容创作大赛",
+      "fact_type": "event",
+      "fact_value": "AI内容创作大赛",
+      "source_text": "4月15日，芒果超媒举办AI内容创作大赛。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.98
+    },
+    {
+      "final_text": "12个团队",
+      "fact_type": "data",
+      "fact_value": "12个团队",
+      "source_text": "来自12个团队参加。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.98
+    },
+    {
+      "final_text": "一等奖作品《AI导演》",
+      "fact_type": "product",
+      "fact_value": "《AI导演》",
+      "source_text": "一等奖作品《AI导演》实现了全流程AI辅助制作。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.98
+    },
+    {
+      "final_text": "实现了全流程AI辅助制作",
+      "fact_type": "achievement",
+      "fact_value": "一等奖作品《AI导演》实现了全流程AI辅助制作",
+      "source_text": "一等奖作品《AI导演》实现了全流程AI辅助制作。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.95
+    }
+  ],
+  "terminology_usage_report": [
+    {
+      "raw_value": "芒果超媒",
+      "used_value": "芒果超媒股份有限公司",
+      "type": "organization",
+      "source": "org-title-dictionary.yaml",
+      "needs_manual_confirmation": false,
+      "note": "",
+      "confidence": 0.0
+    },
+    {
+      "raw_value": "《AI导演》",
+      "used_value": "《AI导演》",
+      "type": "product",
+      "source": "extract_result",
+      "needs_manual_confirmation": false,
+      "note": "",
+      "confidence": 0.0
+    },
+    {
+      "raw_value": "AI内容创作大赛",
+      "used_value": "AI内容创作大赛",
+      "type": "other",
+      "source": "extract_result",
+      "needs_manual_confirmation": false,
+      "note": "",
+      "confidence": 0.0
+    }
+  ],
+  "resolved_issues": [],
+  "unresolved_issues": [],
+  "remaining_risks": [
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "detail": "活动地点缺失，正文未写地点。",
+      "action": "如活动有具体地点，建议补充。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "detail": "一等奖作品具体实现细节缺失，正文仅概括表述。",
+      "action": "如需深度报道，可后续补充。"
+    },
+    {
+      "level": "low",
+      "type": "missing_field",
+      "detail": "参赛团队详情缺失，正文仅写“12个团队”。",
+      "action": "如需丰富内容，可后续补充。"
+    },
+    {
+      "level": "low",
+      "type": "risk_flag",
+      "detail": "组织机构名称“芒果超媒”为简称，正文已使用全称。",
+      "action": ""
+    }
+  ],
+  "manual_confirmation_fields": [],
+  "final_checks": {
+    "doc_type_fixed": true,
+    "unsupported_facts_removed": true,
+    "blocked_items_removed": true,
+    "terminology_checked": true,
+    "manual_confirmations_preserved": true
+  },
+  "rewrite_policy": {
+    "body_rewritten": true,
+    "no_new_facts": true,
+    "use_only_extract_facts": true,
+    "no_rag_call": true,
+    "follow_review_instructions": true,
+    "follow_doc_type_rules": true,
+    "follow_org_title_dictionary": true
+  }
+}

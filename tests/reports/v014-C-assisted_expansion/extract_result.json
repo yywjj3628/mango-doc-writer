@@ -1,0 +1,170 @@
+{
+  "source_summary": "用户需求为起草公司年度总结会上的讲话提纲，初稿提供了会议主题（2025年度工作总结与2026年展望）和三个工作方向（游戏业务稳中有进、AI赋能内容生产、党建与业务深度融合）。",
+  "facts": {
+    "time": [
+      "2025年度",
+      "2026年"
+    ],
+    "location": [],
+    "organizations": [
+      "公司"
+    ],
+    "leaders": [],
+    "persons": [],
+    "products": [],
+    "projects": [
+      "游戏业务稳中有进",
+      "AI赋能内容生产",
+      "党建与业务深度融合"
+    ],
+    "events": [
+      "年度总结会"
+    ],
+    "data": [],
+    "achievements": [],
+    "problems": [],
+    "requests": [],
+    "policies": [],
+    "documents": []
+  },
+  "fact_items": [
+    {
+      "type": "time",
+      "value": "2025年度",
+      "source_text": "会议主题：2025年度工作总结与2026年展望。",
+      "confidence": 0.95,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": null
+    },
+    {
+      "type": "time",
+      "value": "2026年",
+      "source_text": "会议主题：2025年度工作总结与2026年展望。",
+      "confidence": 0.95,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": null
+    },
+    {
+      "type": "event",
+      "value": "年度总结会",
+      "source_text": "请帮我起草一份在公司年度总结会上的讲话提纲。",
+      "confidence": 0.98,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": null
+    },
+    {
+      "type": "organization",
+      "value": "公司",
+      "source_text": "请帮我起草一份在公司年度总结会上的讲话提纲。",
+      "confidence": 0.7,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": true,
+      "note": "用户仅写公司，未提供正式名称。"
+    },
+    {
+      "type": "project",
+      "value": "游戏业务稳中有进",
+      "source_text": "1）游戏业务稳中有进；",
+      "confidence": 0.7,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": true,
+      "note": "方向性表述，未提供具体项目或数据。"
+    },
+    {
+      "type": "project",
+      "value": "AI赋能内容生产",
+      "source_text": "2）AI赋能内容生产；",
+      "confidence": 0.7,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": true,
+      "note": "方向性表述，未提供具体措施。"
+    },
+    {
+      "type": "project",
+      "value": "党建与业务深度融合",
+      "source_text": "3）党建与业务深度融合。",
+      "confidence": 0.7,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": true,
+      "note": "方向性表述，未提供具体表现。"
+    }
+  ],
+  "missing_fields": [
+    {
+      "field": "讲话领导姓名",
+      "reason": "用户要求起草领导讲话提纲，但未提供讲话领导姓名",
+      "impact": "影响讲话称谓和身份定位",
+      "suggestion": "后续写作前需确认领导姓名"
+    },
+    {
+      "field": "讲话领导职务",
+      "reason": "用户未提供讲话领导职务",
+      "impact": "影响讲话开头和语气",
+      "suggestion": "后续可由口径库校验或人工确认"
+    },
+    {
+      "field": "具体会议日期",
+      "reason": "用户仅提供年度，未提供具体日期",
+      "impact": "影响会议背景的精确性",
+      "suggestion": "如正式成稿需要，可补充具体日期"
+    },
+    {
+      "field": "会议地点",
+      "reason": "用户未提供会议地点",
+      "impact": "影响讲话场景描述",
+      "suggestion": "后续写作前建议补充"
+    },
+    {
+      "field": "参会人员",
+      "reason": "用户未提供参会人员范围",
+      "impact": "影响讲话对象定位",
+      "suggestion": "后续写作前建议确认"
+    },
+    {
+      "field": "游戏业务具体数据",
+      "reason": "用户仅说稳中有进，未提供任何数据支撑",
+      "impact": "影响讲话可信度和说服力",
+      "suggestion": "后续写作前建议确认具体增长数据"
+    }
+  ],
+  "cannot_infer": [
+    {
+      "field": "领导个人表态",
+      "reason": "用户素材未提供领导个人表态，不得自动补充"
+    },
+    {
+      "field": "具体项目名称",
+      "reason": "用户仅写工作方向，未提供具体项目名称"
+    },
+    {
+      "field": "政策判断",
+      "reason": "用户素材未提供政策依据或形势判断"
+    }
+  ],
+  "risk_flags": [
+    {
+      "type": "missing_leader_title",
+      "detail": "领导讲话提纲缺少讲话领导姓名和职务",
+      "level": "high"
+    },
+    {
+      "type": "event_without_time_location",
+      "detail": "年度总结会缺少具体会议日期和地点",
+      "level": "medium"
+    },
+    {
+      "type": "achievement_without_data",
+      "detail": "游戏业务稳中有进缺少具体数据支撑",
+      "level": "medium"
+    }
+  ],
+  "extraction_policy": {
+    "only_user_provided_facts": true,
+    "no_external_knowledge": true,
+    "no_rag_facts": true,
+    "no_invented_data": true
+  }
+}

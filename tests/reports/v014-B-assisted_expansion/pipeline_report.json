@@ -1,0 +1,161 @@
+{
+  "status": "success",
+  "doc_type": "汇报材料",
+  "risk_level": "medium",
+  "review_pass": true,
+  "rewrite_required": false,
+  "manual_confirmation_count": 8,
+  "remaining_risk_count": 8,
+  "schema_validation_status": {
+    "classify": true,
+    "extract": true,
+    "plan": true,
+    "draft": true,
+    "review": true,
+    "rewrite": true
+  },
+  "rag_status": "success",
+  "style_references_count": 5,
+  "rag_collection": "jiuyou_docs",
+  "rag_index": "jiuyou_docs",
+  "rag_query": "jiuyou_docs:芒果系 汇报材料 工作进展 亮点成效 | jiuyou_docs:广电系统 专题汇报 经营汇报 | mango_style_docs:芒果系 汇报材料 工作进展 亮点成效 | mango_style_docs:广电系统 专题汇报 经营汇报",
+  "rag_sources": [
+    "芒果系 汇报材料 工作进展 亮点成效",
+    "广电系统 专题汇报 经营汇报",
+    "芒果系 汇报材料 工作进展 亮点成效",
+    "芒果系 汇报材料 工作进展 亮点成效",
+    "广电系统 专题汇报 经营汇报"
+  ],
+  "rag_collections_used": [
+    "jiuyou_docs",
+    "mango_style_docs"
+  ],
+  "rag_primary_collection": "jiuyou_docs",
+  "rag_fallback_collection": "mango_style_docs",
+  "failed_stage": null,
+  "error_type": null,
+  "error_message": null,
+  "schema_path": null,
+  "sanitizer_high_risk": true,
+  "model_provider": "deepseek",
+  "default_model": "deepseek-v4-flash",
+  "fallback_model": "deepseek-v4-pro",
+  "fallback_enabled": true,
+  "stage_model_usage": {
+    "classify": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    },
+    "extract": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    },
+    "plan": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    },
+    "draft": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    },
+    "review": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    },
+    "rewrite": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    }
+  },
+  "fallback_count": 0,
+  "output_files": [
+    "classify_result.json",
+    "extract_result.json",
+    "plan_result.json",
+    "draft_result.json",
+    "review_result.json",
+    "rewrite_result.json",
+    "quality_rewrite_round_1_result.json"
+  ],
+  "quality_gate_enabled": true,
+  "quality_gate_pass": true,
+  "quality_gate_threshold": 7.0,
+  "quality_gate_rounds_used": 2,
+  "quality_gate_max_rounds": 2,
+  "final_quality_scores": {
+    "fact_safety": 10,
+    "doc_type_fit": 10,
+    "mango_style_fit": 8,
+    "logic_completeness": 9,
+    "language_quality": 9,
+    "risk_control": 10
+  },
+  "failed_dimensions": [],
+  "quality_score_history": [
+    {
+      "round": 1,
+      "overall_score": 7.7,
+      "scores": {
+        "fact_safety": 9,
+        "doc_type_fit": 9,
+        "mango_style_fit": 8,
+        "logic_completeness": 7,
+        "language_quality": 7,
+        "risk_control": 6
+      },
+      "failed_dimensions": [
+        "logic_completeness",
+        "language_quality",
+        "risk_control"
+      ],
+      "overall_pass": false,
+      "rewrite_required": true,
+      "human_review_required": true,
+      "final_output_policy": "rewrite"
+    },
+    {
+      "round": 2,
+      "overall_score": 9.3,
+      "scores": {
+        "fact_safety": 10,
+        "doc_type_fit": 10,
+        "mango_style_fit": 8,
+        "logic_completeness": 9,
+        "language_quality": 9,
+        "risk_control": 10
+      },
+      "failed_dimensions": [],
+      "overall_pass": true,
+      "rewrite_required": false,
+      "human_review_required": false,
+      "final_output_policy": "pass"
+    }
+  ],
+  "final_output_policy": "pass",
+  "human_review_required": false,
+  "quality_gate_error": null,
+  "quality_rewrite_applied": true,
+  "generation_mode": "assisted_expansion",
+  "generation_mode_valid": true,
+  "generation_mode_warnings": [],
+  "official_use_allowed": "requires_human_confirmation",
+  "expansion_enabled": true,
+  "expansion_report_summary": {},
+  "expansion_review_summary": null,
+  "expansion_quality_summary": {
+    "status": "not_applicable",
+    "summary": "",
+    "unsafe_expansion_count": 0,
+    "confirmation_required_count": 0
+  },
+  "draft_disclaimer": null,
+  "confirmation_required_count": 0,
+  "unsafe_expansion_detected": false,
+  "unsafe_expansion_warnings": []
+}

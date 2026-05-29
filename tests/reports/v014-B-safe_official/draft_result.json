@@ -1,0 +1,234 @@
+{
+  "draft_summary": "已按汇报材料文种生成初稿。素材包含本季度三项主要工作及下步计划，时间仅用'本季度'，缺少具体名称、数据指标和问题挑战，正文使用概括表述。称谓方面韩国T3和劲舞团手游版名称存疑，已标记需确认。亮点成效和问题挑战段缺少事实支撑，以概括表述并提示人工补充。",
+  "doc_type": "汇报材料",
+  "direction": "上行文",
+  "style_level": 2,
+  "risk_level": "medium",
+  "markdown_draft": "# 关于本季度工作情况的汇报\n\n电广传媒：\n\n现将本季度工作有关情况汇报如下。\n\n## 一、背景情况\n\n本季度，我们围绕各项重点工作有序推进，整体工作保持良好态势。\n\n## 二、主要进展\n\n一是劲舞团手游版上线筹备工作稳步推进；二是党建活动按计划推进；三是与韩国T3续约谈判正式启动。\n\n## 三、亮点成效\n\n本季度主要工作任务均已按计划启动或推进，为后续工作奠定了良好基础。\n\n## 四、问题挑战\n\n当前工作中仍存在一些需要关注的方面，具体问题正在进一步梳理中。\n\n## 五、下一步思路\n\n下一步，重点推进手游版内测工作，同时持续打造党建品牌。\n\n【落款单位待确认】\n\n【日期待确认】",
+  "fact_usage_report": [
+    {
+      "draft_text": "本季度",
+      "fact_type": "time",
+      "fact_value": "本季度",
+      "source_text": "本季度主要做了三件事",
+      "source": "extract_result.fact_items",
+      "confidence": 0.9
+    },
+    {
+      "draft_text": "电广传媒",
+      "fact_type": "organization",
+      "fact_value": "电广传媒",
+      "source_text": "向电广传媒的季度工作汇报材料",
+      "source": "extract_result.fact_items",
+      "confidence": 0.98
+    },
+    {
+      "draft_text": "劲舞团手游版上线筹备",
+      "fact_type": "project",
+      "fact_value": "劲舞团手游版上线筹备",
+      "source_text": "劲舞团手游版上线筹备",
+      "source": "extract_result.fact_items",
+      "confidence": 0.97
+    },
+    {
+      "draft_text": "党建活动按计划推进",
+      "fact_type": "project",
+      "fact_value": "党建活动按计划推进",
+      "source_text": "党建活动按计划推进",
+      "source": "extract_result.fact_items",
+      "confidence": 0.96
+    },
+    {
+      "draft_text": "与韩国T3续约谈判正式启动",
+      "fact_type": "project",
+      "fact_value": "与韩国T3续约谈判启动",
+      "source_text": "与韩国T3续约谈判启动",
+      "source": "extract_result.fact_items",
+      "confidence": 0.97
+    },
+    {
+      "draft_text": "手游版内测",
+      "fact_type": "project",
+      "fact_value": "手游版内测",
+      "source_text": "下一步重点是手游版内测和党建品牌打造",
+      "source": "extract_result.fact_items",
+      "confidence": 0.96
+    },
+    {
+      "draft_text": "党建品牌打造",
+      "fact_type": "project",
+      "fact_value": "党建品牌打造",
+      "source_text": "下一步重点是手游版内测和党建品牌打造",
+      "source": "extract_result.fact_items",
+      "confidence": 0.96
+    },
+    {
+      "draft_text": "本季度主要工作任务均已按计划启动或推进",
+      "fact_type": "achievement",
+      "fact_value": "本季度主要做了三件事：劲舞团手游版上线筹备、党建活动按计划推进、与韩国T3续约谈判启动",
+      "source_text": "本季度主要做了三件事：1）劲舞团手游版上线筹备；2）党建活动按计划推进；3）与韩国T3续约谈判启动。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.98
+    }
+  ],
+  "rag_usage_report": [
+    {
+      "used_for": "开头句式",
+      "reference_source": "芒果系汇报材料常见表达",
+      "style_element": "现将……工作有关情况汇报如下",
+      "copied_verbatim": false,
+      "fact_risk": false,
+      "note": "仅借鉴句式，未使用旧稿事实。"
+    },
+    {
+      "used_for": "主体结构",
+      "reference_source": "芒果系汇报材料常见结构",
+      "style_element": "一是……二是……三是……",
+      "copied_verbatim": false,
+      "fact_risk": false,
+      "note": "借鉴分条列项表达方式。"
+    }
+  ],
+  "terminology_usage_report": [
+    {
+      "raw_value": "电广传媒",
+      "used_value": "电广传媒",
+      "type": "organization",
+      "source": "extract_result / user_input",
+      "confidence": 0.98,
+      "needs_manual_confirmation": false,
+      "note": "口径库中直接使用。"
+    },
+    {
+      "raw_value": "韩国T3",
+      "used_value": "韩国T3",
+      "type": "organization",
+      "source": "extract_result",
+      "confidence": 0.6,
+      "needs_manual_confirmation": true,
+      "note": "可能为非正式名称，需确认全称。"
+    },
+    {
+      "raw_value": "劲舞团手游版",
+      "used_value": "劲舞团手游版",
+      "type": "product",
+      "source": "extract_result",
+      "confidence": 0.6,
+      "needs_manual_confirmation": true,
+      "note": "是否为产品正式名称存疑。"
+    }
+  ],
+  "blocked_items_check": [
+    {
+      "item": "经营数据",
+      "status": "not_used",
+      "reason": "用户未提供，正文未编造。"
+    },
+    {
+      "item": "领导评价",
+      "status": "not_used",
+      "reason": "用户未提供，正文未编造。"
+    },
+    {
+      "item": "请示事项",
+      "status": "not_used",
+      "reason": "正文未出现请求批准等表达。"
+    },
+    {
+      "item": "具体成果成效",
+      "status": "not_used",
+      "reason": "用户未提供，正文仅概括表述。"
+    },
+    {
+      "item": "问题挑战",
+      "status": "not_used",
+      "reason": "用户未提供，正文以概括表述提示待补充。"
+    }
+  ],
+  "warnings": [
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "message": "季度具体名称缺失，正文仅使用'本季度'。",
+      "related_field": "time",
+      "action": "正式成稿前需确认具体季度名称，如2024年第三季度。"
+    },
+    {
+      "level": "medium",
+      "type": "incomplete_organization_name",
+      "message": "韩国T3可能为非正式名称，需确认全称。",
+      "related_field": "organization",
+      "action": "正式成稿前需确认合作方正式全称。"
+    },
+    {
+      "level": "low",
+      "type": "ambiguous_fact",
+      "message": "劲舞团手游版是否为产品正式名称存疑。",
+      "related_field": "product",
+      "action": "正式成稿前需确认产品正式名称。"
+    },
+    {
+      "level": "high",
+      "type": "missing_field",
+      "message": "落款单位缺失，正文使用【落款单位待确认】占位。",
+      "related_field": "signer",
+      "action": "正式成稿前需补充汇报单位全称。"
+    },
+    {
+      "level": "medium",
+      "type": "section_no_fact_support",
+      "message": "亮点成效段缺乏具体数据或成果支撑，正文仅作概括表述。",
+      "related_field": "section_3",
+      "action": "如有具体成效数据，建议补充。"
+    },
+    {
+      "level": "medium",
+      "type": "section_no_fact_support",
+      "message": "问题挑战段用户未提供任何信息，正文仅提示'正在梳理中'。",
+      "related_field": "section_4",
+      "action": "需人工确认是否存在问题挑战。"
+    },
+    {
+      "level": "low",
+      "type": "placeholder_used",
+      "message": "正文包含【落款单位待确认】和【日期待确认】占位符。",
+      "related_field": "落款/日期",
+      "action": "正式成稿前需补充落款单位和日期。"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "季度具体名称",
+      "reason": "时间明确性缺失",
+      "impact": "影响汇报材料的时间明确性",
+      "required_before_final": true
+    },
+    {
+      "field": "落款单位",
+      "reason": "汇报材料必须明确落款单位",
+      "impact": "影响材料完整性",
+      "required_before_final": true
+    },
+    {
+      "field": "韩国T3全称",
+      "reason": "可能为非正式名称",
+      "impact": "影响对外称谓准确性",
+      "required_before_final": true
+    },
+    {
+      "field": "劲舞团手游版名称确认",
+      "reason": "是否为正式产品名称存疑",
+      "impact": "影响产品表述准确性",
+      "required_before_final": false
+    }
+  ],
+  "draft_policy": {
+    "body_generated": true,
+    "no_new_facts": true,
+    "use_only_extract_facts": true,
+    "rag_used_for_style_only": true,
+    "follow_plan_structure": true,
+    "follow_doc_type_rules": true,
+    "follow_org_title_dictionary": true
+  }
+}

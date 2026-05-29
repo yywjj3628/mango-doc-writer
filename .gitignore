@@ -1,5 +1,13 @@
 .env
 *.env
+logs/
 logs/*.log
 tests/reports/debug/*
 outputs/*
+__pycache__/
+*.pyc
+render/__pycache__/
+scripts/__pycache__/
+*.log
+.DS_Store
+tests/reports/v014-input-A-news-minimal_*/

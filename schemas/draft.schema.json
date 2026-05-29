@@ -246,7 +246,114 @@
         "follow_org_title_dictionary": {
           "type": "boolean",
           "const": true
+        },
+        "generation_mode": {
+          "type": "string",
+          "description": "v0.1.4: 当前写作模式"
+        },
+        "expansion_allowed": {
+          "type": "boolean",
+          "description": "v0.1.4: 是否允许扩写"
+        },
+        "expansion_boundary": {
+          "type": "string",
+          "description": "v0.1.4: 扩写边界类型"
+        },
+        "all_expansions_labeled": {
+          "type": "boolean",
+          "description": "v0.1.4: 扩写内容是否全部标记"
         }
+      }
+    },
+    "generation_mode": {
+      "type": "string",
+      "description": "v0.1.4: 当前写作模式"
+    },
+    "expansion_report": {
+      "type": ["object", "array"],
+      "description": "v0.1.4: 扩写报告，记录所有非用户明确提供的内容（object 或空数组均有效）",
+      "properties": {
+        "style_expansion": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "text": {"type": "string"},
+              "description": {"type": "string"}
+            }
+          }
+        },
+        "structure_expansion": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "text": {"type": "string"},
+              "description": {"type": "string"}
+            }
+          }
+        },
+        "rhetoric_expansion": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "text": {"type": "string"},
+              "description": {"type": "string"}
+            }
+          }
+        },
+        "policy_phrase_expansion": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "text": {"type": "string"},
+              "description": {"type": "string"}
+            }
+          }
+        },
+        "leadership_style_expansion": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "text": {"type": "string"},
+              "description": {"type": "string"}
+            }
+          }
+        },
+        "confirmation_required": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "text": {"type": "string"},
+              "reason": {"type": "string"}
+            }
+          }
+        },
+        "unsafe_expansion_warnings": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    },
+    "official_use_allowed": {
+      "type": ["boolean", "string"],
+      "description": "v0.1.4: 是否允许正式使用"
+    },
+    "draft_disclaimer": {
+      "type": ["string", "null"],
+      "description": "v0.1.4: 免责声明（creative_mimic 模式必须有）"
+    },
+    "expansion_policy": {
+      "type": "object",
+      "description": "v0.1.4: 扩写政策声明",
+      "properties": {
+        "no_specific_fact_fabrication": {"type": "boolean"},
+        "rag_style_only": {"type": "boolean"},
+        "expansion_labeled": {"type": "boolean"}
       }
     }
   }

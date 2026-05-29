@@ -1,0 +1,11 @@
+{
+  "case_id": "C",
+  "case_name": "领导讲话风格稿",
+  "description": "用户只给会议主题和工作方向。用于测试 leadership_style_expansion。不允许写成真实领导已讲话。",
+  "requirement": "请帮我起草一份在公司年度总结会上的讲话提纲。",
+  "draft": "会议主题：2025年度工作总结与2026年展望。工作方向：1）游戏业务稳中有进；2）AI赋能内容生产；3）党建与业务深度融合。",
+  "specified_doc_type": "领导讲话",
+  "target_unit": null,
+  "scene": "内部会议",
+  "output_formats": ["markdown"]
+}

@@ -61,6 +61,19 @@ def format_output(pipeline_result, output_dir: str) -> Dict[str, Any]:
     qg_history = report.quality_score_history
     qg_human_review = report.human_review_required
 
+    # v0.1.4: generation mode 字段
+    gen_mode = getattr(report, 'generation_mode', 'safe_official')
+    gen_valid = getattr(report, 'generation_mode_valid', True)
+    gen_warnings = getattr(report, 'generation_mode_warnings', [])
+    official_allowed = getattr(report, 'official_use_allowed', True)
+    expansion_on = getattr(report, 'expansion_enabled', False)
+    exp_report_summary = getattr(report, 'expansion_report_summary', {})
+    exp_review_summary = getattr(report, 'expansion_review_summary', None)
+    draft_disclaimer = getattr(report, 'draft_disclaimer', None)
+    confirm_count = getattr(report, 'confirmation_required_count', 0)
+    unsafe_detected = getattr(report, 'unsafe_expansion_detected', False)
+    unsafe_warnings = getattr(report, 'unsafe_expansion_warnings', [])
+
     output = {
         "status": "success",
         "doc_type": report.doc_type,
@@ -105,6 +118,16 @@ def format_output(pipeline_result, output_dir: str) -> Dict[str, Any]:
             "high_risk_sanitizer": hr_san,
             "manual_confirmation_count": len(mc_fields),
             "remaining_risk_count": len(risks),
+            # v0.1.4: generation mode 摘要
+            "generation_mode": gen_mode,
+            "generation_mode_valid": gen_valid,
+            "expansion_enabled": expansion_on,
+            "official_use_allowed": official_allowed,
+            "expansion_report_summary": exp_report_summary,
+            "expansion_review_summary": exp_review_summary,
+            "draft_disclaimer": draft_disclaimer,
+            "confirmation_required_count": confirm_count,
+            "unsafe_expansion_detected": unsafe_detected,
         },
     }
 
@@ -135,6 +158,34 @@ def format_output(pipeline_result, output_dir: str) -> Dict[str, Any]:
 
     if hr_san:
         output["advisory"] = "⚠️ 本次运行触发了高风险 sanitizer 自动修正，建议人工复核"
+
+    # v0.1.4: generation mode 提示
+    if gen_mode == "safe_official":
+        output["generation_mode_advisory"] = "📝 写作模式：正式安全模式"
+    elif gen_mode == "assisted_expansion":
+        parts = ["📝 写作模式：增强草拟模式"]
+        if exp_report_summary:
+            total_exp = sum(v for k, v in exp_report_summary.items()
+                           if k not in ("confirmation_required", "unsafe_expansion_warnings"))
+            if total_exp > 0:
+                parts.append(f"本稿含 {total_exp} 处表达/结构/口径扩写")
+        if confirm_count > 0:
+            parts.append(f"待确认项：{confirm_count} 处")
+        if unsafe_detected:
+            parts.append(f"⚠️ 发现 {len(unsafe_warnings)} 处危险扩写！")
+        parts.append("正式使用前需人工确认")
+        output["generation_mode_advisory"] = "\n".join(parts)
+    elif gen_mode == "creative_mimic":
+        parts = ["📝 写作模式：风格仿写模式 / 内部灵感稿"]
+        parts.append("❌ 不可直接正式发布")
+        parts.append("需要人工复核")
+        if draft_disclaimer:
+            parts.append(draft_disclaimer)
+        if unsafe_detected:
+            parts.append(f"⚠️ 发现 {len(unsafe_warnings)} 处危险扩写！")
+        output["generation_mode_advisory"] = "\n".join(parts)
+    if gen_warnings:
+        output["generation_mode_warnings"] = gen_warnings
 
     return output
 
@@ -190,6 +241,12 @@ def format_user_text(output: Dict[str, Any]) -> str:
     lines.append(output.get("final_markdown", ""))
     lines.append("")
 
+    # v0.1.4: generation mode 提示
+    gen_advisory = output.get("generation_mode_advisory")
+    if gen_advisory:
+        lines.append(gen_advisory)
+        lines.append("")
+
     # 待确认项
     mc = output.get("manual_confirmation_fields", [])
     if mc:
@@ -214,6 +271,19 @@ def format_user_text(output: Dict[str, Any]) -> str:
     lines.append("---")
     lines.append(f"文种: {summary.get('doc_type')} | 风险: {summary.get('risk_level')} | "
                  f"RAG: {summary.get('rag_status')} | 模型: {summary.get('default_model')}")
+    # v0.1.4: 模式信息
+    gen_mode_val = summary.get('generation_mode', 'safe_official')
+    lines.append(f"模式: {gen_mode_val} | 扩写: {'启用' if summary.get('expansion_enabled') else '关闭'} | "
+                 f"正式使用: {summary.get('official_use_allowed')}")
+    # expansion summary
+    exp_summary = summary.get('expansion_report_summary', {})
+    if exp_summary:
+        confirm_cnt = summary.get('confirmation_required_count', 0)
+        unsafe_det = summary.get('unsafe_expansion_detected', False)
+        if confirm_cnt > 0:
+            lines.append(f"📋 待确认项: {confirm_cnt}")
+        if unsafe_det:
+            lines.append(f"🔴 危险扩写已检测")
     if summary.get("fallback_count", 0) > 0:
         lines.append(f"⚠️ 使用了 {summary['fallback_count']} 次 fallback")
 

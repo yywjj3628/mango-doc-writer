@@ -1,0 +1,143 @@
+{
+  "source_summary": "用户素材涉及芒果超媒于4月15日举办AI内容创作大赛，有12个团队参加，其中一等奖作品《AI导演》实现了全流程AI辅助制作。",
+  "facts": {
+    "time": [
+      "4月15日"
+    ],
+    "location": [],
+    "organizations": [
+      "芒果超媒"
+    ],
+    "leaders": [],
+    "persons": [
+      "12个参赛团队"
+    ],
+    "products": [
+      "《AI导演》"
+    ],
+    "projects": [
+      "AI内容创作大赛"
+    ],
+    "events": [
+      "AI内容创作大赛"
+    ],
+    "data": [
+      "12个团队"
+    ],
+    "achievements": [
+      "一等奖作品《AI导演》实现了全流程AI辅助制作"
+    ],
+    "problems": [],
+    "requests": [],
+    "policies": [],
+    "documents": []
+  },
+  "fact_items": [
+    {
+      "type": "time",
+      "value": "4月15日",
+      "source_text": "4月15日",
+      "confidence": 0.98,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": ""
+    },
+    {
+      "type": "organization",
+      "value": "芒果超媒",
+      "source_text": "芒果超媒",
+      "confidence": 0.98,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": ""
+    },
+    {
+      "type": "event",
+      "value": "AI内容创作大赛",
+      "source_text": "AI内容创作大赛",
+      "confidence": 0.98,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": ""
+    },
+    {
+      "type": "person",
+      "value": "12个参赛团队",
+      "source_text": "来自12个团队参加",
+      "confidence": 0.95,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": ""
+    },
+    {
+      "type": "product",
+      "value": "《AI导演》",
+      "source_text": "一等奖作品《AI导演》",
+      "confidence": 0.98,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": ""
+    },
+    {
+      "type": "achievement",
+      "value": "一等奖作品《AI导演》实现了全流程AI辅助制作",
+      "source_text": "一等奖作品《AI导演》实现了全流程AI辅助制作",
+      "confidence": 0.95,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": ""
+    }
+  ],
+  "missing_fields": [
+    {
+      "field": "具体年份",
+      "reason": "用户提供4月15日但未说明年份",
+      "impact": "影响新闻稿时间准确性",
+      "suggestion": "后续写作时可根据上下文补充年份或使用模糊表述"
+    },
+    {
+      "field": "活动地点",
+      "reason": "用户未提供活动举办地点",
+      "impact": "影响新闻稿信息完整性",
+      "suggestion": "若为线上活动可注明线上，否则建议补充地点"
+    },
+    {
+      "field": "主办单位背景",
+      "reason": "用户仅提供芒果超媒，未说明是否为主办方",
+      "impact": "影响新闻稿中对主办方的明确表述",
+      "suggestion": "可推断为主办方，但正式稿建议确认"
+    }
+  ],
+  "cannot_infer": [
+    {
+      "field": "领导出席情况",
+      "reason": "用户素材未提供任何领导信息"
+    },
+    {
+      "field": "比赛具体成果影响",
+      "reason": "用户仅描述一等奖作品特点，未提供大赛整体影响或评价"
+    },
+    {
+      "field": "其他获奖作品",
+      "reason": "用户仅提到一等奖，未提供二等奖、三等奖等信息"
+    }
+  ],
+  "risk_flags": [
+    {
+      "type": "event_without_time_location",
+      "detail": "活动有日期（4月15日）但缺少地点",
+      "level": "low"
+    },
+    {
+      "type": "ambiguous_fact",
+      "detail": "用户未明确说明芒果超媒是主办方还是参与方",
+      "level": "low"
+    }
+  ],
+  "extraction_policy": {
+    "only_user_provided_facts": true,
+    "no_external_knowledge": true,
+    "no_rag_facts": true,
+    "no_invented_data": true
+  }
+}

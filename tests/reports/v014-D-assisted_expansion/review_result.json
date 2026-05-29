@@ -1,0 +1,165 @@
+{
+  "review_summary": "初稿按照汇报材料文种和计划结构生成，正文仅使用extract阶段抽取的笼统成就描述，未新增具体事实或编造数据。但正文中存在多处无来源的推断性表述（如'为整体营收提供了有力支撑'），且fact_usage_report未完全覆盖这些表述。所有章节缺乏数据支撑，需人工补充。整体风险较高，需修订后进入rewrite阶段。",
+  "pass": false,
+  "score": 78,
+  "rewrite_required": true,
+  "risk_level": "high",
+  "checks": {
+    "doc_type_check": {
+      "status": "pass",
+      "summary": "文种为汇报材料，方向上行文，无夹带请示，符合classify结果。",
+      "issues_count": 0
+    },
+    "structure_check": {
+      "status": "pass",
+      "summary": "正文按计划分为背景情况、主要进展、亮点成效、问题挑战、下一步思路五个章节，顺序正确。",
+      "issues_count": 0
+    },
+    "fact_grounding_check": {
+      "status": "fail",
+      "summary": "正文中出现多处无extract来源的推断性表述，如'为整体营收提供了有力支撑''保持了稳健的发展态势'等，属于事实无依据。",
+      "issues_count": 1
+    },
+    "fact_usage_report_check": {
+      "status": "fail",
+      "summary": "fact_usage_report仅覆盖6处事实，遗漏了正文中'为整体营收提供了有力支撑''各业务单元积极应对市场变化'等新增表述。",
+      "issues_count": 1
+    },
+    "rag_usage_check": {
+      "status": "pass",
+      "summary": "rag_usage_report显示仅用于风格参考，未使用旧稿事实，正文无RAG事实污染。",
+      "issues_count": 0
+    },
+    "terminology_check": {
+      "status": "pass",
+      "summary": "机构称谓'芒果超媒''电广传媒''芒果超媒股份有限公司'均符合org-title-dictionary.yaml，无禁用称谓。",
+      "issues_count": 0
+    },
+    "blocked_items_check": {
+      "status": "pass",
+      "summary": "blocked_items_check显示所有禁止内容均未进入正文，正文未编造数据、案例或领导评价。",
+      "issues_count": 0
+    },
+    "warnings_check": {
+      "status": "pass",
+      "summary": "warnings已完整承接数据缺失、日期缺失、编造请求等高风险项，未遗漏。",
+      "issues_count": 0
+    },
+    "manual_confirmation_check": {
+      "status": "pass",
+      "summary": "manual_confirmation_fields保留了经营数据、典型案例、党建亮点、具体年份、落款日期等关键确认项。",
+      "issues_count": 0
+    },
+    "style_check": {
+      "status": "pass",
+      "summary": "style_level=2，正文整体稳重，未出现过度宣传或口语化，符合芒果系正式公文风。",
+      "issues_count": 0
+    },
+    "format_check": {
+      "status": "pass",
+      "summary": "Markdown格式清晰，标题、主送单位、结尾、落款符合汇报材料格式，日期使用【日期待确认】占位。",
+      "issues_count": 0
+    }
+  },
+  "issues": [
+    {
+      "issue_id": "R001",
+      "level": "medium",
+      "type": "fact_not_grounded",
+      "location": "markdown_draft ## 二、主要进展 第1段",
+      "detail": "正文出现'为整体营收提供了有力支撑'，但extract_result中仅有'游戏业务增长明显'，无证据支撑该论断。",
+      "evidence": "为整体营收提供了有力支撑",
+      "suggestion": "删除该表述，或改为'游戏业务增长明显'。",
+      "rewrite_hint": "删除'为整体营收提供了有力支撑'，保留'游戏业务增长明显'。"
+    },
+    {
+      "issue_id": "R002",
+      "level": "medium",
+      "type": "fact_usage_missing",
+      "location": "fact_usage_report",
+      "detail": "fact_usage_report未收录正文中'为整体营收提供了有力支撑''各业务单元积极应对市场变化，保持了稳健的发展态势'等表述，属于事实溯源遗漏。",
+      "evidence": "fact_usage_report中缺少对上述表述的跟踪记录",
+      "suggestion": "补充fact_usage_report或直接在正文中删除无依据表述。",
+      "rewrite_hint": "将正文中的泛化推断表述修改为仅使用extract已有的事实。"
+    }
+  ],
+  "rewrite_instructions": [
+    {
+      "priority": "high",
+      "target": "markdown_draft ## 二、主要进展 第1段",
+      "action": "replace",
+      "instruction": "删除'为整体营收提供了有力支撑'，改为'游戏业务增长明显'。同时检查其他无依据表述如'各业务单元积极应对市场变化，保持了稳健的发展态势'，建议删除或替换为'各业务单元运行平稳'。",
+      "basis": "extract_result.fact_items[achievement: 游戏业务增长明显]"
+    },
+    {
+      "priority": "medium",
+      "target": "fact_usage_report",
+      "action": "add_warning",
+      "instruction": "补充fact_usage_report，将正文中所有已使用事实都记录在案，确保无遗漏。",
+      "basis": "review issue R002"
+    },
+    {
+      "priority": "critical",
+      "target": "全篇",
+      "action": "add_warning",
+      "instruction": "所有章节均缺乏具体数据支撑，正式成稿前必须由用户提供真实经营数据、典型案例和党建亮点详情。正文中所有笼统表述（如'整体经营情况总体平稳向好'）均需待用户补充数据后替换为具体内容。",
+      "basis": "extract_result.missing_fields, draft_result.warnings"
+    },
+    {
+      "priority": "high",
+      "target": "落款日期",
+      "action": "mark_manual_confirmation",
+      "instruction": "将【日期待确认】保留为占位符，直至用户提供实际日期。",
+      "basis": "draft_result.warnings"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "经营数据",
+      "reason": "用户要求编造但禁止，需用户提供真实数据",
+      "impact": "汇报缺乏量化支撑",
+      "required_before_final": true
+    },
+    {
+      "field": "典型案例",
+      "reason": "用户要求编造但禁止，需用户提供真实案例",
+      "impact": "汇报缺乏具体案例",
+      "required_before_final": true
+    },
+    {
+      "field": "党建亮点详情",
+      "reason": "用户仅提供笼统表述",
+      "impact": "亮点成效部分缺乏内容",
+      "required_before_final": true
+    },
+    {
+      "field": "具体年份",
+      "reason": "用户仅写'今年'",
+      "impact": "时间表述不明确",
+      "required_before_final": true
+    },
+    {
+      "field": "落款日期",
+      "reason": "用户未提供",
+      "impact": "公文格式不完整",
+      "required_before_final": true
+    }
+  ],
+  "review_policy": {
+    "no_body_generation": true,
+    "no_rewrite": true,
+    "no_new_facts": true,
+    "no_rag_call": true,
+    "check_fact_grounding": true,
+    "check_doc_type_rules": true,
+    "check_org_title_dictionary": true
+  },
+  "expansion_review": {
+    "status": "not_applicable",
+    "summary": "generation_mode为默认官方模式，且draft_policy.no_new_facts为true，正文未包含系统扩写内容，无需审查。",
+    "acceptable_expansion": [],
+    "unsafe_fabrication": [],
+    "confirmation_required": [],
+    "expansion_rewrite_instructions": []
+  }
+}

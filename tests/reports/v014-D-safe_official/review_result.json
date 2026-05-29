@@ -1,0 +1,177 @@
+{
+  "review_summary": "初稿整体结构符合汇报材料，但存在事实新增（2026年）、部分段落无事实支撑、事实使用报告遗漏等问题，需要修订。",
+  "pass": false,
+  "score": 70,
+  "rewrite_required": true,
+  "risk_level": "high",
+  "checks": {
+    "doc_type_check": {
+      "status": "pass",
+      "summary": "文种为汇报材料，结构五段式，结尾合规，未混入请示内容。",
+      "issues_count": 0
+    },
+    "structure_check": {
+      "status": "pass",
+      "summary": "五段式结构完整，顺序符合plan。",
+      "issues_count": 0
+    },
+    "fact_grounding_check": {
+      "status": "fail",
+      "summary": "正文出现“2026年以来”，但extract仅提供“今年”，无来源；亮点成效段“涌现出一批先进典型和特色做法”无事实支撑。",
+      "issues_count": 2
+    },
+    "fact_usage_report_check": {
+      "status": "fail",
+      "summary": "fact_usage_report未记录“2026年以来”这一正文事实，存在遗漏。",
+      "issues_count": 1
+    },
+    "rag_usage_check": {
+      "status": "pass",
+      "summary": "RAG仅用于风格参考，无事实污染。",
+      "issues_count": 0
+    },
+    "terminology_check": {
+      "status": "pass",
+      "summary": "称谓符合org-title-dictionary。",
+      "issues_count": 0
+    },
+    "blocked_items_check": {
+      "status": "pass",
+      "summary": "未使用编造数据或禁用内容。",
+      "issues_count": 0
+    },
+    "warnings_check": {
+      "status": "warning",
+      "summary": "warnings中提示缺少年份，但正文实际使用了具体年份，存在矛盾。",
+      "issues_count": 1
+    },
+    "manual_confirmation_check": {
+      "status": "fail",
+      "summary": "manual_confirmation_fields中“具体年份”需确认，但正文直接使用了“2026年”，未遵守确认要求。",
+      "issues_count": 1
+    },
+    "style_check": {
+      "status": "warning",
+      "summary": "亮点成效段落部分表述无依据，略微超出style_level=2的克制要求。",
+      "issues_count": 1
+    },
+    "format_check": {
+      "status": "pass",
+      "summary": "Markdown格式正确，落款和日期使用占位符。",
+      "issues_count": 0
+    }
+  },
+  "issues": [
+    {
+      "issue_id": "R001",
+      "level": "high",
+      "type": "fact_not_grounded",
+      "location": "markdown_draft 背景情况段",
+      "detail": "正文出现“2026年以来”，但extract_result中仅有“今年”，未提供具体年份，属于新增事实。",
+      "evidence": "draft: \"2026年以来\"；extract: \"今年\"",
+      "suggestion": "删除具体年份，改为“今年以来”或【待确认年份】。",
+      "rewrite_hint": "将“2026年以来”改为“今年以来，芒果超媒坚持稳中求进...”或使用【待确认年份】占位。"
+    },
+    {
+      "issue_id": "R002",
+      "level": "medium",
+      "type": "fact_usage_missing",
+      "location": "fact_usage_report",
+      "detail": "fact_usage_report未记录正文“2026年以来”这一事实，导致溯源不完整。",
+      "evidence": "fact_usage_report中无对应条目",
+      "suggestion": "补录“2026年以来”至fact_usage_report，注明来源为无（新增事实）。",
+      "rewrite_hint": "在fact_usage_report中增加条目：{\"draft_text\":\"2026年以来\",\"fact_type\":\"time\",\"fact_value\":\"2026\",\"source_text\":\"用户未提供\",\"source\":\"draft新增\",\"confidence\":0}"
+    },
+    {
+      "issue_id": "R003",
+      "level": "medium",
+      "type": "style_overdone",
+      "location": "markdown_draft 亮点成效段",
+      "detail": "正文写“涌现出一批先进典型和特色做法”，但extract仅提供“党建有亮点”，无具体事例，属于无依据概括。",
+      "evidence": "draft: \"涌现出一批先进典型和特色做法\"；extract: \"党建有亮点\"",
+      "suggestion": "删除该句，或改为更概括的表述如“党建工作取得新成效”。",
+      "rewrite_hint": "将“涌现出一批先进典型和特色做法”删除，保留“党建工作取得新成效，以高质量党建引领高质量发展。”"
+    },
+    {
+      "issue_id": "R004",
+      "level": "medium",
+      "type": "manual_confirmation_missing",
+      "location": "manual_confirmation_fields",
+      "detail": "manual_confirmation_fields中“具体年份”要求确认，但正文直接使用了“2026年”，未遵守确认要求。",
+      "evidence": "manual_confirmation_fields包含年份字段；正文使用“2026年”",
+      "suggestion": "恢复占位符或由用户确认后再使用。",
+      "rewrite_hint": "将“2026年”改为【待确认年份】或使用“今年以来”。"
+    }
+  ],
+  "rewrite_instructions": [
+    {
+      "priority": "high",
+      "target": "markdown_draft 第一段 “2026年以来”",
+      "action": "replace",
+      "instruction": "将“2026年以来”改为“今年以来”，或替换为【具体年份待确认】占位符。",
+      "basis": "extract_result.fact_items[time:今年]"
+    },
+    {
+      "priority": "medium",
+      "target": "markdown_draft 亮点成效段 “涌现出一批先进典型和特色做法”",
+      "action": "delete",
+      "instruction": "删除该无依据表述。",
+      "basis": "extract_result中无此事实"
+    },
+    {
+      "priority": "medium",
+      "target": "fact_usage_report",
+      "action": "add_warning",
+      "instruction": "补录“2026年以来”相关条目，标注为无来源新增。",
+      "basis": "review issue R002"
+    },
+    {
+      "priority": "medium",
+      "target": "markdown_draft 整体",
+      "action": "mark_manual_confirmation",
+      "instruction": "确保所有待确认字段（年份、落款等）在正文中对应使用占位符。",
+      "basis": "manual_confirmation_fields"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "具体年份",
+      "reason": "extract仅提供“今年”，正文误用“2026”，需用户确认",
+      "impact": "影响时效性和准确性",
+      "required_before_final": true
+    },
+    {
+      "field": "落款单位",
+      "reason": "用户未提供落款单位",
+      "impact": "影响完整性",
+      "required_before_final": true
+    },
+    {
+      "field": "党建亮点具体内容",
+      "reason": "用户未提供具体亮点",
+      "impact": "影响内容充实度",
+      "required_before_final": false
+    },
+    {
+      "field": "问题挑战内容",
+      "reason": "用户未提供",
+      "impact": "影响可读性",
+      "required_before_final": false
+    },
+    {
+      "field": "下一步思路",
+      "reason": "用户未提供",
+      "impact": "影响后续指导性",
+      "required_before_final": false
+    }
+  ],
+  "review_policy": {
+    "no_body_generation": true,
+    "no_rewrite": true,
+    "no_new_facts": true,
+    "no_rag_call": true,
+    "check_fact_grounding": true,
+    "check_doc_type_rules": true,
+    "check_org_title_dictionary": true
+  }
+}

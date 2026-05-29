@@ -1,0 +1,202 @@
+{
+  "source_summary": "用户需求为起草公司在年度总结会上的讲话提纲，初稿提供了会议主题（2025年度工作总结与2026年展望）和三个工作方向：游戏业务稳中有进、AI赋能内容生产、党建与业务深度融合。",
+  "facts": {
+    "time": [
+      "2025年度",
+      "2026年"
+    ],
+    "location": [],
+    "organizations": [
+      "公司"
+    ],
+    "leaders": [],
+    "persons": [],
+    "products": [
+      "游戏业务"
+    ],
+    "projects": [
+      "AI赋能内容生产",
+      "党建与业务深度融合"
+    ],
+    "events": [
+      "公司年度总结会"
+    ],
+    "data": [],
+    "achievements": [
+      "游戏业务稳中有进"
+    ],
+    "problems": [],
+    "requests": [],
+    "policies": [],
+    "documents": []
+  },
+  "fact_items": [
+    {
+      "type": "time",
+      "value": "2025年度",
+      "source_text": "会议主题：2025年度工作总结与2026年展望。",
+      "confidence": 0.98,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": null
+    },
+    {
+      "type": "time",
+      "value": "2026年",
+      "source_text": "会议主题：2025年度工作总结与2026年展望。",
+      "confidence": 0.98,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": null
+    },
+    {
+      "type": "organization",
+      "value": "公司",
+      "source_text": "在公司年度总结会上的讲话提纲",
+      "confidence": 0.85,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": true,
+      "note": "未提供公司正式名称，后续需确认。"
+    },
+    {
+      "type": "product",
+      "value": "游戏业务",
+      "source_text": "1）游戏业务稳中有进",
+      "confidence": 0.9,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": "未提供具体游戏名称。"
+    },
+    {
+      "type": "project",
+      "value": "AI赋能内容生产",
+      "source_text": "2）AI赋能内容生产",
+      "confidence": 0.92,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": null
+    },
+    {
+      "type": "project",
+      "value": "党建与业务深度融合",
+      "source_text": "3）党建与业务深度融合",
+      "confidence": 0.92,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": null
+    },
+    {
+      "type": "event",
+      "value": "公司年度总结会",
+      "source_text": "在公司年度总结会上的讲话提纲",
+      "confidence": 0.95,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": null
+    },
+    {
+      "type": "achievement",
+      "value": "游戏业务稳中有进",
+      "source_text": "1）游戏业务稳中有进",
+      "confidence": 0.9,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": "未提供具体数据支撑。"
+    }
+  ],
+  "missing_fields": [
+    {
+      "field": "讲话领导姓名",
+      "reason": "用户未提供讲话领导姓名",
+      "impact": "影响讲话稿称谓和身份表达",
+      "suggestion": "后续写作前需确认讲话领导姓名"
+    },
+    {
+      "field": "讲话领导职务",
+      "reason": "用户未提供讲话领导职务",
+      "impact": "影响讲话稿开头和语气定位",
+      "suggestion": "后续可由org-title-dictionary.yaml校验或人工确认"
+    },
+    {
+      "field": "会议时间（具体日期）",
+      "reason": "用户只给出年度，未提供具体会议日期",
+      "impact": "影响讲话背景完整性",
+      "suggestion": "如需正式成稿，可补充会议日期"
+    },
+    {
+      "field": "会议地点",
+      "reason": "用户未提供会议地点",
+      "impact": "影响讲话环境描述",
+      "suggestion": "后续写作前可确认"
+    },
+    {
+      "field": "参会人员范围",
+      "reason": "用户未说明参会人员",
+      "impact": "影响讲话稿称呼语",
+      "suggestion": "后续写作前可确认"
+    },
+    {
+      "field": "游戏业务具体名称",
+      "reason": "用户只写游戏业务，未提供具体产品名称",
+      "impact": "影响内容具体性",
+      "suggestion": "后续写作可概括表述"
+    },
+    {
+      "field": "AI赋能内容生产的具体措施",
+      "reason": "用户仅提出方向，无具体措施",
+      "impact": "影响讲话稿内容充实度",
+      "suggestion": "后续写作可结合实际展开"
+    },
+    {
+      "field": "党建与业务深度融合的具体做法",
+      "reason": "用户仅提出方向，无具体做法",
+      "impact": "影响讲话稿内容充实度",
+      "suggestion": "后续写作可结合实际展开"
+    }
+  ],
+  "cannot_infer": [
+    {
+      "field": "领导评价",
+      "reason": "用户素材未提供领导评价，不得自动补充"
+    },
+    {
+      "field": "经营数据",
+      "reason": "用户素材未提供任何经营数据"
+    },
+    {
+      "field": "获奖情况",
+      "reason": "用户素材未提供任何获奖信息"
+    },
+    {
+      "field": "政策依据",
+      "reason": "用户素材未提供政策依据"
+    },
+    {
+      "field": "会议结论",
+      "reason": "用户素材未提供会议结论"
+    }
+  ],
+  "risk_flags": [
+    {
+      "type": "missing_leader_title",
+      "detail": "领导讲话稿缺少讲话领导姓名和职务",
+      "level": "high"
+    },
+    {
+      "type": "achievement_without_data",
+      "detail": "素材提到游戏业务稳中有进，但未提供具体数据",
+      "level": "medium"
+    },
+    {
+      "type": "ambiguous_fact",
+      "detail": "工作方向缺乏具体内容支撑",
+      "level": "medium"
+    }
+  ],
+  "extraction_policy": {
+    "only_user_provided_facts": true,
+    "no_external_knowledge": true,
+    "no_rag_facts": true,
+    "no_invented_data": true
+  }
+}

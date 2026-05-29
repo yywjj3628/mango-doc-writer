@@ -1,0 +1,128 @@
+{
+  "source_summary": "用户素材涉及芒果超媒举办AI内容创作大赛，包含时间、参赛团队数量、一等奖作品及其成就。",
+  "facts": {
+    "time": [
+      "4月15日"
+    ],
+    "location": [],
+    "organizations": [
+      "芒果超媒"
+    ],
+    "leaders": [],
+    "persons": [],
+    "products": [
+      "《AI导演》"
+    ],
+    "projects": [],
+    "events": [
+      "AI内容创作大赛"
+    ],
+    "data": [
+      "12个团队"
+    ],
+    "achievements": [
+      "一等奖作品《AI导演》实现了全流程AI辅助制作"
+    ],
+    "problems": [],
+    "requests": [],
+    "policies": [],
+    "documents": []
+  },
+  "fact_items": [
+    {
+      "type": "time",
+      "value": "4月15日",
+      "source_text": "4月15日，芒果超媒举办AI内容创作大赛。",
+      "confidence": 0.98,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": null
+    },
+    {
+      "type": "organization",
+      "value": "芒果超媒",
+      "source_text": "芒果超媒举办AI内容创作大赛。",
+      "confidence": 0.98,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": "extract阶段只抽取原文称谓，正式全称后续由口径库校验。"
+    },
+    {
+      "type": "event",
+      "value": "AI内容创作大赛",
+      "source_text": "芒果超媒举办AI内容创作大赛。",
+      "confidence": 0.95,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": null
+    },
+    {
+      "type": "data",
+      "value": "12个团队",
+      "source_text": "来自12个团队参加。",
+      "confidence": 0.96,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": null
+    },
+    {
+      "type": "product",
+      "value": "《AI导演》",
+      "source_text": "一等奖作品《AI导演》实现了全流程AI辅助制作。",
+      "confidence": 0.97,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": null
+    },
+    {
+      "type": "achievement",
+      "value": "一等奖作品《AI导演》实现了全流程AI辅助制作",
+      "source_text": "一等奖作品《AI导演》实现了全流程AI辅助制作。",
+      "confidence": 0.94,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": null
+    }
+  ],
+  "missing_fields": [
+    {
+      "field": "活动地点",
+      "reason": "用户未提供活动举办地点",
+      "impact": "影响新闻稿导语完整性",
+      "suggestion": "后续写作前建议确认活动地点"
+    },
+    {
+      "field": "参赛团队名单",
+      "reason": "用户仅写明12个团队，未提供具体团队名称",
+      "impact": "影响新闻稿内容的可扩展性",
+      "suggestion": "可概述12个团队参赛，无需补充具体名称"
+    }
+  ],
+  "cannot_infer": [
+    {
+      "field": "领导出席情况",
+      "reason": "用户素材未提供领导出席信息，不得自动补充"
+    },
+    {
+      "field": "领导评价",
+      "reason": "用户素材未提供领导评价，不得自动写入"
+    },
+    {
+      "field": "活动影响",
+      "reason": "用户素材未提供活动传播效果或社会反响"
+    }
+  ],
+  "risk_flags": [
+    {
+      "type": "event_without_time_location",
+      "detail": "素材提供活动时间，但未提供活动地点",
+      "level": "medium"
+    }
+  ],
+  "extraction_policy": {
+    "only_user_provided_facts": true,
+    "no_external_knowledge": true,
+    "no_rag_facts": true,
+    "no_invented_data": true
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "doc_type": "汇报材料",
+  "doc_type_confidence": 0.92,
+  "direction": "上行文",
+  "style_level": 2,
+  "risk_level": "medium",
+  "reason": "用户明确要求写汇报材料，向电广传媒汇报经营成果，内容为工作汇报，未出现请求批准、请求支持等请示信号，因此判断为汇报材料。",
+  "required_rules": [
+    "汇报材料"
+  ],
+  "required_structure": [
+    "背景情况",
+    "主要进展",
+    "亮点成效",
+    "问题挑战",
+    "下一步思路"
+  ],
+  "forbidden_items": [
+    "不得编造经营数据和典型案例",
+    "不得夹带请示事项",
+    "不得出现请批复、请批准等审批请求表达",
+    "不得虚构领导指示或评价"
+  ],
+  "possible_confusions": [
+    {
+      "candidate": "报告",
+      "reason": "若该材料作为正式上行公文报送而非会议口头汇报配套，可能改判为报告。",
+      "distinguish_rule": "是否为正式上行公文，是否用于会议口头汇报或PPT配套。"
+    }
+  ],
+  "need_manual_confirmation": false,
+  "manual_confirmation_fields": []
+}

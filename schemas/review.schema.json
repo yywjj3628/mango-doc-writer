@@ -96,6 +96,8 @@
               "style_overdone",
               "format_error",
               "risk_not_handled",
+              "unsafe_expansion",
+              "expansion_not_labeled",
               "other"
             ]
           },
@@ -186,6 +188,66 @@
         "check_fact_grounding": { "type": "boolean", "const": true },
         "check_doc_type_rules": { "type": "boolean", "const": true },
         "check_org_title_dictionary": { "type": "boolean", "const": true }
+      }
+    },
+    "generation_mode": {
+      "type": "string",
+      "description": "v0.1.4: 当前写作模式"
+    },
+    "official_use_allowed": {
+      "type": ["boolean", "string"],
+      "description": "v0.1.4: 是否允许正式使用"
+    },
+    "expansion_review": {
+      "type": "object",
+      "description": "v0.1.4: 扩写安全审查结果",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["pass", "warning", "fail", "not_applicable"]
+        },
+        "summary": {"type": "string"},
+        "acceptable_expansion": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "text": {"type": "string"},
+              "type": {"type": "string"}
+            }
+          }
+        },
+        "unsafe_fabrication": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "text": {"type": "string"},
+              "reason": {"type": "string"}
+            }
+          }
+        },
+        "confirmation_required": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "text": {"type": "string"},
+              "reason": {"type": "string"}
+            }
+          }
+        },
+        "expansion_rewrite_instructions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "target": {"type": "string"},
+              "action": {"type": "string"},
+              "instruction": {"type": "string"}
+            }
+          }
+        }
       }
     }
   },

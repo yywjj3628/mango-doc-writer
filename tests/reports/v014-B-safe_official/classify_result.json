@@ -1,0 +1,38 @@
+{
+  "doc_type": "汇报材料",
+  "doc_type_confidence": 0.9,
+  "direction": "上行文",
+  "target_unit": "电广传媒",
+  "scene": "上级汇报",
+  "style_level": 2,
+  "risk_level": "medium",
+  "reason": "用户明确要求整理成向电广传媒的季度工作汇报材料，素材内容为季度工作进展和下一步计划，未出现请求批准、支持等请示信号，符合汇报材料特征。",
+  "required_rules": [
+    "汇报材料"
+  ],
+  "required_structure": [
+    "背景情况",
+    "主要进展",
+    "亮点成效",
+    "问题挑战",
+    "下一步思路"
+  ],
+  "forbidden_items": [
+    "不得夹带请示事项",
+    "不得出现请批准、请批复等审批请求表达",
+    "不得编造经营数据和领导评价"
+  ],
+  "possible_confusions": [
+    {
+      "candidate": "报告",
+      "reason": "若该材料作为正式上行公文报送，而非会议口头汇报配套材料，可改判为报告。",
+      "distinguish_rule": "是否作为会议汇报或口头汇报配套材料。"
+    }
+  ],
+  "user_specified_doc_type": "汇报材料",
+  "conflict_detected": false,
+  "conflict_reason": null,
+  "recommended_action": null,
+  "need_manual_confirmation": false,
+  "manual_confirmation_fields": []
+}

@@ -1,0 +1,108 @@
+{
+  "review_summary": "初稿符合汇报材料文种要求，结构完整，事实均来自extract_result，无新增事实或RAG污染。称谓方面韩国T3和劲舞团手游版需人工确认，落款单位和日期使用占位符。整体质量合格，无需自动重写，但需人工补充确认项。",
+  "pass": true,
+  "score": 95,
+  "rewrite_required": false,
+  "risk_level": "medium",
+  "checks": {
+    "doc_type_check": {
+      "status": "pass",
+      "summary": "文种为汇报材料，与classify结果一致，正文符合汇报材料规范。",
+      "issues_count": 0
+    },
+    "structure_check": {
+      "status": "pass",
+      "summary": "按背景情况、主要进展、亮点成效、问题挑战、下一步思路五段式生成，与plan一致。",
+      "issues_count": 0
+    },
+    "fact_grounding_check": {
+      "status": "pass",
+      "summary": "正文中所有事实均可追溯到extract_result.fact_items或fact_usage_report，未发现无来源事实。",
+      "issues_count": 0
+    },
+    "fact_usage_report_check": {
+      "status": "pass",
+      "summary": "fact_usage_report完整覆盖正文事实，source_text均来自extract。",
+      "issues_count": 0
+    },
+    "rag_usage_check": {
+      "status": "pass",
+      "summary": "RAG仅用于开头句式和主体结构借鉴，无事实风险，无照抄或事实污染。",
+      "issues_count": 0
+    },
+    "terminology_check": {
+      "status": "warning",
+      "summary": "电广传媒称谓正确；韩国T3和劲舞团手游版需人工确认正式名称。",
+      "issues_count": 1
+    },
+    "blocked_items_check": {
+      "status": "pass",
+      "summary": "所有blocked_items未进入正文，无编造数据或评价。",
+      "issues_count": 0
+    },
+    "warnings_check": {
+      "status": "pass",
+      "summary": "warnings完整承接了缺失字段、称谓不确定、占位符等风险。",
+      "issues_count": 0
+    },
+    "manual_confirmation_check": {
+      "status": "warning",
+      "summary": "manual_confirmation_fields保留了关键确认项，但日期待确认未单独列出，建议补充。",
+      "issues_count": 1
+    },
+    "style_check": {
+      "status": "pass",
+      "summary": "风格为芒果系正式公文风（style_level=2），表达规范，无过度宣传。",
+      "issues_count": 0
+    },
+    "format_check": {
+      "status": "pass",
+      "summary": "标题、主送、段落结构、占位符使用均合规。",
+      "issues_count": 0
+    }
+  },
+  "issues": [],
+  "rewrite_instructions": [],
+  "manual_confirmation_fields": [
+    {
+      "field": "季度具体名称",
+      "reason": "时间明确性缺失",
+      "impact": "影响汇报材料的时间明确性",
+      "required_before_final": true
+    },
+    {
+      "field": "落款单位",
+      "reason": "汇报材料必须明确落款单位",
+      "impact": "影响材料完整性",
+      "required_before_final": true
+    },
+    {
+      "field": "韩国T3全称",
+      "reason": "可能为非正式名称",
+      "impact": "影响对外称谓准确性",
+      "required_before_final": true
+    },
+    {
+      "field": "劲舞团手游版名称确认",
+      "reason": "是否为正式产品名称存疑",
+      "impact": "影响产品表述准确性",
+      "required_before_final": false
+    }
+  ],
+  "review_policy": {
+    "no_body_generation": true,
+    "no_rewrite": true,
+    "no_new_facts": true,
+    "no_rag_call": true,
+    "check_fact_grounding": true,
+    "check_doc_type_rules": true,
+    "check_org_title_dictionary": true
+  },
+  "expansion_review": {
+    "status": "not_applicable",
+    "summary": "本稿generation_mode为默认安全模式，无扩写行为。",
+    "acceptable_expansion": [],
+    "unsafe_fabrication": [],
+    "confirmation_required": []
+  }
+}
