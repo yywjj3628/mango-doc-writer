@@ -826,6 +826,9 @@ def run_pipeline(input_data: PipelineInput) -> PipelineResult:
                     report.human_review_required = True
                 else:
                     report.human_review_required = qg_result.get("human_review_required", False)
+                # P1 fix: official_use_allowed 非 true 时强制 human_review_required
+                if report.official_use_allowed != True:
+                    report.human_review_required = True
                 print(f"  ✅ 质量门禁通过")
                 break
 
