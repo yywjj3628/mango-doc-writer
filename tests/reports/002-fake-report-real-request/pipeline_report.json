@@ -1,0 +1,81 @@
+{
+  "status": "success",
+  "doc_type": "请示",
+  "risk_level": "high",
+  "review_pass": true,
+  "rewrite_required": false,
+  "manual_confirmation_count": 11,
+  "remaining_risk_count": 5,
+  "schema_validation_status": {
+    "classify": true,
+    "extract": true,
+    "plan": true,
+    "draft": true,
+    "review": true,
+    "rewrite": true
+  },
+  "rag_status": "success",
+  "style_references_count": 2,
+  "rag_collection": "jiuyou_docs",
+  "rag_index": "jiuyou_docs",
+  "rag_query": "jiuyou_docs:广电系统 请示 项目支持 上行文 | jiuyou_docs:正式公文 请示 妥否请批示",
+  "rag_sources": [
+    "正式公文 请示 妥否请批示",
+    "广电系统 请示 项目支持 上行文"
+  ],
+  "rag_collections_used": [
+    "jiuyou_docs"
+  ],
+  "rag_primary_collection": "jiuyou_docs",
+  "rag_fallback_collection": null,
+  "failed_stage": null,
+  "error_type": null,
+  "error_message": null,
+  "schema_path": null,
+  "sanitizer_high_risk": true,
+  "model_provider": "deepseek",
+  "default_model": "deepseek-v4-flash",
+  "fallback_model": "deepseek-v4-pro",
+  "fallback_enabled": true,
+  "stage_model_usage": {
+    "classify": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    },
+    "extract": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    },
+    "plan": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    },
+    "draft": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    },
+    "review": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    },
+    "rewrite": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    }
+  },
+  "fallback_count": 0,
+  "output_files": [
+    "classify_result.json",
+    "extract_result.json",
+    "plan_result.json",
+    "draft_result.json",
+    "review_result.json",
+    "rewrite_result.json"
+  ]
+}

@@ -1,0 +1,151 @@
+{
+  "total_cases": 10,
+  "passed": 10,
+  "failed": 0,
+  "total_high_risk_sanitizer": 7,
+  "cases_with_high_risk_sanitizer": [
+    "001-news",
+    "002-fake-report-real-request",
+    "004-notice",
+    "005-meeting-minutes",
+    "006-leader-speech",
+    "008-letter",
+    "009-rag-pollution"
+  ],
+  "cases": [
+    {
+      "case_id": "001-news",
+      "pass": true,
+      "checks": {
+        "report": true,
+        "markdown_claims": true,
+        "high_risk_sanitizer_count": 1,
+        "high_risk_sanitizer_paths": [
+          ".rewrite_policy.body_rewritten"
+        ],
+        "needs_manual_review": true,
+        "terminology_risk_check": "pass"
+      }
+    },
+    {
+      "case_id": "002-fake-report-real-request",
+      "pass": true,
+      "checks": {
+        "report": true,
+        "markdown_claims": true,
+        "high_risk_sanitizer_count": 1,
+        "high_risk_sanitizer_paths": [
+          ".rewrite_policy.body_rewritten"
+        ],
+        "needs_manual_review": true,
+        "terminology_risk_check": "pass"
+      }
+    },
+    {
+      "case_id": "003-report",
+      "pass": true,
+      "checks": {
+        "report": true,
+        "markdown_claims": true,
+        "high_risk_sanitizer_count": 0,
+        "high_risk_sanitizer_paths": [],
+        "needs_manual_review": false,
+        "terminology_risk_check": "pass"
+      }
+    },
+    {
+      "case_id": "004-notice",
+      "pass": true,
+      "checks": {
+        "report": true,
+        "markdown_claims": true,
+        "high_risk_sanitizer_count": 1,
+        "high_risk_sanitizer_paths": [
+          ".rewrite_policy.body_rewritten"
+        ],
+        "needs_manual_review": true,
+        "terminology_risk_check": "pass"
+      }
+    },
+    {
+      "case_id": "005-meeting-minutes",
+      "pass": true,
+      "checks": {
+        "report": true,
+        "markdown_claims": true,
+        "high_risk_sanitizer_count": 1,
+        "high_risk_sanitizer_paths": [
+          ".rewrite_policy.body_rewritten"
+        ],
+        "needs_manual_review": true,
+        "terminology_risk_check": "pass"
+      }
+    },
+    {
+      "case_id": "006-leader-speech",
+      "pass": true,
+      "checks": {
+        "report": true,
+        "markdown_claims": true,
+        "high_risk_sanitizer_count": 1,
+        "high_risk_sanitizer_paths": [
+          ".rewrite_policy.body_rewritten"
+        ],
+        "needs_manual_review": true,
+        "terminology_risk_check": "pass"
+      }
+    },
+    {
+      "case_id": "007-summary",
+      "pass": true,
+      "checks": {
+        "report": true,
+        "markdown_claims": true,
+        "high_risk_sanitizer_count": 0,
+        "high_risk_sanitizer_paths": [],
+        "needs_manual_review": false,
+        "terminology_risk_check": "pass"
+      }
+    },
+    {
+      "case_id": "008-letter",
+      "pass": true,
+      "checks": {
+        "report": true,
+        "markdown_claims": true,
+        "high_risk_sanitizer_count": 1,
+        "high_risk_sanitizer_paths": [
+          ".rewrite_policy.body_rewritten"
+        ],
+        "needs_manual_review": true,
+        "terminology_risk_check": "pass"
+      }
+    },
+    {
+      "case_id": "009-rag-pollution",
+      "pass": true,
+      "checks": {
+        "report": true,
+        "markdown_claims": true,
+        "high_risk_sanitizer_count": 1,
+        "high_risk_sanitizer_paths": [
+          ".rewrite_policy.body_rewritten"
+        ],
+        "needs_manual_review": true,
+        "terminology_risk_check": "pass"
+      }
+    },
+    {
+      "case_id": "010-terminology-risk",
+      "pass": true,
+      "checks": {
+        "report": true,
+        "markdown_claims": true,
+        "high_risk_sanitizer_count": 0,
+        "high_risk_sanitizer_paths": [],
+        "needs_manual_review": false,
+        "terminology_risk_check": "pass"
+      }
+    }
+  ]
+}

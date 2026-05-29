@@ -1,0 +1,161 @@
+{
+  "draft_summary": "已按领导讲话文种生成初稿。素材简短，仅包含工作推进会和责任要求。正文遵循plan结构，使用了芒果系正式公文风。讲话领导姓名、职务、会议时间等缺失，已用占位或概括表述，并在warnings中提示。",
+  "doc_type": "领导讲话",
+  "direction": "综合材料",
+  "style_level": 2,
+  "risk_level": "medium",
+  "markdown_draft": "# 在工作推进会上的讲话\n\n同志们：\n\n今天，我们召开这次工作推进会，主要任务是围绕年度重点任务推进进行部署，进一步统一思想、明确方向，确保各项工作落到实处。\n\n当前，我们要提高政治站位，深刻认识推进年度重点任务的重要意义。面对新形势新任务，必须保持清醒头脑，增强责任感和紧迫感。\n\n在大家的共同努力下，各项工作取得了一定进展，为后续推进奠定了基础。\n\n要突出重点，狠抓落实。一是强化责任意识，各部门要切实担负起主体责任，将任务细化到岗、责任到人。二是加快重点项目落地，集中资源、攻坚克难，确保项目按时保质完成。三是加强协同配合，形成工作合力。\n\n要压实责任，确保各项工作落到实处。一要完善工作机制，明确时间节点和考核标准。二要加强督查检查，及时发现问题、解决问题。三要树立正确政绩观，以实干实绩推动发展。\n\n同志们，让我们凝心聚力、攻坚克难，确保年度重点任务圆满完成，为集团高质量发展作出新的更大贡献！",
+  "fact_usage_report": [
+    {
+      "draft_text": "工作推进会",
+      "fact_type": "event",
+      "fact_value": "工作推进会",
+      "source_text": "领导在工作推进会上的讲话稿",
+      "source": "extract_result.fact_items",
+      "confidence": 0.92
+    },
+    {
+      "draft_text": "年度重点任务",
+      "fact_type": "project",
+      "fact_value": "年度重点任务",
+      "source_text": "会议围绕年度重点任务推进进行部署",
+      "source": "extract_result.fact_items",
+      "confidence": 0.9
+    },
+    {
+      "draft_text": "各部门",
+      "fact_type": "organization",
+      "fact_value": "各部门",
+      "source_text": "要求各部门强化责任意识",
+      "source": "extract_result.fact_items",
+      "confidence": 0.86
+    },
+    {
+      "draft_text": "强化责任意识",
+      "fact_type": "request",
+      "fact_value": "要求各部门强化责任意识",
+      "source_text": "要求各部门强化责任意识",
+      "source": "extract_result.fact_items",
+      "confidence": 0.9
+    },
+    {
+      "draft_text": "加快重点项目落地",
+      "fact_type": "request",
+      "fact_value": "加快重点项目落地",
+      "source_text": "加快重点项目落地",
+      "source": "extract_result.fact_items",
+      "confidence": 0.9
+    }
+  ],
+  "rag_usage_report": [],
+  "terminology_usage_report": [
+    {
+      "raw_value": "各部门",
+      "used_value": "各部门",
+      "type": "organization",
+      "source": "extract_result.fact_items",
+      "confidence": 0.86,
+      "needs_manual_confirmation": false,
+      "note": "具体部门范围未提供，正文沿用用户表述。"
+    }
+  ],
+  "blocked_items_check": [
+    {
+      "item": "编造政策判断",
+      "status": "not_used",
+      "reason": "正文未编造任何政策判断，仅使用站位表述。"
+    },
+    {
+      "item": "编造成果数据",
+      "status": "not_used",
+      "reason": "正文未编造成果数据，工作肯定段仅概括写‘取得了一定进展’。"
+    },
+    {
+      "item": "编造领导表态",
+      "status": "not_used",
+      "reason": "正文未出现领导个人表态内容。"
+    },
+    {
+      "item": "编造会议具体时间",
+      "status": "not_used",
+      "reason": "正文未使用具体时间。"
+    },
+    {
+      "item": "编造重点项目具体名称",
+      "status": "not_used",
+      "reason": "正文仅使用‘重点项目’概括表述。"
+    }
+  ],
+  "warnings": [
+    {
+      "level": "high",
+      "type": "missing_field",
+      "message": "讲话领导姓名和职务缺失，正文未使用具体领导称谓。",
+      "related_field": "讲话领导姓名/职务",
+      "action": "正式成稿前需确认讲话领导姓名和职务，并据此调整开头称谓。"
+    },
+    {
+      "level": "high",
+      "type": "missing_field",
+      "message": "会议具体名称缺失，标题使用通用表述‘在工作推进会上的讲话’。",
+      "related_field": "会议名称",
+      "action": "建议确认会议全称后更新标题。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "message": "重点项目具体名称缺失，正文仅概括表述。",
+      "related_field": "重点项目名称",
+      "action": "如有具体项目名称可后续补充。"
+    },
+    {
+      "level": "medium",
+      "type": "section_needs_manual_input",
+      "message": "S2形势判断和S3工作肯定无事实支撑，正文使用通用站位和概括表述，需人工补充具体内容。",
+      "related_field": "S2/S3",
+      "action": "根据实际情况补充形势判断和工作肯定细节。"
+    },
+    {
+      "level": "low",
+      "type": "rag_not_used",
+      "message": "本次未使用RAG风格参考，正文仅基于plan和extract事实生成。",
+      "related_field": "style_rag",
+      "action": "后续可检索芒果系领导讲话稿风格案例优化表达。"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "讲话领导姓名",
+      "reason": "领导讲话必须明确讲话人",
+      "impact": "影响讲话稿称谓和身份表达",
+      "required_before_final": true
+    },
+    {
+      "field": "讲话领导职务",
+      "reason": "领导讲话开头需要使用职务",
+      "impact": "影响开头语气",
+      "required_before_final": true
+    },
+    {
+      "field": "会议时间",
+      "reason": "影响开场背景完整性",
+      "impact": "影响正文背景段",
+      "required_before_final": false
+    },
+    {
+      "field": "会议具体名称",
+      "reason": "影响标题和开场",
+      "impact": "影响标题准确性",
+      "required_before_final": false
+    }
+  ],
+  "draft_policy": {
+    "body_generated": true,
+    "no_new_facts": true,
+    "use_only_extract_facts": true,
+    "rag_used_for_style_only": true,
+    "follow_plan_structure": true,
+    "follow_doc_type_rules": true,
+    "follow_org_title_dictionary": true
+  }
+}

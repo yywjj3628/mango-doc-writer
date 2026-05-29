@@ -1,0 +1,114 @@
+{
+  "review_summary": "draft整体符合报告文种和四段式结构，事实均来自extract，无新增事实，无RAG污染，称谓库使用正确。但正文频繁使用口语化第一人称“我们”，不符合芒果系正式公文风，建议替换为机构名称。其余无重大问题。",
+  "pass": true,
+  "score": 90,
+  "rewrite_required": true,
+  "risk_level": "medium",
+  "checks": {
+    "doc_type_check": {
+      "status": "pass",
+      "summary": "文种为报告，正文无夹带请示，结尾使用“特此报告”，符合规范。",
+      "issues_count": 0
+    },
+    "structure_check": {
+      "status": "pass",
+      "summary": "按plan四段式生成（基本情况、主要工作、存在问题、下一步工作），顺序正确，S3概括性表述符合要求。",
+      "issues_count": 0
+    },
+    "fact_grounding_check": {
+      "status": "pass",
+      "summary": "正文事实均可追溯到extract.fact_items，无新增事实。",
+      "issues_count": 0
+    },
+    "fact_usage_report_check": {
+      "status": "pass",
+      "summary": "fact_usage_report完整覆盖正文事实，来源正确。",
+      "issues_count": 0
+    },
+    "rag_usage_check": {
+      "status": "pass",
+      "summary": "rag_usage_report为空，正文无RAG事实污染。",
+      "issues_count": 0
+    },
+    "terminology_check": {
+      "status": "warning",
+      "summary": "正文多次使用第一人称“我们”，不符合芒果系正式公文称谓规范，应替换为机构名称。",
+      "issues_count": 1
+    },
+    "blocked_items_check": {
+      "status": "pass",
+      "summary": "所有blocked_items均未使用，check报告如实。",
+      "issues_count": 0
+    },
+    "warnings_check": {
+      "status": "pass",
+      "summary": "warnings已完整承接缺失字段、占位符、S3无事实等风险。",
+      "issues_count": 0
+    },
+    "manual_confirmation_check": {
+      "status": "pass",
+      "summary": "manual_confirmation_fields保留了计划中的人工确认项。",
+      "issues_count": 0
+    },
+    "style_check": {
+      "status": "warning",
+      "summary": "style_level=2要求芒果系正式公文风，正文整体符合，但“我们”影响正式感。",
+      "issues_count": 1
+    },
+    "format_check": {
+      "status": "pass",
+      "summary": "Markdown格式正确，标题、主送、段落、结尾合规。",
+      "issues_count": 0
+    }
+  },
+  "issues": [
+    {
+      "issue_id": "R001",
+      "level": "medium",
+      "type": "terminology_error",
+      "location": "markdown_draft 全文多处（基本情况、主要工作、下一步工作段落）",
+      "detail": "正文多次使用第一人称“我们”，不符合芒果系正式公文称谓规范。根据org-title-dictionary.yaml fixed_replacements，应替换为机构名称“集团（台）”或调整句式。",
+      "evidence": "“我们围绕重点任务推进”、“各项工作有序开展”、“已完成前期梳理”等",
+      "suggestion": "将所有“我们”替换为“集团（台）”或通过上下文省略主语。",
+      "rewrite_hint": "例如：“我们围绕重点任务推进”改为“集团（台）围绕重点任务推进”；“各项工作有序开展”可改为“各项工作有序开展”（主语承前省略）；“已完成前期梳理”保留。"
+    }
+  ],
+  "rewrite_instructions": [
+    {
+      "priority": "medium",
+      "target": "markdown_draft 全文涉及“我们”的句子",
+      "action": "replace",
+      "instruction": "将正文中所有“我们”替换为“集团（台）”，注意保持句子通顺。如“我们围绕重点任务推进”改为“集团（台）围绕重点任务推进”；“各项工作有序开展”改为“各项工作有序开展”（主语省略）；“已完成前期梳理”无需改动。",
+      "basis": "org-title-dictionary.yaml fixed_replacements：第一人称口语须替换为机构名称。"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "重点任务具体名称",
+      "reason": "影响标题和正文主体内容",
+      "impact": "正文使用泛称，正式成稿前需确认",
+      "required_before_final": false
+    },
+    {
+      "field": "落款单位",
+      "reason": "报告必须有落款单位",
+      "impact": "当前为占位符，正式成稿前需填写",
+      "required_before_final": false
+    },
+    {
+      "field": "存在问题段落",
+      "reason": "用户素材未提供问题内容",
+      "impact": "如需具体问题，需人工补充",
+      "required_before_final": false
+    }
+  ],
+  "review_policy": {
+    "no_body_generation": true,
+    "no_rewrite": true,
+    "no_new_facts": true,
+    "no_rag_call": true,
+    "check_fact_grounding": true,
+    "check_doc_type_rules": true,
+    "check_org_title_dictionary": true
+  }
+}

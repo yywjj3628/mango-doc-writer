@@ -1,0 +1,31 @@
+{
+  "doc_type": "报告",
+  "doc_type_confidence": 0.9,
+  "direction": "上行文",
+  "style_level": 2,
+  "risk_level": "medium",
+  "reason": "用户明确要求向集团汇报的正式报告，初稿内容为工作进展和下一步安排，未出现请求批准、请求支持等请示信号，因此判断为报告。",
+  "required_rules": [
+    "报告"
+  ],
+  "required_structure": [
+    "基本情况",
+    "主要工作",
+    "存在问题",
+    "下一步工作"
+  ],
+  "forbidden_items": [
+    "不得夹带请示事项",
+    "不得出现请批准、请批复等审批请求表达",
+    "不得编造领导评价、经营数据和成果荣誉"
+  ],
+  "possible_confusions": [
+    {
+      "candidate": "汇报材料",
+      "reason": "若该材料用于会议口头汇报或PPT配套，而非正式上行公文，可改判为汇报材料。",
+      "distinguish_rule": "是否作为正式上行公文报送。"
+    }
+  ],
+  "need_manual_confirmation": false,
+  "manual_confirmation_fields": []
+}

@@ -1,0 +1,128 @@
+{
+  "source_summary": "用户需求是写一份内部通知，要求各部门报送专项整治自查材料；初稿包含报送时间、内容和部门要求。",
+  "facts": {
+    "time": [
+      "本周五前"
+    ],
+    "location": [],
+    "organizations": [
+      "各部门"
+    ],
+    "leaders": [],
+    "persons": [],
+    "products": [],
+    "projects": [
+      "专项整治自查"
+    ],
+    "events": [
+      "报送专项整治自查情况，内容包括工作开展、问题排查、整改措施等"
+    ],
+    "data": [],
+    "achievements": [],
+    "problems": [],
+    "requests": [],
+    "policies": [],
+    "documents": []
+  },
+  "fact_items": [
+    {
+      "type": "time",
+      "value": "本周五前",
+      "source_text": "请各部门于本周五前提交专项整治自查情况",
+      "confidence": 0.95,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": true,
+      "note": "时间为相对表述，需确认具体日期"
+    },
+    {
+      "type": "organization",
+      "value": "各部门",
+      "source_text": "请各部门于本周五前提交专项整治自查情况",
+      "confidence": 0.9,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": ""
+    },
+    {
+      "type": "project",
+      "value": "专项整治自查",
+      "source_text": "请各部门于本周五前提交专项整治自查情况",
+      "confidence": 0.92,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": ""
+    },
+    {
+      "type": "event",
+      "value": "报送专项整治自查情况，内容包括工作开展、问题排查、整改措施等",
+      "source_text": "请各部门于本周五前提交专项整治自查情况，包括工作开展、问题排查、整改措施等内容",
+      "confidence": 0.93,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": ""
+    }
+  ],
+  "missing_fields": [
+    {
+      "field": "发文依据或背景",
+      "reason": "用户未提供通知的依据或背景信息",
+      "impact": "影响通知正文的起首部分",
+      "suggestion": "后续写作前建议补充发文依据或背景"
+    },
+    {
+      "field": "落款单位",
+      "reason": "用户未提供通知的落款单位",
+      "impact": "影响正式通知的完整性",
+      "suggestion": "后续写作前确认并补全落款单位"
+    },
+    {
+      "field": "联系人及联系方式",
+      "reason": "用户未提供执行中的联系人",
+      "impact": "影响材料报送的可操作性",
+      "suggestion": "后续写作前建议补充联系人信息"
+    },
+    {
+      "field": "发文日期",
+      "reason": "用户未提供通知的发文日期",
+      "impact": "影响公文时效性",
+      "suggestion": "后续写作前确认发文日期"
+    }
+  ],
+  "cannot_infer": [
+    {
+      "field": "发文依据文件",
+      "reason": "用户素材未提供任何发文依据，不得自动补充"
+    },
+    {
+      "field": "领导批示",
+      "reason": "用户素材未提供领导批示内容，不得自动写入"
+    },
+    {
+      "field": "具体工作要求细则",
+      "reason": "用户只概括了内容方向，未提供具体要求细节，不得扩展"
+    }
+  ],
+  "risk_flags": [
+    {
+      "type": "ambiguous_fact",
+      "detail": "时间表述为本周五前，属于相对时间，可能需明确具体日期",
+      "level": "medium"
+    },
+    {
+      "type": "missing_required_field",
+      "detail": "缺少发文依据或背景，影响通知正文的完整性",
+      "level": "medium"
+    },
+    {
+      "type": "missing_required_field",
+      "detail": "缺少落款单位和联系人，影响公文规范",
+      "level": "high"
+    }
+  ],
+  "extraction_policy": {
+    "only_user_provided_facts": true,
+    "no_external_knowledge": true,
+    "no_rag_facts": true,
+    "no_invented_data": true
+  }
+}

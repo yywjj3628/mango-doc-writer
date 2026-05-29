@@ -1,0 +1,151 @@
+{
+  "source_summary": "用户需求是写一封商请合作单位提供活动场地支持的函，初稿中明确提出了商请协助提供活动场地、沟通现场保障和设备支持等事项。",
+  "facts": {
+    "time": [],
+    "location": [],
+    "organizations": [
+      "对方单位",
+      "合作单位"
+    ],
+    "leaders": [],
+    "persons": [],
+    "products": [],
+    "projects": [],
+    "events": [
+      "活动"
+    ],
+    "data": [],
+    "achievements": [],
+    "problems": [],
+    "requests": [
+      "拟商请对方单位协助提供活动场地",
+      "就现场保障、设备支持等事项进行沟通"
+    ],
+    "policies": [],
+    "documents": []
+  },
+  "fact_items": [
+    {
+      "type": "organization",
+      "value": "对方单位",
+      "source_text": "拟商请对方单位协助提供活动场地",
+      "confidence": 0.9,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": true,
+      "note": "未提供具体单位名称"
+    },
+    {
+      "type": "organization",
+      "value": "合作单位",
+      "source_text": "商请合作单位协助活动保障（来自classify场景）",
+      "confidence": 0.8,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": true,
+      "note": "classify阶段场景中提及"
+    },
+    {
+      "type": "event",
+      "value": "活动",
+      "source_text": "拟商请对方单位协助提供活动场地",
+      "confidence": 0.85,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": true,
+      "note": "未提供活动具体名称、时间、地点"
+    },
+    {
+      "type": "request",
+      "value": "拟商请对方单位协助提供活动场地",
+      "source_text": "拟商请对方单位协助提供活动场地",
+      "confidence": 0.98,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": null
+    },
+    {
+      "type": "request",
+      "value": "就现场保障、设备支持等事项进行沟通",
+      "source_text": "就现场保障、设备支持等事项进行沟通",
+      "confidence": 0.95,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": "具体保障内容和设备清单未提供"
+    }
+  ],
+  "missing_fields": [
+    {
+      "field": "主送单位（对方单位正式全称）",
+      "reason": "用户仅写'对方单位'，未提供具体单位名称",
+      "impact": "影响函件抬头规范性",
+      "suggestion": "后续写作前需要确认合作单位全称"
+    },
+    {
+      "field": "活动具体时间",
+      "reason": "用户未提供活动举办时间",
+      "impact": "影响函件中商洽事项的明确性",
+      "suggestion": "后续写作前需补充活动时间"
+    },
+    {
+      "field": "活动具体地点",
+      "reason": "用户未提供活动场地具体位置",
+      "impact": "影响函件中场地请求的完整性",
+      "suggestion": "后续写作前需补充活动地点"
+    },
+    {
+      "field": "现场保障具体内容",
+      "reason": "用户仅概括提及'现场保障'，未列出具体项目",
+      "impact": "影响对方单位理解配合范围",
+      "suggestion": "后续可进一步细化保障需求"
+    },
+    {
+      "field": "设备支持具体清单",
+      "reason": "用户仅提及'设备支持'，未说明所需设备",
+      "impact": "影响对方单位准备设备",
+      "suggestion": "后续需明确设备类型和数量"
+    }
+  ],
+  "cannot_infer": [
+    {
+      "field": "主送单位全称",
+      "reason": "用户未提供具体合作单位名称，不得自动补充"
+    },
+    {
+      "field": "活动时间",
+      "reason": "用户未提供活动时间，不得自动推断"
+    },
+    {
+      "field": "活动地点",
+      "reason": "用户未提供活动具体地点，不得自动补充"
+    },
+    {
+      "field": "现场保障具体项目",
+      "reason": "用户只概括提及，不得具体化"
+    },
+    {
+      "field": "设备支持详细清单",
+      "reason": "用户只概括提及，不得自行列举"
+    }
+  ],
+  "risk_flags": [
+    {
+      "type": "missing_required_field",
+      "detail": "函件缺少主送单位（目标单位名称）",
+      "level": "high"
+    },
+    {
+      "type": "ambiguous_fact",
+      "detail": "活动时间和地点均未提供，影响函件具体性",
+      "level": "high"
+    },
+    {
+      "type": "missing_required_field",
+      "detail": "现场保障和设备支持的具体内容未提供，商洽事项笼统",
+      "level": "medium"
+    }
+  ],
+  "extraction_policy": {
+    "only_user_provided_facts": true,
+    "no_external_knowledge": true,
+    "no_rag_facts": true,
+    "no_invented_data": true
+  }
+}

@@ -1,0 +1,65 @@
+[
+  {
+    "stage": "rewrite",
+    "path": ".terminology_usage_report[0].needs_manual_confirmation",
+    "before": "(missing)",
+    "after": false,
+    "fix_type": "fill_missing_boolean",
+    "risk": "medium",
+    "reason": "required field, type=boolean"
+  },
+  {
+    "stage": "rewrite",
+    "path": ".terminology_usage_report[0].note",
+    "before": "(missing)",
+    "after": "",
+    "fix_type": "fill_missing",
+    "risk": "medium",
+    "reason": "required field, type=['string', 'null']"
+  },
+  {
+    "stage": "rewrite",
+    "path": ".terminology_usage_report[0].confidence",
+    "before": "(missing)",
+    "after": 0.0,
+    "fix_type": "fill_missing_number",
+    "risk": "medium",
+    "reason": "required field, type=number"
+  },
+  {
+    "stage": "rewrite",
+    "path": ".terminology_usage_report[1].needs_manual_confirmation",
+    "before": "(missing)",
+    "after": false,
+    "fix_type": "fill_missing_boolean",
+    "risk": "medium",
+    "reason": "required field, type=boolean"
+  },
+  {
+    "stage": "rewrite",
+    "path": ".terminology_usage_report[1].note",
+    "before": "(missing)",
+    "after": "",
+    "fix_type": "fill_missing",
+    "risk": "medium",
+    "reason": "required field, type=['string', 'null']"
+  },
+  {
+    "stage": "rewrite",
+    "path": ".terminology_usage_report[1].confidence",
+    "before": "(missing)",
+    "after": 0.0,
+    "fix_type": "fill_missing_number",
+    "risk": "medium",
+    "reason": "required field, type=number"
+  },
+  {
+    "stage": "rewrite",
+    "path": ".rewrite_policy.body_rewritten",
+    "before": false,
+    "after": true,
+    "fix_type": "fix_const_field",
+    "risk": "high",
+    "reason": "const=True"
+  }
+]

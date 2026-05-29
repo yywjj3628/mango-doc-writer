@@ -1,0 +1,194 @@
+{
+  "draft_summary": "已按会议纪要文种生成初稿。素材包含会议研究内容和责任分工，缺少会议基本信息和具体时间节点，使用占位符标注。本次未获得有效RAG风格参考。",
+  "doc_type": "会议纪要",
+  "direction": "内部材料",
+  "style_level": 1,
+  "risk_level": "medium",
+  "markdown_draft": "# 会议纪要\n\n会议时间：【待确认】\n会议地点：【待确认】\n参会人员：【待确认】\n\n一、会议主要内容\n\n会议研究了项目推进、责任分工和下阶段时间节点等事项。\n\n二、议定事项\n\n会议要求，业务部门牵头推进相关工作，技术部门配合完成系统联调。\n\n三、责任分工\n\n业务部门牵头推进，技术部门配合完成系统联调。\n\n四、后续要求\n\n各相关部门按照责任分工推进落实，具体时间节点待进一步明确。",
+  "fact_usage_report": [
+    {
+      "draft_text": "会议研究了项目推进、责任分工和下阶段时间节点等事项",
+      "fact_type": "event",
+      "fact_value": "会议研究了项目推进、责任分工和下阶段时间节点",
+      "source_text": "会议研究了项目推进、责任分工和下阶段时间节点。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.95
+    },
+    {
+      "draft_text": "项目推进",
+      "fact_type": "project",
+      "fact_value": "项目推进",
+      "source_text": "会议研究了项目推进、责任分工和下阶段时间节点。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.9
+    },
+    {
+      "draft_text": "系统联调",
+      "fact_type": "project",
+      "fact_value": "系统联调",
+      "source_text": "技术部门配合完成系统联调。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.92
+    },
+    {
+      "draft_text": "业务部门牵头推进",
+      "fact_type": "organization",
+      "fact_value": "业务部门",
+      "source_text": "会议要求业务部门牵头推进",
+      "source": "extract_result.fact_items",
+      "confidence": 0.88
+    },
+    {
+      "draft_text": "技术部门配合完成系统联调",
+      "fact_type": "organization",
+      "fact_value": "技术部门",
+      "source_text": "技术部门配合完成系统联调。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.88
+    },
+    {
+      "draft_text": "业务部门牵头推进",
+      "fact_type": "request",
+      "fact_value": "业务部门牵头推进",
+      "source_text": "会议要求业务部门牵头推进，技术部门配合完成系统联调。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.9
+    },
+    {
+      "draft_text": "技术部门配合完成系统联调",
+      "fact_type": "request",
+      "fact_value": "技术部门配合完成系统联调",
+      "source_text": "技术部门配合完成系统联调。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.9
+    }
+  ],
+  "rag_usage_report": [],
+  "terminology_usage_report": [
+    {
+      "raw_value": "业务部门",
+      "used_value": "业务部门",
+      "type": "organization",
+      "source": "extract_result",
+      "confidence": 0.88,
+      "needs_manual_confirmation": true,
+      "note": "具体部门名称未提供，保留用户原词。"
+    },
+    {
+      "raw_value": "技术部门",
+      "used_value": "技术部门",
+      "type": "organization",
+      "source": "extract_result",
+      "confidence": 0.88,
+      "needs_manual_confirmation": true,
+      "note": "具体部门名称未提供，保留用户原词。"
+    }
+  ],
+  "blocked_items_check": [
+    {
+      "item": "会外推测",
+      "status": "not_used",
+      "reason": "正文只记录用户提供的会议内容，未添加推测。"
+    },
+    {
+      "item": "宣传化改写",
+      "status": "not_used",
+      "reason": "正文使用纪要体，未改写为新闻稿风格。"
+    },
+    {
+      "item": "虚构议定事项",
+      "status": "not_used",
+      "reason": "正文只记录用户提供的议定事项。"
+    },
+    {
+      "item": "遗漏责任分工",
+      "status": "used_with_basis",
+      "reason": "责任分工已体现在议定事项和单独的责任分工章节。"
+    }
+  ],
+  "warnings": [
+    {
+      "level": "high",
+      "type": "missing_field",
+      "message": "会议时间缺失，正文使用【待确认】占位。",
+      "related_field": "会议时间",
+      "action": "正式成稿前需补充会议时间。"
+    },
+    {
+      "level": "high",
+      "type": "missing_field",
+      "message": "会议地点缺失，正文使用【待确认】占位。",
+      "related_field": "会议地点",
+      "action": "正式成稿前需补充会议地点。"
+    },
+    {
+      "level": "high",
+      "type": "missing_field",
+      "message": "参会人员缺失，正文使用【待确认】占位。",
+      "related_field": "参会人员",
+      "action": "正式成稿前需补充参会人员。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "message": "具体时间节点缺失，正文概括表述。",
+      "related_field": "时间节点",
+      "action": "如有具体时间节点可后续补充。"
+    },
+    {
+      "level": "low",
+      "type": "rag_not_used",
+      "message": "本次未获得RAG风格参考。",
+      "related_field": "style_rag",
+      "action": "会议纪要对RAG风格依赖低，不影响正文质量。"
+    },
+    {
+      "level": "medium",
+      "type": "title_risk",
+      "message": "标题仅写“会议纪要”，缺少会议主题名称，过于笼统。",
+      "related_field": "标题",
+      "action": "建议确认会议主题以完善标题。"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "会议时间",
+      "reason": "会议纪要基本信息缺失",
+      "impact": "影响纪要完整性",
+      "required_before_final": true
+    },
+    {
+      "field": "会议地点",
+      "reason": "会议纪要基本信息缺失",
+      "impact": "影响纪要完整性",
+      "required_before_final": true
+    },
+    {
+      "field": "参会人员",
+      "reason": "会议纪要基本信息缺失",
+      "impact": "影响纪要完整性",
+      "required_before_final": true
+    },
+    {
+      "field": "具体时间节点",
+      "reason": "素材提到下阶段时间节点但未提供具体日期",
+      "impact": "影响后续要求的可执行性",
+      "required_before_final": false
+    },
+    {
+      "field": "标题",
+      "reason": "标题信息不足，置信度低于0.8",
+      "impact": "影响纪要标题准确性",
+      "required_before_final": true
+    }
+  ],
+  "draft_policy": {
+    "body_generated": true,
+    "no_new_facts": true,
+    "use_only_extract_facts": true,
+    "rag_used_for_style_only": true,
+    "follow_plan_structure": true,
+    "follow_doc_type_rules": true,
+    "follow_org_title_dictionary": true
+  }
+}

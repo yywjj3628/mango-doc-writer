@@ -1,0 +1,32 @@
+{
+  "doc_type": "通知",
+  "doc_type_confidence": 0.94,
+  "direction": "内部材料",
+  "style_level": 1,
+  "risk_level": "low",
+  "reason": "用户明确要求写内部通知，素材中包含各部门、报送材料、时间节点、整改措施等执行性要求，符合通知文种特征。",
+  "required_rules": [
+    "通知"
+  ],
+  "required_structure": [
+    "发文依据或背景",
+    "通知事项",
+    "具体要求",
+    "时间节点",
+    "联系方式或执行要求"
+  ],
+  "forbidden_items": [
+    "不得写成宣传稿",
+    "不得缺少执行对象、时间节点和具体要求",
+    "不得使用过度抒情表达"
+  ],
+  "possible_confusions": [
+    {
+      "candidate": "新闻稿",
+      "reason": "若目的是对外宣传专项整治成效，而不是布置报送工作，才可能改判为新闻稿。",
+      "distinguish_rule": "是否布置工作、要求执行。"
+    }
+  ],
+  "need_manual_confirmation": false,
+  "manual_confirmation_fields": []
+}

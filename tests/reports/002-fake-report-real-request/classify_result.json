@@ -1,0 +1,36 @@
+{
+  "doc_type": "请示",
+  "doc_type_confidence": 0.92,
+  "direction": "上行文",
+  "style_level": 1,
+  "risk_level": "high",
+  "reason": "用户需求虽指定为报告，但内容包含'请求集团给予专项预算支持'和'拟请集团给予经费保障'等请示信号，核心目的是请求上级支持，而非单纯汇报情况，因此推荐为请示。",
+  "required_rules": [
+    "请示"
+  ],
+  "required_structure": [
+    "请示缘由",
+    "必要性与依据",
+    "请示事项",
+    "请求批示"
+  ],
+  "forbidden_items": [
+    "不得一文多事",
+    "不得多头主送",
+    "不得写成报告",
+    "不得缺少明确请示事项",
+    "不得编造预算金额和审批依据"
+  ],
+  "possible_confusions": [
+    {
+      "candidate": "报告",
+      "reason": "若删除请求预算支持内容，仅保留项目情况汇报，则可按报告处理。",
+      "distinguish_rule": "是否请求上级批准、支持、拨款或批复。"
+    }
+  ],
+  "need_manual_confirmation": true,
+  "manual_confirmation_fields": [
+    "请确认最终文种为请示还是报告",
+    "请确认是否保留请求预算支持事项"
+  ]
+}

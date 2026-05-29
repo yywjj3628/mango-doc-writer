@@ -1,0 +1,164 @@
+[
+  {
+    "stage": "draft",
+    "path": ".manual_confirmation_fields[0].suggestion",
+    "before": "确认重点任务正式名称",
+    "after": "(removed)",
+    "fix_type": "strip_extra_field",
+    "risk": "low",
+    "reason": "additionalProperties=false"
+  },
+  {
+    "stage": "draft",
+    "path": ".manual_confirmation_fields[1].suggestion",
+    "before": "确认报告出具单位",
+    "after": "(removed)",
+    "fix_type": "strip_extra_field",
+    "risk": "low",
+    "reason": "additionalProperties=false"
+  },
+  {
+    "stage": "draft",
+    "path": ".manual_confirmation_fields[2].suggestion",
+    "before": "如有具体问题请补充，否则可概括性表述",
+    "after": "(removed)",
+    "fix_type": "strip_extra_field",
+    "risk": "low",
+    "reason": "additionalProperties=false"
+  },
+  {
+    "stage": "draft",
+    "path": ".manual_confirmation_fields[0].impact",
+    "before": "(missing)",
+    "after": "",
+    "fix_type": "fill_missing_string",
+    "risk": "medium",
+    "reason": "required field, type=string"
+  },
+  {
+    "stage": "draft",
+    "path": ".manual_confirmation_fields[0].required_before_final",
+    "before": "(missing)",
+    "after": false,
+    "fix_type": "fill_missing_boolean",
+    "risk": "medium",
+    "reason": "required field, type=boolean"
+  },
+  {
+    "stage": "draft",
+    "path": ".manual_confirmation_fields[1].impact",
+    "before": "(missing)",
+    "after": "",
+    "fix_type": "fill_missing_string",
+    "risk": "medium",
+    "reason": "required field, type=string"
+  },
+  {
+    "stage": "draft",
+    "path": ".manual_confirmation_fields[1].required_before_final",
+    "before": "(missing)",
+    "after": false,
+    "fix_type": "fill_missing_boolean",
+    "risk": "medium",
+    "reason": "required field, type=boolean"
+  },
+  {
+    "stage": "draft",
+    "path": ".manual_confirmation_fields[2].impact",
+    "before": "(missing)",
+    "after": "",
+    "fix_type": "fill_missing_string",
+    "risk": "medium",
+    "reason": "required field, type=string"
+  },
+  {
+    "stage": "draft",
+    "path": ".manual_confirmation_fields[2].required_before_final",
+    "before": "(missing)",
+    "after": false,
+    "fix_type": "fill_missing_boolean",
+    "risk": "medium",
+    "reason": "required field, type=boolean"
+  },
+  {
+    "stage": "rewrite",
+    "path": ".terminology_usage_report[0].needs_manual_confirmation",
+    "before": "(missing)",
+    "after": false,
+    "fix_type": "fill_missing_boolean",
+    "risk": "medium",
+    "reason": "required field, type=boolean"
+  },
+  {
+    "stage": "rewrite",
+    "path": ".terminology_usage_report[0].note",
+    "before": "(missing)",
+    "after": "",
+    "fix_type": "fill_missing",
+    "risk": "medium",
+    "reason": "required field, type=['string', 'null']"
+  },
+  {
+    "stage": "rewrite",
+    "path": ".terminology_usage_report[1].needs_manual_confirmation",
+    "before": "(missing)",
+    "after": false,
+    "fix_type": "fill_missing_boolean",
+    "risk": "medium",
+    "reason": "required field, type=boolean"
+  },
+  {
+    "stage": "rewrite",
+    "path": ".terminology_usage_report[1].note",
+    "before": "(missing)",
+    "after": "",
+    "fix_type": "fill_missing",
+    "risk": "medium",
+    "reason": "required field, type=['string', 'null']"
+  },
+  {
+    "stage": "rewrite",
+    "path": ".terminology_usage_report[2].needs_manual_confirmation",
+    "before": "(missing)",
+    "after": false,
+    "fix_type": "fill_missing_boolean",
+    "risk": "medium",
+    "reason": "required field, type=boolean"
+  },
+  {
+    "stage": "rewrite",
+    "path": ".terminology_usage_report[2].note",
+    "before": "(missing)",
+    "after": "",
+    "fix_type": "fill_missing",
+    "risk": "medium",
+    "reason": "required field, type=['string', 'null']"
+  },
+  {
+    "stage": "rewrite",
+    "path": ".manual_confirmation_fields[0].impact",
+    "before": "(missing)",
+    "after": "",
+    "fix_type": "fill_missing_string",
+    "risk": "medium",
+    "reason": "required field, type=string"
+  },
+  {
+    "stage": "rewrite",
+    "path": ".manual_confirmation_fields[1].impact",
+    "before": "(missing)",
+    "after": "",
+    "fix_type": "fill_missing_string",
+    "risk": "medium",
+    "reason": "required field, type=string"
+  },
+  {
+    "stage": "rewrite",
+    "path": ".manual_confirmation_fields[2].impact",
+    "before": "(missing)",
+    "after": "",
+    "fix_type": "fill_missing_string",
+    "risk": "medium",
+    "reason": "required field, type=string"
+  }
+]

@@ -1,0 +1,283 @@
+{
+  "plan_summary": "会议纪要素材包含会议研究内容和责任分工，但缺少会议时间、地点、参会人员等基本信息，需人工补充。",
+  "doc_type": "会议纪要",
+  "direction": "内部材料",
+  "style_level": 1,
+  "risk_level": "medium",
+  "title_plan": {
+    "recommended_title": "会议纪要",
+    "title_type": "会议纪要标题",
+    "title_confidence": 0.5,
+    "title_basis": [
+      "classify.doc_type = 会议纪要"
+    ],
+    "title_risks": [
+      "缺少会议主题名称，标题过于笼统"
+    ],
+    "alternative_titles": []
+  },
+  "addressee_plan": {
+    "recommended_addressee": null,
+    "source": "not_applicable",
+    "confidence": 0,
+    "needs_manual_confirmation": false,
+    "note": "会议纪要通常无主送单位"
+  },
+  "signer_plan": {
+    "recommended_signer": null,
+    "source": "not_applicable",
+    "confidence": 0,
+    "needs_manual_confirmation": false,
+    "note": "会议纪要通常无落款"
+  },
+  "sections": [
+    {
+      "section_id": "S1",
+      "section_name": "会议基本信息",
+      "purpose": "记录会议时间、地点、参会人员",
+      "content_guidance": "需人工补充时间地点参会人员",
+      "fact_bindings": [],
+      "blocked_items": [
+        "不得编造会议时间地点参会人员"
+      ],
+      "word_count_estimate": 50,
+      "needs_manual_input": true
+    },
+    {
+      "section_id": "S2",
+      "section_name": "会议主要内容",
+      "purpose": "记录会议研究事项",
+      "content_guidance": "围绕项目推进、责任分工和时间节点展开",
+      "fact_bindings": [
+        {
+          "fact_type": "event",
+          "fact_value": "会议研究了项目推进、责任分工和下阶段时间节点",
+          "source_from_extract": true
+        }
+      ],
+      "blocked_items": [
+        "不得加入会外推测",
+        "不得扩展未提供的研究内容"
+      ],
+      "word_count_estimate": 150,
+      "needs_manual_input": false
+    },
+    {
+      "section_id": "S3",
+      "section_name": "议定事项",
+      "purpose": "记录会议议定事项",
+      "content_guidance": "围绕会议要求和工作部署展开",
+      "fact_bindings": [
+        {
+          "fact_type": "organization",
+          "fact_value": "业务部门",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "organization",
+          "fact_value": "技术部门",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "request",
+          "fact_value": "业务部门牵头推进",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "request",
+          "fact_value": "技术部门配合完成系统联调",
+          "source_from_extract": true
+        }
+      ],
+      "blocked_items": [
+        "不得虚构议定事项",
+        "不得添加未提供的决定"
+      ],
+      "word_count_estimate": 150,
+      "needs_manual_input": false
+    },
+    {
+      "section_id": "S4",
+      "section_name": "责任分工",
+      "purpose": "明确各部门职责",
+      "content_guidance": "业务部门牵头、技术部门配合",
+      "fact_bindings": [
+        {
+          "fact_type": "organization",
+          "fact_value": "业务部门",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "organization",
+          "fact_value": "技术部门",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "project",
+          "fact_value": "系统联调",
+          "source_from_extract": true
+        }
+      ],
+      "blocked_items": [
+        "不得编造具体部门全称"
+      ],
+      "word_count_estimate": 100,
+      "needs_manual_input": false
+    },
+    {
+      "section_id": "S5",
+      "section_name": "后续要求",
+      "purpose": "明确后续工作要求和时间节点",
+      "content_guidance": "围绕下阶段时间节点和推进要求展开",
+      "fact_bindings": [],
+      "blocked_items": [
+        "不得编造具体时间节点"
+      ],
+      "word_count_estimate": 80,
+      "needs_manual_input": true
+    }
+  ],
+  "style_directives": {
+    "overall_tone": "克制正式",
+    "key_expressions": [
+      "会议认为",
+      "会议指出",
+      "会议要求"
+    ],
+    "forbidden_expressions": [
+      "不得加入会外推测",
+      "不得宣传化改写",
+      "不得虚构议定事项",
+      "不得遗漏责任分工"
+    ],
+    "style_reference": "doc-type-rules.md 会议纪要章节"
+  },
+  "title_rules": [
+    "会议纪要标题通常为\"XXX会议纪要\""
+  ],
+  "addressee_resolution": {
+    "recommended_addressee": null,
+    "source": "not_applicable",
+    "confidence": 0,
+    "needs_manual_confirmation": false,
+    "note": null
+  },
+  "signer_resolution": {
+    "recommended_signer": null,
+    "source": "not_applicable",
+    "confidence": 0,
+    "needs_manual_confirmation": false,
+    "note": null
+  },
+  "title_suggestions": {
+    "recommended_title": "会议纪要",
+    "alternative_titles": [],
+    "title_rules": [
+      "会议纪要标题通常为\"XXX会议纪要\""
+    ]
+  },
+  "missing_fields": [
+    {
+      "field": "会议时间",
+      "reason": "用户要求整理会议纪要，但未提供会议时间",
+      "impact": "影响会议纪要基本信息完整性",
+      "suggestion": "后续写作前建议补充会议时间"
+    },
+    {
+      "field": "会议地点",
+      "reason": "用户要求整理会议纪要，但未提供会议地点",
+      "impact": "影响会议纪要基本信息完整性",
+      "suggestion": "后续写作前建议补充会议地点"
+    },
+    {
+      "field": "参会人员",
+      "reason": "用户要求整理会议纪要，但未提供参会人员",
+      "impact": "影响会议纪要基本信息完整性",
+      "suggestion": "后续写作前建议补充参会人员"
+    },
+    {
+      "field": "具体时间节点",
+      "reason": "素材提到下阶段时间节点，但未提供具体日期或期限",
+      "impact": "影响责任分工和后续要求的可执行性",
+      "suggestion": "后续写作前建议补充具体时间节点"
+    }
+  ],
+  "cannot_infer": [
+    {
+      "field": "会议主持人",
+      "reason": "用户素材未提供会议主持人，不得自动补充"
+    },
+    {
+      "field": "会议结论",
+      "reason": "用户素材只提供部分研究和要求内容，不得扩展为未提供的会议结论"
+    },
+    {
+      "field": "具体责任部门名称",
+      "reason": "用户只写业务部门和技术部门，未提供正式部门名称"
+    }
+  ],
+  "risk_flags": [
+    {
+      "type": "meeting_without_basic_info",
+      "detail": "会议纪要缺少会议时间、地点、参会人员等基本信息",
+      "level": "high"
+    },
+    {
+      "type": "missing_required_field",
+      "detail": "素材提到下阶段时间节点，但未提供具体时间节点",
+      "level": "medium"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "会议时间",
+      "reason": "会议纪要基本信息缺失",
+      "suggestion": "补充会议时间"
+    },
+    {
+      "field": "会议地点",
+      "reason": "会议纪要基本信息缺失",
+      "suggestion": "补充会议地点"
+    },
+    {
+      "field": "参会人员",
+      "reason": "会议纪要基本信息缺失",
+      "suggestion": "补充参会人员"
+    },
+    {
+      "field": "具体时间节点",
+      "reason": "素材提到下阶段时间节点但未提供具体日期",
+      "suggestion": "后续补充或概括性表述"
+    },
+    {
+      "field": "标题",
+      "reason": "标题信息不足，置信度低于0.8",
+      "suggestion": "确认会议主题以完善标题"
+    }
+  ],
+  "draft_directives": {
+    "total_word_count_estimate": 500,
+    "must_use_facts": [
+      "会议研究了项目推进、责任分工和下阶段时间节点",
+      "业务部门",
+      "技术部门",
+      "业务部门牵头推进",
+      "技术部门配合完成系统联调",
+      "项目推进",
+      "系统联调"
+    ],
+    "must_avoid": [
+      "不得加入会外推测",
+      "不得宣传化改写",
+      "不得编造会议时间地点",
+      "不得编造参会人员",
+      "不得编造具体时间节点",
+      "不得虚构议定事项",
+      "不得遗漏责任分工"
+    ],
+    "format_requirements": [
+      "会议纪要标准格式：会议基本信息→会议主要内容→议定事项→责任分工→后续要求",
+      "使用\"会议认为/会议指出/会议要求\"等句式"
+    ]
+  }
+}

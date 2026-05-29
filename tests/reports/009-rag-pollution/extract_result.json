@@ -1,0 +1,117 @@
+{
+  "source_summary": "用户素材涉及一场文化科技融合创新活动，包含时间、地点和成果发布信息。",
+  "facts": {
+    "time": [
+      "5月20日"
+    ],
+    "location": [
+      "马栏山"
+    ],
+    "organizations": [],
+    "leaders": [],
+    "persons": [],
+    "products": [],
+    "projects": [],
+    "events": [
+      "文化科技融合创新活动"
+    ],
+    "data": [
+      "三项"
+    ],
+    "achievements": [
+      "现场发布三项创新成果"
+    ],
+    "problems": [],
+    "requests": [],
+    "policies": [],
+    "documents": []
+  },
+  "fact_items": [
+    {
+      "type": "time",
+      "value": "5月20日",
+      "source_text": "5月20日",
+      "confidence": 0.98,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": null
+    },
+    {
+      "type": "location",
+      "value": "马栏山",
+      "source_text": "马栏山",
+      "confidence": 0.98,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": null
+    },
+    {
+      "type": "event",
+      "value": "文化科技融合创新活动",
+      "source_text": "文化科技融合创新活动",
+      "confidence": 0.95,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": null
+    },
+    {
+      "type": "data",
+      "value": "三项",
+      "source_text": "三项",
+      "confidence": 0.94,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": "成果名称未提供"
+    },
+    {
+      "type": "achievement",
+      "value": "现场发布三项创新成果",
+      "source_text": "现场发布三项创新成果",
+      "confidence": 0.94,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": "成果名称未提供"
+    }
+  ],
+  "missing_fields": [
+    {
+      "field": "成果具体名称",
+      "reason": "用户只提到三项创新成果，未提供具体名称",
+      "impact": "影响新闻稿主体内容的具体性",
+      "suggestion": "后续写作可概括表述，不得编造具体成果名称"
+    },
+    {
+      "field": "活动主办单位",
+      "reason": "用户未提供活动主办单位",
+      "impact": "影响活动归属和背景说明",
+      "suggestion": "后续可确认主办单位"
+    }
+  ],
+  "cannot_infer": [
+    {
+      "field": "领导出席情况",
+      "reason": "用户素材未提供领导出席信息"
+    },
+    {
+      "field": "领导评价",
+      "reason": "用户素材未提供领导评价"
+    },
+    {
+      "field": "活动传播效果",
+      "reason": "用户素材未提供媒体报道、传播数据或社会反响"
+    }
+  ],
+  "risk_flags": [
+    {
+      "type": "achievement_without_detail",
+      "detail": "素材提到三项创新成果，但未提供成果具体名称",
+      "level": "medium"
+    }
+  ],
+  "extraction_policy": {
+    "only_user_provided_facts": true,
+    "no_external_knowledge": true,
+    "no_rag_facts": true,
+    "no_invented_data": true
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "requirement": "请将以下素材整理成芒果系新闻稿，正式、有传播感。",
+  "draft": "这里粘贴用户初稿或素材。例如：\n5月20日，文化科技融合创新活动在马栏山举行。活动现场发布三项创新成果。",
+  "specified_doc_type": "新闻稿",
+  "target_unit": null,
+  "scene": "对外发布",
+  "output_formats": ["markdown"]
+}

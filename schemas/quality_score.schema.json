@@ -1,0 +1,378 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mango-doc-writer.local/schemas/quality_score.schema.json",
+  "title": "Mango Doc Writer Quality Score Result",
+  "description": "后置质量门禁输出结构，用于评估 rewrite 后的 final_markdown 的成稿质量。不是第七阶段，是六阶段 Pipeline 完成后的后置评估函数。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "quality_summary",
+    "scores",
+    "threshold",
+    "overall_score",
+    "failed_dimensions",
+    "overall_pass",
+    "rewrite_required",
+    "quality_rewrite_instructions",
+    "human_review_required",
+    "risk_notes",
+    "scoring_basis",
+    "no_new_facts_check",
+    "doc_type_check",
+    "style_check",
+    "final_output_policy",
+    "quality_gate_policy"
+  ],
+  "properties": {
+    "quality_summary": {
+      "type": "string",
+      "minLength": 1,
+      "description": "对成稿质量的整体评估说明"
+    },
+
+    "scores": {
+      "type": "object",
+      "description": "六大维度评分，每项 0-10 分",
+      "additionalProperties": false,
+      "required": [
+        "fact_safety",
+        "doc_type_fit",
+        "mango_style_fit",
+        "logic_completeness",
+        "language_quality",
+        "risk_control"
+      ],
+      "properties": {
+        "fact_safety": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10,
+          "description": "事实安全：是否只使用用户输入、extract_result 和 pipeline 已确认事实，不新增事实"
+        },
+        "doc_type_fit": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10,
+          "description": "文种匹配：标题、结构、行文方向、格式、语气是否符合 classify_result 和 doc-type-rules"
+        },
+        "mango_style_fit": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10,
+          "description": "芒果风格：是否符合湖南广电/芒果体系表达气质，但不得复制 RAG 旧稿事实"
+        },
+        "logic_completeness": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10,
+          "description": "逻辑完整：结构是否完整，段落推进是否顺畅，信息是否交代清楚"
+        },
+        "language_quality": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10,
+          "description": "语言质量：是否准确、凝练、正式，有可交付成稿质感"
+        },
+        "risk_control": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10,
+          "description": "风险控制：称谓、机构、数据、日期、职务、敏感表达是否稳妥"
+        }
+      }
+    },
+
+    "threshold": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 10,
+      "description": "达标阈值，维度分低于此值视为不达标，默认 8"
+    },
+
+    "overall_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 10,
+      "description": "综合分，六大维度平均分，保留一位小数"
+    },
+
+    "failed_dimensions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "fact_safety",
+          "doc_type_fit",
+          "mango_style_fit",
+          "logic_completeness",
+          "language_quality",
+          "risk_control"
+        ]
+      },
+      "description": "低于 threshold 的维度列表"
+    },
+
+    "overall_pass": {
+      "type": "boolean",
+      "description": "所有维度 >= threshold 时为 true"
+    },
+
+    "rewrite_required": {
+      "type": "boolean",
+      "description": "任一维度低于 threshold 时为 true，触发 rewrite 返修"
+    },
+
+    "quality_rewrite_instructions": {
+      "type": "array",
+      "description": "给 rewrite 使用的具体返修指令，必须可执行",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "dimension",
+          "target",
+          "suggested_action",
+          "reason",
+          "basis"
+        ],
+        "properties": {
+          "dimension": {
+            "type": "string",
+            "enum": [
+              "fact_safety",
+              "doc_type_fit",
+              "mango_style_fit",
+              "logic_completeness",
+              "language_quality",
+              "risk_control"
+            ],
+            "description": "返修指令所属的评分维度"
+          },
+          "target": {
+            "type": "string",
+            "description": "final_markdown 中的具体文本位置"
+          },
+          "current_text": {
+            "type": ["string", "null"],
+            "description": "当前有问题的文本片段"
+          },
+          "suggested_action": {
+            "type": "string",
+            "enum": ["delete", "replace", "restructure"],
+            "description": "建议的修订操作"
+          },
+          "suggested_text": {
+            "type": ["string", "null"],
+            "description": "建议替换后的文本（delete 时为 null）"
+          },
+          "reason": {
+            "type": "string",
+            "description": "为什么需要返修"
+          },
+          "basis": {
+            "type": "string",
+            "description": "修改依据（extract_result.fact_items、doc-type-rules 等）"
+          }
+        }
+      }
+    },
+
+    "human_review_required": {
+      "type": "boolean",
+      "description": "如果 fact_safety 或 risk_control 低于 8，必须为 true。如果达到最大返修轮次仍未通过，由 Pipeline 执行层标记 true"
+    },
+
+    "risk_notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "风险说明列表"
+    },
+
+    "scoring_basis": {
+      "type": "object",
+      "description": "逐维度说明评分依据",
+      "additionalProperties": false,
+      "required": [
+        "fact_safety",
+        "doc_type_fit",
+        "mango_style_fit",
+        "logic_completeness",
+        "language_quality",
+        "risk_control"
+      ],
+      "properties": {
+        "fact_safety": {
+          "type": "string",
+          "description": "fact_safety 评分依据说明"
+        },
+        "doc_type_fit": {
+          "type": "string",
+          "description": "doc_type_fit 评分依据说明"
+        },
+        "mango_style_fit": {
+          "type": "string",
+          "description": "mango_style_fit 评分依据说明"
+        },
+        "logic_completeness": {
+          "type": "string",
+          "description": "logic_completeness 评分依据说明"
+        },
+        "language_quality": {
+          "type": "string",
+          "description": "language_quality 评分依据说明"
+        },
+        "risk_control": {
+          "type": "string",
+          "description": "risk_control 评分依据说明"
+        }
+      }
+    },
+
+    "no_new_facts_check": {
+      "type": "object",
+      "description": "说明是否发现疑似新增事实",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "suspected_new_facts",
+        "detail"
+      ],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["pass", "warning", "fail"],
+          "description": "新增事实检查结果"
+        },
+        "suspected_new_facts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["text", "location", "reason"],
+            "properties": {
+              "text": {
+                "type": "string",
+                "description": "疑似新增的文本"
+              },
+              "location": {
+                "type": "string",
+                "description": "在 final_markdown 中的位置"
+              },
+              "reason": {
+                "type": "string",
+                "description": "为什么认为是新增事实"
+              }
+            }
+          },
+          "description": "疑似新增事实列表"
+        },
+        "detail": {
+          "type": "string",
+          "description": "检查结果详细说明"
+        }
+      }
+    },
+
+    "doc_type_check": {
+      "type": "object",
+      "description": "文种匹配检查结果",
+      "additionalProperties": false,
+      "required": ["status", "detail"],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["pass", "warning", "fail"],
+          "description": "文种检查结果"
+        },
+        "detail": {
+          "type": "string",
+          "description": "文种检查详细说明"
+        }
+      }
+    },
+
+    "style_check": {
+      "type": "object",
+      "description": "风格检查结果",
+      "additionalProperties": false,
+      "required": ["status", "detail"],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["pass", "warning", "fail"],
+          "description": "风格检查结果"
+        },
+        "detail": {
+          "type": "string",
+          "description": "风格检查详细说明"
+        }
+      }
+    },
+
+    "final_output_policy": {
+      "type": "object",
+      "description": "本次质量门禁建议的输出策略",
+      "additionalProperties": false,
+      "required": ["recommendation", "reason"],
+      "properties": {
+        "recommendation": {
+          "type": "string",
+          "enum": ["pass", "rewrite", "warn_and_output"],
+          "description": "pass=直接输出; rewrite=触发返修; warn_and_output=标记风险后输出"
+        },
+        "reason": {
+          "type": "string",
+          "description": "建议理由"
+        }
+      }
+    },
+
+    "quality_gate_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "no_body_generation",
+        "no_body_modification",
+        "no_new_facts",
+        "no_rag_call",
+        "no_doc_type_change",
+        "evaluate_only"
+      ],
+      "description": "质量门禁策略声明，六项必须为 true",
+      "properties": {
+        "no_body_generation": {
+          "type": "boolean",
+          "const": true,
+          "description": "不生成正文"
+        },
+        "no_body_modification": {
+          "type": "boolean",
+          "const": true,
+          "description": "不修改正文"
+        },
+        "no_new_facts": {
+          "type": "boolean",
+          "const": true,
+          "description": "不补充外部事实"
+        },
+        "no_rag_call": {
+          "type": "boolean",
+          "const": true,
+          "description": "不调用 RAG"
+        },
+        "no_doc_type_change": {
+          "type": "boolean",
+          "const": true,
+          "description": "不改变文种判断"
+        },
+        "evaluate_only": {
+          "type": "boolean",
+          "const": true,
+          "description": "只评估，不执行修改"
+        }
+      }
+    }
+  }
+}

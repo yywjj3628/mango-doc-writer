@@ -1,0 +1,263 @@
+{
+  "plan_summary": "新闻稿素材较完整，包含时间地点事件和成果发布。主要风险为成果名称缺失，不得编造领导出席和评价。",
+  "doc_type": "新闻稿",
+  "direction": "对外宣传",
+  "style_level": 3,
+  "risk_level": "low",
+  "title_plan": {
+    "recommended_title": "文化科技融合创新活动在马栏山举行——三项创新成果现场发布",
+    "title_type": "概括式",
+    "title_confidence": 0.85,
+    "title_basis": [
+      "extract.event = 文化科技融合创新活动",
+      "extract.location = 马栏山",
+      "extract.achievement = 发布三项创新成果"
+    ],
+    "title_risks": [],
+    "alternative_titles": [
+      "融合创新 智领未来——文化科技融合创新活动在马栏山举行"
+    ]
+  },
+  "addressee_plan": {
+    "recommended_addressee": null,
+    "source": "not_applicable",
+    "confidence": 0,
+    "needs_manual_confirmation": false,
+    "note": "新闻稿为主送对象不确定，对外宣传无需主送单位"
+  },
+  "signer_plan": {
+    "recommended_signer": null,
+    "source": "not_applicable",
+    "confidence": 0,
+    "needs_manual_confirmation": false,
+    "note": "新闻稿无需落款"
+  },
+  "sections": [
+    {
+      "section_id": "S1",
+      "section_name": "标题",
+      "purpose": "新闻稿标题，体现核心信息",
+      "content_guidance": "突出活动主题和成果发布，可用芒果系品牌表达",
+      "fact_bindings": [
+        {
+          "fact_type": "event",
+          "fact_value": "文化科技融合创新活动",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "location",
+          "fact_value": "马栏山",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "achievement",
+          "fact_value": "三项创新成果",
+          "source_from_extract": true
+        }
+      ],
+      "blocked_items": [
+        "不得编造领导出席信息写入标题"
+      ],
+      "word_count_estimate": 30,
+      "needs_manual_input": false
+    },
+    {
+      "section_id": "S2",
+      "section_name": "导语",
+      "purpose": "5W1H 开头：时间、地点、主体、核心事件",
+      "content_guidance": "使用芒果系新闻导语句式",
+      "fact_bindings": [
+        {
+          "fact_type": "time",
+          "fact_value": "5月20日",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "location",
+          "fact_value": "马栏山",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "event",
+          "fact_value": "文化科技融合创新活动",
+          "source_from_extract": true
+        }
+      ],
+      "blocked_items": [
+        "不得编造领导出席",
+        "不得编造导语中未提供的活动规模"
+      ],
+      "word_count_estimate": 80,
+      "needs_manual_input": false
+    },
+    {
+      "section_id": "S3",
+      "section_name": "事件主体",
+      "purpose": "活动详情、参与单位、交流情况",
+      "content_guidance": "围绕参与单位和活动内容展开",
+      "fact_bindings": [
+        {
+          "fact_type": "organization",
+          "fact_value": "湖南广电集团",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "organization",
+          "fact_value": "芒果超媒",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "person",
+          "fact_value": "多家单位的代表",
+          "source_from_extract": true
+        }
+      ],
+      "blocked_items": [
+        "不得编造出席领导",
+        "不得编造领导评价"
+      ],
+      "word_count_estimate": 200,
+      "needs_manual_input": false
+    },
+    {
+      "section_id": "S4",
+      "section_name": "主要内容",
+      "purpose": "成果发布详情",
+      "content_guidance": "围绕三项创新成果展开，成果名称未提供可概括表述",
+      "fact_bindings": [
+        {
+          "fact_type": "achievement",
+          "fact_value": "发布了三项创新成果",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "data",
+          "fact_value": "三项",
+          "source_from_extract": true
+        }
+      ],
+      "blocked_items": [
+        "不得编造成果具体名称",
+        "不得编造成果技术细节"
+      ],
+      "word_count_estimate": 150,
+      "needs_manual_input": true
+    },
+    {
+      "section_id": "S5",
+      "section_name": "意义价值",
+      "purpose": "活动意义，可适度使用芒果系战略表达",
+      "content_guidance": "围绕文化科技融合主题展开意义阐述",
+      "fact_bindings": [],
+      "blocked_items": [
+        "不得编造活动影响力",
+        "不得编造媒体报道效果"
+      ],
+      "word_count_estimate": 100,
+      "needs_manual_input": false
+    },
+    {
+      "section_id": "S6",
+      "section_name": "结尾",
+      "purpose": "展望收尾",
+      "content_guidance": "使用芒果系新闻稿标准结尾",
+      "fact_bindings": [],
+      "blocked_items": [],
+      "word_count_estimate": 50,
+      "needs_manual_input": false
+    }
+  ],
+  "style_directives": {
+    "overall_tone": "芒果系新闻宣传风",
+    "key_expressions": [
+      "融合创新",
+      "品牌表达"
+    ],
+    "forbidden_expressions": [
+      "不得编造领导出席",
+      "不得编造领导评价",
+      "不得编造成果数据"
+    ],
+    "style_reference": "doc-type-rules.md 新闻稿章节"
+  },
+  "title_rules": [
+    "新闻稿标题应有传播性",
+    "可使用对仗、比喻等修辞"
+  ],
+  "addressee_resolution": {
+    "recommended_addressee": null,
+    "source": "not_applicable",
+    "confidence": 0,
+    "needs_manual_confirmation": false,
+    "note": "新闻稿无需主送单位"
+  },
+  "signer_resolution": {
+    "recommended_signer": null,
+    "source": "not_applicable",
+    "confidence": 0,
+    "needs_manual_confirmation": false,
+    "note": "新闻稿无需落款"
+  },
+  "title_suggestions": {
+    "recommended_title": "文化科技融合创新活动在马栏山举行——三项创新成果现场发布",
+    "alternative_titles": [
+      "融合创新 智领未来——文化科技融合创新活动在马栏山举行"
+    ],
+    "title_rules": [
+      "新闻稿标题应有传播性"
+    ]
+  },
+  "missing_fields": [
+    {
+      "field": "成果具体名称",
+      "reason": "用户只说明发布三项创新成果，未提供成果名称",
+      "impact": "medium",
+      "suggestion": "后续写作可概括表述，不得编造"
+    }
+  ],
+  "cannot_infer": [
+    {
+      "field": "领导出席",
+      "reason": "用户未提供"
+    },
+    {
+      "field": "领导评价",
+      "reason": "用户未提供"
+    },
+    {
+      "field": "媒体传播效果",
+      "reason": "用户未提供"
+    }
+  ],
+  "risk_flags": [
+    {
+      "type": "achievement_without_detail",
+      "detail": "三项成果未提供名称",
+      "level": "medium"
+    }
+  ],
+  "manual_confirmation_fields": [],
+  "draft_directives": {
+    "total_word_count_estimate": 600,
+    "must_use_facts": [
+      "5月20日",
+      "马栏山",
+      "文化科技融合创新活动",
+      "湖南广电集团",
+      "芒果超媒",
+      "多家单位的代表",
+      "三项创新成果"
+    ],
+    "must_avoid": [
+      "不得编造领导出席",
+      "不得编造领导评价",
+      "不得编造成果名称",
+      "不得编造媒体效果"
+    ],
+    "format_requirements": [
+      "芒果系新闻宣传风",
+      "导语5W1H",
+      "结尾展望升华"
+    ]
+  }
+}

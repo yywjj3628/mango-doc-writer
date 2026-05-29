@@ -1,0 +1,137 @@
+{
+  "source_summary": "用户需求是写一份给芒果总部看的汇报材料，初稿包含围绕文化科技融合方向推进相关工作，并希望芒果总部了解整体进展。",
+  "facts": {
+    "time": [],
+    "location": [],
+    "organizations": [
+      "芒果总部"
+    ],
+    "leaders": [],
+    "persons": [],
+    "products": [],
+    "projects": [],
+    "events": [
+      "推进相关工作"
+    ],
+    "data": [],
+    "achievements": [],
+    "problems": [],
+    "requests": [
+      "希望芒果总部了解整体进展"
+    ],
+    "policies": [],
+    "documents": []
+  },
+  "fact_items": [
+    {
+      "type": "organization",
+      "value": "芒果总部",
+      "source_text": "请写一份给芒果总部看的汇报材料",
+      "confidence": 0.9,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": true,
+      "note": "用户需求中提及，但非正式名称，后续需确认标准称谓。"
+    },
+    {
+      "type": "event",
+      "value": "推进相关工作",
+      "source_text": "我们围绕文化科技融合方向推进相关工作",
+      "confidence": 0.85,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": true,
+      "note": "表述模糊，未指明具体工作内容。"
+    },
+    {
+      "type": "request",
+      "value": "希望芒果总部了解整体进展",
+      "source_text": "后续希望芒果总部了解整体进展",
+      "confidence": 0.88,
+      "can_use_in_draft": false,
+      "needs_manual_confirmation": true,
+      "note": "更像目的，非正式请求。"
+    }
+  ],
+  "missing_fields": [
+    {
+      "field": "汇报主体/落款单位",
+      "reason": "用户未提供汇报单位名称",
+      "impact": "影响正式公文抬头和落款",
+      "suggestion": "后续写作前需确认汇报单位"
+    },
+    {
+      "field": "具体工作内容/项目名称",
+      "reason": "用户仅写相关工作，未提供具体事项",
+      "impact": "影响汇报材料主体内容",
+      "suggestion": "后续需补充具体工作或项目名称"
+    },
+    {
+      "field": "时间范围",
+      "reason": "用户未提供工作的时间起止",
+      "impact": "影响背景和进展表述",
+      "suggestion": "可补充时间段，如今年以来或近期"
+    },
+    {
+      "field": "主要进展与成效",
+      "reason": "用户未提供任何具体进展或成果",
+      "impact": "汇报材料核心内容缺失",
+      "suggestion": "建议用户补充具体工作进展和数据"
+    },
+    {
+      "field": "问题与挑战",
+      "reason": "汇报材料结构要求包含问题挑战",
+      "impact": "影响材料完整性",
+      "suggestion": "后续需用户提供或概括"
+    },
+    {
+      "field": "下一步思路",
+      "reason": "汇报材料结构要求包含下一步思路",
+      "impact": "影响材料完整性",
+      "suggestion": "后续需用户提供或概括"
+    }
+  ],
+  "cannot_infer": [
+    {
+      "field": "具体工作数据",
+      "reason": "用户未提供任何数据，不得自动补充"
+    },
+    {
+      "field": "领导评价",
+      "reason": "用户未提供领导评价，不得自动写入"
+    },
+    {
+      "field": "组织名称正式全称",
+      "reason": "用户仅写芒果总部，不得自动补充为湖南广播影视集团等"
+    },
+    {
+      "field": "文化科技融合具体方向",
+      "reason": "用户未说明具体方向，不得自行推断"
+    },
+    {
+      "field": "任何成就或荣誉",
+      "reason": "用户未提供成就表述，不得编造"
+    }
+  ],
+  "risk_flags": [
+    {
+      "type": "missing_required_field",
+      "detail": "汇报材料缺少主体内容，需补充具体工作、进展、成效等",
+      "level": "critical"
+    },
+    {
+      "type": "ambiguous_fact",
+      "detail": "相关工作表述模糊，无法支撑正式汇报",
+      "level": "high"
+    },
+    {
+      "type": "incomplete_organization_name",
+      "detail": "芒果总部为非正式称谓，需确认标准名称",
+      "level": "medium"
+    }
+  ],
+  "extraction_policy": {
+    "only_user_provided_facts": true,
+    "no_external_knowledge": true,
+    "no_rag_facts": true,
+    "no_invented_data": true
+  }
+}

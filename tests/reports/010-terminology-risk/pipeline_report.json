@@ -1,0 +1,69 @@
+{
+  "status": "success",
+  "doc_type": "汇报材料",
+  "risk_level": "medium",
+  "review_pass": false,
+  "rewrite_required": true,
+  "manual_confirmation_count": 8,
+  "remaining_risk_count": 3,
+  "schema_validation_status": {
+    "classify": true,
+    "extract": true,
+    "plan": true,
+    "draft": true,
+    "review": true,
+    "rewrite": true
+  },
+  "rag_status": "success",
+  "style_references_count": 6,
+  "failed_stage": null,
+  "error_type": null,
+  "error_message": null,
+  "schema_path": null,
+  "sanitizer_high_risk": false,
+  "model_provider": "deepseek",
+  "default_model": "deepseek-v4-flash",
+  "fallback_model": "deepseek-v4-pro",
+  "fallback_enabled": true,
+  "stage_model_usage": {
+    "classify": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    },
+    "extract": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    },
+    "plan": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    },
+    "draft": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    },
+    "review": {
+      "model": "deepseek-v4-pro",
+      "fallback_used": true,
+      "fallback_reason": "schema_validation_error: [review] Schema 校验失败 (schema: /home/ywj/.openclaw/workspace/skills/mango-doc-writer/schemas/review.schema.json): 'issues_count' is a required property\n\nFailed validating 'required' in schema['properties']['checks']['properties']['doc_type_check']:\n    {'additionalProperties': False,\n     'properties': {'issues_count': {'minimum': 0, 'type': 'integer'},\n                    'status': {'enum': ['pass',\n                                        'warning',\n                                        'fail',\n                                        'not_applicable'],\n                               'type': 'string'},\n                    'summary': {'type': 'string'}},\n     'required': ['status', 'summary', 'issues_count'],\n     'type': 'object'}\n\nOn instance['checks']['doc_type_check']:\n    {'status': 'pass',\n     'summary': \"文种为汇报材料，方向上行文，结尾使用'以上汇报，请领导批评指正'，符合文种规则。\"}"
+    },
+    "rewrite": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    }
+  },
+  "fallback_count": 1,
+  "output_files": [
+    "classify_result.json",
+    "extract_result.json",
+    "plan_result.json",
+    "draft_result.json",
+    "review_result.json",
+    "rewrite_result.json"
+  ]
+}

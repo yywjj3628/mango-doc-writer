@@ -1,0 +1,14 @@
+[Unit]
+Description=Mango Doc Writer 回归测试
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=ywj
+WorkingDirectory=/home/ywj/.openclaw/workspace/skills/mango-doc-writer
+EnvironmentFile=/home/ywj/.openclaw/workspace/skills/mango-doc-writer/.env
+ExecStart=/bin/bash /home/ywj/.openclaw/workspace/skills/mango-doc-writer/deploy/run_regression.sh
+TimeoutStartSec=600
+StandardOutput=journal
+StandardError=journal

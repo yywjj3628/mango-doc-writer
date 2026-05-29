@@ -1,0 +1,141 @@
+{
+  "review_summary": "初稿文种正确，称谓替换合规，未新增事实或使用禁止内容。但用户提供事实极少，正文大量使用概括性表述或占位符，内容空洞，无法满足汇报材料的实际用途。",
+  "pass": false,
+  "score": 70,
+  "rewrite_required": true,
+  "risk_level": "high",
+  "checks": {
+    "doc_type_check": {
+      "status": "pass",
+      "summary": "文种为汇报材料，与classify一致，无请示事项，结尾合规。",
+      "issues_count": 0
+    },
+    "structure_check": {
+      "status": "fail",
+      "summary": "正文虽按五段式编写，但S2-S5仅用概括占位，未按plan要求展开实质性内容，导致材料无效。",
+      "issues_count": 1
+    },
+    "fact_grounding_check": {
+      "status": "pass",
+      "summary": "正文未出现无来源的新增事实，仅有的三个事实均有对应，但fact数量过少。",
+      "issues_count": 0
+    },
+    "fact_usage_report_check": {
+      "status": "pass",
+      "summary": "fact_usage_report覆盖了正文中所有具体事实，无遗漏或伪造。",
+      "issues_count": 0
+    },
+    "rag_usage_check": {
+      "status": "pass",
+      "summary": "RAG未使用，无事实污染。",
+      "issues_count": 0
+    },
+    "terminology_check": {
+      "status": "pass",
+      "summary": "称谓已按口径库替换，无禁用词，主送单位待确认。",
+      "issues_count": 0
+    },
+    "blocked_items_check": {
+      "status": "pass",
+      "summary": "未有禁止项被写入正文，blocked_items_check如实记录。",
+      "issues_count": 0
+    },
+    "warnings_check": {
+      "status": "pass",
+      "summary": "warnings完备，涵盖了缺少主体内容、称谓待确认、落款缺失等风险。",
+      "issues_count": 0
+    },
+    "manual_confirmation_check": {
+      "status": "pass",
+      "summary": "manual_confirmation_fields保留了主送单位、落款单位、具体工作内容等关键确认项。",
+      "issues_count": 0
+    },
+    "style_check": {
+      "status": "pass",
+      "summary": "style_level=2，正文风格为正式公文风，无过度宣传。",
+      "issues_count": 0
+    },
+    "format_check": {
+      "status": "pass",
+      "summary": "标题、主送单位占位、结尾、落款占位均合规，Markdown层级清晰。",
+      "issues_count": 0
+    }
+  },
+  "issues": [
+    {
+      "issue_id": "R001",
+      "level": "high",
+      "type": "structure_mismatch",
+      "location": "markdown_draft S2-S5",
+      "detail": "plan要求S2汇报主要工作及成效、S3展示亮点成效、S4描述问题挑战、S5说明下一步思路，但正文全部用占位或概括性语句填充，未提供任何实质性内容，导致汇报材料无效。",
+      "evidence": "S2: “具体工作内容及阶段性成效后续将进一步补充”；S3: “暂无具体成果，待后续补充”；S4: “具体问题后续进一步梳理”；S5: 仅复述方向。",
+      "suggestion": "请用户补充具体工作内容、进展、成效、问题及下一步计划，或重写前确认无法补充则按实际可用事实重拟结构。",
+      "rewrite_hint": "将S2-S5改为基于用户补充事实的叙述，若无事实则保留占位并明确标注【需用户提供】。"
+    }
+  ],
+  "rewrite_instructions": [
+    {
+      "priority": "high",
+      "target": "markdown_draft S2 主要进展",
+      "action": "replace",
+      "instruction": "将“具体工作内容及阶段性成效后续将进一步补充”替换为基于用户提供的工作内容的具体描述；若无，则保留占位并标明【需用户提供】。",
+      "basis": "plan_result.sections[1].content_guidance"
+    },
+    {
+      "priority": "high",
+      "target": "markdown_draft S3 亮点成效",
+      "action": "replace",
+      "instruction": "删除“暂无具体成果，待后续补充”，如用户提供成效则据实填写，否则改为【暂无用户提供信息】。",
+      "basis": "plan_result.sections[2].content_guidance"
+    },
+    {
+      "priority": "high",
+      "target": "markdown_draft S4 问题挑战",
+      "action": "replace",
+      "instruction": "将“具体问题后续进一步梳理”替换为用户提供的具体问题；无则标明【需用户提供】。",
+      "basis": "plan_result.sections[3].content_guidance"
+    },
+    {
+      "priority": "high",
+      "target": "markdown_draft S5 下一步思路",
+      "action": "replace",
+      "instruction": "根据用户提供的下一步计划重写，无则标明【需用户提供】。",
+      "basis": "plan_result.sections[4].content_guidance"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "主送单位正式称谓",
+      "reason": "用户写'芒果总部'，口径库禁止，建议替换为'湖南广播影视集团（台）'",
+      "impact": "影响公文抬头",
+      "required_before_final": true
+    },
+    {
+      "field": "汇报单位/落款单位",
+      "reason": "用户未提供",
+      "impact": "无法确认汇报主体",
+      "required_before_final": true
+    },
+    {
+      "field": "具体工作内容",
+      "reason": "extract中仅含模糊表述",
+      "impact": "影响汇报材料核心内容",
+      "required_before_final": true
+    },
+    {
+      "field": "时间范围",
+      "reason": "用户未提供",
+      "impact": "影响背景和进展表述",
+      "required_before_final": false
+    }
+  ],
+  "review_policy": {
+    "no_body_generation": true,
+    "no_rewrite": true,
+    "no_new_facts": true,
+    "no_rag_call": true,
+    "check_fact_grounding": true,
+    "check_doc_type_rules": true,
+    "check_org_title_dictionary": true
+  }
+}

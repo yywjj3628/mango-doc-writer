@@ -1,0 +1,68 @@
+{
+  "total_cases": 10,
+  "success": 0,
+  "failed": 0,
+  "skipped": 10,
+  "cases": [
+    {
+      "case_id": "001-news",
+      "status": "skipped",
+      "failed_stage": null,
+      "reason": "OpenClaw 模型调用接口尚未接入"
+    },
+    {
+      "case_id": "002-fake-report-real-request",
+      "status": "skipped",
+      "failed_stage": null,
+      "reason": "OpenClaw 模型调用接口尚未接入"
+    },
+    {
+      "case_id": "003-report",
+      "status": "skipped",
+      "failed_stage": null,
+      "reason": "OpenClaw 模型调用接口尚未接入"
+    },
+    {
+      "case_id": "004-notice",
+      "status": "skipped",
+      "failed_stage": null,
+      "reason": "OpenClaw 模型调用接口尚未接入"
+    },
+    {
+      "case_id": "005-meeting-minutes",
+      "status": "skipped",
+      "failed_stage": null,
+      "reason": "OpenClaw 模型调用接口尚未接入"
+    },
+    {
+      "case_id": "006-leader-speech",
+      "status": "skipped",
+      "failed_stage": null,
+      "reason": "OpenClaw 模型调用接口尚未接入"
+    },
+    {
+      "case_id": "007-summary",
+      "status": "skipped",
+      "failed_stage": null,
+      "reason": "OpenClaw 模型调用接口尚未接入"
+    },
+    {
+      "case_id": "008-letter",
+      "status": "skipped",
+      "failed_stage": null,
+      "reason": "OpenClaw 模型调用接口尚未接入"
+    },
+    {
+      "case_id": "009-rag-pollution",
+      "status": "skipped",
+      "failed_stage": null,
+      "reason": "OpenClaw 模型调用接口尚未接入"
+    },
+    {
+      "case_id": "010-terminology-risk",
+      "status": "skipped",
+      "failed_stage": null,
+      "reason": "OpenClaw 模型调用接口尚未接入"
+    }
+  ]
+}

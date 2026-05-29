@@ -1,0 +1,11 @@
+{
+  "render_mode": "markdown_first",
+  "template_used": "official_document",
+  "theme": "cms",
+  "final_markdown_preserved": true,
+  "body_modified": false,
+  "facts_added": false,
+  "docx_generated": true,
+  "reason": "official document default docx",
+  "warnings": []
+}

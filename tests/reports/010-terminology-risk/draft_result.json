@@ -1,0 +1,173 @@
+{
+  "draft_summary": "已按汇报材料文种生成初稿。事实极度稀缺，仅包含组织'芒果总部'、事件'推进相关工作'和请求'希望芒果总部了解整体进展'。正文按五段式结构编写，大量使用概括性表述。称谓已按口径库将'芒果总部'替换为'湖南广播影视集团（台）'，需人工确认。落款单位、具体工作内容、时间范围等均缺失，已在warnings中提示。",
+  "doc_type": "汇报材料",
+  "direction": "上行文",
+  "style_level": 2,
+  "risk_level": "critical",
+  "markdown_draft": "# 关于文化科技融合推进工作情况的汇报\n\n湖南广播影视集团（台）：\n\n现将文化科技融合推进工作有关情况汇报如下：\n\n## 一、背景情况\n\n围绕文化科技融合方向，我司积极推进相关工作，旨在使集团（台）了解整体进展。\n\n## 二、主要进展\n\n目前，相关工作正在有序推进之中。具体工作内容及阶段性成效后续将进一步补充。\n\n## 三、亮点成效\n\n暂无具体成果，待后续补充。\n\n## 四、问题挑战\n\n在推进过程中，可能面临一些需要协调解决的挑战，具体问题后续进一步梳理。\n\n## 五、下一步思路\n\n下一步，将继续围绕文化科技融合方向，进一步推动各项任务落实。\n\n以上汇报，请领导批评指正。\n\n【落款单位待确认】\n\n【日期待确认】",
+  "fact_usage_report": [
+    {
+      "draft_text": "湖南广播影视集团（台）",
+      "fact_type": "organization",
+      "fact_value": "芒果总部",
+      "source_text": "请写一份给芒果总部看的汇报材料",
+      "source": "extract_result.fact_items",
+      "confidence": 0.9
+    },
+    {
+      "draft_text": "围绕文化科技融合方向，我司积极推进相关工作",
+      "fact_type": "event",
+      "fact_value": "推进相关工作",
+      "source_text": "我们围绕文化科技融合方向推进相关工作",
+      "source": "extract_result.fact_items",
+      "confidence": 0.85
+    },
+    {
+      "draft_text": "旨在使集团（台）了解整体进展",
+      "fact_type": "request",
+      "fact_value": "希望芒果总部了解整体进展",
+      "source_text": "后续希望芒果总部了解整体进展",
+      "source": "extract_result.fact_items",
+      "confidence": 0.88
+    }
+  ],
+  "rag_usage_report": [],
+  "terminology_usage_report": [
+    {
+      "raw_value": "芒果总部",
+      "used_value": "湖南广播影视集团（台）",
+      "type": "organization",
+      "source": "org-title-dictionary.yaml",
+      "confidence": 0.7,
+      "needs_manual_confirmation": true,
+      "note": "用户写'芒果总部'，口径库禁用，已替换为正式称谓，需人工确认是否接受。"
+    },
+    {
+      "raw_value": "文化科技融合",
+      "used_value": "文化科技融合",
+      "type": "strategic_term",
+      "source": "user_input",
+      "confidence": 0.9,
+      "needs_manual_confirmation": false,
+      "note": "用户需求中明确提及。"
+    }
+  ],
+  "blocked_items_check": [
+    {
+      "item": "夹带请示事项",
+      "status": "not_used",
+      "reason": "正文未出现任何请示性表达，如'请批准''请批示'等。"
+    },
+    {
+      "item": "编造工作数据",
+      "status": "not_used",
+      "reason": "正文未出现任何具体数据。"
+    },
+    {
+      "item": "编造成果荣誉",
+      "status": "not_used",
+      "reason": "正文未出现任何成果或荣誉表述。"
+    },
+    {
+      "item": "使用'芒果总部'称谓",
+      "status": "not_used",
+      "reason": "已按口径库替换为'湖南广播影视集团（台）'。"
+    },
+    {
+      "item": "编造具体项目名称",
+      "status": "not_used",
+      "reason": "正文未出现具体项目名称。"
+    },
+    {
+      "item": "编造时间范围",
+      "status": "not_used",
+      "reason": "正文未出现具体时间节点。"
+    }
+  ],
+  "warnings": [
+    {
+      "level": "critical",
+      "type": "missing_required_field",
+      "message": "汇报材料缺少主体内容，需补充具体工作、进展、成效等。",
+      "related_field": "主要内容",
+      "action": "建议用户补充具体工作事项、进展及成效，否则正文过于概括，无法支撑正式汇报。"
+    },
+    {
+      "level": "high",
+      "type": "ambiguous_fact",
+      "message": "相关工作表述模糊，无法支撑正式汇报。",
+      "related_field": "工作描述",
+      "action": "需用户明确具体工作方向或项目名称。"
+    },
+    {
+      "level": "medium",
+      "type": "incomplete_organization_name",
+      "message": "芒果总部称谓已替换为湖南广播影视集团（台），需人工确认是否接受此正式称谓。",
+      "related_field": "主送单位",
+      "action": "正式成稿前请确认主送单位。"
+    },
+    {
+      "level": "high",
+      "type": "missing_field",
+      "message": "落款单位缺失，正文使用占位符。",
+      "related_field": "落款单位",
+      "action": "正式成稿前需补充汇报单位名称。"
+    },
+    {
+      "level": "high",
+      "type": "missing_field",
+      "message": "时间范围缺失，正文未体现具体时间段。",
+      "related_field": "时间范围",
+      "action": "可补充时间范围如'今年以来'或'近期'。"
+    },
+    {
+      "level": "high",
+      "type": "section_no_fact_support",
+      "message": "S1背景情况仅有概括性事实支撑；S2主要进展、S3亮点成效、S4问题挑战、S5下一步思路均无用户提供的事实绑定，内容为空泛概括。",
+      "related_field": "各段落",
+      "action": "建议用户补充各段落具体内容。"
+    },
+    {
+      "level": "low",
+      "type": "rag_not_used",
+      "message": "本次未获得RAG风格参考。",
+      "related_field": "style_rag",
+      "action": "后续可检索芒果系汇报材料风格案例优化表达。"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "主送单位正式称谓",
+      "reason": "用户写'芒果总部'，口径库禁止，建议替换为'湖南广播影视集团（台）'",
+      "impact": "影响公文抬头",
+      "required_before_final": true
+    },
+    {
+      "field": "汇报单位/落款单位",
+      "reason": "用户未提供",
+      "impact": "无法确认汇报主体",
+      "required_before_final": true
+    },
+    {
+      "field": "具体工作内容",
+      "reason": "extract中仅含模糊表述",
+      "impact": "影响汇报材料核心内容",
+      "required_before_final": true
+    },
+    {
+      "field": "背景情况",
+      "reason": "无具体事实支撑",
+      "impact": "影响材料详实性",
+      "required_before_final": false
+    }
+  ],
+  "draft_policy": {
+    "body_generated": true,
+    "no_new_facts": true,
+    "use_only_extract_facts": true,
+    "rag_used_for_style_only": true,
+    "follow_plan_structure": true,
+    "follow_doc_type_rules": true,
+    "follow_org_title_dictionary": true
+  }
+}

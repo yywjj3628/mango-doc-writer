@@ -1,0 +1,253 @@
+{
+  "plan_summary": "classify判定为请示（伪报告真请示），需重点处理文种冲突确认、项目名称缺失和预算金额缺失。结构按请示标准四段式规划。",
+  "doc_type": "请示",
+  "direction": "上行文",
+  "style_level": 1,
+  "risk_level": "high",
+  "title_plan": {
+    "recommended_title": "关于申请专项预算支持的请示",
+    "title_type": "正式公文标题",
+    "title_confidence": 0.7,
+    "title_basis": [
+      "classify.doc_type = 请示",
+      "extract.requests 包含预算支持请求"
+    ],
+    "title_risks": [
+      "项目正式名称缺失，标题未含项目标识"
+    ],
+    "alternative_titles": [
+      "关于项目专项预算支持的请示"
+    ]
+  },
+  "addressee_plan": {
+    "recommended_addressee": "集团",
+    "source": "extract.organizations",
+    "confidence": 0.6,
+    "needs_manual_confirmation": true,
+    "note": "用户仅写\"集团\"，需确认正式主送单位全称"
+  },
+  "signer_plan": {
+    "recommended_signer": null,
+    "source": "missing",
+    "confidence": 0,
+    "needs_manual_confirmation": true,
+    "note": "用户未提供落款单位，请示必须有落款"
+  },
+  "sections": [
+    {
+      "section_id": "S1",
+      "section_name": "请示缘由",
+      "purpose": "说明项目背景和当前进展",
+      "content_guidance": "围绕项目前期筹备完成情况展开，不编造项目详情和成果",
+      "fact_bindings": [
+        {
+          "fact_type": "project",
+          "fact_value": "项目",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "achievement",
+          "fact_value": "项目已完成前期筹备",
+          "source_from_extract": true
+        }
+      ],
+      "blocked_items": [
+        "不得编造项目正式名称",
+        "不得编造成果数据"
+      ],
+      "word_count_estimate": 150,
+      "needs_manual_input": true
+    },
+    {
+      "section_id": "S2",
+      "section_name": "必要性与依据",
+      "purpose": "说明为何需要专项预算支持",
+      "content_guidance": "围绕后续推广需要预算展开，可引用项目推进需要作为依据",
+      "fact_bindings": [
+        {
+          "fact_type": "problem",
+          "fact_value": "后续推广需要专项预算支持",
+          "source_from_extract": true
+        }
+      ],
+      "blocked_items": [
+        "不得编造政策依据",
+        "不得编造审批文件"
+      ],
+      "word_count_estimate": 150,
+      "needs_manual_input": true
+    },
+    {
+      "section_id": "S3",
+      "section_name": "请示事项",
+      "purpose": "明确请求集团给予专项预算支持",
+      "content_guidance": "清晰表达请求事项，不编造预算金额，可用概括性表述",
+      "fact_bindings": [
+        {
+          "fact_type": "request",
+          "fact_value": "请求集团给予专项预算支持",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "request",
+          "fact_value": "拟请集团给予经费保障",
+          "source_from_extract": true
+        }
+      ],
+      "blocked_items": [
+        "不得编造预算金额",
+        "不得一文多事"
+      ],
+      "word_count_estimate": 100,
+      "needs_manual_input": false
+    },
+    {
+      "section_id": "S4",
+      "section_name": "请求批示",
+      "purpose": "标准请示结尾",
+      "content_guidance": "使用\"妥否，请批示\"等标准结尾",
+      "fact_bindings": [],
+      "blocked_items": [
+        "不得写成报告结尾"
+      ],
+      "word_count_estimate": 30,
+      "needs_manual_input": false
+    }
+  ],
+  "style_directives": {
+    "overall_tone": "克制正式",
+    "key_expressions": [],
+    "forbidden_expressions": [
+      "不得写成报告",
+      "不得一文多事",
+      "不得多头主送"
+    ],
+    "style_reference": "doc-type-rules.md 请示章节"
+  },
+  "title_rules": [
+    "请示标题格式：关于XXX的请示",
+    "标题只能使用 extract 中已有信息"
+  ],
+  "addressee_resolution": {
+    "recommended_addressee": "集团",
+    "source": "extract.organizations",
+    "confidence": 0.6,
+    "needs_manual_confirmation": true,
+    "note": "需确认正式全称"
+  },
+  "signer_resolution": {
+    "recommended_signer": null,
+    "source": "missing",
+    "confidence": 0,
+    "needs_manual_confirmation": true,
+    "note": "落款单位缺失"
+  },
+  "title_suggestions": {
+    "recommended_title": "关于申请专项预算支持的请示",
+    "alternative_titles": [
+      "关于项目专项预算支持的请示"
+    ],
+    "title_rules": [
+      "请示标题格式：关于XXX的请示"
+    ]
+  },
+  "missing_fields": [
+    {
+      "field": "项目正式名称",
+      "reason": "用户仅写\"项目\"，影响标题和正文准确性",
+      "impact": "high",
+      "suggestion": "后续写作前确认"
+    },
+    {
+      "field": "预算金额",
+      "reason": "用户未提供，影响请示明确性",
+      "impact": "high",
+      "suggestion": "后续确认或概括性表述"
+    },
+    {
+      "field": "主送单位全称",
+      "reason": "用户仅写\"集团\"",
+      "impact": "high",
+      "suggestion": "由 org-title-dictionary.yaml 校验或人工确认"
+    },
+    {
+      "field": "落款单位",
+      "reason": "请示必须有落款",
+      "impact": "high",
+      "suggestion": "后续确认"
+    }
+  ],
+  "cannot_infer": [
+    {
+      "field": "预算金额",
+      "reason": "不得自动补充"
+    },
+    {
+      "field": "项目审批依据",
+      "reason": "不得自动补充"
+    },
+    {
+      "field": "项目预期成效",
+      "reason": "不得自动编写"
+    }
+  ],
+  "risk_flags": [
+    {
+      "type": "request_without_amount",
+      "detail": "请求预算但无金额",
+      "level": "high"
+    },
+    {
+      "type": "possible_doc_type_conflict",
+      "detail": "classify 判定为请示冲突，需确认",
+      "level": "critical"
+    },
+    {
+      "type": "section_no_fact_support",
+      "detail": "S2 必要性与依据缺少具体政策依据",
+      "level": "medium"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "文种确认",
+      "reason": "classify 检测到伪报告真请示冲突",
+      "suggestion": "确认最终文种为请示"
+    },
+    {
+      "field": "主送单位全称",
+      "reason": "用户仅写\"集团\"",
+      "suggestion": "确认正式机构全称"
+    },
+    {
+      "field": "落款单位",
+      "reason": "请示必须有落款",
+      "suggestion": "确认落款单位"
+    },
+    {
+      "field": "项目正式名称",
+      "reason": "标题和正文需要",
+      "suggestion": "确认项目正式名称"
+    }
+  ],
+  "draft_directives": {
+    "total_word_count_estimate": 500,
+    "must_use_facts": [
+      "项目已完成前期筹备",
+      "后续推广需要专项预算支持",
+      "请求集团给予专项预算支持",
+      "拟请集团给予经费保障"
+    ],
+    "must_avoid": [
+      "不得写成报告",
+      "不得一文多事",
+      "不得编造预算金额",
+      "不得编造项目名称"
+    ],
+    "format_requirements": [
+      "请示标准格式",
+      "一文一事",
+      "妥否请批示结尾"
+    ]
+  }
+}

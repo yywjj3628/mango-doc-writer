@@ -1,0 +1,32 @@
+{
+  "doc_type": "汇报材料",
+  "doc_type_confidence": 0.92,
+  "direction": "上行文",
+  "style_level": 2,
+  "risk_level": "medium",
+  "reason": "用户明确要求写一份给芒果总部看的汇报材料，初稿内容围绕文化科技融合推进工作，目的是让上级了解整体进展，未出现请求批准或支持等请示信号，符合汇报材料文种特征。",
+  "required_rules": [
+    "汇报材料"
+  ],
+  "required_structure": [
+    "背景情况",
+    "主要进展",
+    "亮点成效",
+    "问题挑战",
+    "下一步思路"
+  ],
+  "forbidden_items": [
+    "不得夹带请示事项",
+    "不得出现请批准、请批复等审批请求表达",
+    "不得编造工作数据、领导评价和成果荣誉"
+  ],
+  "possible_confusions": [
+    {
+      "candidate": "报告",
+      "reason": "若材料作为正式上行公文报送，而非会议或口头汇报配套，可改判为报告。",
+      "distinguish_rule": "是否作为正式上行公文报送，是否强调公文格式。"
+    }
+  ],
+  "need_manual_confirmation": false,
+  "manual_confirmation_fields": []
+}

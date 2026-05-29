@@ -1,0 +1,178 @@
+{
+  "rewrite_summary": "根据review结果，删除第3段无依据表述'取得了一定进展'，替换为中性概括表述；在manual_confirmation_fields中添加'重点项目具体名称'；其余部分保持原稿。",
+  "doc_type": "领导讲话",
+  "direction": "综合材料",
+  "style_level": 2,
+  "risk_level": "medium",
+  "final_markdown": "# 在工作推进会上的讲话\n\n同志们：\n\n今天，我们召开这次工作推进会，主要任务是围绕年度重点任务推进进行部署，进一步统一思想、明确方向，确保各项工作落到实处。\n\n当前，我们要提高政治站位，深刻认识推进年度重点任务的重要意义。面对新形势新任务，必须保持清醒头脑，增强责任感和紧迫感。\n\n当前，各项工作正在有序推进。\n\n要突出重点，狠抓落实。一是强化责任意识，各部门要切实担负起主体责任，将任务细化到岗、责任到人。二是加快重点项目落地，集中资源、攻坚克难，确保项目按时保质完成。三是加强协同配合，形成工作合力。\n\n要压实责任，确保各项工作落到实处。一要完善工作机制，明确时间节点和考核标准。二要加强督查检查，及时发现问题、解决问题。三要树立正确政绩观，以实干实绩推动发展。\n\n同志们，让我们凝心聚力、攻坚克难，确保年度重点任务圆满完成，为集团高质量发展作出新的更大贡献！",
+  "revision_report": [
+    {
+      "revision_id": "REV001",
+      "issue_id": "R001",
+      "action": "delete",
+      "before": "在大家的共同努力下，各项工作取得了一定进展，为后续推进奠定了基础。",
+      "after": "当前，各项工作正在有序推进。",
+      "reason": "原表述“取得了一定进展”无extract事实支撑，根据审查建议删除并替换为中性概括表述。",
+      "basis": "review_result.issues[0].rewrite_hint"
+    },
+    {
+      "revision_id": "REV002",
+      "issue_id": "R004",
+      "action": "add_warning",
+      "before": "",
+      "after": "",
+      "reason": "在manual_confirmation_fields中添加“重点项目具体名称”，因用户仅提供概括表述，需确认具体项目名称。",
+      "basis": "review_result.rewrite_instructions[1]"
+    }
+  ],
+  "fact_usage_report": [
+    {
+      "final_text": "工作推进会",
+      "fact_type": "event",
+      "fact_value": "工作推进会",
+      "source_text": "领导在工作推进会上的讲话稿",
+      "source": "extract_result.fact_items",
+      "confidence": 0.92
+    },
+    {
+      "final_text": "年度重点任务",
+      "fact_type": "project",
+      "fact_value": "年度重点任务",
+      "source_text": "会议围绕年度重点任务推进进行部署",
+      "source": "extract_result.fact_items",
+      "confidence": 0.9
+    },
+    {
+      "final_text": "各部门",
+      "fact_type": "organization",
+      "fact_value": "各部门",
+      "source_text": "要求各部门强化责任意识",
+      "source": "extract_result.fact_items",
+      "confidence": 0.86
+    },
+    {
+      "final_text": "强化责任意识",
+      "fact_type": "request",
+      "fact_value": "要求各部门强化责任意识",
+      "source_text": "要求各部门强化责任意识",
+      "source": "extract_result.fact_items",
+      "confidence": 0.9
+    },
+    {
+      "final_text": "加快重点项目落地",
+      "fact_type": "request",
+      "fact_value": "加快重点项目落地",
+      "source_text": "加快重点项目落地",
+      "source": "extract_result.fact_items",
+      "confidence": 0.9
+    }
+  ],
+  "terminology_usage_report": [
+    {
+      "raw_value": "各部门",
+      "used_value": "各部门",
+      "type": "organization",
+      "source": "extract_result.fact_items",
+      "confidence": 0.86,
+      "needs_manual_confirmation": false,
+      "note": "具体部门范围未提供，正文沿用用户表述。"
+    }
+  ],
+  "resolved_issues": [
+    {
+      "issue_id": "R001",
+      "resolution": "删除无依据表述“取得了一定进展”，替换为中性概括表述。",
+      "basis": "rewrite_instructions[0]"
+    },
+    {
+      "issue_id": "R002",
+      "resolution": "fact_usage_report无需补充，因该表述已被删除。",
+      "basis": "关联R001"
+    },
+    {
+      "issue_id": "R003",
+      "resolution": "blocked_item已移除。",
+      "basis": "关联R001"
+    },
+    {
+      "issue_id": "R004",
+      "resolution": "在manual_confirmation_fields中添加“重点项目具体名称”项。",
+      "basis": "rewrite_instructions[1]"
+    }
+  ],
+  "unresolved_issues": [],
+  "remaining_risks": [
+    {
+      "level": "high",
+      "type": "missing_field",
+      "detail": "讲话领导姓名和职务缺失，正文未使用具体领导称谓。",
+      "action": "正式成稿前需确认讲话领导姓名和职务，并据此调整开头称谓。"
+    },
+    {
+      "level": "high",
+      "type": "missing_field",
+      "detail": "会议具体名称缺失，标题使用通用表述“在工作推进会上的讲话”。",
+      "action": "建议确认会议全称后更新标题。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "detail": "重点项目具体名称缺失，正文仅概括表述。",
+      "action": "如有具体项目名称可后续补充。"
+    },
+    {
+      "level": "medium",
+      "type": "section_needs_manual_input",
+      "detail": "S2形势判断和S3工作肯定无事实支撑，正文使用通用站位和概括表述（S2保持原样，S3已改为中性），需人工补充具体内容。",
+      "action": "根据实际情况补充形势判断和工作肯定细节。"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "讲话领导姓名",
+      "reason": "领导讲话必须明确讲话人",
+      "impact": "影响讲话稿称谓和身份表达",
+      "required_before_final": true
+    },
+    {
+      "field": "讲话领导职务",
+      "reason": "领导讲话开头需要使用职务",
+      "impact": "影响开头语气",
+      "required_before_final": true
+    },
+    {
+      "field": "会议时间",
+      "reason": "影响开场背景完整性",
+      "impact": "影响正文背景段",
+      "required_before_final": false
+    },
+    {
+      "field": "会议具体名称",
+      "reason": "影响标题和开场",
+      "impact": "影响标题准确性",
+      "required_before_final": false
+    },
+    {
+      "field": "重点项目具体名称",
+      "reason": "用户仅提供概括表述，需确认具体项目名称",
+      "impact": "影响重点部署段落内容准确度",
+      "required_before_final": false
+    }
+  ],
+  "final_checks": {
+    "doc_type_fixed": true,
+    "unsupported_facts_removed": true,
+    "blocked_items_removed": true,
+    "terminology_checked": true,
+    "manual_confirmations_preserved": true
+  },
+  "rewrite_policy": {
+    "body_rewritten": true,
+    "no_new_facts": true,
+    "use_only_extract_facts": true,
+    "no_rag_call": true,
+    "follow_review_instructions": true,
+    "follow_doc_type_rules": true,
+    "follow_org_title_dictionary": true
+  }
+}

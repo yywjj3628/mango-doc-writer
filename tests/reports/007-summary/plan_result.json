@@ -1,0 +1,294 @@
+{
+  "plan_summary": "用户需求为阶段性工作总结，文种为总结，方向内部材料。提取事实有限，缺少具体数据、存在问题和经验做法。结构按总结标准五段式规划，需要人工补充部分内容。",
+  "doc_type": "总结",
+  "direction": "内部材料",
+  "style_level": 2,
+  "risk_level": "low",
+  "title_plan": {
+    "recommended_title": "部门一季度工作总结",
+    "title_type": "总结标题",
+    "title_confidence": 0.7,
+    "title_basis": [
+      "classify.doc_type = 总结",
+      "extract.time = 今年一季度",
+      "extract.organization = 部门"
+    ],
+    "title_risks": [
+      "部门具体名称未提供，标题中仅写'部门'，后续需确认"
+    ],
+    "alternative_titles": [
+      "2026年一季度工作总结"
+    ]
+  },
+  "addressee_plan": {
+    "recommended_addressee": null,
+    "source": "not_applicable",
+    "confidence": 0,
+    "needs_manual_confirmation": false,
+    "note": "总结为内部材料，无需主送单位"
+  },
+  "signer_plan": {
+    "recommended_signer": null,
+    "source": "missing",
+    "confidence": 0,
+    "needs_manual_confirmation": true,
+    "note": "用户未提供落款单位，总结通常有落款，需后续确认"
+  },
+  "sections": [
+    {
+      "section_id": "S1",
+      "section_name": "工作开展情况",
+      "purpose": "概述一季度总体工作推进情况",
+      "content_guidance": "围绕部门围绕年度目标推进各项工作展开，可提及制度修订、流程优化、团队培训三项工作，但不编造具体细节",
+      "fact_bindings": [
+        {
+          "fact_type": "time",
+          "fact_value": "今年一季度",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "organization",
+          "fact_value": "部门",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "achievement",
+          "fact_value": "完成了制度修订",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "achievement",
+          "fact_value": "完成了流程优化",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "achievement",
+          "fact_value": "完成了团队培训",
+          "source_from_extract": true
+        }
+      ],
+      "blocked_items": [
+        "不得编造具体数据",
+        "不得编造详细工作过程"
+      ],
+      "word_count_estimate": 150,
+      "needs_manual_input": false
+    },
+    {
+      "section_id": "S2",
+      "section_name": "主要成效",
+      "purpose": "展示工作成果和量化成效",
+      "content_guidance": "用户仅提到完成三项工作，未提供具体成效数据，可概括性表述为'完成相关工作'或'取得初步成效'，不得编造数据",
+      "fact_bindings": [
+        {
+          "fact_type": "achievement",
+          "fact_value": "完成了制度修订",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "achievement",
+          "fact_value": "完成了流程优化",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "achievement",
+          "fact_value": "完成了团队培训",
+          "source_from_extract": true
+        }
+      ],
+      "blocked_items": [
+        "不得编造具体数据",
+        "不得编造成果量化指标"
+      ],
+      "word_count_estimate": 100,
+      "needs_manual_input": true
+    },
+    {
+      "section_id": "S3",
+      "section_name": "经验做法",
+      "purpose": "提炼工作方法和典型经验",
+      "content_guidance": "用户未提供经验做法素材，需人工补充或采用概括性表述，不得编造",
+      "fact_bindings": [],
+      "blocked_items": [
+        "不得编造经验做法",
+        "不得从其他事实推断"
+      ],
+      "word_count_estimate": 100,
+      "needs_manual_input": true
+    },
+    {
+      "section_id": "S4",
+      "section_name": "存在问题",
+      "purpose": "分析工作不足和短板",
+      "content_guidance": "用户初稿未提及问题，需人工补充或使用概括性表述（如'工作中还存在一些不足'），不得编造具体问题",
+      "fact_bindings": [],
+      "blocked_items": [
+        "不得编造问题",
+        "不得从其他事实推断"
+      ],
+      "word_count_estimate": 100,
+      "needs_manual_input": true
+    },
+    {
+      "section_id": "S5",
+      "section_name": "下一步计划",
+      "purpose": "规划下阶段工作方向",
+      "content_guidance": "围绕深化内部管理和提升运营效率展开，可进行适当展望，但不得编造具体任务",
+      "fact_bindings": [],
+      "blocked_items": [
+        "不得编造具体工作目标",
+        "不得编造时间节点"
+      ],
+      "word_count_estimate": 100,
+      "needs_manual_input": false
+    }
+  ],
+  "style_directives": {
+    "overall_tone": "芒果系正式公文风",
+    "key_expressions": [
+      "一是……二是……三是……",
+      "在……方面取得了显著成效",
+      "同时，我们也清醒地认识到，工作中还存在一些不足"
+    ],
+    "forbidden_expressions": [
+      "不得编造数据",
+      "不得只讲成绩不讲问题",
+      "不得缺少下一步计划",
+      "不得写成对外宣传稿"
+    ],
+    "style_reference": "doc-type-rules.md 总结章节"
+  },
+  "title_rules": [
+    "总结标题格式：XXX工作总结"
+  ],
+  "addressee_resolution": {
+    "recommended_addressee": null,
+    "source": "not_applicable",
+    "confidence": 0,
+    "needs_manual_confirmation": false,
+    "note": "内部材料无需主送单位"
+  },
+  "signer_resolution": {
+    "recommended_signer": null,
+    "source": "missing",
+    "confidence": 0,
+    "needs_manual_confirmation": true,
+    "note": "落款单位缺失"
+  },
+  "title_suggestions": {
+    "recommended_title": "部门一季度工作总结",
+    "alternative_titles": [
+      "2026年一季度工作总结"
+    ],
+    "title_rules": [
+      "总结标题格式：XXX工作总结"
+    ]
+  },
+  "missing_fields": [
+    {
+      "field": "具体成效数据",
+      "reason": "用户仅提到完成制度修订等，未提供具体完成数量、质量指标或对比数据",
+      "impact": "影响总结材料说服力",
+      "suggestion": "后续写作前建议补充具体数据或成效描述"
+    },
+    {
+      "field": "存在问题",
+      "reason": "用户初稿未提及任何问题或不足",
+      "impact": "总结结构缺少'存在问题'部分",
+      "suggestion": "后续写作可结合实际情况补充，或采用概括性表述"
+    },
+    {
+      "field": "经验做法",
+      "reason": "用户未提炼经验做法或典型方法",
+      "impact": "总结结构缺少'经验做法'部分",
+      "suggestion": "后续写作可基于事实适当归纳"
+    },
+    {
+      "field": "部门具体名称",
+      "reason": "用户仅写'部门'，实际落款和正文需具体名称",
+      "impact": "影响正文和落款准确性",
+      "suggestion": "后续确认部门全称"
+    },
+    {
+      "field": "落款单位",
+      "reason": "用户未提供落款单位",
+      "impact": "总结材料通常需落款",
+      "suggestion": "后续确认"
+    }
+  ],
+  "cannot_infer": [
+    {
+      "field": "领导评价",
+      "reason": "用户素材未提供领导评价，不得自动补充"
+    },
+    {
+      "field": "获奖情况",
+      "reason": "用户素材未提供任何获奖信息"
+    },
+    {
+      "field": "具体年度目标",
+      "reason": "用户仅写'年度目标'，未说明目标具体内容"
+    }
+  ],
+  "risk_flags": [
+    {
+      "type": "achievement_without_data",
+      "detail": "提到完成若干工作，但未提供具体数据或量化成果",
+      "level": "medium"
+    },
+    {
+      "type": "missing_required_field",
+      "detail": "总结缺少'存在问题'和'经验做法'部分内容",
+      "level": "medium"
+    },
+    {
+      "type": "section_no_fact_support",
+      "detail": "S3经验做法和S4存在问题完全没有事实支撑，需人工补充",
+      "level": "medium"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "部门具体名称",
+      "reason": "用户仅写'部门'，需确认正式名称",
+      "suggestion": "确认后填入标题和正文"
+    },
+    {
+      "field": "落款单位",
+      "reason": "总结需要落款单位",
+      "suggestion": "确认落款单位名称"
+    },
+    {
+      "field": "存在问题",
+      "reason": "总结必须包含问题，用户未提供",
+      "suggestion": "补充实际问题或采用概括性表述"
+    },
+    {
+      "field": "经验做法",
+      "reason": "总结结构需要经验做法部分，用户未提供",
+      "suggestion": "基于事实适当归纳或留空"
+    }
+  ],
+  "draft_directives": {
+    "total_word_count_estimate": 600,
+    "must_use_facts": [
+      "今年一季度",
+      "部门",
+      "完成了制度修订",
+      "完成了流程优化",
+      "完成了团队培训"
+    ],
+    "must_avoid": [
+      "不得编造数据",
+      "不得只讲成绩不讲问题",
+      "不得缺少下一步计划",
+      "不得写成对外宣传稿",
+      "不得编造领导评价",
+      "不得编造获奖情况"
+    ],
+    "format_requirements": [
+      "总结标准格式：工作开展情况、主要成效、经验做法、存在问题、下一步计划",
+      "落款单位+日期"
+    ]
+  }
+}

@@ -1,0 +1,212 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mango-doc-writer.local/schemas/review.schema.json",
+  "title": "Mango Doc Writer Review Result",
+  "description": "质检阶段输出结构，用于检查初稿事实溯源、文种规则、称谓口径、RAG使用、禁止项、风险提示和是否需要重写。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "review_summary",
+    "pass",
+    "score",
+    "rewrite_required",
+    "risk_level",
+    "checks",
+    "issues",
+    "rewrite_instructions",
+    "manual_confirmation_fields",
+    "review_policy"
+  ],
+  "properties": {
+    "review_summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "pass": {
+      "type": "boolean"
+    },
+    "score": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "rewrite_required": {
+      "type": "boolean"
+    },
+    "risk_level": {
+      "type": "string",
+      "enum": ["low", "medium", "high", "critical"]
+    },
+    "checks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "doc_type_check",
+        "structure_check",
+        "fact_grounding_check",
+        "fact_usage_report_check",
+        "rag_usage_check",
+        "terminology_check",
+        "blocked_items_check",
+        "warnings_check",
+        "manual_confirmation_check",
+        "style_check",
+        "format_check"
+      ],
+      "properties": {
+        "doc_type_check": { "$ref": "#/$defs/checkResult" },
+        "structure_check": { "$ref": "#/$defs/checkResult" },
+        "fact_grounding_check": { "$ref": "#/$defs/checkResult" },
+        "fact_usage_report_check": { "$ref": "#/$defs/checkResult" },
+        "rag_usage_check": { "$ref": "#/$defs/checkResult" },
+        "terminology_check": { "$ref": "#/$defs/checkResult" },
+        "blocked_items_check": { "$ref": "#/$defs/checkResult" },
+        "warnings_check": { "$ref": "#/$defs/checkResult" },
+        "manual_confirmation_check": { "$ref": "#/$defs/checkResult" },
+        "style_check": { "$ref": "#/$defs/checkResult" },
+        "format_check": { "$ref": "#/$defs/checkResult" }
+      }
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["issue_id", "level", "type", "location", "detail", "evidence", "suggestion", "rewrite_hint"],
+        "properties": {
+          "issue_id": {
+            "type": "string"
+          },
+          "level": {
+            "type": "string",
+            "enum": ["low", "medium", "high", "critical"]
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "doc_type_error",
+              "structure_mismatch",
+              "fact_not_grounded",
+              "fact_usage_missing",
+              "rag_fact_pollution",
+              "terminology_error",
+              "blocked_item_used",
+              "warning_missing",
+              "manual_confirmation_missing",
+              "style_overdone",
+              "format_error",
+              "risk_not_handled",
+              "other"
+            ]
+          },
+          "location": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "evidence": {
+            "type": "string"
+          },
+          "suggestion": {
+            "type": "string"
+          },
+          "rewrite_hint": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "rewrite_instructions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["priority", "target", "action", "instruction", "basis"],
+        "properties": {
+          "priority": {
+            "type": "string",
+            "enum": ["low", "medium", "high", "critical"]
+          },
+          "target": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string",
+            "enum": ["delete", "replace", "delete_or_replace", "add_warning", "mark_manual_confirmation", "restructure", "keep"]
+          },
+          "instruction": {
+            "type": "string"
+          },
+          "basis": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "manual_confirmation_fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["field", "reason", "impact", "required_before_final"],
+        "properties": {
+          "field": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "impact": {
+            "type": "string"
+          },
+          "required_before_final": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "review_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "no_body_generation",
+        "no_rewrite",
+        "no_new_facts",
+        "no_rag_call",
+        "check_fact_grounding",
+        "check_doc_type_rules",
+        "check_org_title_dictionary"
+      ],
+      "properties": {
+        "no_body_generation": { "type": "boolean", "const": true },
+        "no_rewrite": { "type": "boolean", "const": true },
+        "no_new_facts": { "type": "boolean", "const": true },
+        "no_rag_call": { "type": "boolean", "const": true },
+        "check_fact_grounding": { "type": "boolean", "const": true },
+        "check_doc_type_rules": { "type": "boolean", "const": true },
+        "check_org_title_dictionary": { "type": "boolean", "const": true }
+      }
+    }
+  },
+  "$defs": {
+    "checkResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "summary", "issues_count"],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["pass", "warning", "fail", "not_applicable"]
+        },
+        "summary": {
+          "type": "string"
+        },
+        "issues_count": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    }
+  }
+}

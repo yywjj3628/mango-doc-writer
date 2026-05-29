@@ -1,0 +1,146 @@
+{
+  "draft_summary": "已按请示文种生成初稿。由于用户原始需求指定为报告但内容存在预算支持请求，正文按请示处理，并保留文种冲突与预算金额缺失提示。style_rag 检索结果不相关，未使用。",
+  "doc_type": "请示",
+  "direction": "上行文",
+  "style_level": 1,
+  "risk_level": "high",
+  "markdown_draft": "# 关于申请项目专项预算支持的请示\n\n集团：\n\n目前，该项目已完成前期筹备。为保障后续推广工作有序推进，现就专项预算支持事项请示如下。\n\n一、请示缘由\n\n根据项目推进安排，目前相关前期筹备工作已完成，后续推广工作需进一步加强经费保障。\n\n二、必要性与依据\n\n从当前推进情况看，后续推广环节仍需要专项预算支持。由于素材未提供具体预算金额和项目正式名称，本文仅作概括性表述，不列示具体金额。\n\n三、请示事项\n\n拟请集团给予该项目专项预算支持，为后续推广工作提供经费保障。\n\n妥否，请批示。\n\n【落款单位待确认】\n\n【日期待确认】",
+  "fact_usage_report": [
+    {
+      "draft_text": "该项目已完成前期筹备",
+      "fact_type": "achievement",
+      "fact_value": "项目已完成前期筹备",
+      "source_text": "目前项目已完成前期筹备",
+      "source": "extract_result.fact_items",
+      "confidence": 0.95
+    },
+    {
+      "draft_text": "后续推广工作需进一步加强经费保障",
+      "fact_type": "problem",
+      "fact_value": "后续推广需要专项预算支持",
+      "source_text": "后续推广需要专项预算支持",
+      "source": "extract_result.fact_items",
+      "confidence": 0.94
+    },
+    {
+      "draft_text": "拟请集团给予该项目专项预算支持",
+      "fact_type": "request",
+      "fact_value": "请求集团给予专项预算支持",
+      "source_text": "请求集团给予专项预算支持",
+      "source": "extract_result.fact_items",
+      "confidence": 0.96
+    }
+  ],
+  "rag_usage_report": [],
+  "terminology_usage_report": [
+    {
+      "raw_value": "集团",
+      "used_value": "集团",
+      "type": "organization",
+      "source": "user_input",
+      "confidence": 0.65,
+      "needs_manual_confirmation": true,
+      "note": "正式主送单位需结合口径库或人工确认。"
+    }
+  ],
+  "blocked_items_check": [
+    {
+      "item": "预算金额",
+      "status": "not_used",
+      "reason": "用户未提供预算金额，正文未写具体金额。"
+    },
+    {
+      "item": "项目预期成效",
+      "status": "not_used",
+      "reason": "用户未提供项目预期成效，正文未补充。"
+    },
+    {
+      "item": "一文多事",
+      "status": "not_used",
+      "reason": "正文仅包含一个请示事项（预算支持）。"
+    },
+    {
+      "item": "特此报告",
+      "status": "not_used",
+      "reason": "当前文种为请示，正文使用'妥否，请批示'。"
+    }
+  ],
+  "warnings": [
+    {
+      "level": "critical",
+      "type": "doc_type_conflict",
+      "message": "用户指定为报告，但 classify 阶段识别为请示。",
+      "related_field": "doc_type",
+      "action": "建议确认最终文种；如保留预算支持请求，应按请示处理。"
+    },
+    {
+      "level": "high",
+      "type": "missing_field",
+      "message": "预算金额缺失，正文未写具体金额。",
+      "related_field": "预算金额",
+      "action": "如正式报送，建议补充预算金额。"
+    },
+    {
+      "level": "high",
+      "type": "missing_field",
+      "message": "主送单位仅写'集团'，需确认正式全称。",
+      "related_field": "主送单位",
+      "action": "正式成稿前需确认主送单位全称。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "message": "项目正式名称缺失，正文使用'该项目'概括表述。",
+      "related_field": "项目正式名称",
+      "action": "正式成稿前需确认项目正式名称。"
+    },
+    {
+      "level": "medium",
+      "type": "placeholder_used",
+      "message": "正文包含【落款单位待确认】和【日期待确认】占位符。",
+      "related_field": "落款/日期",
+      "action": "正式成稿前需补充落款单位和日期。"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "最终文种",
+      "reason": "用户指定报告，但系统识别为请示",
+      "impact": "影响全文结构和结尾表达",
+      "required_before_final": true
+    },
+    {
+      "field": "预算金额",
+      "reason": "用户请求预算支持但未提供金额",
+      "impact": "影响请示事项明确性",
+      "required_before_final": false
+    },
+    {
+      "field": "主送单位全称",
+      "reason": "用户仅写'集团'",
+      "impact": "影响公文抬头",
+      "required_before_final": true
+    },
+    {
+      "field": "项目正式名称",
+      "reason": "标题和正文需要",
+      "impact": "影响准确性",
+      "required_before_final": true
+    },
+    {
+      "field": "落款单位",
+      "reason": "请示必须有落款",
+      "impact": "影响公文完整性",
+      "required_before_final": true
+    }
+  ],
+  "draft_policy": {
+    "body_generated": true,
+    "no_new_facts": true,
+    "use_only_extract_facts": true,
+    "rag_used_for_style_only": true,
+    "follow_plan_structure": true,
+    "follow_doc_type_rules": true,
+    "follow_org_title_dictionary": true
+  }
+}

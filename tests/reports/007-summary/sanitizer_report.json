@@ -1,0 +1,38 @@
+[
+  {
+    "stage": "review",
+    "path": ".manual_confirmation_fields[0].required_before_final",
+    "before": "(missing)",
+    "after": false,
+    "fix_type": "fill_missing_boolean",
+    "risk": "medium",
+    "reason": "required field, type=boolean"
+  },
+  {
+    "stage": "review",
+    "path": ".manual_confirmation_fields[1].required_before_final",
+    "before": "(missing)",
+    "after": false,
+    "fix_type": "fill_missing_boolean",
+    "risk": "medium",
+    "reason": "required field, type=boolean"
+  },
+  {
+    "stage": "review",
+    "path": ".manual_confirmation_fields[2].required_before_final",
+    "before": "(missing)",
+    "after": false,
+    "fix_type": "fill_missing_boolean",
+    "risk": "medium",
+    "reason": "required field, type=boolean"
+  },
+  {
+    "stage": "review",
+    "path": ".manual_confirmation_fields[3].required_before_final",
+    "before": "(missing)",
+    "after": false,
+    "fix_type": "fill_missing_boolean",
+    "risk": "medium",
+    "reason": "required field, type=boolean"
+  }
+]

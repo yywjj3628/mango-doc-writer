@@ -1,0 +1,294 @@
+{
+  "plan_summary": "用户需求为写一封给合作单位的函，商请协助提供活动场地支持。素材中对方单位和合作单位名称缺失，活动时间地点缺失，需标记人工确认。结构按函的标准五段式规划。",
+  "doc_type": "函",
+  "direction": "平行文",
+  "style_level": 1,
+  "risk_level": "medium",
+  "title_plan": {
+    "recommended_title": "关于商请协助提供活动场地支持的函",
+    "title_type": "正式公文标题",
+    "title_confidence": 0.8,
+    "title_basis": [
+      "classify.doc_type = 函",
+      "extract.requests 包含商请协助提供活动场地"
+    ],
+    "title_risks": [
+      "对方单位名称缺失，标题未含具体单位"
+    ],
+    "alternative_titles": []
+  },
+  "addressee_plan": {
+    "recommended_addressee": "对方单位",
+    "source": "用户输入",
+    "confidence": 0.5,
+    "needs_manual_confirmation": true,
+    "note": "用户仅写'对方单位'，需确认正式全称"
+  },
+  "signer_plan": {
+    "recommended_signer": "",
+    "source": "missing",
+    "confidence": 0,
+    "needs_manual_confirmation": true,
+    "note": "用户未提供落款单位，函必须有落款"
+  },
+  "sections": [
+    {
+      "section_id": "S1",
+      "section_name": "致函缘由",
+      "purpose": "说明发函背景和目的",
+      "content_guidance": "围绕活动需要场地支持展开，不编造活动具体信息",
+      "fact_bindings": [
+        {
+          "fact_type": "event",
+          "fact_value": "活动",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "request",
+          "fact_value": "拟商请对方单位协助提供活动场地",
+          "source_from_extract": true
+        }
+      ],
+      "blocked_items": [
+        "不得编造活动举办时间、地点",
+        "不得语气生硬"
+      ],
+      "word_count_estimate": 100,
+      "needs_manual_input": true
+    },
+    {
+      "section_id": "S2",
+      "section_name": "商洽事项",
+      "purpose": "明确商请对方协助的具体内容",
+      "content_guidance": "提出协助提供活动场地、现场保障、设备支持等事项，用语礼貌",
+      "fact_bindings": [
+        {
+          "fact_type": "request",
+          "fact_value": "拟商请对方单位协助提供活动场地",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "request",
+          "fact_value": "就现场保障、设备支持等事项进行沟通",
+          "source_from_extract": true
+        }
+      ],
+      "blocked_items": [
+        "不得缺少商洽事项",
+        "不得语气强硬",
+        "不得编造具体保障内容和设备清单"
+      ],
+      "word_count_estimate": 150,
+      "needs_manual_input": false
+    },
+    {
+      "section_id": "S3",
+      "section_name": "具体请求",
+      "purpose": "细化请求内容",
+      "content_guidance": "概括性表述场地需求，不编造具体面积、时间等",
+      "fact_bindings": [
+        {
+          "fact_type": "request",
+          "fact_value": "拟商请对方单位协助提供活动场地",
+          "source_from_extract": true
+        }
+      ],
+      "blocked_items": [
+        "不得编造场地具体信息",
+        "不得写成请示"
+      ],
+      "word_count_estimate": 100,
+      "needs_manual_input": true
+    },
+    {
+      "section_id": "S4",
+      "section_name": "回复要求",
+      "purpose": "请对方研究并回复",
+      "content_guidance": "使用标准函的结尾用语，如'可否，请函复'",
+      "fact_bindings": [],
+      "blocked_items": [
+        "不得使用命令语气"
+      ],
+      "word_count_estimate": 30,
+      "needs_manual_input": false
+    },
+    {
+      "section_id": "S5",
+      "section_name": "结束语",
+      "purpose": "致谢并期待回复",
+      "content_guidance": "使用'此致 敬礼'或类似礼貌性结束语",
+      "fact_bindings": [],
+      "blocked_items": [],
+      "word_count_estimate": 20,
+      "needs_manual_input": false
+    }
+  ],
+  "style_directives": {
+    "overall_tone": "克制正式",
+    "key_expressions": [
+      "为做好……工作，现就……致函如下",
+      "可否，请函复"
+    ],
+    "forbidden_expressions": [
+      "不得用于对上级",
+      "不得语气生硬",
+      "不得用于命令式",
+      "不得内容模糊",
+      "不得写成请示"
+    ],
+    "style_reference": "doc-type-rules.md 函章节"
+  },
+  "title_rules": [
+    "函的标题格式：关于XXX的函",
+    "标题只能使用 extract 中已有信息"
+  ],
+  "addressee_resolution": {
+    "recommended_addressee": "对方单位",
+    "source": "用户输入",
+    "confidence": 0.5,
+    "needs_manual_confirmation": true,
+    "note": "需确认正式全称"
+  },
+  "signer_resolution": {
+    "recommended_signer": "",
+    "source": "missing",
+    "confidence": 0,
+    "needs_manual_confirmation": true,
+    "note": "落款单位缺失"
+  },
+  "title_suggestions": {
+    "recommended_title": "关于商请协助提供活动场地支持的函",
+    "alternative_titles": [],
+    "title_rules": [
+      "函的标题格式：关于XXX的函"
+    ]
+  },
+  "missing_fields": [
+    {
+      "field": "主送单位（对方单位正式全称）",
+      "reason": "用户仅写'对方单位'，未提供具体单位名称",
+      "impact": "high",
+      "suggestion": "后续写作前需要确认合作单位全称"
+    },
+    {
+      "field": "活动具体时间",
+      "reason": "用户未提供活动举办时间",
+      "impact": "high",
+      "suggestion": "后续写作前需补充活动时间"
+    },
+    {
+      "field": "活动具体地点",
+      "reason": "用户未提供活动场地具体位置",
+      "impact": "high",
+      "suggestion": "后续写作前需补充活动地点"
+    },
+    {
+      "field": "现场保障具体内容",
+      "reason": "用户仅概括提及'现场保障'，未列出具体项目",
+      "impact": "medium",
+      "suggestion": "后续可进一步细化保障需求"
+    },
+    {
+      "field": "设备支持具体清单",
+      "reason": "用户仅提及'设备支持'，未说明所需设备",
+      "impact": "medium",
+      "suggestion": "后续需明确设备类型和数量"
+    },
+    {
+      "field": "落款单位",
+      "reason": "用户未提供发函单位",
+      "impact": "high",
+      "suggestion": "后续确认发函单位"
+    }
+  ],
+  "cannot_infer": [
+    {
+      "field": "主送单位全称",
+      "reason": "用户未提供具体合作单位名称，不得自动补充"
+    },
+    {
+      "field": "活动时间",
+      "reason": "用户未提供活动时间，不得自动推断"
+    },
+    {
+      "field": "活动地点",
+      "reason": "用户未提供活动具体地点，不得自动补充"
+    },
+    {
+      "field": "现场保障具体项目",
+      "reason": "用户只概括提及，不得具体化"
+    },
+    {
+      "field": "设备支持详细清单",
+      "reason": "用户只概括提及，不得自行列举"
+    }
+  ],
+  "risk_flags": [
+    {
+      "type": "missing_required_field",
+      "detail": "函件缺少主送单位（目标单位名称）",
+      "level": "high"
+    },
+    {
+      "type": "ambiguous_fact",
+      "detail": "活动时间和地点均未提供，影响函件具体性",
+      "level": "high"
+    },
+    {
+      "type": "missing_required_field",
+      "detail": "现场保障和设备支持的具体内容未提供，商洽事项笼统",
+      "level": "medium"
+    },
+    {
+      "type": "addressee_uncertain",
+      "detail": "主送单位不确定，需确认正式全称",
+      "level": "high"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "主送单位（对方单位正式全称）",
+      "reason": "用户仅写'对方单位'",
+      "suggestion": "确认合作单位全称"
+    },
+    {
+      "field": "活动具体时间",
+      "reason": "用户未提供活动时间",
+      "suggestion": "补充活动时间"
+    },
+    {
+      "field": "活动具体地点",
+      "reason": "用户未提供活动地点",
+      "suggestion": "补充活动地点"
+    },
+    {
+      "field": "落款单位",
+      "reason": "函必须有落款单位但未提供",
+      "suggestion": "确认发函单位"
+    }
+  ],
+  "draft_directives": {
+    "total_word_count_estimate": 400,
+    "must_use_facts": [
+      "拟商请对方单位协助提供活动场地",
+      "就现场保障、设备支持等事项进行沟通"
+    ],
+    "must_avoid": [
+      "不得用于对上级",
+      "不得语气生硬",
+      "不得用于命令式",
+      "不得内容模糊",
+      "不得写成请示",
+      "不得编造活动时间地点",
+      "不得编造具体保障内容和设备清单",
+      "不得编造单位全称"
+    ],
+    "format_requirements": [
+      "函标准格式",
+      "开头：发函缘由",
+      "主体：商洽事项、具体请求",
+      "结尾：回复要求、结束语",
+      "语言平实、礼貌"
+    ]
+  }
+}

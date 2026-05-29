@@ -1,0 +1,56 @@
+{
+  "rewrite_summary": "测试Q返修",
+  "doc_type": "新闻稿",
+  "direction": "对外宣传",
+  "style_level": 3,
+  "risk_level": "low",
+  "final_markdown": "返修后正文",
+  "revision_report": [
+    {
+      "revision_id": "Q-001",
+      "issue_id": "Q001",
+      "action": "replace",
+      "before": "原始表达",
+      "after": "修正表达",
+      "reason": "Q返修",
+      "basis": "Q_result"
+    }
+  ],
+  "fact_usage_report": [
+    {
+      "final_text": "测试事实",
+      "fact_type": "data",
+      "fact_value": "测试数据",
+      "source_text": "用户素材",
+      "source": "extract_result",
+      "confidence": 1.0
+    }
+  ],
+  "terminology_usage_report": [],
+  "resolved_issues": [
+    {
+      "issue_id": "Q001",
+      "resolution": "修改",
+      "basis": "Q_result"
+    }
+  ],
+  "unresolved_issues": [],
+  "remaining_risks": [],
+  "manual_confirmation_fields": [],
+  "final_checks": {
+    "doc_type_fixed": true,
+    "unsupported_facts_removed": true,
+    "blocked_items_removed": true,
+    "terminology_checked": true,
+    "manual_confirmations_preserved": true
+  },
+  "rewrite_policy": {
+    "body_rewritten": true,
+    "no_new_facts": true,
+    "use_only_extract_facts": true,
+    "no_rag_call": true,
+    "follow_review_instructions": true,
+    "follow_doc_type_rules": true,
+    "follow_org_title_dictionary": true
+  }
+}

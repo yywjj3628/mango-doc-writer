@@ -1,0 +1,554 @@
+version: '0.1'
+collection: mango_style_docs
+description: 芒果系文案风格语料库，仅用于 style_rag
+created_at: 2026-05-29 08:58
+updated_at: 2026-05-29 09:35
+fact_policy: style_only_not_fact_source
+documents:
+- file: 2025湘超联赛热血开赛_毛伟明宣布开幕_长沙队拿下首胜___芒果日志.md
+  title: 2025湘超联赛热血开赛 毛伟明宣布开幕 长沙队拿下首胜 | 芒果日志
+  doc_type: 新闻稿
+  category: 活动稿
+  source: 湖南广播电视台办公室
+  date: '2025-09-08'
+  url: https://mp.weixin.qq.com/s/Dnytt6HJzXMhAZAL2riR2A
+  char_count: 488
+  status: ready
+- file: 电广传媒_三湘星光行动_第九颗星榆树湾_青春广场正式开业___芒果日志.md
+  title: 电广传媒「三湘星光行动」第九颗星榆树湾·青春广场正式开业！| 芒果日志
+  doc_type: 新闻稿
+  category: 产业合作
+  source: 湖南广播电视台办公室
+  date: '2025-09-16'
+  url: https://mp.weixin.qq.com/s/lQ5s1eK_9YyctsJQEVb50A
+  char_count: 1892
+  status: ready
+- file: 龚政文赴沅陵县文昌阁村调研乡村振兴工作___芒果日志.md
+  title: 龚政文赴沅陵县文昌阁村调研乡村振兴工作 | 芒果日志
+  doc_type: 新闻稿
+  category: 活动稿
+  source: 湖南广播电视台办公室
+  date: '2025-09-18'
+  url: https://mp.weixin.qq.com/s/xBCzRXNKZSeNn2aEV33paw
+  char_count: 1117
+  status: ready
+- file: 湖南卫视迎4K时代_9月28日起用超高清打开新芒果___芒果日志.md
+  title: 湖南卫视迎4K时代，9月28日起用超高清打开新芒果 | 芒果日志
+  doc_type: 新闻稿
+  category: 文化科技融合
+  source: 湖南广播电视台办公室
+  date: '2025-09-22'
+  url: https://mp.weixin.qq.com/s/aAlI1QJzfKNPrEdDOc76Ng
+  char_count: 2570
+  status: ready
+- file: 湖南广电与新加坡旅游局签署合作备忘录_共拓文旅合作新篇章___芒果日志.md
+  title: 湖南广电与新加坡旅游局签署合作备忘录 共拓文旅合作新篇章 | 芒果日志
+  doc_type: 新闻稿
+  category: 产业合作
+  source: 湖南广播电视台办公室
+  date: '2025-09-24'
+  url: https://mp.weixin.qq.com/s/Fz7oiYmAmPLx8WMhhgUrFw
+  char_count: 1074
+  status: ready
+- file: 超高清_新芒果__湖南广电超高清建设助推高质量发展___芒果日志.md
+  title: 超高清 新芒果——湖南广电超高清建设助推高质量发展 | 芒果日志
+  doc_type: 新闻稿
+  category: 文化科技融合
+  source: 湖南广播电视台办公室
+  date: '2025-09-26'
+  url: https://mp.weixin.qq.com/s/9Gwybg3BjeeO9SF7hZJshA
+  char_count: 2609
+  status: ready
+- file: 龚政文赴益阳市安化县黄花溪村调研乡村振兴工作___芒果日志.md
+  title: 龚政文赴益阳市安化县黄花溪村调研乡村振兴工作 | 芒果日志
+  doc_type: 新闻稿
+  category: 活动稿
+  source: 湖南广播电视台办公室
+  date: '2025-09-27'
+  url: https://mp.weixin.qq.com/s/OxQY1MmmokVBKk57hp2zfg
+  char_count: 1487
+  status: ready
+- file: 第六届_马栏山杯_国际音视频算法大赛圆满收官___芒果日志.md
+  title: 第六届「马栏山杯」国际音视频算法大赛圆满收官 | 芒果日志
+  doc_type: 新闻稿
+  category: 活动稿
+  source: 湖南广播电视台办公室
+  date: '2025-09-27'
+  url: https://mp.weixin.qq.com/s/87LW4mUde54pyAbzq3g5cg
+  char_count: 1530
+  status: ready
+- file: 以歌声传递时代回响_用镜头唤醒家国记忆__歌手2025__左宗棠收复新疆_获集团.md
+  title: 以歌声传递时代回响 用镜头唤醒家国记忆 《歌手2025》《左宗棠收复新疆》获集团（台）特别嘉奖 | 芒果日志
+  doc_type: 新闻稿
+  category: 活动稿
+  source: 湖南广播电视台办公室
+  date: '2025-09-29'
+  url: https://mp.weixin.qq.com/s/NGPlcZs3STHVVWDOD6mPEg
+  char_count: 1634
+  status: ready
+- file: 国庆中秋山河同乐_芒果与你共赴向往___芒果日志.md
+  title: 国庆中秋山河同乐，芒果与你共赴向往 | 芒果日志
+  doc_type: 新闻稿
+  category: 活动稿
+  source: 湖南广播电视台办公室
+  date: '2025-09-30'
+  url: https://mp.weixin.qq.com/s/C74-12J8kfh4cT8PaWvDVg
+  char_count: 3459
+  status: ready
+- file: 我们以青春_和鸣_礼赞祖国___芒果日志.md
+  title: 我们以青春《和鸣》礼赞祖国！| 芒果日志
+  doc_type: 新闻稿
+  category: 活动稿
+  source: 湖南广播电视台办公室
+  date: '2025-10-01'
+  url: https://mp.weixin.qq.com/s/H8cNFnhcwReNoiM4giGPpw
+  char_count: 284
+  status: ready
+- file: 法兰西浪漫邂逅湖湘热辣_4K美食纪实节目_主厨湘遇记_10月5日上线___芒果日.md
+  title: 法兰西浪漫邂逅湖湘热辣 4K美食纪实节目《主厨湘遇记》10月5日上线 | 芒果日志
+  doc_type: 新闻稿
+  category: 文化科技融合
+  source: 湖南广播电视台办公室
+  date: '2025-10-05'
+  url: https://mp.weixin.qq.com/s/8X7yRmZpSGwiowN0DJJffw
+  char_count: 1350
+  status: ready
+- file: 办了12年的湖南卫视中秋之夜_如何打破次元壁创新___芒果日志.md
+  title: 办了12年的湖南卫视中秋之夜，如何打破次元壁创新 | 芒果日志
+  doc_type: 新闻稿
+  category: 活动稿
+  source: 湖南广播电视台办公室
+  date: '2025-10-07'
+  url: https://mp.weixin.qq.com/s/3jC-VmVX7yD78htEz0212A
+  char_count: 3269
+  status: ready
+- file: 以青春和鸣礼赞家国团圆_湖南广电双节再创佳绩___芒果日志.md
+  title: 以青春和鸣礼赞家国团圆 湖南广电双节再创佳绩 | 芒果日志
+  doc_type: 新闻稿
+  category: 活动稿
+  source: 湖南广播电视台办公室
+  date: '2025-10-09'
+  url: https://mp.weixin.qq.com/s/bTpKqbwdqin1-n8YILUGTQ
+  char_count: 3378
+  status: ready
+- file: 2025年马栏山文创产业园部省共建推进会举行_毛伟明曹淑敏出席___芒果日志.md
+  title: 2025年马栏山文创产业园部省共建推进会举行 毛伟明曹淑敏出席 | 芒果日志
+  doc_type: 新闻稿
+  category: 活动稿
+  source: 湖南广播电视台办公室
+  date: '2025-10-14'
+  url: https://mp.weixin.qq.com/s/UFKKYX10tTb5W4AGQ03HRw
+  char_count: 1080
+  status: ready
+- file: 从马栏山到火焰山的爱心之路__2025湖南广电_芒小锋_快乐支教志愿服务活动走进.md
+  title: 从马栏山到火焰山的爱心之路——2025湖南广电「芒小锋」快乐支教志愿服务活动走进新疆吐鲁番 | 芒果日志
+  doc_type: 新闻稿
+  category: 活动稿
+  source: 湖南广播电视台办公室
+  date: '2025-10-27'
+  url: https://mp.weixin.qq.com/s/c7rmTnCDvmrXto6ePoyP4Q
+  char_count: 2454
+  status: ready
+- file: 龚政文__在变革创新中推动精品创制和传播___芒果日志.md
+  title: 龚政文 ：在变革创新中推动精品创制和传播 | 芒果日志
+  doc_type: 新闻稿
+  category: 活动稿
+  source: 湖南广播电视台办公室
+  date: '2025-10-28'
+  url: https://mp.weixin.qq.com/s/nINpjyqsRpOiskQZOFbnDQ
+  char_count: 2133
+  status: ready
+- file: 爱晚三秋_更上层楼_爱晚频道三周年系列活动温情举办___芒果日志.md
+  title: 爱晚三秋 更上层楼 爱晚频道三周年系列活动温情举办 | 芒果日志
+  doc_type: 新闻稿
+  category: 活动稿
+  source: 湖南广播电视台办公室
+  date: '2025-11-06'
+  url: https://mp.weixin.qq.com/s/bJjYpDZVEclYpH39GyyPvA
+  char_count: 1319
+  status: ready
+- file: 集团_台_党委开展理论学习中心组_扩大_2025年第十一次集体学习___芒果日志.md
+  title: 集团（台）党委开展理论学习中心组（扩大）2025年第十一次集体学习 | 芒果日志
+  doc_type: 领导讲话
+  category: 党建材料
+  source: 湖南广播电视台办公室
+  date: '2025-11-11'
+  url: https://mp.weixin.qq.com/s/qBuD69JNETiFjERlBNTtmg
+  char_count: 1290
+  status: ready
+- file: 中国新媒体大会_莫高义谈系统性变革___芒果日志.md
+  title: 中国新媒体大会 莫高义谈系统性变革 | 芒果日志
+  doc_type: 新闻稿
+  category: 活动稿
+  source: 湖南广播电视台办公室
+  date: '2025-11-12'
+  url: https://mp.weixin.qq.com/s/VE6gAdGkWAUJXgUu7sTLAg
+  char_count: 903
+  status: ready
+- file: 龚政文_以变求新_向新而生___芒果日志.md
+  title: 龚政文：以变求新 向新而生 | 芒果日志
+  doc_type: 新闻稿
+  category: 活动稿
+  source: 湖南广播电视台办公室
+  date: '2025-11-12'
+  url: https://mp.weixin.qq.com/s/qZEfBJToAyIW7wdbZOoEiQ
+  char_count: 1849
+  status: ready
+- file: 共筑_跨山越海的媒介桥梁__赋能中国故事全球传播_2025中国新媒体大会国际传播.md
+  title: 共筑"跨山越海的媒介桥梁"，赋能中国故事全球传播 2025中国新媒体大会国际传播论坛在长沙启幕 | 芒果日志
+  doc_type: 新闻稿
+  category: 活动稿
+  source: 湖南广播电视台办公室
+  date: '2025-11-13'
+  url: https://mp.weixin.qq.com/s/oAjYvlKGFxV06CoVzd6W0A
+  char_count: 707
+  status: ready
+- file: 芒果技术亮相全运_面向市场备战2029____芒果日志.md
+  title: 芒果技术亮相全运 面向市场备战2029！ | 芒果日志
+  doc_type: 新闻稿
+  category: 活动稿
+  source: 湖南广播电视台办公室
+  date: '2025-11-14'
+  url: https://mp.weixin.qq.com/s/lVWrZOror7E7rZSkLzj6lw
+  char_count: 1863
+  status: ready
+- file: 打造永不落幕的音视频装备展_芒果创展揭牌启航___芒果日志.md
+  title: 打造永不落幕的音视频装备展 芒果创展揭牌启航 | 芒果日志
+  doc_type: 新闻稿
+  category: 活动稿
+  source: 湖南广播电视台办公室
+  date: '2025-11-14'
+  url: https://mp.weixin.qq.com/s/r0TPsOfAjNj-Z3ivZbqC9g
+  char_count: 2139
+  status: ready
+- file: 湖南卫视_芒果TV举办_践行习近平文化思想_坚持正确舆论导向_专题培训班___芒.md
+  title: 湖南卫视、芒果TV举办"践行习近平文化思想 坚持正确舆论导向"专题培训班 | 芒果日志
+  doc_type: 新闻稿
+  category: 活动稿
+  source: 湖南广播电视台办公室
+  date: '2025-11-29'
+  url: https://mp.weixin.qq.com/s/tdoGzqmGvJH9bGias45hvw
+  char_count: 913
+  status: ready
+- file: 湖南广电与张家界市达成战略合作_携手打造中国年轻人新的向往之地___芒果日志.md
+  title: 湖南广电与张家界市达成战略合作 携手打造中国年轻人新的向往之地 | 芒果日志
+  doc_type: 新闻稿
+  category: 产业合作
+  source: 湖南广播电视台办公室
+  date: '2025-12-01'
+  url: https://mp.weixin.qq.com/s/yhWmQW6YBZGvJfJTdx16gw
+  char_count: 1227
+  status: ready
+- file: 湖南广电集团_台_2025年党组织书记培训班开班___芒果日志.md
+  title: 湖南广电集团（台）2025年党组织书记培训班开班 | 芒果日志
+  doc_type: 新闻稿
+  category: 活动稿
+  source: 湖南广播电视台办公室
+  date: '2025-12-03'
+  url: https://mp.weixin.qq.com/s/z29elAc9Z3vpEXlJ_3aBMA
+  char_count: 1213
+  status: ready
+- file: 龚政文_努力打造芒果纪录大片品牌___芒果日志.md
+  title: 龚政文：努力打造芒果纪录大片品牌 | 芒果日志
+  doc_type: 新闻稿
+  category: 活动稿
+  source: 湖南广播电视台办公室
+  date: '2025-12-11'
+  url: https://mp.weixin.qq.com/s/MaEetIcKj75nTTKb23g0lA
+  char_count: 3620
+  status: ready
+- file: 湖南广电集团_台_2025年度纪检监察干部能力提升班开班___芒果日志.md
+  title: 湖南广电集团（台）2025年度纪检监察干部能力提升班开班 | 芒果日志
+  doc_type: 党建材料
+  category: 活动稿
+  source: 湖南广播电视台办公室
+  date: '2025-12-12'
+  url: https://mp.weixin.qq.com/s/BzCx0nIh26r4Qybn-zasPw
+  char_count: 846
+  status: ready
+- file: 以_五新_战略应变局_以奋斗之姿开新局____湖南广电召开_开局十五五_破局2.md
+  title: '"以''五新''战略应变局，以奋斗之姿开新局"—— 湖南广电召开"开局十五五·破局2026"芒果集思会 | 芒果日志'
+  doc_type: 新闻稿
+  category: 活动稿
+  source: 湖南广播电视台办公室
+  date: '2026-01-10'
+  url: https://mp.weixin.qq.com/s/wWJWHaXIHtgvtAsPmlaPpg
+  char_count: 3374
+  status: ready
+- file: 芒果主持人获评最美家庭_省妇联主席上门送奖___芒果日志.md
+  title: 芒果主持人获评最美家庭 省妇联主席上门送奖 | 芒果日志
+  doc_type: 新闻稿
+  category: 活动稿
+  source: 湖南广播电视台办公室
+  date: '2026-01-15'
+  url: https://mp.weixin.qq.com/s/tKIuZv_k98uqN2GRBhYPtw
+  char_count: 1075
+  status: ready
+- file: 湖南省人大常委会副主任_省总工会主席周农到湖南广电开展元旦春节_送温暖_慰问活动.md
+  title: 湖南省人大常委会副主任、省总工会主席周农到湖南广电开展元旦春节"送温暖"慰问活动 | 芒果日志
+  doc_type: 新闻稿
+  category: 活动稿
+  source: 湖南广播电视台办公室
+  date: '2026-01-22'
+  url: https://mp.weixin.qq.com/s/-OAP7s_T6AbyFWCaJKysjw
+  char_count: 701
+  status: ready
+- file: 集团_台_党委理论学习中心组专题学习习近平总书记在二十届中央纪委五次全会上的重要.md
+  title: 集团（台）党委理论学习中心组专题学习习近平总书记在二十届中央纪委五次全会上的重要讲话精神 | 芒果日志
+  doc_type: 领导讲话
+  category: 党建材料
+  source: 湖南广播电视台办公室
+  date: '2026-02-05'
+  url: https://mp.weixin.qq.com/s/2ZcLoZs61jQV9ixoxS58ww
+  char_count: 1123
+  status: ready
+- file: 骏业骉骉_前程骎骎_潇影集团_电广传媒_广播传媒中心2025年度总结表彰大会举行.md
+  title: 骏业骉骉 前程骎骎 潇影集团、电广传媒、广播传媒中心2025年度总结表彰大会举行 | 芒果日志
+  doc_type: 新闻稿
+  category: 活动稿
+  source: 湖南广播电视台办公室
+  date: '2026-02-11'
+  url: https://mp.weixin.qq.com/s/G0V_63gzYw1uN7dr2vCRuA
+  char_count: 1628
+  status: ready
+- file: 龚政文_跃马扬鞭赴新程___芒果日志.md
+  title: 龚政文：跃马扬鞭赴新程 | 芒果日志
+  doc_type: 新闻稿
+  category: 活动稿
+  source: 湖南广播电视台办公室
+  date: '2026-02-13'
+  url: https://mp.weixin.qq.com/s/-lX5bfRiNAKesMrMssYG-Q
+  char_count: 10078
+  status: ready
+- file: 蔡怀军_无限探索_先干为敬____芒果日志.md
+  title: 蔡怀军：无限探索，先干为敬！ | 芒果日志
+  doc_type: 新闻稿
+  category: 活动稿
+  source: 湖南广播电视台办公室
+  date: '2026-02-24'
+  url: https://mp.weixin.qq.com/s/0sE0SDXjvS4ztCQgibHyow
+  char_count: 2730
+  status: ready
+- file: 湖南广电党委召开2025年度民主生活会___芒果日志.md
+  title: 湖南广电党委召开2025年度民主生活会 | 芒果日志
+  doc_type: 领导讲话
+  category: 党建材料
+  source: 湖南广播电视台办公室
+  date: '2026-02-25'
+  url: https://mp.weixin.qq.com/s/t_D150bvg7T509dBOXMseA
+  char_count: 1168
+  status: ready
+- file: 集团_台_2026年党风廉政建设工作会议召开___芒果日志.md
+  title: 集团（台）2026年党风廉政建设工作会议召开 | 芒果日志
+  doc_type: 党建材料
+  category: 活动稿
+  source: 湖南广播电视台办公室
+  date: '2026-02-28'
+  url: https://mp.weixin.qq.com/s/pOJA3HCGTrcGiQG5g0cNdQ
+  char_count: 1544
+  status: ready
+- file: 传承传统文化_赋能新质文旅_电广传媒旗下文旅地标元宵活动精彩纷呈.md
+  title: 传承传统文化 赋能新质文旅 电广传媒旗下文旅地标元宵活动精彩纷呈
+  doc_type: 新闻稿
+  category: 产业合作
+  source: 电广传媒917
+  date: '2026-03-01'
+  url: https://mp.weixin.qq.com/s/-KK6wqJVb6a0x1K4kETFmg
+  char_count: 1246
+  status: ready
+- file: 芒果内容技术_双前锋_深融_从工具应用到智媒跃升___芒果日志.md
+  title: 芒果内容技术“双前锋”深融：从工具应用到智媒跃升 | 芒果日志
+  doc_type: 新闻稿
+  category: 活动稿
+  source: 湖南广播电视台办公室
+  date: '2026-03-02'
+  url: https://mp.weixin.qq.com/s/jEycCr5owBDTvyFtGnYiSg
+  char_count: 1318
+  status: ready
+- file: 龚政文代表答两会记者问_讲述湖南广电的数智化远征和媒体理想.md
+  title: 龚政文代表答两会记者问 讲述湖南广电的数智化远征和媒体理想
+  doc_type: 新闻稿
+  category: 活动稿
+  source: 湖南广播电视台办公室
+  date: '2026-03-10'
+  url: https://mp.weixin.qq.com/s/Wo4SqD5mGUlQbQoItRMnZg
+  char_count: 2973
+  status: ready
+- file: 新年第一课_意识形态典型案例剖析会入脑入心___芒果日志.md
+  title: 新年第一课！意识形态典型案例剖析会入脑入心 | 芒果日志
+  doc_type: 新闻稿
+  category: 活动稿
+  source: 湖南广播电视台办公室
+  date: '2026-03-12'
+  url: https://mp.weixin.qq.com/s/s0vAFFPhApi6U6CNjrt9mQ
+  char_count: 1009
+  status: ready
+- file: 双平台召开2026年党风廉政建设工作会议__芒果日志.md
+  title: 双平台召开2026年党风廉政建设工作会议 |芒果日志
+  doc_type: 党建材料
+  category: 活动稿
+  source: 湖南广播电视台办公室
+  date: '2026-03-26'
+  url: https://mp.weixin.qq.com/s/X9uRsSp27o-bskvkxxq1gQ
+  char_count: 1312
+  status: ready
+- file: 集团_台_开展树立和践行正确政绩观学习教育读书班第二次集中研讨___芒果日志.md
+  title: 集团（台）开展树立和践行正确政绩观学习教育读书班第二次集中研讨 | 芒果日志
+  doc_type: 领导讲话
+  category: 党建材料
+  source: 湖南广播电视台办公室
+  date: '2026-03-27'
+  url: https://mp.weixin.qq.com/s/tKvtcNb3IdCjNYHk_r0G8Q
+  char_count: 1025
+  status: ready
+- file: 集团_台_开展树立和践行正确政绩观学习教育读书班第三次集中研讨暨党委理论学习中心.md
+  title: 集团（台）开展树立和践行正确政绩观学习教育读书班第三次集中研讨暨党委理论学习中心组集体学习 | 芒果日志
+  doc_type: 领导讲话
+  category: 党建材料
+  source: 湖南广播电视台办公室
+  date: '2026-04-08'
+  url: https://mp.weixin.qq.com/s/yRTGIMm3TEz1IO4efZeXPw
+  char_count: 621
+  status: ready
+- file: 龚政文_探索文化和科技融合的新路径___芒果日志.md
+  title: 龚政文：探索文化和科技融合的新路径 | 芒果日志
+  doc_type: 新闻稿
+  category: 活动稿
+  source: 湖南广播电视台办公室
+  date: '2026-04-15'
+  url: https://mp.weixin.qq.com/s/So-bNwMZk79w9ef7EPMAFw
+  char_count: 2360
+  status: ready
+- file: π对归来_2026年第1期_芒果青春π对_带你硬核拆解AI应用___芒果日志.md
+  title: π对归来！2026年第1期"芒果青春π对"带你硬核拆解AI应用 | 芒果日志
+  doc_type: 领导讲话
+  category: 文化科技融合
+  source: 湖南广播电视台办公室
+  date: '2026-04-17'
+  url: https://mp.weixin.qq.com/s/kM1kHvOJmuu2cZE172nbXA
+  char_count: 2080
+  status: ready
+- file: 集团_台_2026年首期_芒果纪法讲堂_开班.md
+  title: 集团（台）2026年首期“芒果纪法讲堂”开班
+  doc_type: 通报
+  category: 党建材料
+  source: 清风芒果
+  date: '2026-04-22'
+  url: https://mp.weixin.qq.com/s/0vdMO-pNDoTPY5aHS3B8Jw
+  char_count: 622
+  status: ready
+- file: 这就是芒果青年该有的样子____湖南广电举办_迎五四_致青春_青年座谈会.md
+  title: 「这就是芒果青年该有的样子！」——湖南广电举办「迎五四 致青春」青年座谈会
+  doc_type: 活动稿
+  category: 活动稿
+  source: 湖南广播电视台办公室
+  date: '2026-05-01'
+  url: https://mp.weixin.qq.com/s/2cjdm7g9SBPjSaswiny8wA
+  char_count: 3933
+  status: ready
+- file: 市场何为_资本何往_2026年第2期_芒果青春π对_火热开讲.md
+  title: 市场何为？资本何往？2026年第2期"芒果青春π对"火热开讲！
+  doc_type: 活动稿
+  category: 活动稿
+  source: 湖南广播电视台办公室
+  date: '2026-05-04'
+  url: https://mp.weixin.qq.com/s/H4hdYjUzQ4MYJKjxINmQ6w
+  char_count: 1265
+  status: ready
+- file: 芒果青年再获殊荣__这次是因为AI.md
+  title: 芒果青年再获殊荣! 这次是因为AI
+  doc_type: 领导讲话
+  category: 文化科技融合
+  source: 湖南广电党建
+  date: '2026-05-06'
+  url: https://mp.weixin.qq.com/s/MZup2viI9dMD8IkkN6H1cw
+  char_count: 837
+  status: ready
+- file: 文旅板块_五一_再添佳绩__电广传媒差异化供给升级假日体验.md
+  title: 文旅板块“五一”再添佳绩  电广传媒差异化供给升级假日体验
+  doc_type: 新闻稿
+  category: 产业合作
+  source: 电广传媒917
+  date: '2026-05-08'
+  url: https://mp.weixin.qq.com/s/Ac6kYLZJ24XMC_TdcAoqrg
+  char_count: 1287
+  status: ready
+- file: 光影破局_青年出列_2026年第4期_芒果青春π对_聚焦电影产业变革.md
+  title: 光影破局，青年出列！2026年第4期"芒果青春π对"聚焦电影产业变革
+  doc_type: 活动稿
+  category: 活动稿
+  source: 湖南广播电视台办公室
+  date: '2026-05-16'
+  url: https://mp.weixin.qq.com/s/0ZA7KSx9Ppo6LyvScKkUYQ
+  char_count: 1952
+  status: ready
+- file: 7500公里极限征程启幕_湖南广电全程助力2026中国环塔国际拉力赛___芒果日.md
+  title: 7500公里极限征程启幕！湖南广电全程助力2026中国环塔国际拉力赛 | 芒果日志
+  doc_type: 新闻稿
+  category: 活动稿
+  source: 湖南广播电视台办公室
+  date: '2026-05-18'
+  url: https://mp.weixin.qq.com/s/Rb4hpvRsKG9UAGYp6-3OrA
+  char_count: 660
+  status: ready
+- file: 集团_台_党委开展理论学习中心组_扩大_2026年第四次集体学习.md
+  title: 集团（台）党委开展理论学习中心组（扩大）2026年第四次集体学习
+  doc_type: 领导讲话
+  category: 党建材料
+  source: 湖南广播电视台办公室
+  date: '2026-05-19'
+  url: https://mp.weixin.qq.com/s/X7zQwpU3k94N1v-RPHqXWw
+  char_count: 836
+  status: ready
+- file: 收官__金种子_扎根湖南_下一个五年之约正式启程___芒果日志.md
+  title: 收官！“金种子”扎根湖南，下一个五年之约正式启程 | 芒果日志
+  doc_type: 新闻稿
+  category: 活动稿
+  source: 湖南广播电视台办公室
+  date: '2026-05-21'
+  url: https://mp.weixin.qq.com/s/o5pmckJWPFinb2NTuES1mA
+  char_count: 2013
+  status: ready
+- file: 湖南广电携文化科技融合成果精彩亮相第二十二届深圳文博会___芒果日志.md
+  title: 湖南广电携文化科技融合成果精彩亮相第二十二届深圳文博会 | 芒果日志
+  doc_type: 新闻稿
+  category: 活动稿
+  source: 湖南广播电视台办公室
+  date: '2026-05-21'
+  url: https://mp.weixin.qq.com/s/ym-q6P2JWilZYPoOj2dCvQ
+  char_count: 1146
+  status: ready
+- file: 有趣广告人_聊点真东西_2026年第5期_芒果青春π对_以青年之力应答广告课题.md
+  title: 有趣广告人，聊点真东西！2026年第5期'芒果青春π对'以青年之力应答广告课题
+  doc_type: 活动稿
+  category: 活动稿
+  source: 湖南广电党建
+  date: '2026-05-22'
+  url: https://mp.weixin.qq.com/s/qOm4sMJyQJK9SQo0rgaUyw
+  char_count: 2519
+  status: ready
+- file: 七度登榜_芒果超媒获评_2026_全国文化企业30强____芒果日志.md
+  title: 七度登榜！芒果超媒获评「2026·全国文化企业30强」 | 芒果日志
+  doc_type: 新闻稿
+  category: 活动稿
+  source: 湖南广播电视台办公室
+  date: '2026-05-22'
+  url: https://mp.weixin.qq.com/s/w-k3b4uCFFHx-N04MVO_GQ
+  char_count: 1635
+  status: ready
+- file: 龚政文_拥抱AI_驾驭AI___芒果日志.md
+  title: 龚政文：拥抱AI，驾驭AI | 芒果日志
+  doc_type: 领导讲话
+  category: 文化科技融合
+  source: 湖南广播电视台办公室
+  date: '2026-05-22'
+  url: https://mp.weixin.qq.com/s/Pa-QBW7ztY63mR56eFEZ8Q
+  char_count: 3221
+  status: ready
+ingest_info:
+  collection: mango_style_docs
+  points_count: 148
+  vector_size: 1024
+  embedding_model: BAAI/bge-m3
+  chunk_strategy: paragraph-based (500-1000 chars, overlap 120)
+  ingested_at: 2026-05-29 09:35

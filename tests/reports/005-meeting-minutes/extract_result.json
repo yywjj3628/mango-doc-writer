@@ -1,0 +1,147 @@
+{
+  "source_summary": "用户素材涉及一次会议对项目推进、责任分工和系统联调事项的研究部署。",
+  "facts": {
+    "time": [],
+    "location": [],
+    "organizations": [],
+    "leaders": [],
+    "persons": [],
+    "products": [],
+    "projects": [
+      "项目推进",
+      "系统联调"
+    ],
+    "events": [
+      "会议研究了项目推进、责任分工和下阶段时间节点"
+    ],
+    "data": [],
+    "achievements": [],
+    "problems": [],
+    "requests": [],
+    "policies": [],
+    "documents": []
+  },
+  "fact_items": [
+    {
+      "type": "event",
+      "value": "会议研究了项目推进、责任分工和下阶段时间节点",
+      "source_text": "会议研究了项目推进、责任分工和下阶段时间节点。",
+      "confidence": 0.95,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": null
+    },
+    {
+      "type": "project",
+      "value": "项目推进",
+      "source_text": "会议研究了项目推进、责任分工和下阶段时间节点。",
+      "confidence": 0.9,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": true,
+      "note": "项目正式名称未提供。"
+    },
+    {
+      "type": "project",
+      "value": "系统联调",
+      "source_text": "技术部门配合完成系统联调。",
+      "confidence": 0.92,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": null
+    },
+    {
+      "type": "organization",
+      "value": "业务部门",
+      "source_text": "会议要求业务部门牵头推进",
+      "confidence": 0.88,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": true,
+      "note": "具体部门名称未提供。"
+    },
+    {
+      "type": "organization",
+      "value": "技术部门",
+      "source_text": "技术部门配合完成系统联调。",
+      "confidence": 0.88,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": true,
+      "note": "具体部门名称未提供。"
+    },
+    {
+      "type": "request",
+      "value": "业务部门牵头推进",
+      "source_text": "会议要求业务部门牵头推进，技术部门配合完成系统联调。",
+      "confidence": 0.9,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": "会议部署要求。"
+    },
+    {
+      "type": "request",
+      "value": "技术部门配合完成系统联调",
+      "source_text": "技术部门配合完成系统联调。",
+      "confidence": 0.9,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": "会议部署要求。"
+    }
+  ],
+  "missing_fields": [
+    {
+      "field": "会议时间",
+      "reason": "用户要求整理会议纪要，但未提供会议时间",
+      "impact": "影响会议纪要基本信息完整性",
+      "suggestion": "后续写作前建议补充会议时间"
+    },
+    {
+      "field": "会议地点",
+      "reason": "用户要求整理会议纪要，但未提供会议地点",
+      "impact": "影响会议纪要基本信息完整性",
+      "suggestion": "后续写作前建议补充会议地点"
+    },
+    {
+      "field": "参会人员",
+      "reason": "用户要求整理会议纪要，但未提供参会人员",
+      "impact": "影响会议纪要基本信息完整性",
+      "suggestion": "后续写作前建议补充参会人员"
+    },
+    {
+      "field": "具体时间节点",
+      "reason": "素材提到下阶段时间节点，但未提供具体日期或期限",
+      "impact": "影响责任分工和后续要求的可执行性",
+      "suggestion": "后续写作前建议补充具体时间节点"
+    }
+  ],
+  "cannot_infer": [
+    {
+      "field": "会议主持人",
+      "reason": "用户素材未提供会议主持人，不得自动补充"
+    },
+    {
+      "field": "会议结论",
+      "reason": "用户素材只提供部分研究和要求内容，不得扩展为未提供的会议结论"
+    },
+    {
+      "field": "具体责任部门名称",
+      "reason": "用户只写业务部门和技术部门，未提供正式部门名称"
+    }
+  ],
+  "risk_flags": [
+    {
+      "type": "meeting_without_basic_info",
+      "detail": "会议纪要缺少会议时间、地点、参会人员等基本信息",
+      "level": "high"
+    },
+    {
+      "type": "missing_required_field",
+      "detail": "素材提到下阶段时间节点，但未提供具体时间节点",
+      "level": "medium"
+    }
+  ],
+  "extraction_policy": {
+    "only_user_provided_facts": true,
+    "no_external_knowledge": true,
+    "no_rag_facts": true,
+    "no_invented_data": true
+  }
+}

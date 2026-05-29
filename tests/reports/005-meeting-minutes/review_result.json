@@ -1,0 +1,126 @@
+{
+  "review_summary": "初稿按会议纪要文种生成，结构完整，事实均来自用户素材，无新增事实或RAG污染。但标题缺少会议主题名称，建议后续确认补充。整体通过质检。",
+  "pass": true,
+  "score": 90,
+  "rewrite_required": false,
+  "risk_level": "medium",
+  "checks": {
+    "doc_type_check": {
+      "status": "pass",
+      "summary": "文种为会议纪要，符合classify结果。",
+      "issues_count": 0
+    },
+    "structure_check": {
+      "status": "pass",
+      "summary": "正文按会议基本信息、主要内容、议定事项、责任分工、后续要求生成，符合plan结构。",
+      "issues_count": 0
+    },
+    "fact_grounding_check": {
+      "status": "pass",
+      "summary": "正文所有事实均可追溯到extract_result.fact_items，无新增事实。",
+      "issues_count": 0
+    },
+    "fact_usage_report_check": {
+      "status": "pass",
+      "summary": "fact_usage_report覆盖正文所有事实，来源均为extract_result。",
+      "issues_count": 0
+    },
+    "rag_usage_check": {
+      "status": "pass",
+      "summary": "rag_usage_report为空，正文无RAG事实污染。",
+      "issues_count": 0
+    },
+    "terminology_check": {
+      "status": "pass",
+      "summary": "称谓使用用户提供的'业务部门''技术部门'，已在manual_confirmation_fields中标记。",
+      "issues_count": 0
+    },
+    "blocked_items_check": {
+      "status": "pass",
+      "summary": "所有blocked_items未进入正文，draft使用占位符处理缺失信息。",
+      "issues_count": 0
+    },
+    "warnings_check": {
+      "status": "pass",
+      "summary": "warnings涵盖了所有缺失字段和风险，包括会议基本信息、时间节点、标题风险等。",
+      "issues_count": 0
+    },
+    "manual_confirmation_check": {
+      "status": "pass",
+      "summary": "manual_confirmation_fields保留了所有需人工确认的字段。",
+      "issues_count": 0
+    },
+    "style_check": {
+      "status": "pass",
+      "summary": "style_level=1，正文使用客观克制语言，符合会议纪要风格。",
+      "issues_count": 0
+    },
+    "format_check": {
+      "status": "warning",
+      "summary": "标题仅写'会议纪要'，缺少会议主题名称，格式不完整。",
+      "issues_count": 1
+    }
+  },
+  "issues": [
+    {
+      "issue_id": "R001",
+      "level": "medium",
+      "type": "format_error",
+      "location": "markdown_draft 标题",
+      "detail": "标题仅为'会议纪要'，缺少会议主题名称，过于笼统，不符合会议纪要标题规范。",
+      "evidence": "标题: '# 会议纪要'",
+      "suggestion": "确认会议主题后补充完整标题，如'关于XXX的会议纪要'。",
+      "rewrite_hint": "若已知会议主题，则替换为'关于[主题]的会议纪要'；否则保留占位供人工确认。"
+    }
+  ],
+  "rewrite_instructions": [
+    {
+      "priority": "medium",
+      "target": "markdown_draft 标题",
+      "action": "mark_manual_confirmation",
+      "instruction": "标题需要补充会议主题名称，请后续人工确认后替换。",
+      "basis": "plan_result.title_risks 和 doc-type-rules.md 会议纪要标题规范"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "会议时间",
+      "reason": "会议纪要基本信息缺失",
+      "impact": "影响纪要完整性",
+      "required_before_final": true
+    },
+    {
+      "field": "会议地点",
+      "reason": "会议纪要基本信息缺失",
+      "impact": "影响纪要完整性",
+      "required_before_final": true
+    },
+    {
+      "field": "参会人员",
+      "reason": "会议纪要基本信息缺失",
+      "impact": "影响纪要完整性",
+      "required_before_final": true
+    },
+    {
+      "field": "具体时间节点",
+      "reason": "素材提到下阶段时间节点但未提供具体日期",
+      "impact": "影响后续要求的可执行性",
+      "required_before_final": false
+    },
+    {
+      "field": "标题",
+      "reason": "标题信息不足，置信度低于0.8",
+      "impact": "影响纪要标题准确性",
+      "required_before_final": true
+    }
+  ],
+  "review_policy": {
+    "no_body_generation": true,
+    "no_rewrite": true,
+    "no_new_facts": true,
+    "no_rag_call": true,
+    "check_fact_grounding": true,
+    "check_doc_type_rules": true,
+    "check_org_title_dictionary": true
+  }
+}

@@ -1,0 +1,253 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mango-doc-writer.local/schemas/draft.schema.json",
+  "title": "Mango Doc Writer Draft Result",
+  "description": "初稿生成阶段输出结构，用于生成 Markdown 初稿，并记录事实使用、RAG使用、称谓使用、禁止项检查和风险提示。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "draft_summary",
+    "doc_type",
+    "direction",
+    "style_level",
+    "risk_level",
+    "markdown_draft",
+    "fact_usage_report",
+    "rag_usage_report",
+    "terminology_usage_report",
+    "blocked_items_check",
+    "warnings",
+    "manual_confirmation_fields",
+    "draft_policy"
+  ],
+  "properties": {
+    "draft_summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "doc_type": {
+      "type": "string",
+      "enum": ["新闻稿", "通知", "请示", "报告", "函", "总结", "汇报材料", "领导讲话", "会议纪要", "通报", "其他"]
+    },
+    "direction": {
+      "type": "string",
+      "enum": ["上行文", "下行文", "平行文", "内部材料", "对外宣传", "综合材料", "其他"]
+    },
+    "style_level": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4
+    },
+    "risk_level": {
+      "type": "string",
+      "enum": ["low", "medium", "high", "critical"]
+    },
+    "markdown_draft": {
+      "type": "string",
+      "minLength": 1
+    },
+    "fact_usage_report": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["draft_text", "fact_type", "fact_value", "source_text", "source", "confidence"],
+        "properties": {
+          "draft_text": {
+            "type": "string"
+          },
+          "fact_type": {
+            "type": "string"
+          },
+          "fact_value": {
+            "type": "string"
+          },
+          "source_text": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        }
+      }
+    },
+    "rag_usage_report": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["used_for", "reference_source", "style_element", "copied_verbatim", "fact_risk", "note"],
+        "properties": {
+          "used_for": {
+            "type": "string"
+          },
+          "reference_source": {
+            "type": "string"
+          },
+          "style_element": {
+            "type": "string"
+          },
+          "copied_verbatim": {
+            "type": "boolean"
+          },
+          "fact_risk": {
+            "type": "boolean"
+          },
+          "note": {
+            "type": ["string", "null"]
+          }
+        }
+      }
+    },
+    "terminology_usage_report": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["raw_value", "used_value", "type", "source", "confidence", "needs_manual_confirmation", "note"],
+        "properties": {
+          "raw_value": {
+            "type": "string"
+          },
+          "used_value": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["organization", "leader", "product", "strategic_term", "other"]
+          },
+          "source": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "needs_manual_confirmation": {
+            "type": "boolean"
+          },
+          "note": {
+            "type": ["string", "null"]
+          }
+        }
+      }
+    },
+    "blocked_items_check": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["item", "status", "reason"],
+        "properties": {
+          "item": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["not_used", "used_with_basis", "needs_review"]
+          },
+          "reason": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["level", "type", "message", "related_field", "action"],
+        "properties": {
+          "level": {
+            "type": "string",
+            "enum": ["low", "medium", "high", "critical"]
+          },
+          "type": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "related_field": {
+            "type": ["string", "null"]
+          },
+          "action": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "manual_confirmation_fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["field", "reason", "impact", "required_before_final"],
+        "properties": {
+          "field": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "impact": {
+            "type": "string"
+          },
+          "required_before_final": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "draft_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "body_generated",
+        "no_new_facts",
+        "use_only_extract_facts",
+        "rag_used_for_style_only",
+        "follow_plan_structure",
+        "follow_doc_type_rules",
+        "follow_org_title_dictionary"
+      ],
+      "properties": {
+        "body_generated": {
+          "type": "boolean",
+          "const": true
+        },
+        "no_new_facts": {
+          "type": "boolean",
+          "const": true
+        },
+        "use_only_extract_facts": {
+          "type": "boolean",
+          "const": true
+        },
+        "rag_used_for_style_only": {
+          "type": "boolean",
+          "const": true
+        },
+        "follow_plan_structure": {
+          "type": "boolean",
+          "const": true
+        },
+        "follow_doc_type_rules": {
+          "type": "boolean",
+          "const": true
+        },
+        "follow_org_title_dictionary": {
+          "type": "boolean",
+          "const": true
+        }
+      }
+    }
+  }
+}

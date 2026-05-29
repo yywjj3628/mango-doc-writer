@@ -1,0 +1,85 @@
+{
+  "status": "success",
+  "doc_type": "领导讲话",
+  "risk_level": "medium",
+  "review_pass": false,
+  "rewrite_required": true,
+  "manual_confirmation_count": 9,
+  "remaining_risk_count": 4,
+  "schema_validation_status": {
+    "classify": true,
+    "extract": true,
+    "plan": true,
+    "draft": true,
+    "review": true,
+    "rewrite": true
+  },
+  "rag_status": "success",
+  "style_references_count": 6,
+  "rag_collection": "mango_style_docs",
+  "rag_index": "mango_style_docs",
+  "rag_query": "mango_style_docs:芒果系 领导讲话 站位 判断 部署 要求 | mango_style_docs:广电系统 讲话稿 政治站位 工作部署 | jiuyou_docs:芒果系 领导讲话 站位 判断 部署 要求 | jiuyou_docs:广电系统 讲话稿 政治站位 工作部署",
+  "rag_sources": [
+    "芒果系 领导讲话 站位 判断 部署 要求",
+    "芒果系 领导讲话 站位 判断 部署 要求",
+    "芒果系 领导讲话 站位 判断 部署 要求",
+    "芒果系 领导讲话 站位 判断 部署 要求",
+    "芒果系 领导讲话 站位 判断 部署 要求"
+  ],
+  "rag_collections_used": [
+    "mango_style_docs",
+    "jiuyou_docs"
+  ],
+  "rag_primary_collection": "mango_style_docs",
+  "rag_fallback_collection": "jiuyou_docs",
+  "failed_stage": null,
+  "error_type": null,
+  "error_message": null,
+  "schema_path": null,
+  "sanitizer_high_risk": false,
+  "model_provider": "deepseek",
+  "default_model": "deepseek-v4-flash",
+  "fallback_model": "deepseek-v4-pro",
+  "fallback_enabled": true,
+  "stage_model_usage": {
+    "classify": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    },
+    "extract": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    },
+    "plan": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    },
+    "draft": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    },
+    "review": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    },
+    "rewrite": {
+      "model": "deepseek-v4-flash",
+      "fallback_used": false,
+      "fallback_reason": null
+    }
+  },
+  "fallback_count": 0,
+  "output_files": [
+    "classify_result.json",
+    "extract_result.json",
+    "plan_result.json",
+    "draft_result.json",
+    "review_result.json",
+    "rewrite_result.json"
+  ]
+}

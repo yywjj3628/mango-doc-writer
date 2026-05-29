@@ -1,0 +1,286 @@
+{
+  "plan_summary": "用户要求写一份给芒果总部看的汇报材料，classify判定为汇报材料（上行文，style_level 2），extract阶段发现事实严重不足，仅有模糊的'推进相关工作'和'芒果总部'称谓。结构按汇报材料标准五段式规划，大部分段落需人工补充。称谓口径库中'芒果总部'为禁用称谓，建议替换为'湖南广播影视集团（台）'。",
+  "doc_type": "汇报材料",
+  "direction": "上行文",
+  "style_level": 2,
+  "risk_level": "critical",
+  "title_plan": {
+    "recommended_title": "关于文化科技融合推进工作情况的汇报",
+    "title_type": "汇报材料标题",
+    "title_confidence": 0.65,
+    "title_basis": [
+      "classify.doc_type = 汇报材料",
+      "extract.event = 推进相关工作",
+      "extract.organization = 芒果总部"
+    ],
+    "title_risks": [
+      "缺少具体工作/项目名称，标题概括性过强",
+      "组织称谓需替换为正式名称",
+      "标题未体现时间范围"
+    ],
+    "alternative_titles": [
+      "关于近期文化科技融合工作进展的汇报"
+    ]
+  },
+  "addressee_plan": {
+    "recommended_addressee": "湖南广播影视集团（台）",
+    "source": "org-title-dictionary.yaml",
+    "confidence": 0.7,
+    "needs_manual_confirmation": true,
+    "note": "用户写'芒果总部'，该称谓在口径库中被列为禁用，建议更换为'湖南广播影视集团（台）'或'集团（台）'，需人工确认接受此替换。"
+  },
+  "signer_plan": {
+    "recommended_signer": null,
+    "source": "missing",
+    "confidence": 0,
+    "needs_manual_confirmation": true,
+    "note": "用户未提供汇报单位/落款单位，需确认汇报材料由哪个单位报送。例如：'XX公司'或'XX部门'。"
+  },
+  "sections": [
+    {
+      "section_id": "S1",
+      "section_name": "背景情况",
+      "purpose": "简要交代汇报背景、工作缘起",
+      "content_guidance": "围绕文化科技融合方向推进相关工作展开，需用户补充具体背景信息。可用概括性表述。",
+      "fact_bindings": [
+        {
+          "fact_type": "event",
+          "fact_value": "推进相关工作",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "request",
+          "fact_value": "希望芒果总部了解整体进展",
+          "source_from_extract": true
+        }
+      ],
+      "blocked_items": [
+        "不得编造政策依据",
+        "不得编造上级要求",
+        "不得编造具体时间背景"
+      ],
+      "word_count_estimate": 150,
+      "needs_manual_input": true
+    },
+    {
+      "section_id": "S2",
+      "section_name": "主要进展",
+      "purpose": "汇报围绕文化科技融合所做的主要工作及阶段性成效",
+      "content_guidance": "由于用户未提供具体工作内容，此段需人工补充或概括性表述。不能编造项目名称或数据。",
+      "fact_bindings": [],
+      "blocked_items": [
+        "不得编造具体项目、活动名称",
+        "不得编造工作数据",
+        "不得编造成果荣誉"
+      ],
+      "word_count_estimate": 300,
+      "needs_manual_input": true
+    },
+    {
+      "section_id": "S3",
+      "section_name": "亮点成效",
+      "purpose": "展示工作中的突出成果和特色",
+      "content_guidance": "用户未提供任何成效信息，此段需人工补充或跳过。不得自行编造成果。",
+      "fact_bindings": [],
+      "blocked_items": [
+        "不得编造成果数据",
+        "不得编造获奖信息",
+        "不得出现'重大突破'等无依据表述"
+      ],
+      "word_count_estimate": 200,
+      "needs_manual_input": true
+    },
+    {
+      "section_id": "S4",
+      "section_name": "问题挑战",
+      "purpose": "客观描述当前面临的主要困难与不足",
+      "content_guidance": "用户未提供任何问题信息，需人工补充或概括性表述。不得编造问题，但可基于'推进相关工作'推测常规挑战（如资金、技术等），但需标注推测性质。",
+      "fact_bindings": [],
+      "blocked_items": [
+        "不得编造具体问题细节",
+        "不得将问题写成请示事项"
+      ],
+      "word_count_estimate": 200,
+      "needs_manual_input": true
+    },
+    {
+      "section_id": "S5",
+      "section_name": "下一步思路",
+      "purpose": "说明后续工作计划和重点方向",
+      "content_guidance": "用户未提供，需人工补充。不得编造具体项目或数据。",
+      "fact_bindings": [],
+      "blocked_items": [
+        "不得编造具体时间节点",
+        "不得编造具体项目名称",
+        "不得隐含请示"
+      ],
+      "word_count_estimate": 200,
+      "needs_manual_input": true
+    }
+  ],
+  "style_directives": {
+    "overall_tone": "芒果系正式公文风",
+    "key_expressions": [
+      "文化科技融合",
+      "整体进展"
+    ],
+    "forbidden_expressions": [
+      "不得夹带请示事项",
+      "不得出现请批准、请批复等审批请求表达",
+      "不得编造工作数据、领导评价和成果荣誉",
+      "禁用称谓：芒果总部（应使用湖南广播影视集团（台））",
+      "不得使用口语化表达"
+    ],
+    "style_reference": "doc-type-rules.md 汇报材料章节"
+  },
+  "title_rules": [
+    "汇报材料标题格式：关于XXX的汇报 / XXX情况汇报",
+    "标题内容只能来自extract已有事实"
+  ],
+  "addressee_resolution": {
+    "recommended_addressee": "湖南广播影视集团（台）",
+    "source": "org-title-dictionary.yaml (替代用户输入'芒果总部')",
+    "confidence": 0.7,
+    "needs_manual_confirmation": true,
+    "note": "用户写了'芒果总部'，属于禁用称谓，建议使用口径库推荐的正式称谓。"
+  },
+  "signer_resolution": {
+    "recommended_signer": null,
+    "source": "missing",
+    "confidence": 0,
+    "needs_manual_confirmation": true,
+    "note": "落款单位缺失"
+  },
+  "title_suggestions": {
+    "recommended_title": "关于文化科技融合推进工作情况的汇报",
+    "alternative_titles": [
+      "关于近期文化科技融合工作进展的汇报"
+    ],
+    "title_rules": [
+      "汇报材料标题格式：关于XXX的汇报"
+    ]
+  },
+  "missing_fields": [
+    {
+      "field": "汇报主体/落款单位",
+      "reason": "用户未提供汇报单位名称",
+      "impact": "影响正式公文抬头和落款",
+      "suggestion": "后续写作前需确认汇报单位"
+    },
+    {
+      "field": "具体工作内容/项目名称",
+      "reason": "用户仅写相关工作和文化科技融合方向",
+      "impact": "影响汇报材料主体内容",
+      "suggestion": "后续需补充具体工作或项目名称"
+    },
+    {
+      "field": "时间范围",
+      "reason": "用户未提供工作的时间起止",
+      "impact": "影响背景和进展表述",
+      "suggestion": "可补充时间段，如今年以来或近期"
+    },
+    {
+      "field": "主要进展与成效",
+      "reason": "用户未提供任何具体进展或成果",
+      "impact": "汇报材料核心内容缺失",
+      "suggestion": "建议用户补充具体工作进展和数据"
+    },
+    {
+      "field": "问题与挑战",
+      "reason": "汇报材料结构要求包含问题挑战",
+      "impact": "影响材料完整性",
+      "suggestion": "后续需用户提供或概括"
+    },
+    {
+      "field": "下一步思路",
+      "reason": "汇报材料结构要求包含下一步思路",
+      "impact": "影响材料完整性",
+      "suggestion": "后续需用户提供或概括"
+    }
+  ],
+  "cannot_infer": [
+    {
+      "field": "具体工作数据",
+      "reason": "用户未提供任何数据，不得自动补充"
+    },
+    {
+      "field": "领导评价",
+      "reason": "用户未提供领导评价，不得自动写入"
+    },
+    {
+      "field": "组织名称正式全称",
+      "reason": "用户仅写芒果总部，不得自动补充为湖南广播影视集团（台）之外的其他名称；使用口径库推荐称谓需人工确认"
+    },
+    {
+      "field": "文化科技融合具体方向",
+      "reason": "用户未说明具体方向，不得自行推断"
+    },
+    {
+      "field": "任何成就或荣誉",
+      "reason": "用户未提供成就表述，不得编造"
+    }
+  ],
+  "risk_flags": [
+    {
+      "type": "missing_required_field",
+      "detail": "汇报材料缺少主体内容，需补充具体工作、进展、成效等",
+      "level": "critical"
+    },
+    {
+      "type": "ambiguous_fact",
+      "detail": "相关工作表述模糊，无法支撑正式汇报",
+      "level": "high"
+    },
+    {
+      "type": "incomplete_organization_name",
+      "detail": "芒果总部为非正式称谓，需确认标准名称",
+      "level": "medium"
+    },
+    {
+      "type": "section_no_fact_support",
+      "detail": "S3亮点成效、S4问题挑战、S5下一步思路均无用户提供的fact绑定的可写内容，需要人工补充",
+      "level": "high"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "主送单位正式称谓",
+      "reason": "用户写'芒果总部'，口径库禁止，建议替换为'湖南广播影视集团（台）'",
+      "suggestion": "请确认是否接受使用'湖南广播影视集团（台）'作为主送单位"
+    },
+    {
+      "field": "汇报单位/落款单位",
+      "reason": "用户未提供",
+      "suggestion": "请确认材料由哪个单位报送"
+    },
+    {
+      "field": "具体工作内容",
+      "reason": "extract中仅含模糊表述",
+      "suggestion": "请提供具体工作或项目名称以便展开正文"
+    },
+    {
+      "field": "背景情况",
+      "reason": "无具体事实支撑",
+      "suggestion": "请补充背景信息或接受概括性表述"
+    }
+  ],
+  "draft_directives": {
+    "total_word_count_estimate": 1500,
+    "must_use_facts": [
+      "推进相关工作",
+      "希望芒果总部了解整体进展",
+      "文化科技融合方向"
+    ],
+    "must_avoid": [
+      "不得夹带请示事项",
+      "不得编造数据、领导评价、成果荣誉",
+      "不得使用'芒果总部'称谓（需替换为正式名称）",
+      "不得编造具体项目名称或时间"
+    ],
+    "format_requirements": [
+      "汇报材料格式（非正式公文报告）",
+      "正文小标题用'一、二、三'或'（一）（二）（三）'",
+      "结尾使用'以上汇报，请领导批评指正'"
+    ]
+  }
+}

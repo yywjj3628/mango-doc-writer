@@ -1,0 +1,32 @@
+{
+  "doc_type": "总结",
+  "doc_type_confidence": 0.92,
+  "direction": "内部材料",
+  "style_level": 2,
+  "risk_level": "low",
+  "reason": "用户明确要求整理成阶段性工作总结，初稿内容为工作回顾和下一步计划，符合总结的典型特征。",
+  "required_rules": [
+    "总结"
+  ],
+  "required_structure": [
+    "工作开展情况",
+    "主要成效",
+    "经验做法",
+    "存在问题",
+    "下一步计划"
+  ],
+  "forbidden_items": [
+    "不得编造数据、荣誉和评价",
+    "不得夹带请示事项",
+    "不得写成报告或请示"
+  ],
+  "possible_confusions": [
+    {
+      "candidate": "报告",
+      "reason": "若材料需向上级正式汇报且出现请示信号，可能被误判为报告。",
+      "distinguish_rule": "是否有请求批准或支持事项。"
+    }
+  ],
+  "need_manual_confirmation": false,
+  "manual_confirmation_fields": []
+}

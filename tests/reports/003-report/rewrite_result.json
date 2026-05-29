@@ -1,0 +1,173 @@
+{
+  "rewrite_summary": "根据review结果，将正文中出现的口语化第一人称“我们”替换为机构称谓“集团（台）”，其余部分保持不变。",
+  "doc_type": "报告",
+  "direction": "上行文",
+  "style_level": 2,
+  "risk_level": "medium",
+  "final_markdown": "# 关于重点任务推进情况的报告\n\n湖南广播影视集团（台）：\n\n现将重点任务推进情况报告如下。\n\n一、基本情况\n\n今年以来，集团（台）围绕重点任务推进，各项工作有序开展，总体进展平稳。\n\n二、主要工作\n\n已完成前期梳理、资源协调和阶段性复盘，为后续工作奠定了坚实基础。\n\n三、存在问题\n\n在推进过程中，还面临一些挑战和不足，需要在后续工作中进一步聚焦解决。\n\n四、下一步工作\n\n下一步将加强统筹，持续推动重点任务落地见效。\n\n特此报告。\n\n【落款单位待确认】\n【日期待确认】",
+  "revision_report": [
+    {
+      "revision_id": "REV001",
+      "issue_id": "R001",
+      "action": "replace",
+      "before": "我们围绕重点任务推进",
+      "after": "集团（台）围绕重点任务推进",
+      "reason": "根据review结果，将口语化第一人称“我们”替换为机构称谓“集团（台）”，符合芒果系正式公文风。",
+      "basis": "review_result.rewrite_instructions，org-title-dictionary.yaml fixed_replacements"
+    }
+  ],
+  "fact_usage_report": [
+    {
+      "final_text": "今年以来",
+      "fact_type": "time",
+      "fact_value": "今年以来",
+      "source_text": "今年以来，相关工作围绕重点任务推进",
+      "source": "extract_result.fact_items",
+      "confidence": 0.95
+    },
+    {
+      "final_text": "重点任务",
+      "fact_type": "project",
+      "fact_value": "重点任务",
+      "source_text": "相关工作围绕重点任务推进",
+      "source": "extract_result.fact_items",
+      "confidence": 0.9
+    },
+    {
+      "final_text": "完成了前期梳理、资源协调和阶段性复盘",
+      "fact_type": "achievement",
+      "fact_value": "完成了前期梳理、资源协调和阶段性复盘",
+      "source_text": "完成了前期梳理、资源协调和阶段性复盘",
+      "source": "extract_result.fact_items",
+      "confidence": 0.95
+    },
+    {
+      "final_text": "加强统筹，推动重点任务落地",
+      "fact_type": "project",
+      "fact_value": "重点任务（下一步）",
+      "source_text": "下一步将继续加强统筹，推动重点任务落地",
+      "source": "extract_result.fact_items",
+      "confidence": 0.88
+    }
+  ],
+  "terminology_usage_report": [
+    {
+      "raw_value": "集团",
+      "used_value": "湖南广播影视集团（台）",
+      "type": "organization",
+      "source": "org-title-dictionary.yaml",
+      "confidence": 0.98,
+      "needs_manual_confirmation": false,
+      "note": ""
+    },
+    {
+      "raw_value": "重点任务",
+      "used_value": "重点任务",
+      "type": "strategic_term",
+      "source": "extract_result",
+      "confidence": 0.7,
+      "needs_manual_confirmation": false,
+      "note": ""
+    },
+    {
+      "raw_value": "我们",
+      "used_value": "集团（台）",
+      "type": "other",
+      "source": "review_instructions",
+      "confidence": 1.0,
+      "needs_manual_confirmation": false,
+      "note": ""
+    }
+  ],
+  "resolved_issues": [
+    {
+      "issue_id": "R001",
+      "resolution": "将正文中“我们”替换为“集团（台）”。",
+      "basis": "review_result.rewrite_instructions"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "issue_id": "W001",
+      "reason": "缺少具体时间范围，用户仅提供“今年以来”。",
+      "required_action": "正式成稿前确认具体截止时间或阶段。"
+    },
+    {
+      "issue_id": "W002",
+      "reason": "缺少重点任务具体名称，正文使用泛称。",
+      "required_action": "正式成稿前确认重点任务正式名称。"
+    },
+    {
+      "issue_id": "W003",
+      "reason": "正文包含【落款单位待确认】和【日期待确认】占位符。",
+      "required_action": "正式成稿前补充落款单位和日期。"
+    },
+    {
+      "issue_id": "W004",
+      "reason": "S3“存在问题”段落无用户提供的事实，采用概括性表述。",
+      "required_action": "如有具体问题请补充，否则可保留当前概括表述。"
+    }
+  ],
+  "remaining_risks": [
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "detail": "缺少具体时间范围，仅使用“今年以来”。",
+      "action": "正式成稿前建议确认具体截止时间或阶段。"
+    },
+    {
+      "level": "high",
+      "type": "missing_field",
+      "detail": "缺少重点任务具体名称，正文使用泛称。",
+      "action": "正式成稿前需确认重点任务正式名称。"
+    },
+    {
+      "level": "medium",
+      "type": "placeholder_used",
+      "detail": "正文包含【落款单位待确认】和【日期待确认】占位符。",
+      "action": "正式成稿前需补充落款单位和日期。"
+    },
+    {
+      "level": "medium",
+      "type": "section_no_fact_support",
+      "detail": "S3“存在问题”段落无用户提供的事实，正文采用概括性表述。",
+      "action": "如有具体问题请补充，否则可保留当前概括表述。"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "重点任务具体名称",
+      "reason": "影响标题和正文主体内容",
+      "required_before_final": false,
+      "impact": ""
+    },
+    {
+      "field": "落款单位",
+      "reason": "报告必须有落款单位",
+      "required_before_final": false,
+      "impact": ""
+    },
+    {
+      "field": "存在问题段落",
+      "reason": "用户素材未提供问题内容",
+      "required_before_final": false,
+      "impact": ""
+    }
+  ],
+  "final_checks": {
+    "doc_type_fixed": true,
+    "unsupported_facts_removed": true,
+    "blocked_items_removed": true,
+    "terminology_checked": true,
+    "manual_confirmations_preserved": true
+  },
+  "rewrite_policy": {
+    "body_rewritten": true,
+    "no_new_facts": true,
+    "use_only_extract_facts": true,
+    "no_rag_call": true,
+    "follow_review_instructions": true,
+    "follow_doc_type_rules": true,
+    "follow_org_title_dictionary": true
+  }
+}

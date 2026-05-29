@@ -1,0 +1,137 @@
+{
+  "rewrite_summary": "draft 通过 review，无 issues，直接采用 draft 的 final_markdown，未做修订。",
+  "doc_type": "函",
+  "direction": "平行文",
+  "style_level": 1,
+  "risk_level": "medium",
+  "final_markdown": "# 关于商请协助提供活动场地支持的函\n\n对方单位：\n\n为做好活动筹备工作，现就协助提供活动场地支持事项致函如下。\n\n一、致函缘由\n\n我单位拟举办相关活动，因场地资源有限，特商请贵单位协助提供活动场地支持。\n\n二、商洽事项\n\n拟请贵单位协助提供活动场地，并就现场保障、设备支持等事项进行沟通与协调。\n\n三、具体请求\n\n恳请贵单位根据实际情况，对活动场地予以支持，并就相关保障事宜予以配合。\n\n四、回复要求\n\n可否，请函复。\n\n此致\n敬礼\n\n【落款单位待确认】\n\n【日期待确认】",
+  "revision_report": [],
+  "fact_usage_report": [
+    {
+      "final_text": "活动",
+      "fact_type": "event",
+      "fact_value": "活动",
+      "source_text": "拟商请对方单位协助提供活动场地",
+      "source": "extract_result.fact_items",
+      "confidence": 0.85
+    },
+    {
+      "final_text": "拟商请对方单位协助提供活动场地",
+      "fact_type": "request",
+      "fact_value": "拟商请对方单位协助提供活动场地",
+      "source_text": "拟商请对方单位协助提供活动场地",
+      "source": "extract_result.fact_items",
+      "confidence": 0.98
+    },
+    {
+      "final_text": "就现场保障、设备支持等事项进行沟通",
+      "fact_type": "request",
+      "fact_value": "就现场保障、设备支持等事项进行沟通",
+      "source_text": "就现场保障、设备支持等事项进行沟通",
+      "source": "extract_result.fact_items",
+      "confidence": 0.95
+    }
+  ],
+  "terminology_usage_report": [
+    {
+      "raw_value": "对方单位",
+      "used_value": "对方单位",
+      "type": "organization",
+      "source": "user_input",
+      "confidence": 0.5,
+      "needs_manual_confirmation": false,
+      "note": ""
+    },
+    {
+      "raw_value": "合作单位",
+      "used_value": "贵单位",
+      "type": "organization",
+      "source": "user_input",
+      "confidence": 0.4,
+      "needs_manual_confirmation": false,
+      "note": ""
+    }
+  ],
+  "resolved_issues": [],
+  "unresolved_issues": [],
+  "remaining_risks": [
+    {
+      "level": "high",
+      "type": "missing_field",
+      "detail": "主送单位（对方单位正式全称）缺失，正文使用‘对方单位’占位。",
+      "action": "正式成稿前需确认主送单位全称。"
+    },
+    {
+      "level": "high",
+      "type": "missing_field",
+      "detail": "活动具体时间未提供，正文未写。",
+      "action": "补充活动时间可使商洽事项更明确。"
+    },
+    {
+      "level": "high",
+      "type": "missing_field",
+      "detail": "活动具体地点未提供，正文未写。",
+      "action": "补充活动地点便于对方评估支持条件。"
+    },
+    {
+      "level": "high",
+      "type": "missing_field",
+      "detail": "落款单位缺失，正文使用【落款单位待确认】占位。",
+      "action": "函必须有落款单位，需确认发函单位全称。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "detail": "现场保障具体内容未列出，仅概括提及。",
+      "action": "后续可细化保障需求。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "detail": "设备支持具体清单未列出，仅概括提及。",
+      "action": "后续可明确所需设备类型和数量。"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "主送单位（对方单位正式全称）",
+      "reason": "用户仅写‘对方单位’",
+      "impact": "影响函件抬头规范性",
+      "required_before_final": true
+    },
+    {
+      "field": "活动具体时间",
+      "reason": "用户未提供活动时间",
+      "impact": "影响商洽事项的明确性",
+      "required_before_final": false
+    },
+    {
+      "field": "活动具体地点",
+      "reason": "用户未提供活动地点",
+      "impact": "影响商洽事项的明确性",
+      "required_before_final": false
+    },
+    {
+      "field": "落款单位",
+      "reason": "函必须有落款单位但未提供",
+      "impact": "影响函件完整性",
+      "required_before_final": true
+    }
+  ],
+  "final_checks": {
+    "doc_type_fixed": true,
+    "unsupported_facts_removed": true,
+    "blocked_items_removed": true,
+    "terminology_checked": true,
+    "manual_confirmations_preserved": true
+  },
+  "rewrite_policy": {
+    "body_rewritten": true,
+    "no_new_facts": true,
+    "use_only_extract_facts": true,
+    "no_rag_call": true,
+    "follow_review_instructions": true,
+    "follow_doc_type_rules": true,
+    "follow_org_title_dictionary": true
+  }
+}

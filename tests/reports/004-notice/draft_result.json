@@ -1,0 +1,164 @@
+{
+  "draft_summary": "已按通知文种生成初稿。素材包含时间、部门、项目及报送内容，缺少发文依据、落款单位、联系人及发文日期，正文使用概括表述和占位符。时间表述为相对时间，需确认具体日期。",
+  "doc_type": "通知",
+  "direction": "内部材料",
+  "style_level": 1,
+  "risk_level": "low",
+  "markdown_draft": "# 关于报送专项整治自查材料的通知\n\n各部门：\n\n为做好专项整治自查工作，现将有关事项通知如下：\n\n一、报送内容\n\n请各部门报送专项整治自查情况，包括工作开展、问题排查、整改措施等内容。\n\n二、具体要求\n\n请各部门高度重视，认真梳理自查情况，确保材料真实、完整、规范。\n\n三、报送时间\n\n请各部门于本周五前完成材料报送。【注：本周五为相对时间，请确认具体截止日期】\n\n四、联系方式\n\n如有疑问，请联系【联系人待确认】，联系电话【待确认】。\n\n特此通知。\n\n【落款单位待确认】\n\n【发文日期待确认】",
+  "fact_usage_report": [
+    {
+      "draft_text": "请各部门报送专项整治自查情况，包括工作开展、问题排查、整改措施等内容",
+      "fact_type": "event",
+      "fact_value": "报送专项整治自查情况，内容包括工作开展、问题排查、整改措施等",
+      "source_text": "请各部门于本周五前提交专项整治自查情况，包括工作开展、问题排查、整改措施等内容",
+      "source": "extract_result.fact_items",
+      "confidence": 0.93
+    },
+    {
+      "draft_text": "请各部门于本周五前完成材料报送",
+      "fact_type": "time",
+      "fact_value": "本周五前",
+      "source_text": "请各部门于本周五前提交专项整治自查情况",
+      "source": "extract_result.fact_items",
+      "confidence": 0.95
+    },
+    {
+      "draft_text": "各部门",
+      "fact_type": "organization",
+      "fact_value": "各部门",
+      "source_text": "请各部门于本周五前提交专项整治自查情况",
+      "source": "extract_result.fact_items",
+      "confidence": 0.9
+    },
+    {
+      "draft_text": "专项整治自查",
+      "fact_type": "project",
+      "fact_value": "专项整治自查",
+      "source_text": "请各部门于本周五前提交专项整治自查情况",
+      "source": "extract_result.fact_items",
+      "confidence": 0.92
+    }
+  ],
+  "rag_usage_report": [],
+  "terminology_usage_report": [
+    {
+      "raw_value": "各部门",
+      "used_value": "各部门",
+      "type": "organization",
+      "source": "extract_result.fact_items",
+      "confidence": 0.9,
+      "needs_manual_confirmation": false,
+      "note": "来自extract_result，使用原文"
+    },
+    {
+      "raw_value": "专项整治自查",
+      "used_value": "专项整治自查",
+      "type": "strategic_term",
+      "source": "extract_result.fact_items",
+      "confidence": 0.92,
+      "needs_manual_confirmation": false,
+      "note": "来自extract_result，使用原文"
+    }
+  ],
+  "blocked_items_check": [
+    {
+      "item": "编造发文依据",
+      "status": "not_used",
+      "reason": "用户未提供，正文使用通用表述"
+    },
+    {
+      "item": "宣传稿风格",
+      "status": "not_used",
+      "reason": "正文使用通知文体，未使用宣传语"
+    },
+    {
+      "item": "模糊时间节点",
+      "status": "used_with_basis",
+      "reason": "时间来自用户素材，但为相对时间，已加注需确认"
+    },
+    {
+      "item": "编造具体要求细则",
+      "status": "not_used",
+      "reason": "正文仅写一般性要求，未编造细则"
+    }
+  ],
+  "warnings": [
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "message": "发文依据或背景缺失，正文使用通用表述",
+      "related_field": "发文依据或背景",
+      "action": "如有具体依据，建议补充"
+    },
+    {
+      "level": "medium",
+      "type": "ambiguous_fact",
+      "message": "时间表述为“本周五前”，属于相对时间，需明确具体日期",
+      "related_field": "时间节点",
+      "action": "建议确认具体截止日期并更新正文"
+    },
+    {
+      "level": "high",
+      "type": "missing_field",
+      "message": "落款单位缺失，正文使用占位符",
+      "related_field": "落款单位",
+      "action": "正式成稿前需确认发文机关"
+    },
+    {
+      "level": "high",
+      "type": "missing_field",
+      "message": "联系人及联系方式缺失，正文使用占位符",
+      "related_field": "联系人及联系方式",
+      "action": "正式成稿前需补充联系人信息"
+    },
+    {
+      "level": "high",
+      "type": "missing_field",
+      "message": "发文日期缺失，正文使用占位符",
+      "related_field": "发文日期",
+      "action": "正式成稿前需确认发文日期"
+    },
+    {
+      "level": "low",
+      "type": "rag_not_used",
+      "message": "本次未获得RAG风格参考（检索结果不相关）",
+      "related_field": "style_rag",
+      "action": "通知对RAG风格依赖低，不影响正文质量"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "时间节点",
+      "reason": "时间表述为本周五前，属于相对表述，需确认具体日期",
+      "impact": "影响截止日期的准确性",
+      "required_before_final": true
+    },
+    {
+      "field": "落款单位",
+      "reason": "通知必须有落款单位，用户未提供",
+      "impact": "影响公文规范性",
+      "required_before_final": true
+    },
+    {
+      "field": "联系人及联系方式",
+      "reason": "通知通常需提供执行联系人，用户未提供",
+      "impact": "影响材料报送的可操作性",
+      "required_before_final": false
+    },
+    {
+      "field": "发文日期",
+      "reason": "通知需体现发文日期，用户未提供",
+      "impact": "影响公文时效性",
+      "required_before_final": true
+    }
+  ],
+  "draft_policy": {
+    "body_generated": true,
+    "no_new_facts": true,
+    "use_only_extract_facts": true,
+    "rag_used_for_style_only": true,
+    "follow_plan_structure": true,
+    "follow_doc_type_rules": true,
+    "follow_org_title_dictionary": true
+  }
+}

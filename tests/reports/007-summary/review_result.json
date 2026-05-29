@@ -1,0 +1,161 @@
+{
+  "review_summary": "初稿结构正确，文种符合总结规范。但正文存在无事实来源的概括性表述，如S2'得到一定提升'、S3'形成了一些值得继续坚持的做法'、S4'部分工作的量化评估尚不充分，团队协作效率有待进一步提升'，且fact_usage_report未记录这些无源内容。需要修订以消除无来源事实。",
+  "pass": false,
+  "score": 76,
+  "rewrite_required": true,
+  "risk_level": "medium",
+  "checks": {
+    "doc_type_check": {
+      "status": "pass",
+      "summary": "文种为总结，结构完整，符合classify结论。",
+      "issues_count": 0
+    },
+    "structure_check": {
+      "status": "pass",
+      "summary": "章节顺序与plan一致，所有required部分均存在。",
+      "issues_count": 0
+    },
+    "fact_grounding_check": {
+      "status": "fail",
+      "summary": "正文S2、S3、S4存在无来源事实。",
+      "issues_count": 2
+    },
+    "fact_usage_report_check": {
+      "status": "fail",
+      "summary": "fact_usage_report未记录正文中的无来源表述，存在遗漏。",
+      "issues_count": 1
+    },
+    "rag_usage_check": {
+      "status": "pass",
+      "summary": "rag_usage_report为空，正文无RAG事实污染。",
+      "issues_count": 0
+    },
+    "terminology_check": {
+      "status": "pass",
+      "summary": "称谓使用'部门'，已标记需人工确认，无错误称谓。",
+      "issues_count": 0
+    },
+    "blocked_items_check": {
+      "status": "pass",
+      "summary": "未编造数据、未缺少问题和下一步计划，blocked items合规。",
+      "issues_count": 0
+    },
+    "warnings_check": {
+      "status": "pass",
+      "summary": "warnings承接了extract和plan中的主要风险项。",
+      "issues_count": 0
+    },
+    "manual_confirmation_check": {
+      "status": "pass",
+      "summary": "manual_confirmation_fields保留了关键确认项。",
+      "issues_count": 0
+    },
+    "style_check": {
+      "status": "pass",
+      "summary": "风格符合style_level=2要求，未过度宣传。",
+      "issues_count": 0
+    },
+    "format_check": {
+      "status": "pass",
+      "summary": "Markdown格式正确，标题、章节、占位符合规。",
+      "issues_count": 0
+    }
+  },
+  "issues": [
+    {
+      "issue_id": "R001",
+      "level": "medium",
+      "type": "fact_not_grounded",
+      "location": "markdown_draft S2主要成效、S3经验做法",
+      "detail": "正文S2出现'部门在制度建设、运营效率和团队能力方面得到一定提升'，S3出现'形成了一些值得继续坚持的做法'，但extract_result中未提供任何成效评价或经验提炼，属于无来源事实。",
+      "evidence": "得到一定提升；形成了一些值得继续坚持的做法",
+      "suggestion": "删除这些无依据的概括评价，改用基于extract事实的中性表述。",
+      "rewrite_hint": "S2改为：通过上述工作，部门完成了制度修订、流程优化和团队培训等阶段性任务。S3改为：在推进过程中，部门注重统筹协调与过程管理，相关经验有待后续总结。"
+    },
+    {
+      "issue_id": "R002",
+      "level": "medium",
+      "type": "fact_not_grounded",
+      "location": "markdown_draft S4存在问题",
+      "detail": "正文S4出现'部分工作的量化评估尚不充分，团队协作效率有待进一步提升'，但extract_result中未提供任何问题描述，属于无来源事实。plan允许使用概括性表述，但此表述偏具体且无源。",
+      "evidence": "部分工作的量化评估尚不充分，团队协作效率有待进一步提升",
+      "suggestion": "替换为更概括的表述，如'工作中还存在一些不足'，或者留待人工补充。",
+      "rewrite_hint": "改为：同时，我们也清醒地认识到，工作中还存在一些不足，需在后续工作中加以改进。"
+    },
+    {
+      "issue_id": "R003",
+      "level": "medium",
+      "type": "fact_usage_missing",
+      "location": "fact_usage_report",
+      "detail": "fact_usage_report仅记录了时间、组织和三项成就，但正文S2、S3、S4中的无来源表述（'得到一定提升'等）未在报告中体现，说明溯源不完整。",
+      "evidence": "fact_usage_report缺少S2、S3、S4中的任何记录",
+      "suggestion": "将正文中所有事实（包括概括性表述）纳入fact_usage_report，并标注其未在extract中找到来源。",
+      "rewrite_hint": "补充fact_usage_report条目，draft_text对应无源表述，fact_type填'unknown'，source填'no_source'。"
+    }
+  ],
+  "rewrite_instructions": [
+    {
+      "priority": "high",
+      "target": "markdown_draft S2主要成效",
+      "action": "replace",
+      "instruction": "将'部门在制度建设、运营效率和团队能力方面得到一定提升'替换为'部门完成了制度修订、流程优化和团队培训等阶段性任务'。",
+      "basis": "extract_result.fact_items中三项成就"
+    },
+    {
+      "priority": "high",
+      "target": "markdown_draft S3经验做法",
+      "action": "replace",
+      "instruction": "将'在推进过程中，部门注重统筹协调与过程管理，形成了一些值得继续坚持的做法，相关经验有待进一步总结提炼'替换为'在推进过程中，部门注重统筹协调与过程管理，相关经验有待后续总结'。",
+      "basis": "extract_result中无经验做法事实"
+    },
+    {
+      "priority": "high",
+      "target": "markdown_draft S4存在问题",
+      "action": "replace",
+      "instruction": "将'部分工作的量化评估尚不充分，团队协作效率有待进一步提升'替换为'工作中还存在一些不足'，保留通用表述。",
+      "basis": "extract_result中无问题事实"
+    },
+    {
+      "priority": "medium",
+      "target": "fact_usage_report",
+      "action": "replace",
+      "instruction": "在fact_usage_report中增加条目，将上述被替换的无源表述逐条记录，fact_type设为'unknown'，source设为'no_source'，confidence设为0。",
+      "basis": "fact_grounding_check要求"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "部门具体名称",
+      "reason": "用户仅写'部门'，需确认正式名称",
+      "impact": "影响标题和正文准确性",
+      "required_before_final": false
+    },
+    {
+      "field": "落款单位",
+      "reason": "总结需要落款单位",
+      "impact": "影响材料完整性",
+      "required_before_final": false
+    },
+    {
+      "field": "存在问题",
+      "reason": "总结必须包含问题，用户未提供",
+      "impact": "影响正文说服力",
+      "required_before_final": false
+    },
+    {
+      "field": "经验做法",
+      "reason": "总结结构需要经验做法部分，用户未提供",
+      "impact": "影响正文完整性",
+      "required_before_final": false
+    }
+  ],
+  "review_policy": {
+    "no_body_generation": true,
+    "no_rewrite": true,
+    "no_new_facts": true,
+    "no_rag_call": true,
+    "check_fact_grounding": true,
+    "check_doc_type_rules": true,
+    "check_org_title_dictionary": true
+  }
+}

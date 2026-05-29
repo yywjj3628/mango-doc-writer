@@ -1,0 +1,257 @@
+{
+  "plan_summary": "用户需求为内部通知，要求各部门报送专项整治自查材料。classify确认文种为通知，方向内部材料，风格等级1。extract已提供基本事实，但缺少发文依据、落款单位、联系人、发文日期。时间表述为相对时间需确认。按通知标准结构规划5个段落，并标记缺失字段和风险。",
+  "doc_type": "通知",
+  "direction": "内部材料",
+  "style_level": 1,
+  "risk_level": "low",
+  "title_plan": {
+    "recommended_title": "关于报送专项整治自查材料的通知",
+    "title_type": "正式公文标题",
+    "title_confidence": 0.95,
+    "title_basis": [
+      "classify.doc_type = 通知",
+      "extract.project = 专项整治自查"
+    ],
+    "title_risks": [],
+    "alternative_titles": [
+      "关于开展专项整治自查工作的通知"
+    ]
+  },
+  "addressee_plan": {
+    "recommended_addressee": "各部门",
+    "source": "extract.organizations",
+    "confidence": 0.95,
+    "needs_manual_confirmation": false,
+    "note": ""
+  },
+  "signer_plan": {
+    "recommended_signer": null,
+    "source": "missing",
+    "confidence": 0,
+    "needs_manual_confirmation": true,
+    "note": "用户未提供落款单位，需确认"
+  },
+  "sections": [
+    {
+      "section_id": "S1",
+      "section_name": "发文依据或背景",
+      "purpose": "说明通知的缘由、目的或依据",
+      "content_guidance": "可概括性说明专项整治自查的背景，但不得编造具体文件或领导批示。由于用户未提供依据，建议使用通用表述，如'为做好专项整治工作，现将有关事项通知如下'。",
+      "fact_bindings": [],
+      "blocked_items": [
+        "不得编造发文依据文件",
+        "不得编造领导批示"
+      ],
+      "word_count_estimate": 80,
+      "needs_manual_input": true
+    },
+    {
+      "section_id": "S2",
+      "section_name": "通知事项",
+      "purpose": "明确报送材料的内容要求",
+      "content_guidance": "围绕报送材料的内容展开，包括工作开展、问题排查、整改措施等。",
+      "fact_bindings": [
+        {
+          "fact_type": "event",
+          "fact_value": "报送专项整治自查情况，内容包括工作开展、问题排查、整改措施等",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "project",
+          "fact_value": "专项整治自查",
+          "source_from_extract": true
+        }
+      ],
+      "blocked_items": [
+        "不得扩展未提供的材料内容",
+        "不得写成宣传稿"
+      ],
+      "word_count_estimate": 150,
+      "needs_manual_input": false
+    },
+    {
+      "section_id": "S3",
+      "section_name": "具体要求",
+      "purpose": "提出材料报送的具体要求",
+      "content_guidance": "可对材料格式、报送方式等提出一般性要求，但不编造细则。",
+      "fact_bindings": [],
+      "blocked_items": [
+        "不得编造具体要求细则"
+      ],
+      "word_count_estimate": 100,
+      "needs_manual_input": true
+    },
+    {
+      "section_id": "S4",
+      "section_name": "时间节点",
+      "purpose": "明确报送截止时间",
+      "content_guidance": "使用'本周五前'的表述，但需注意是相对时间，建议在draft中注明需确认具体日期。",
+      "fact_bindings": [
+        {
+          "fact_type": "time",
+          "fact_value": "本周五前",
+          "source_from_extract": true
+        }
+      ],
+      "blocked_items": [
+        "不得模糊时间节点"
+      ],
+      "word_count_estimate": 50,
+      "needs_manual_input": false
+    },
+    {
+      "section_id": "S5",
+      "section_name": "联系方式或执行要求",
+      "purpose": "提供联系人或执行方式",
+      "content_guidance": "联系人及联系方式缺失，需人工补充。也可建议使用'如有疑问请联系XX'的占位表述。",
+      "fact_bindings": [],
+      "blocked_items": [
+        "不得编造联系人信息"
+      ],
+      "word_count_estimate": 50,
+      "needs_manual_input": true
+    }
+  ],
+  "style_directives": {
+    "overall_tone": "克制正式",
+    "key_expressions": [
+      "现将有关事项通知如下",
+      "请各单位高度重视",
+      "特此通知"
+    ],
+    "forbidden_expressions": [
+      "不得写成宣传稿",
+      "不得使用品牌表达",
+      "不得使用口语化表达"
+    ],
+    "style_reference": "doc-type-rules.md 通知章节"
+  },
+  "title_rules": [
+    "通知标题格式：关于XXX的通知",
+    "标题不使用修辞手法"
+  ],
+  "addressee_resolution": {
+    "recommended_addressee": "各部门",
+    "source": "extract.organizations",
+    "confidence": 0.95,
+    "needs_manual_confirmation": false,
+    "note": ""
+  },
+  "signer_resolution": {
+    "recommended_signer": null,
+    "source": "missing",
+    "confidence": 0,
+    "needs_manual_confirmation": true,
+    "note": "落款单位缺失"
+  },
+  "title_suggestions": {
+    "recommended_title": "关于报送专项整治自查材料的通知",
+    "alternative_titles": [
+      "关于开展专项整治自查工作的通知"
+    ],
+    "title_rules": [
+      "通知标题格式：关于XXX的通知"
+    ]
+  },
+  "missing_fields": [
+    {
+      "field": "发文依据或背景",
+      "reason": "用户未提供通知的依据或背景信息",
+      "impact": "影响通知正文的起首部分",
+      "suggestion": "后续写作前建议补充发文依据或背景"
+    },
+    {
+      "field": "落款单位",
+      "reason": "用户未提供通知的落款单位",
+      "impact": "影响正式通知的完整性",
+      "suggestion": "后续写作前确认并补全落款单位"
+    },
+    {
+      "field": "联系人及联系方式",
+      "reason": "用户未提供执行中的联系人",
+      "impact": "影响材料报送的可操作性",
+      "suggestion": "后续写作前建议补充联系人信息"
+    },
+    {
+      "field": "发文日期",
+      "reason": "用户未提供通知的发文日期",
+      "impact": "影响公文时效性",
+      "suggestion": "后续写作前确认发文日期"
+    }
+  ],
+  "cannot_infer": [
+    {
+      "field": "发文依据文件",
+      "reason": "用户素材未提供任何发文依据，不得自动补充"
+    },
+    {
+      "field": "领导批示",
+      "reason": "用户素材未提供领导批示内容，不得自动写入"
+    },
+    {
+      "field": "具体工作要求细则",
+      "reason": "用户只概括了内容方向，未提供具体要求细节，不得扩展"
+    }
+  ],
+  "risk_flags": [
+    {
+      "type": "ambiguous_fact",
+      "detail": "时间表述为本周五前，属于相对时间，可能需明确具体日期",
+      "level": "medium"
+    },
+    {
+      "type": "missing_required_field",
+      "detail": "缺少发文依据或背景，影响通知正文的完整性",
+      "level": "medium"
+    },
+    {
+      "type": "missing_required_field",
+      "detail": "缺少落款单位和联系人，影响公文规范",
+      "level": "high"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "时间节点",
+      "reason": "时间表述为本周五前，属于相对表述，需确认具体日期",
+      "suggestion": "确认具体截止日期"
+    },
+    {
+      "field": "落款单位",
+      "reason": "通知必须有落款单位，用户未提供",
+      "suggestion": "确认发文机关或部门名称"
+    },
+    {
+      "field": "联系人及联系方式",
+      "reason": "通知通常需提供执行联系人，用户未提供",
+      "suggestion": "补充联系人姓名和电话"
+    },
+    {
+      "field": "发文日期",
+      "reason": "通知需体现发文日期，用户未提供",
+      "suggestion": "确认发文日期"
+    }
+  ],
+  "draft_directives": {
+    "total_word_count_estimate": 500,
+    "must_use_facts": [
+      "本周五前",
+      "各部门",
+      "专项整治自查",
+      "报送专项整治自查情况，内容包括工作开展、问题排查、整改措施等"
+    ],
+    "must_avoid": [
+      "不得写成宣传稿",
+      "不得使用品牌表达",
+      "不得模糊时间节点",
+      "不得编造发文依据",
+      "不得编造领导批示",
+      "不得编造具体要求细则"
+    ],
+    "format_requirements": [
+      "通知标准格式",
+      "开头段-主体段-结尾段",
+      "落款：发文机关+日期"
+    ]
+  }
+}

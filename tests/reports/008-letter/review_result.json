@@ -1,0 +1,101 @@
+{
+  "review_summary": "draft 符合函的文种要求，结构完整，事实均来自 extract_result，无新增事实，无RAG污染，称谓使用占位符需人工确认，warnings 完整承接风险，整体合规。",
+  "pass": true,
+  "score": 95,
+  "rewrite_required": false,
+  "risk_level": "medium",
+  "checks": {
+    "doc_type_check": {
+      "status": "pass",
+      "summary": "文种为函，正文语气礼貌，结构标准，无向上级请示或命令式表达。",
+      "issues_count": 0
+    },
+    "structure_check": {
+      "status": "pass",
+      "summary": "正文按 plan_result 的五个 section（致函缘由、商洽事项、具体请求、回复要求、结束语）顺序生成，无缺失或多余结构。",
+      "issues_count": 0
+    },
+    "fact_grounding_check": {
+      "status": "pass",
+      "summary": "正文中所有事实（活动、商请协助、沟通保障）均可在 extract_result.fact_items 中找到来源，无新增具体事实。",
+      "issues_count": 0
+    },
+    "fact_usage_report_check": {
+      "status": "pass",
+      "summary": "fact_usage_report 完整覆盖正文事实，source_text 均来自 extract_result，无遗漏或伪造。",
+      "issues_count": 0
+    },
+    "rag_usage_check": {
+      "status": "pass",
+      "summary": "rag_usage_report 为空，正文无 RAG 事实污染，符合 style-rag-policy.md。",
+      "issues_count": 0
+    },
+    "terminology_check": {
+      "status": "warning",
+      "summary": "称谓使用“对方单位”和“贵单位”占位，需人工确认正式全称，但未违反禁止项。",
+      "issues_count": 0
+    },
+    "blocked_items_check": {
+      "status": "pass",
+      "summary": "plan 和 draft 的 blocked_items 均未出现在正文，无编造或语气强硬问题。",
+      "issues_count": 0
+    },
+    "warnings_check": {
+      "status": "pass",
+      "summary": "warnings 完整承接 extract 和 plan 中的高风险项（主送单位、时间地点、落款单位缺失）及中等风险项。",
+      "issues_count": 0
+    },
+    "manual_confirmation_check": {
+      "status": "pass",
+      "summary": "manual_confirmation_fields 保留主送单位、活动时间、活动地点、落款单位等关键确认项，未遗漏。",
+      "issues_count": 0
+    },
+    "style_check": {
+      "status": "pass",
+      "summary": "style_level=1（克制正式），正文语言平实礼貌，无过度宣传或排比抒情。",
+      "issues_count": 0
+    },
+    "format_check": {
+      "status": "pass",
+      "summary": "Markdown 格式正确，标题、主送占位、分段、结尾用语、落款占位均符合函的格式要求。",
+      "issues_count": 0
+    }
+  },
+  "issues": [],
+  "rewrite_instructions": [],
+  "manual_confirmation_fields": [
+    {
+      "field": "主送单位（对方单位正式全称）",
+      "reason": "用户仅写“对方单位”",
+      "impact": "影响函件抬头规范性",
+      "required_before_final": true
+    },
+    {
+      "field": "活动具体时间",
+      "reason": "用户未提供活动时间",
+      "impact": "影响商洽事项的明确性",
+      "required_before_final": false
+    },
+    {
+      "field": "活动具体地点",
+      "reason": "用户未提供活动地点",
+      "impact": "影响商洽事项的明确性",
+      "required_before_final": false
+    },
+    {
+      "field": "落款单位",
+      "reason": "函必须有落款单位但未提供",
+      "impact": "影响函件完整性",
+      "required_before_final": true
+    }
+  ],
+  "review_policy": {
+    "no_body_generation": true,
+    "no_rewrite": true,
+    "no_new_facts": true,
+    "no_rag_call": true,
+    "check_fact_grounding": true,
+    "check_doc_type_rules": true,
+    "check_org_title_dictionary": true
+  }
+}

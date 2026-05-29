@@ -1,0 +1,68 @@
+{
+  "quality_summary": "测试结果 overall=7.5 pass=False",
+  "scores": {
+    "fact_safety": 4,
+    "doc_type_fit": 8,
+    "mango_style_fit": 8,
+    "logic_completeness": 8,
+    "language_quality": 8,
+    "risk_control": 9
+  },
+  "threshold": 8,
+  "overall_score": 7.5,
+  "failed_dimensions": [
+    "fact_safety"
+  ],
+  "overall_pass": false,
+  "rewrite_required": true,
+  "quality_rewrite_instructions": [
+    {
+      "dimension": "fact_safety",
+      "target": "≥8",
+      "current_text": "第3段未在素材中出现的数据",
+      "suggested_action": "delete",
+      "suggested_text": null,
+      "reason": "疑似新增事实",
+      "basis": "fact_safety=4"
+    }
+  ],
+  "human_review_required": true,
+  "risk_notes": [
+    "疑似新增事实：正文中出现素材未提供的数据"
+  ],
+  "scoring_basis": {
+    "fact_safety": "4分",
+    "doc_type_fit": "8分",
+    "mango_style_fit": "8分",
+    "logic_completeness": "8分",
+    "language_quality": "8分",
+    "risk_control": "9分"
+  },
+  "no_new_facts_check": {
+    "status": "warning",
+    "suspected_new_facts": [
+      {"text": "测试新增事实", "location": "第3段", "reason": "extract中无此数据"}
+    ],
+    "detail": "extract中无此数据"
+  },
+  "doc_type_check": {
+    "status": "pass",
+    "detail": "文种匹配"
+  },
+  "style_check": {
+    "status": "pass",
+    "detail": "风格匹配"
+  },
+  "final_output_policy": {
+    "recommendation": "rewrite",
+    "reason": "存在低分维度"
+  },
+  "quality_gate_policy": {
+    "no_body_generation": true,
+    "no_body_modification": true,
+    "no_new_facts": true,
+    "no_rag_call": true,
+    "no_doc_type_change": true,
+    "evaluate_only": true
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "draft_summary": "已按新闻稿文种生成初稿。素材包含时间、地点、事件和成果发布，缺少成果名称、领导出席及具体组织信息，正文使用概括性表述并标注风险。参考了RAG风格中的标题气质和战略表达，未照抄事实。",
+  "doc_type": "新闻稿",
+  "direction": "对外宣传",
+  "style_level": 3,
+  "risk_level": "low",
+  "markdown_draft": "# 文化科技融合创新活动在马栏山举行——三项创新成果现场发布\n\n5月20日，文化科技融合创新活动在马栏山举行。现场发布三项创新成果，来自相关单位的代表参加交流。\n\n本次活动聚焦文化科技融合方向，通过成果发布与经验交流，进一步推动创新资源协同。\n\n未来，相关单位将继续以融合创新激活发展动能，深化在文化科技领域的探索与实践。",
+  "fact_usage_report": [
+    {
+      "draft_text": "5月20日",
+      "fact_type": "time",
+      "fact_value": "5月20日",
+      "source_text": "5月20日",
+      "source": "extract_result.fact_items[0]",
+      "confidence": 0.98
+    },
+    {
+      "draft_text": "马栏山",
+      "fact_type": "location",
+      "fact_value": "马栏山",
+      "source_text": "马栏山",
+      "source": "extract_result.fact_items[1]",
+      "confidence": 0.98
+    },
+    {
+      "draft_text": "文化科技融合创新活动",
+      "fact_type": "event",
+      "fact_value": "文化科技融合创新活动",
+      "source_text": "文化科技融合创新活动",
+      "source": "extract_result.fact_items[2]",
+      "confidence": 0.95
+    },
+    {
+      "draft_text": "三项创新成果",
+      "fact_type": "achievement",
+      "fact_value": "三项创新成果",
+      "source_text": "现场发布三项创新成果",
+      "source": "extract_result.fact_items[4]",
+      "confidence": 0.94
+    }
+  ],
+  "rag_usage_report": [
+    {
+      "used_for": "标题风格与战略表达",
+      "reference_source": "龚政文：跃马扬鞭赴新程",
+      "style_element": "标题使用概括式，结尾升华句式",
+      "copied_verbatim": false,
+      "fact_risk": false,
+      "note": "借鉴了标题结构和'融合创新'等战略词的使用方式，未使用旧稿事实。"
+    },
+    {
+      "used_for": "导语开头句式",
+      "reference_source": "集团（台）党委开展理论学习中心组（扩大）2025年第十一次集体学习",
+      "style_element": "时间+地点+事件+核心动作的简洁导语",
+      "copied_verbatim": false,
+      "fact_risk": false,
+      "note": "仅借鉴句式节奏，未使用旧稿事实。"
+    }
+  ],
+  "terminology_usage_report": [
+    {
+      "raw_value": "马栏山",
+      "used_value": "马栏山",
+      "type": "organization",
+      "source": "extract_result",
+      "confidence": 0.98,
+      "needs_manual_confirmation": false,
+      "note": "用户素材原文，属马栏山视频文创产业园简称。"
+    }
+  ],
+  "blocked_items_check": [
+    {
+      "item": "领导出席",
+      "status": "not_used",
+      "reason": "用户未提供领导出席信息，正文未编造。"
+    },
+    {
+      "item": "领导评价",
+      "status": "not_used",
+      "reason": "用户未提供领导评价，正文未编造。"
+    },
+    {
+      "item": "成果具体名称",
+      "status": "not_used",
+      "reason": "用户未提供成果具体名称，正文仅概括表述。"
+    },
+    {
+      "item": "活动主办单位",
+      "status": "not_used",
+      "reason": "用户未提供主办单位，正文未提及。"
+    },
+    {
+      "item": "湖南广电集团/芒果超媒",
+      "status": "not_used",
+      "reason": "extract阶段未抽取组织信息，正文使用'相关单位'概括。"
+    }
+  ],
+  "warnings": [
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "message": "成果具体名称未提供，正文仅概括写'三项创新成果'。",
+      "related_field": "成果名称",
+      "action": "如有成果名称，后续可补充。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "message": "活动主办单位未提供，正文未提及具体单位。",
+      "related_field": "主办单位",
+      "action": "如有主办单位信息，后续可补充。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "message": "参与组织（湖南广电集团、芒果超媒）未在extract阶段明确抽取，正文使用'相关单位'概括。",
+      "related_field": "organizations",
+      "action": "如需明确提及，建议人工确认后补充。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "message": "领导出席情况未提供。",
+      "related_field": "领导出席",
+      "action": "如有出席领导信息，后续可补充。"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "参与组织具体名称",
+      "reason": "extract阶段未抽取，用户初稿提及'湖南广电集团'和'芒果超媒'，但未纳入fact_items",
+      "impact": "影响新闻稿主体内容的具体性",
+      "required_before_final": false
+    }
+  ],
+  "draft_policy": {
+    "body_generated": true,
+    "no_new_facts": true,
+    "use_only_extract_facts": true,
+    "rag_used_for_style_only": true,
+    "follow_plan_structure": true,
+    "follow_doc_type_rules": true,
+    "follow_org_title_dictionary": true
+  }
+}

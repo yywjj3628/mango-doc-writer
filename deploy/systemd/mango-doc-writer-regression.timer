@@ -1,0 +1,9 @@
+[Unit]
+Description=每周运行 Mango Doc Writer 回归测试
+
+[Timer]
+OnCalendar=Mon 03:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target

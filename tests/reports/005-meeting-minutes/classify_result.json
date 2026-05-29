@@ -1,0 +1,33 @@
+{
+  "doc_type": "会议纪要",
+  "doc_type_confidence": 0.93,
+  "direction": "内部材料",
+  "style_level": 1,
+  "risk_level": "medium",
+  "reason": "用户明确要求整理成会议纪要，初稿内容包含会议研究事项、责任分工、下阶段时间节点等，符合会议纪要文种特征。",
+  "required_rules": [
+    "会议纪要"
+  ],
+  "required_structure": [
+    "会议基本信息",
+    "会议主要内容",
+    "议定事项",
+    "责任分工",
+    "后续要求"
+  ],
+  "forbidden_items": [
+    "不得加入会外推测",
+    "不得宣传化改写",
+    "不得虚构议定事项",
+    "不得遗漏责任分工"
+  ],
+  "possible_confusions": [
+    {
+      "candidate": "新闻稿",
+      "reason": "若材料目的是对外宣传会议成果而非记录议定事项，则可能是新闻稿。",
+      "distinguish_rule": "是否记录会议决定和责任分工。"
+    }
+  ],
+  "need_manual_confirmation": false,
+  "manual_confirmation_fields": []
+}

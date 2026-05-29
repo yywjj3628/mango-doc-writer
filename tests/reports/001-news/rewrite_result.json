@@ -1,0 +1,112 @@
+{
+  "rewrite_summary": "review阶段未发现任何问题（pass: true, rewrite_required: false），无需实质性修订。输出与draft阶段一致的final_markdown，仅确保格式正确。",
+  "doc_type": "新闻稿",
+  "direction": "对外宣传",
+  "style_level": 3,
+  "risk_level": "low",
+  "final_markdown": "# 文化科技融合创新活动在马栏山举行——三项创新成果现场发布\n\n5月20日，文化科技融合创新活动在马栏山举行。活动现场发布三项创新成果，来自湖南广电集团、芒果超媒等单位的代表参加交流。\n\n本次活动以文化科技融合为主题，聚焦成果发布、经验交流和协同推进，进一步搭建体系内单位合作平台。与会代表围绕技术趋势、创新应用等话题展开深入探讨。\n\n三项创新成果集中展示了芒果系在内容生产、技术赋能等方面的最新探索，体现了文化与科技深度融合的实践成效。\n\n未来，湖南广电系统将继续以融合创新为驱动，推动更多成果落地转化，在数智化转型中走在前列。",
+  "revision_report": [],
+  "fact_usage_report": [
+    {
+      "final_text": "5月20日",
+      "fact_type": "time",
+      "fact_value": "5月20日",
+      "source_text": "5月20日，文化科技融合创新活动在马栏山举行。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.98
+    },
+    {
+      "final_text": "马栏山",
+      "fact_type": "location",
+      "fact_value": "马栏山",
+      "source_text": "文化科技融合创新活动在马栏山举行。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.98
+    },
+    {
+      "final_text": "文化科技融合创新活动",
+      "fact_type": "event",
+      "fact_value": "文化科技融合创新活动",
+      "source_text": "5月20日，文化科技融合创新活动在马栏山举行。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.95
+    },
+    {
+      "final_text": "湖南广电集团",
+      "fact_type": "organization",
+      "fact_value": "湖南广电集团",
+      "source_text": "来自湖南广电集团、芒果超媒等单位的代表参加交流。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.96
+    },
+    {
+      "final_text": "芒果超媒",
+      "fact_type": "organization",
+      "fact_value": "芒果超媒",
+      "source_text": "来自湖南广电集团、芒果超媒等单位的代表参加交流。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.96
+    },
+    {
+      "final_text": "三项创新成果",
+      "fact_type": "achievement",
+      "fact_value": "活动现场发布了三项创新成果",
+      "source_text": "活动现场发布了三项创新成果。",
+      "source": "extract_result.fact_items",
+      "confidence": 0.94
+    }
+  ],
+  "terminology_usage_report": [
+    {
+      "raw_value": "湖南广电集团",
+      "used_value": "湖南广电集团",
+      "type": "organization",
+      "source": "extract_result",
+      "confidence": 0.96,
+      "needs_manual_confirmation": false,
+      "note": "用户素材原文，与口径库一致。"
+    },
+    {
+      "raw_value": "芒果超媒",
+      "used_value": "芒果超媒",
+      "type": "organization",
+      "source": "extract_result",
+      "confidence": 0.96,
+      "needs_manual_confirmation": false,
+      "note": "用户素材原文，与口径库一致。"
+    }
+  ],
+  "resolved_issues": [],
+  "unresolved_issues": [],
+  "remaining_risks": [
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "detail": "成果具体名称未提供，正文仅概括写'三项创新成果'。",
+      "action": "如有成果名称，后续可补充。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "detail": "领导出席情况未提供。",
+      "action": "如有出席领导信息，后续可补充。"
+    }
+  ],
+  "manual_confirmation_fields": [],
+  "final_checks": {
+    "doc_type_fixed": true,
+    "unsupported_facts_removed": true,
+    "blocked_items_removed": true,
+    "terminology_checked": true,
+    "manual_confirmations_preserved": true
+  },
+  "rewrite_policy": {
+    "body_rewritten": true,
+    "no_new_facts": true,
+    "use_only_extract_facts": true,
+    "no_rag_call": true,
+    "follow_review_instructions": true,
+    "follow_doc_type_rules": true,
+    "follow_org_title_dictionary": true
+  }
+}

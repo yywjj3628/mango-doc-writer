@@ -1,0 +1,249 @@
+{
+  "plan_summary": "用户需求为向集团汇报的正式报告，classify判定为报告（上行文），素材较简单，缺少具体时间、任务名称、主送单位全称和落款单位。结构按报告标准四段式规划，存在问题段事实不足需人工补充。",
+  "doc_type": "报告",
+  "direction": "上行文",
+  "style_level": 2,
+  "risk_level": "medium",
+  "title_plan": {
+    "recommended_title": "关于重点任务推进情况的报告",
+    "title_type": "正式公文标题",
+    "title_confidence": 0.7,
+    "title_basis": [
+      "classify.doc_type = 报告",
+      "extract.projects 包含重点任务"
+    ],
+    "title_risks": [
+      "重点任务具体名称缺失，标题仅用泛称"
+    ],
+    "alternative_titles": []
+  },
+  "addressee_plan": {
+    "recommended_addressee": "湖南广播影视集团（台）",
+    "source": "org-title-dictionary.yaml",
+    "confidence": 0.8,
+    "needs_manual_confirmation": false,
+    "note": "用户写'集团'，根据口径库转为正式全称"
+  },
+  "signer_plan": {
+    "recommended_signer": "",
+    "source": "missing",
+    "confidence": 0,
+    "needs_manual_confirmation": true,
+    "note": "落款单位缺失，需人工确认"
+  },
+  "sections": [
+    {
+      "section_id": "S1",
+      "section_name": "基本情况",
+      "purpose": "概述报告背景和工作总体情况",
+      "content_guidance": "围绕'今年以来围绕重点任务推进'展开，概括性说明工作总体进展",
+      "fact_bindings": [
+        {
+          "fact_type": "time",
+          "fact_value": "今年以来",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "project",
+          "fact_value": "重点任务",
+          "source_from_extract": true
+        }
+      ],
+      "blocked_items": [
+        "不得编造具体时间范围",
+        "不得编造具体任务名称"
+      ],
+      "word_count_estimate": 150,
+      "needs_manual_input": false
+    },
+    {
+      "section_id": "S2",
+      "section_name": "主要工作",
+      "purpose": "汇报已完成的工作内容和成效",
+      "content_guidance": "围绕前期梳理、资源协调、阶段性复盘三个要点展开，可使用概括性表述",
+      "fact_bindings": [
+        {
+          "fact_type": "achievement",
+          "fact_value": "完成了前期梳理、资源协调和阶段性复盘",
+          "source_from_extract": true
+        }
+      ],
+      "blocked_items": [
+        "不得编造成果数据",
+        "不得编造具体成效细节"
+      ],
+      "word_count_estimate": 300,
+      "needs_manual_input": false
+    },
+    {
+      "section_id": "S3",
+      "section_name": "存在问题",
+      "purpose": "反映工作中存在的困难和不足",
+      "content_guidance": "用户素材未提供问题内容，需人工补充或概括性表述如'还面临一些挑战'，但不得编造具体问题",
+      "fact_bindings": [],
+      "blocked_items": [
+        "不得编造问题",
+        "不得夹带请示事项"
+      ],
+      "word_count_estimate": 150,
+      "needs_manual_input": true
+    },
+    {
+      "section_id": "S4",
+      "section_name": "下一步工作",
+      "purpose": "说明后续工作计划",
+      "content_guidance": "围绕加强统筹、推动重点任务落地展开，可使用战略表达",
+      "fact_bindings": [
+        {
+          "fact_type": "project",
+          "fact_value": "重点任务（下一步）",
+          "source_from_extract": true
+        }
+      ],
+      "blocked_items": [
+        "不得编造具体措施",
+        "不得出现请求性词语"
+      ],
+      "word_count_estimate": 200,
+      "needs_manual_input": false
+    }
+  ],
+  "style_directives": {
+    "overall_tone": "芒果系正式公文风",
+    "key_expressions": [
+      "现将XX情况报告如下",
+      "一、基本情况",
+      "二、主要工作",
+      "三、存在问题",
+      "四、下一步工作打算",
+      "特此报告"
+    ],
+    "forbidden_expressions": [
+      "不得夹带请示事项",
+      "不得出现请批准、请批复、请求支持等",
+      "不得编造领导评价"
+    ],
+    "style_reference": "doc-type-rules.md 报告章节"
+  },
+  "title_rules": [
+    "报告标题格式：关于XXX情况的报告",
+    "标题只能使用extract中已有信息"
+  ],
+  "addressee_resolution": {
+    "recommended_addressee": "湖南广播影视集团（台）",
+    "source": "org-title-dictionary.yaml",
+    "confidence": 0.8,
+    "needs_manual_confirmation": false,
+    "note": "用户写'集团'，根据口径库转为正式全称"
+  },
+  "signer_resolution": {
+    "recommended_signer": "",
+    "source": "missing",
+    "confidence": 0,
+    "needs_manual_confirmation": true,
+    "note": "落款单位缺失"
+  },
+  "title_suggestions": {
+    "recommended_title": "关于重点任务推进情况的报告",
+    "alternative_titles": [],
+    "title_rules": [
+      "报告标题格式：关于XXX情况的报告"
+    ]
+  },
+  "missing_fields": [
+    {
+      "field": "具体时间范围",
+      "reason": "用户仅写'今年以来'，未提供具体截止时间或阶段",
+      "impact": "影响报告时间表述的精确性",
+      "suggestion": "后续写作前建议确认具体时间节点"
+    },
+    {
+      "field": "重点任务具体名称",
+      "reason": "用户仅写'重点任务'，未提供具体任务名称",
+      "impact": "影响报告主体内容的具体性",
+      "suggestion": "后续写作前建议确认重点任务名称"
+    },
+    {
+      "field": "主送单位全称",
+      "reason": "用户需求中写'集团'，未提供正式主送单位全称",
+      "impact": "影响正式公文抬头",
+      "suggestion": "已根据口径库补全为'湖南广播影视集团（台）'，若需调整请人工确认"
+    },
+    {
+      "field": "落款单位",
+      "reason": "用户未提供报告落款单位",
+      "impact": "影响报告结尾",
+      "suggestion": "后续写作前建议确认落款单位"
+    }
+  ],
+  "cannot_infer": [
+    {
+      "field": "领导评价",
+      "reason": "用户素材未提供领导评价，不得自动补充"
+    },
+    {
+      "field": "经营数据",
+      "reason": "用户素材未提供任何数据，不得编造"
+    },
+    {
+      "field": "具体工作成效细节",
+      "reason": "用户仅概括性描述，未提供具体成效数据或成果"
+    }
+  ],
+  "risk_flags": [
+    {
+      "type": "missing_required_field",
+      "detail": "缺少重点任务具体名称，影响报告主体内容",
+      "level": "high"
+    },
+    {
+      "type": "missing_required_field",
+      "detail": "缺少具体时间范围，影响报告时效性表述",
+      "level": "medium"
+    },
+    {
+      "type": "section_no_fact_support",
+      "detail": "S3 存在问题段落无事实支撑，需人工补充",
+      "level": "medium"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "重点任务具体名称",
+      "reason": "影响标题和正文主体内容",
+      "suggestion": "确认重点任务正式名称"
+    },
+    {
+      "field": "落款单位",
+      "reason": "报告必须有落款单位",
+      "suggestion": "确认报告出具单位"
+    },
+    {
+      "field": "存在问题段落",
+      "reason": "用户素材未提供问题内容",
+      "suggestion": "如有具体问题请补充，否则可概括性表述"
+    }
+  ],
+  "draft_directives": {
+    "total_word_count_estimate": 800,
+    "must_use_facts": [
+      "今年以来",
+      "重点任务",
+      "完成了前期梳理、资源协调和阶段性复盘",
+      "重点任务（下一步）"
+    ],
+    "must_avoid": [
+      "不得夹带请示事项",
+      "不得出现请批准、请批复等",
+      "不得编造领导评价",
+      "不得编造经营数据",
+      "不得编造具体成效细节",
+      "不得编造任务名称"
+    ],
+    "format_requirements": [
+      "报告标准格式：基本情况、主要工作、存在问题、下一步工作",
+      "结尾使用'特此报告'",
+      "落款注明单位及日期"
+    ]
+  }
+}

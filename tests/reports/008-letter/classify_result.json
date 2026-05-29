@@ -1,0 +1,38 @@
+{
+  "doc_type": "函",
+  "doc_type_confidence": 0.9,
+  "direction": "平行文",
+  "target_unit": "",
+  "scene": "商请合作单位协助活动保障",
+  "style_level": 1,
+  "risk_level": "medium",
+  "reason": "用户要求给合作单位发函，素材中出现'商请'、'协助'、'沟通'等平行文信号，符合函的文种特征。",
+  "required_rules": [
+    "函"
+  ],
+  "required_structure": [
+    "致函缘由",
+    "商洽事项",
+    "具体请求",
+    "回复要求",
+    "结束语"
+  ],
+  "forbidden_items": [
+    "不得用于向上级请示",
+    "不得语气强硬",
+    "不得缺少商洽事项或回复要求"
+  ],
+  "possible_confusions": [
+    {
+      "candidate": "请示",
+      "reason": "若对象为上级单位且请求批准或支持，则应改判为请示。",
+      "distinguish_rule": "对象是否为上级，是否请求批准。"
+    }
+  ],
+  "user_specified_doc_type": "函",
+  "conflict_detected": false,
+  "conflict_reason": null,
+  "recommended_action": null,
+  "need_manual_confirmation": false,
+  "manual_confirmation_fields": []
+}

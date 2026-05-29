@@ -1,0 +1,163 @@
+{
+  "review_summary": "初稿符合领导讲话文种和规划结构，但存在无依据成果表述'取得了一定进展'，且该事实未在fact_usage_report中记录，同时manual_confirmation_fields遗漏'重点项目具体名称'项。需要修订。",
+  "pass": false,
+  "score": 65,
+  "rewrite_required": true,
+  "risk_level": "high",
+  "checks": {
+    "doc_type_check": {
+      "status": "pass",
+      "summary": "文种与classify一致，正文结构符合领导讲话规范。",
+      "issues_count": 0
+    },
+    "structure_check": {
+      "status": "pass",
+      "summary": "正文段落顺序与plan的六个部分一致，内容基本匹配。",
+      "issues_count": 0
+    },
+    "fact_grounding_check": {
+      "status": "fail",
+      "summary": "正文'取得了一定进展'无extract事实支撑。",
+      "issues_count": 1
+    },
+    "fact_usage_report_check": {
+      "status": "fail",
+      "summary": "正文中的'取得了一定进展'未在fact_usage_report中记录。",
+      "issues_count": 1
+    },
+    "rag_usage_check": {
+      "status": "pass",
+      "summary": "未使用RAG风格参考，无污染。",
+      "issues_count": 0
+    },
+    "terminology_check": {
+      "status": "pass",
+      "summary": "称谓使用正确，无禁忌项。",
+      "issues_count": 0
+    },
+    "blocked_items_check": {
+      "status": "fail",
+      "summary": "'取得了一定进展'属于无依据成果表述，违反blocked_items。",
+      "issues_count": 1
+    },
+    "warnings_check": {
+      "status": "pass",
+      "summary": "warnings基本承接了主要风险，但未指出'取得了一定进展'问题。",
+      "issues_count": 0
+    },
+    "manual_confirmation_check": {
+      "status": "fail",
+      "summary": "遗漏'重点项目具体名称'确认项。",
+      "issues_count": 1
+    },
+    "style_check": {
+      "status": "pass",
+      "summary": "风格符合style_level=2要求。",
+      "issues_count": 0
+    },
+    "format_check": {
+      "status": "pass",
+      "summary": "Markdown格式正确。",
+      "issues_count": 0
+    }
+  },
+  "issues": [
+    {
+      "issue_id": "R001",
+      "level": "high",
+      "type": "fact_not_grounded",
+      "location": "markdown_draft 第3段",
+      "detail": "正文出现“取得了一定进展”，但extract_result中未提供任何工作进展事实或成绩。",
+      "evidence": "在大家的共同努力下，各项工作取得了一定进展，为后续推进奠定了基础。",
+      "suggestion": "删除该表述，或改为中性表述。",
+      "rewrite_hint": "删除“取得了一定进展，为后续推进奠定了基础”整句，或改为“各项工作正在有序推进”。"
+    },
+    {
+      "issue_id": "R002",
+      "level": "high",
+      "type": "fact_usage_missing",
+      "location": "fact_usage_report",
+      "detail": "正文中的“取得了一定进展”未在fact_usage_report中列出，导致溯源不完整。",
+      "evidence": "fact_usage_report仅包含5个事实，遗漏此条。",
+      "suggestion": "补充fact_usage_report记录，或删除无来源事实。",
+      "rewrite_hint": "参见R001。"
+    },
+    {
+      "issue_id": "R003",
+      "level": "medium",
+      "type": "blocked_item_used",
+      "location": "markdown_draft 第3段",
+      "detail": "正文使用“取得了一定进展”概括工作成效，但用户素材未提供任何工作进展事实，属于无依据的成果表述。",
+      "evidence": "取得了一定进展",
+      "suggestion": "删除该表述。",
+      "rewrite_hint": "参见R001。"
+    },
+    {
+      "issue_id": "R004",
+      "level": "medium",
+      "type": "manual_confirmation_missing",
+      "location": "manual_confirmation_fields",
+      "detail": "manual_confirmation_fields未包含“重点项目具体名称”，而plan_result和warnings均指出其缺失。",
+      "evidence": "manual_confirmation_fields当前字段列表仅有4项。",
+      "suggestion": "添加“重点项目具体名称”到manual_confirmation_fields。",
+      "rewrite_hint": ""
+    }
+  ],
+  "rewrite_instructions": [
+    {
+      "priority": "high",
+      "target": "markdown_draft 第3段",
+      "action": "delete_or_replace",
+      "instruction": "删除“在大家的共同努力下，各项工作取得了一定进展，为后续推进奠定了基础”整句，或替换为“各项工作正在有序推进”。",
+      "basis": "extract_result中无对应事实。"
+    },
+    {
+      "priority": "medium",
+      "target": "manual_confirmation_fields",
+      "action": "add_warning",
+      "instruction": "在manual_confirmation_fields中添加字段“重点项目具体名称”，reason为“用户仅提供概括表述，需确认具体项目名称”，impact为“影响重点部署段落内容准确度”。",
+      "basis": "plan_result.missing_fields和draft_result.warnings。"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "讲话领导姓名",
+      "reason": "领导讲话必须明确讲话人",
+      "impact": "影响讲话稿称谓和身份表达",
+      "required_before_final": true
+    },
+    {
+      "field": "讲话领导职务",
+      "reason": "领导讲话开头需要使用职务",
+      "impact": "影响开头语气",
+      "required_before_final": true
+    },
+    {
+      "field": "会议时间",
+      "reason": "影响开场背景完整性",
+      "impact": "影响正文背景段",
+      "required_before_final": false
+    },
+    {
+      "field": "会议具体名称",
+      "reason": "影响标题和开场",
+      "impact": "影响标题准确性",
+      "required_before_final": false
+    },
+    {
+      "field": "重点项目具体名称",
+      "reason": "用户仅提供概括表述，需确认具体项目名称",
+      "impact": "影响重点部署段落内容准确度",
+      "required_before_final": false
+    }
+  ],
+  "review_policy": {
+    "no_body_generation": true,
+    "no_rewrite": true,
+    "no_new_facts": true,
+    "no_rag_call": true,
+    "check_fact_grounding": true,
+    "check_doc_type_rules": true,
+    "check_org_title_dictionary": true
+  }
+}

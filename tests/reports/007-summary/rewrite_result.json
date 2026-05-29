@@ -1,0 +1,200 @@
+{
+  "rewrite_summary": "根据review结果，对S2、S3、S4中无依据的概括性表述进行了替换：S2的'得到一定提升'替换为'完成了制度修订、流程优化和团队培训等阶段性任务'；S3的'形成了一些值得继续坚持的做法'替换为'相关经验有待后续总结'；S4的具体问题替换为'工作中还存在一些不足'。同时，在fact_usage_report中补充了被替换的无源表述的记录。其他部分保持不变。",
+  "doc_type": "总结",
+  "direction": "内部材料",
+  "style_level": 2,
+  "risk_level": "medium",
+  "final_markdown": "# 部门一季度工作总结\n\n今年一季度，部门围绕年度目标推进各项工作，在制度修订、流程优化和团队培训方面取得初步进展。\n\n## 一、工作开展情况\n\n一季度，部门紧扣年度目标，有序推进各项重点工作。一是完成制度修订，二是推进流程优化，三是组织团队培训。各项工作按计划顺利推进。\n\n## 二、主要成效\n\n通过上述工作的开展，部门完成了制度修订、流程优化和团队培训等阶段性任务，为后续工作奠定了较好基础。\n\n## 三、经验做法\n\n在推进过程中，部门注重统筹协调与过程管理，相关经验有待后续总结。\n\n## 四、存在问题\n\n同时，我们也清醒地认识到，工作中还存在一些不足，需在后续工作中加以改进。\n\n## 五、下一步计划\n\n下阶段，部门将继续深化内部管理，从制度执行、流程优化和能力提升等方面持续发力，进一步提升整体运营效率。\n\n【落款单位待确认】\n\n【日期待确认】",
+  "revision_report": [
+    {
+      "revision_id": "REV001",
+      "issue_id": "R001",
+      "action": "replace",
+      "before": "通过上述工作的开展，部门在制度建设、运营效率和团队能力方面得到一定提升，为后续工作奠定了较好基础。",
+      "after": "通过上述工作的开展，部门完成了制度修订、流程优化和团队培训等阶段性任务，为后续工作奠定了较好基础。",
+      "reason": "原表述'得到一定提升'无事实依据，替换为基于extract三项成就的中性表述。",
+      "basis": "extract_result.fact_items中三项成就"
+    },
+    {
+      "revision_id": "REV002",
+      "issue_id": "R001",
+      "action": "replace",
+      "before": "在推进过程中，部门注重统筹协调与过程管理，形成了一些值得继续坚持的做法，相关经验有待进一步总结提炼。",
+      "after": "在推进过程中，部门注重统筹协调与过程管理，相关经验有待后续总结。",
+      "reason": "原表述'形成了一些值得继续坚持的做法'无事实依据，替换为更中性的表述。",
+      "basis": "extract_result中无经验做法事实"
+    },
+    {
+      "revision_id": "REV003",
+      "issue_id": "R002",
+      "action": "replace",
+      "before": "同时，我们也清醒地认识到，工作中还存在一些不足，例如部分工作的量化评估尚不充分，团队协作效率有待进一步提升等，需在后续工作中加以改进。",
+      "after": "同时，我们也清醒地认识到，工作中还存在一些不足，需在后续工作中加以改进。",
+      "reason": "原表述中的具体问题无事实依据，替换为通用表述。",
+      "basis": "extract_result中无问题事实"
+    }
+  ],
+  "fact_usage_report": [
+    {
+      "final_text": "今年一季度",
+      "fact_type": "time",
+      "fact_value": "今年一季度",
+      "source_text": "今年一季度，部门围绕年度目标推进各项工作",
+      "source": "extract_result.fact_items",
+      "confidence": 0.95
+    },
+    {
+      "final_text": "部门",
+      "fact_type": "organization",
+      "fact_value": "部门",
+      "source_text": "部门围绕年度目标推进各项工作",
+      "source": "extract_result.fact_items",
+      "confidence": 0.9
+    },
+    {
+      "final_text": "完成制度修订",
+      "fact_type": "achievement",
+      "fact_value": "完成了制度修订",
+      "source_text": "完成了制度修订、流程优化和团队培训",
+      "source": "extract_result.fact_items",
+      "confidence": 0.95
+    },
+    {
+      "final_text": "推进流程优化",
+      "fact_type": "achievement",
+      "fact_value": "完成了流程优化",
+      "source_text": "完成了制度修订、流程优化和团队培训",
+      "source": "extract_result.fact_items",
+      "confidence": 0.95
+    },
+    {
+      "final_text": "组织团队培训",
+      "fact_type": "achievement",
+      "fact_value": "完成了团队培训",
+      "source_text": "完成了制度修订、流程优化和团队培训",
+      "source": "extract_result.fact_items",
+      "confidence": 0.95
+    },
+    {
+      "final_text": "部门在制度建设、运营效率和团队能力方面得到一定提升",
+      "fact_type": "unknown",
+      "fact_value": "得到一定提升",
+      "source_text": "部门在制度建设、运营效率和团队能力方面得到一定提升",
+      "source": "no_source",
+      "confidence": 0
+    },
+    {
+      "final_text": "形成了一些值得继续坚持的做法",
+      "fact_type": "unknown",
+      "fact_value": "形成了一些值得继续坚持的做法",
+      "source_text": "形成了一些值得继续坚持的做法",
+      "source": "no_source",
+      "confidence": 0
+    },
+    {
+      "final_text": "部分工作的量化评估尚不充分，团队协作效率有待进一步提升",
+      "fact_type": "unknown",
+      "fact_value": "具体问题",
+      "source_text": "部分工作的量化评估尚不充分，团队协作效率有待进一步提升",
+      "source": "no_source",
+      "confidence": 0
+    }
+  ],
+  "terminology_usage_report": [
+    {
+      "raw_value": "部门",
+      "used_value": "部门",
+      "type": "organization",
+      "source": "extract_result",
+      "confidence": 0.9,
+      "needs_manual_confirmation": true,
+      "note": "部门具体名称未提供，正文沿用用户原文"
+    }
+  ],
+  "resolved_issues": [
+    {
+      "issue_id": "R001",
+      "resolution": "已按rewrite_instructions替换S2和S3的无依据表述。",
+      "basis": "rewrite_instructions第1、2条"
+    },
+    {
+      "issue_id": "R002",
+      "resolution": "已按rewrite_instructions替换S4的具体问题为通用表述。",
+      "basis": "rewrite_instructions第3条"
+    },
+    {
+      "issue_id": "R003",
+      "resolution": "已在fact_usage_report中补充被替换的无源表述记录。",
+      "basis": "rewrite_instructions第4条"
+    }
+  ],
+  "unresolved_issues": [],
+  "remaining_risks": [
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "detail": "部门具体名称缺失，正文使用'部门'泛指。",
+      "action": "正式成稿前确认部门全称。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "detail": "落款单位缺失，使用占位符。",
+      "action": "正式成稿前补充落款单位。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "detail": "具体成效数据未提供，正文仅概括表述。",
+      "action": "如有可补充具体数据提升说服力。"
+    },
+    {
+      "level": "medium",
+      "type": "missing_field",
+      "detail": "经验做法和存在问题部分内容概括，缺乏具体事实支撑。",
+      "action": "建议结合实际补充典型经验和具体问题。"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "部门具体名称",
+      "reason": "用户仅写'部门'，需确认正式名称",
+      "impact": "影响标题和正文准确性",
+      "required_before_final": true
+    },
+    {
+      "field": "落款单位",
+      "reason": "总结需要落款单位",
+      "impact": "影响材料完整性",
+      "required_before_final": true
+    },
+    {
+      "field": "存在问题",
+      "reason": "总结必须包含问题，用户未提供",
+      "impact": "影响正文说服力",
+      "required_before_final": false
+    },
+    {
+      "field": "经验做法",
+      "reason": "总结结构需要经验做法部分，用户未提供",
+      "impact": "影响正文完整性",
+      "required_before_final": false
+    }
+  ],
+  "final_checks": {
+    "doc_type_fixed": true,
+    "unsupported_facts_removed": true,
+    "blocked_items_removed": true,
+    "terminology_checked": true,
+    "manual_confirmations_preserved": true
+  },
+  "rewrite_policy": {
+    "body_rewritten": true,
+    "no_new_facts": true,
+    "use_only_extract_facts": true,
+    "no_rag_call": true,
+    "follow_review_instructions": true,
+    "follow_doc_type_rules": true,
+    "follow_org_title_dictionary": true
+  }
+}

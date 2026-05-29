@@ -1,0 +1,308 @@
+{
+  "plan_summary": "本次规划针对领导在工作推进会上的讲话稿，文种为领导讲话，方向综合材料。素材简短，仅包含会议部署和责任要求，需人工补充大量内容。规划按领导讲话标准结构进行，重点标注缺失字段和风险。",
+  "doc_type": "领导讲话",
+  "direction": "综合材料",
+  "style_level": 2,
+  "risk_level": "medium",
+  "title_plan": {
+    "recommended_title": "在工作推进会上的讲话",
+    "title_type": "领导讲话标题",
+    "title_confidence": 0.65,
+    "title_basis": [
+      "classify.doc_type = 领导讲话",
+      "extract.events 包含工作推进会"
+    ],
+    "title_risks": [
+      "用户未提供会议具体名称，标题使用通用表述",
+      "讲话领导姓名缺失，标题无法体现"
+    ],
+    "alternative_titles": [
+      "在年度重点任务工作推进会上的讲话"
+    ]
+  },
+  "addressee_plan": {
+    "recommended_addressee": null,
+    "source": "not_applicable",
+    "confidence": 0,
+    "needs_manual_confirmation": false,
+    "note": "领导讲话通常无主送单位，开场用'同志们'"
+  },
+  "signer_plan": {
+    "recommended_signer": null,
+    "source": "missing",
+    "confidence": 0,
+    "needs_manual_confirmation": true,
+    "note": "讲话领导姓名和职务未提供，需人工确认"
+  },
+  "sections": [
+    {
+      "section_id": "S1",
+      "section_name": "开场与背景",
+      "purpose": "点明会议主题，阐述会议背景和目的",
+      "content_guidance": "围绕工作推进会主题展开，可引用会议部署内容，但不得编造领导个人表态",
+      "fact_bindings": [
+        {
+          "fact_type": "event",
+          "fact_value": "工作推进会",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "project",
+          "fact_value": "年度重点任务",
+          "source_from_extract": true
+        }
+      ],
+      "blocked_items": [
+        "不得编造会议时间",
+        "不得编造领导开场白内容"
+      ],
+      "word_count_estimate": 150,
+      "needs_manual_input": true
+    },
+    {
+      "section_id": "S2",
+      "section_name": "形势判断",
+      "purpose": "分析当前形势和工作站位",
+      "content_guidance": "需人工补充形势判断内容，现有素材未提供任何形势信息，不得自行扩展",
+      "fact_bindings": [],
+      "blocked_items": [
+        "不得编造政策判断",
+        "不得编造外部环境分析"
+      ],
+      "word_count_estimate": 200,
+      "needs_manual_input": true
+    },
+    {
+      "section_id": "S3",
+      "section_name": "工作肯定",
+      "purpose": "肯定前期工作或成绩",
+      "content_guidance": "素材未提供任何成绩或肯定内容，可概括性提及工作推进情况，但不得编造成果",
+      "fact_bindings": [],
+      "blocked_items": [
+        "不得编造成果数据",
+        "不得编造领导评价"
+      ],
+      "word_count_estimate": 150,
+      "needs_manual_input": true
+    },
+    {
+      "section_id": "S4",
+      "section_name": "重点部署",
+      "purpose": "部署重点任务和工作要求",
+      "content_guidance": "围绕年度重点任务推进和重点项目落地展开，可引用用户初稿中的要求",
+      "fact_bindings": [
+        {
+          "fact_type": "project",
+          "fact_value": "年度重点任务",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "project",
+          "fact_value": "重点项目",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "request",
+          "fact_value": "要求各部门强化责任意识",
+          "source_from_extract": true
+        },
+        {
+          "fact_type": "request",
+          "fact_value": "加快重点项目落地",
+          "source_from_extract": true
+        }
+      ],
+      "blocked_items": [
+        "不得编造具体项目名称",
+        "不得编造时间节点"
+      ],
+      "word_count_estimate": 250,
+      "needs_manual_input": false
+    },
+    {
+      "section_id": "S5",
+      "section_name": "具体要求",
+      "purpose": "提出落实措施和组织保障要求",
+      "content_guidance": "围绕责任意识强化和项目落地进一步展开，可补充监督考核等常见要求但需人工确认",
+      "fact_bindings": [
+        {
+          "fact_type": "organization",
+          "fact_value": "各部门",
+          "source_from_extract": true
+        }
+      ],
+      "blocked_items": [
+        "不得编造具体部门名称",
+        "不得编造奖惩措施"
+      ],
+      "word_count_estimate": 200,
+      "needs_manual_input": true
+    },
+    {
+      "section_id": "S6",
+      "section_name": "结尾号召",
+      "purpose": "鼓舞士气，号召落实",
+      "content_guidance": "使用领导讲话标准结尾，如'让我们凝心聚力，确保年度重点任务圆满完成'",
+      "fact_bindings": [],
+      "blocked_items": [
+        "不得编造领导个人表态"
+      ],
+      "word_count_estimate": 80,
+      "needs_manual_input": false
+    }
+  ],
+  "style_directives": {
+    "overall_tone": "芒果系正式公文风",
+    "key_expressions": [
+      "要提高政治站位",
+      "要突出重点",
+      "要压实责任",
+      "同志们"
+    ],
+    "forbidden_expressions": [
+      "不得缺少站位和判断",
+      "不得缺少工作部署",
+      "不得缺少具体要求",
+      "不得照抄上级文件"
+    ],
+    "style_reference": "doc-type-rules.md 领导讲话章节"
+  },
+  "title_rules": [
+    "领导讲话标题格式：在XXX会议上的讲话",
+    "标题应体现场合和主题"
+  ],
+  "addressee_resolution": {
+    "recommended_addressee": null,
+    "source": "not_applicable",
+    "confidence": 0,
+    "needs_manual_confirmation": false,
+    "note": "领导讲话无主送单位"
+  },
+  "signer_resolution": {
+    "recommended_signer": null,
+    "source": "missing",
+    "confidence": 0,
+    "needs_manual_confirmation": true,
+    "note": "讲话领导姓名和职务缺失"
+  },
+  "title_suggestions": {
+    "recommended_title": "在工作推进会上的讲话",
+    "alternative_titles": [
+      "在年度重点任务工作推进会上的讲话"
+    ],
+    "title_rules": [
+      "领导讲话标题格式：在XXX会议上的讲话"
+    ]
+  },
+  "missing_fields": [
+    {
+      "field": "讲话领导姓名",
+      "reason": "用户要求整理领导讲话稿，但未提供讲话领导姓名",
+      "impact": "影响讲话稿称谓和身份表达",
+      "suggestion": "后续写作前建议确认讲话领导姓名"
+    },
+    {
+      "field": "讲话领导职务",
+      "reason": "用户未提供讲话领导职务",
+      "impact": "影响讲话稿开头和语气定位",
+      "suggestion": "后续可由 org-title-dictionary.yaml 校验或人工确认"
+    },
+    {
+      "field": "会议时间",
+      "reason": "用户未提供工作推进会时间",
+      "impact": "影响讲话背景完整性",
+      "suggestion": "如正式成稿需要，可补充会议时间"
+    },
+    {
+      "field": "会议具体名称",
+      "reason": "用户仅写'工作推进会'，未提供完整会议名称",
+      "impact": "标题和开场背景信息不足",
+      "suggestion": "建议确认会议全称"
+    },
+    {
+      "field": "重点项目具体名称",
+      "reason": "用户只写'重点项目'，未提供具体项目名称",
+      "impact": "重点部署段落内容空泛",
+      "suggestion": "后续写作可概括表述，或补充具体项目名称"
+    }
+  ],
+  "cannot_infer": [
+    {
+      "field": "领导个人表态",
+      "reason": "用户素材未提供具体领导个人表态，不得自动补充"
+    },
+    {
+      "field": "政策判断",
+      "reason": "用户素材未提供政策依据或形势判断，不得自行扩展"
+    },
+    {
+      "field": "重点项目名称",
+      "reason": "用户只写重点项目，未提供具体项目名称"
+    }
+  ],
+  "risk_flags": [
+    {
+      "type": "missing_leader_title",
+      "level": "high",
+      "detail": "领导讲话稿缺少讲话领导姓名和职务"
+    },
+    {
+      "type": "ambiguous_fact",
+      "level": "medium",
+      "detail": "素材中的年度重点任务和重点项目均未提供具体名称"
+    },
+    {
+      "type": "section_no_fact_support",
+      "level": "high",
+      "detail": "S2 形势判断、S3 工作肯定无任何事实支撑"
+    },
+    {
+      "type": "section_needs_manual_input",
+      "level": "medium",
+      "detail": "S1、S2、S3、S5 需要人工补充大量内容"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "讲话领导姓名",
+      "reason": "领导讲话必须明确讲话人",
+      "suggestion": "确认讲话领导姓名"
+    },
+    {
+      "field": "讲话领导职务",
+      "reason": "领导讲话开头需要使用职务",
+      "suggestion": "确认讲话领导职务"
+    },
+    {
+      "field": "会议时间",
+      "reason": "影响开场背景",
+      "suggestion": "确认会议时间"
+    },
+    {
+      "field": "会议具体名称",
+      "reason": "影响标题和开头",
+      "suggestion": "确认会议全称"
+    }
+  ],
+  "draft_directives": {
+    "total_word_count_estimate": 1000,
+    "must_use_facts": [
+      "工作推进会",
+      "年度重点任务",
+      "重点项目",
+      "要求各部门强化责任意识",
+      "加快重点项目落地"
+    ],
+    "must_avoid": [
+      "不得编造领导个人表态",
+      "不得编造政策判断",
+      "不得编造成果数据",
+      "不得缺少结尾号召"
+    ],
+    "format_requirements": [
+      "领导讲话标准结构：开场与背景、形势判断、工作肯定、重点部署、具体要求、结尾号召",
+      "使用芒果系正式公文风",
+      "开场用'同志们'"
+    ]
+  }
+}

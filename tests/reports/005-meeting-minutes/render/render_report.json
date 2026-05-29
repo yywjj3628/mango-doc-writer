@@ -1,0 +1,11 @@
+{
+  "render_mode": "markdown_only",
+  "template_used": "meeting_minutes",
+  "theme": "ms",
+  "final_markdown_preserved": true,
+  "body_modified": false,
+  "facts_added": false,
+  "docx_generated": false,
+  "reason": "default markdown-first",
+  "warnings": []
+}

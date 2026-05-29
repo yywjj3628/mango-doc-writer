@@ -1,0 +1,147 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mango-doc-writer.local/schemas/classify.schema.json",
+  "title": "Mango Doc Writer Classify Result",
+  "description": "文种识别阶段输出结构，用于判断文种、行文方向、风格强度、风险等级、必需结构、禁忌事项和人工确认字段。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "doc_type",
+    "doc_type_confidence",
+    "direction",
+    "style_level",
+    "risk_level",
+    "reason",
+    "required_rules",
+    "required_structure",
+    "forbidden_items",
+    "need_manual_confirmation",
+    "manual_confirmation_fields"
+  ],
+  "properties": {
+    "doc_type": {
+      "type": "string",
+      "enum": [
+        "新闻稿",
+        "通知",
+        "请示",
+        "报告",
+        "函",
+        "总结",
+        "汇报材料",
+        "领导讲话",
+        "会议纪要",
+        "通报",
+        "其他"
+      ]
+    },
+    "doc_type_confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "direction": {
+      "type": "string",
+      "enum": [
+        "上行文",
+        "下行文",
+        "平行文",
+        "内部材料",
+        "对外宣传",
+        "综合材料",
+        "其他"
+      ]
+    },
+    "target_unit": {
+      "type": ["string", "null"]
+    },
+    "scene": {
+      "type": ["string", "null"]
+    },
+    "style_level": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4
+    },
+    "risk_level": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1
+    },
+    "required_rules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "required_structure": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "forbidden_items": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "possible_confusions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "candidate",
+          "reason",
+          "distinguish_rule"
+        ],
+        "properties": {
+          "candidate": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "distinguish_rule": {
+            "type": "string"
+          }
+        }
+      },
+      "default": []
+    },
+    "user_specified_doc_type": {
+      "type": ["string", "null"]
+    },
+    "conflict_detected": {
+      "type": "boolean",
+      "default": false
+    },
+    "conflict_reason": {
+      "type": ["string", "null"]
+    },
+    "recommended_action": {
+      "type": ["string", "null"]
+    },
+    "need_manual_confirmation": {
+      "type": "boolean"
+    },
+    "manual_confirmation_fields": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

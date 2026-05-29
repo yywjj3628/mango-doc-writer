@@ -1,0 +1,128 @@
+{
+  "source_summary": "用户素材涉及工作推进会中围绕年度重点任务推进、责任意识和重点项目落地的部署要求。",
+  "facts": {
+    "time": [],
+    "location": [],
+    "organizations": [
+      "各部门"
+    ],
+    "leaders": [],
+    "persons": [],
+    "products": [],
+    "projects": [
+      "年度重点任务",
+      "重点项目"
+    ],
+    "events": [
+      "工作推进会"
+    ],
+    "data": [],
+    "achievements": [],
+    "problems": [],
+    "requests": [
+      "要求各部门强化责任意识",
+      "加快重点项目落地"
+    ],
+    "policies": [],
+    "documents": []
+  },
+  "fact_items": [
+    {
+      "type": "event",
+      "value": "工作推进会",
+      "source_text": "领导在工作推进会上的讲话稿",
+      "confidence": 0.92,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": "来源于用户需求。"
+    },
+    {
+      "type": "project",
+      "value": "年度重点任务",
+      "source_text": "会议围绕年度重点任务推进进行部署",
+      "confidence": 0.9,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": null
+    },
+    {
+      "type": "organization",
+      "value": "各部门",
+      "source_text": "要求各部门强化责任意识",
+      "confidence": 0.86,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": true,
+      "note": "具体部门范围未提供。"
+    },
+    {
+      "type": "request",
+      "value": "要求各部门强化责任意识",
+      "source_text": "要求各部门强化责任意识",
+      "confidence": 0.9,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": "讲话稿中的工作要求。"
+    },
+    {
+      "type": "request",
+      "value": "加快重点项目落地",
+      "source_text": "加快重点项目落地",
+      "confidence": 0.9,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": "讲话稿中的部署要求。"
+    }
+  ],
+  "missing_fields": [
+    {
+      "field": "讲话领导姓名",
+      "reason": "用户要求整理领导讲话稿，但未提供讲话领导姓名",
+      "impact": "影响讲话稿称谓和身份表达",
+      "suggestion": "后续写作前建议确认讲话领导姓名"
+    },
+    {
+      "field": "讲话领导职务",
+      "reason": "用户未提供讲话领导职务",
+      "impact": "影响讲话稿开头和语气定位",
+      "suggestion": "后续可由 org-title-dictionary.yaml 校验或人工确认"
+    },
+    {
+      "field": "会议时间",
+      "reason": "用户未提供工作推进会时间",
+      "impact": "影响讲话背景完整性",
+      "suggestion": "如正式成稿需要，可补充会议时间"
+    }
+  ],
+  "cannot_infer": [
+    {
+      "field": "领导个人表态",
+      "reason": "用户素材未提供具体领导个人表态，不得自动补充"
+    },
+    {
+      "field": "政策判断",
+      "reason": "用户素材未提供政策依据或形势判断，不得自行扩展"
+    },
+    {
+      "field": "重点项目名称",
+      "reason": "用户只写重点项目，未提供具体项目名称"
+    }
+  ],
+  "risk_flags": [
+    {
+      "type": "missing_leader_title",
+      "detail": "领导讲话稿缺少讲话领导姓名和职务",
+      "level": "high"
+    },
+    {
+      "type": "ambiguous_fact",
+      "detail": "素材中的年度重点任务和重点项目均未提供具体名称",
+      "level": "medium"
+    }
+  ],
+  "extraction_policy": {
+    "only_user_provided_facts": true,
+    "no_external_knowledge": true,
+    "no_rag_facts": true,
+    "no_invented_data": true
+  }
+}

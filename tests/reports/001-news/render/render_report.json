@@ -1,0 +1,11 @@
+{
+  "render_mode": "optional_docx",
+  "template_used": "news_article",
+  "theme": "cicc",
+  "final_markdown_preserved": true,
+  "body_modified": false,
+  "facts_added": false,
+  "docx_generated": true,
+  "reason": "user requested docx",
+  "warnings": []
+}

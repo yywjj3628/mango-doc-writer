@@ -1,0 +1,124 @@
+{
+  "source_summary": "用户初稿简要总结了一季度部门围绕年度目标完成制度修订、流程优化和团队培训，并表示下阶段继续深化内部管理、提升效率。",
+  "facts": {
+    "time": [
+      "今年一季度"
+    ],
+    "location": [],
+    "organizations": [
+      "部门"
+    ],
+    "leaders": [],
+    "persons": [],
+    "products": [],
+    "projects": [],
+    "events": [],
+    "data": [],
+    "achievements": [
+      "完成了制度修订、流程优化和团队培训"
+    ],
+    "problems": [],
+    "requests": [],
+    "policies": [],
+    "documents": []
+  },
+  "fact_items": [
+    {
+      "type": "time",
+      "value": "今年一季度",
+      "source_text": "今年一季度，部门围绕年度目标推进各项工作",
+      "confidence": 0.95,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": "年份未明确，但可保留用户表述"
+    },
+    {
+      "type": "organization",
+      "value": "部门",
+      "source_text": "部门围绕年度目标推进各项工作",
+      "confidence": 0.9,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": true,
+      "note": "部门具体名称未提供"
+    },
+    {
+      "type": "achievement",
+      "value": "完成了制度修订",
+      "source_text": "完成了制度修订、流程优化和团队培训",
+      "confidence": 0.95,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": null
+    },
+    {
+      "type": "achievement",
+      "value": "完成了流程优化",
+      "source_text": "完成了制度修订、流程优化和团队培训",
+      "confidence": 0.95,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": null
+    },
+    {
+      "type": "achievement",
+      "value": "完成了团队培训",
+      "source_text": "完成了制度修订、流程优化和团队培训",
+      "confidence": 0.95,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": null
+    }
+  ],
+  "missing_fields": [
+    {
+      "field": "具体成效数据",
+      "reason": "用户仅提到完成制度修订等，未提供具体完成数量、质量指标或对比数据",
+      "impact": "影响总结材料说服力",
+      "suggestion": "后续写作前建议补充具体数据或成效描述"
+    },
+    {
+      "field": "存在问题",
+      "reason": "用户初稿未提及任何问题或不足",
+      "impact": "总结结构缺少'存在问题'部分",
+      "suggestion": "后续写作可结合实际情况补充，或采用概括性表述"
+    },
+    {
+      "field": "经验做法",
+      "reason": "用户未提炼经验做法或典型方法",
+      "impact": "总结结构缺少'经验做法'部分",
+      "suggestion": "后续写作可基于事实适当归纳"
+    }
+  ],
+  "cannot_infer": [
+    {
+      "field": "领导评价",
+      "reason": "用户素材未提供领导评价，不得自动补充"
+    },
+    {
+      "field": "获奖情况",
+      "reason": "用户素材未提供任何获奖信息"
+    },
+    {
+      "field": "具体年度目标",
+      "reason": "用户仅写'年度目标'，未说明目标具体内容"
+    }
+  ],
+  "risk_flags": [
+    {
+      "type": "achievement_without_data",
+      "detail": "提到完成若干工作，但未提供具体数据或量化成果",
+      "level": "medium"
+    },
+    {
+      "type": "missing_required_field",
+      "detail": "总结缺少'存在问题'和'经验做法'部分内容",
+      "level": "medium"
+    }
+  ],
+  "extraction_policy": {
+    "only_user_provided_facts": true,
+    "no_external_knowledge": true,
+    "no_rag_facts": true,
+    "no_invented_data": true
+  }
+}

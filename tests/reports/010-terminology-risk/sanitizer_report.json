@@ -1,0 +1,11 @@
+[
+  {
+    "stage": "draft",
+    "path": ".draft_policy.rag_used_for_style_only",
+    "before": false,
+    "after": true,
+    "fix_type": "fix_const_field",
+    "risk": "medium",
+    "reason": "const=True"
+  }
+]

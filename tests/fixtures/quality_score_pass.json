@@ -1,0 +1,52 @@
+{
+  "quality_summary": "测试结果 overall=9.0 pass=True",
+  "scores": {
+    "fact_safety": 9,
+    "doc_type_fit": 9,
+    "mango_style_fit": 8,
+    "logic_completeness": 9,
+    "language_quality": 10,
+    "risk_control": 9
+  },
+  "threshold": 8,
+  "overall_score": 9.0,
+  "failed_dimensions": [],
+  "overall_pass": true,
+  "rewrite_required": false,
+  "quality_rewrite_instructions": [],
+  "human_review_required": false,
+  "risk_notes": [],
+  "scoring_basis": {
+    "fact_safety": "9分",
+    "doc_type_fit": "9分",
+    "mango_style_fit": "8分",
+    "logic_completeness": "9分",
+    "language_quality": "10分",
+    "risk_control": "9分"
+  },
+  "no_new_facts_check": {
+    "status": "pass",
+    "suspected_new_facts": [],
+    "detail": "无新增事实"
+  },
+  "doc_type_check": {
+    "status": "pass",
+    "detail": "文种匹配"
+  },
+  "style_check": {
+    "status": "pass",
+    "detail": "风格匹配"
+  },
+  "final_output_policy": {
+    "recommendation": "pass",
+    "reason": "所有维度达标"
+  },
+  "quality_gate_policy": {
+    "no_body_generation": true,
+    "no_body_modification": true,
+    "no_new_facts": true,
+    "no_rag_call": true,
+    "no_doc_type_change": true,
+    "evaluate_only": true
+  }
+}

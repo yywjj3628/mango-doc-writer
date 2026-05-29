@@ -1,0 +1,168 @@
+{
+  "rewrite_summary": "根据review结果，修改S2-S5的占位符为明确标注【需用户提供】，保留原有事实，未新增内容。",
+  "doc_type": "汇报材料",
+  "direction": "上行文",
+  "style_level": 2,
+  "risk_level": "high",
+  "final_markdown": "# 关于文化科技融合推进工作情况的汇报\n\n湖南广播影视集团（台）：\n\n现将文化科技融合推进工作有关情况汇报如下：\n\n## 一、背景情况\n\n围绕文化科技融合方向，我司积极推进相关工作，旨在使集团（台）了解整体进展。\n\n## 二、主要进展\n\n目前，相关工作正在有序推进之中。【具体工作内容及阶段性成效需用户提供】\n\n## 三、亮点成效\n\n【暂无用户提供的亮点成效信息，待补充】\n\n## 四、问题挑战\n\n在推进过程中，可能面临一些需要协调解决的挑战。【具体问题需用户提供】\n\n## 五、下一步思路\n\n下一步，将继续围绕文化科技融合方向，进一步推动各项任务落实。【具体工作计划需用户提供】\n\n以上汇报，请领导批评指正。\n\n【落款单位待确认】\n\n【日期待确认】",
+  "revision_report": [
+    {
+      "revision_id": "REV001",
+      "issue_id": "R001",
+      "action": "replace",
+      "before": "目前，相关工作正在有序推进之中。具体工作内容及阶段性成效后续将进一步补充。",
+      "after": "目前，相关工作正在有序推进之中。【具体工作内容及阶段性成效需用户提供】",
+      "reason": "原文占位表述不明确，根据rewrite_instructions改为明确标注需用户提供。",
+      "basis": "review_result.rewrite_instructions[0]"
+    },
+    {
+      "revision_id": "REV002",
+      "issue_id": "R001",
+      "action": "replace",
+      "before": "暂无具体成果，待后续补充。",
+      "after": "【暂无用户提供的亮点成效信息，待补充】",
+      "reason": "原文占位改为明确标注用户信息缺失。",
+      "basis": "review_result.rewrite_instructions[1]"
+    },
+    {
+      "revision_id": "REV003",
+      "issue_id": "R001",
+      "action": "replace",
+      "before": "在推进过程中，可能面临一些需要协调解决的挑战，具体问题后续进一步梳理。",
+      "after": "在推进过程中，可能面临一些需要协调解决的挑战。【具体问题需用户提供】",
+      "reason": "原文占位改为明确标注需用户提供。",
+      "basis": "review_result.rewrite_instructions[2]"
+    },
+    {
+      "revision_id": "REV004",
+      "issue_id": "R001",
+      "action": "replace",
+      "before": "下一步，将继续围绕文化科技融合方向，进一步推动各项任务落实。",
+      "after": "下一步，将继续围绕文化科技融合方向，进一步推动各项任务落实。【具体工作计划需用户提供】",
+      "reason": "原文占位改为明确标注需用户提供。",
+      "basis": "review_result.rewrite_instructions[3]"
+    }
+  ],
+  "fact_usage_report": [
+    {
+      "final_text": "湖南广播影视集团（台）",
+      "fact_type": "organization",
+      "fact_value": "芒果总部",
+      "source_text": "请写一份给芒果总部看的汇报材料",
+      "source": "extract_result.fact_items",
+      "confidence": 0.9
+    },
+    {
+      "final_text": "围绕文化科技融合方向，我司积极推进相关工作",
+      "fact_type": "event",
+      "fact_value": "推进相关工作",
+      "source_text": "我们围绕文化科技融合方向推进相关工作",
+      "source": "extract_result.fact_items",
+      "confidence": 0.85
+    },
+    {
+      "final_text": "旨在使集团（台）了解整体进展",
+      "fact_type": "request",
+      "fact_value": "希望芒果总部了解整体进展",
+      "source_text": "后续希望芒果总部了解整体进展",
+      "source": "extract_result.fact_items",
+      "confidence": 0.88
+    }
+  ],
+  "terminology_usage_report": [
+    {
+      "raw_value": "芒果总部",
+      "used_value": "湖南广播影视集团（台）",
+      "type": "organization",
+      "source": "org-title-dictionary.yaml",
+      "confidence": 0.7,
+      "needs_manual_confirmation": true,
+      "note": "用户写'芒果总部'，口径库禁用，已替换为正式称谓，需人工确认是否接受。"
+    },
+    {
+      "raw_value": "文化科技融合",
+      "used_value": "文化科技融合",
+      "type": "strategic_term",
+      "source": "user_input",
+      "confidence": 0.9,
+      "needs_manual_confirmation": false,
+      "note": "用户需求中明确提及。"
+    }
+  ],
+  "resolved_issues": [
+    {
+      "issue_id": "R001",
+      "resolution": "已将S2-S5的占位表述替换为明确标注【需用户提供】，保持结构完整且不新增事实。",
+      "basis": "review_result.rewrite_instructions"
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "issue_id": "R001",
+      "reason": "用户未提供具体工作内容、成效、问题挑战和下一步计划，无法填充实质性内容。",
+      "required_action": "请用户补充S2-S5所需的具体信息。"
+    }
+  ],
+  "remaining_risks": [
+    {
+      "level": "high",
+      "type": "missing_required_field",
+      "detail": "S2-S5仍缺少具体内容，仅以占位符标注，无法支撑正式汇报。",
+      "action": "正式报送前请用户补充各段具体内容。"
+    },
+    {
+      "level": "high",
+      "type": "missing_field",
+      "detail": "落款单位缺失，正文使用占位符。",
+      "action": "正式成稿前需补充汇报单位名称。"
+    },
+    {
+      "level": "medium",
+      "type": "incomplete_organization_name",
+      "detail": "主送单位正式称谓待用户确认。",
+      "action": "请确认是否接受'湖南广播影视集团（台）'作为主送单位。"
+    }
+  ],
+  "manual_confirmation_fields": [
+    {
+      "field": "主送单位正式称谓",
+      "reason": "用户写'芒果总部'，口径库禁止，建议替换为'湖南广播影视集团（台）'",
+      "impact": "影响公文抬头",
+      "required_before_final": true
+    },
+    {
+      "field": "汇报单位/落款单位",
+      "reason": "用户未提供",
+      "impact": "无法确认汇报主体",
+      "required_before_final": true
+    },
+    {
+      "field": "具体工作内容",
+      "reason": "extract中仅含模糊表述",
+      "impact": "影响汇报材料核心内容",
+      "required_before_final": true
+    },
+    {
+      "field": "背景情况",
+      "reason": "无具体事实支撑",
+      "impact": "影响材料详实性",
+      "required_before_final": false
+    }
+  ],
+  "final_checks": {
+    "doc_type_fixed": true,
+    "unsupported_facts_removed": true,
+    "blocked_items_removed": true,
+    "terminology_checked": true,
+    "manual_confirmations_preserved": true
+  },
+  "rewrite_policy": {
+    "body_rewritten": true,
+    "no_new_facts": true,
+    "use_only_extract_facts": true,
+    "no_rag_call": true,
+    "follow_review_instructions": true,
+    "follow_doc_type_rules": true,
+    "follow_org_title_dictionary": true
+  }
+}

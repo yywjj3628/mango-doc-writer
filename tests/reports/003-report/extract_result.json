@@ -1,0 +1,132 @@
+{
+  "source_summary": "用户素材涉及今年以来围绕重点任务推进的工作进展，包括前期梳理、资源协调和阶段性复盘，以及下一步加强统筹推动重点任务落地的计划。",
+  "facts": {
+    "time": [
+      "今年以来"
+    ],
+    "location": [],
+    "organizations": [
+      "集团"
+    ],
+    "leaders": [],
+    "persons": [],
+    "products": [],
+    "projects": [
+      "重点任务"
+    ],
+    "events": [],
+    "data": [],
+    "achievements": [
+      "完成了前期梳理、资源协调和阶段性复盘"
+    ],
+    "problems": [],
+    "requests": [],
+    "policies": [],
+    "documents": []
+  },
+  "fact_items": [
+    {
+      "type": "time",
+      "value": "今年以来",
+      "source_text": "今年以来，相关工作围绕重点任务推进",
+      "confidence": 0.95,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": null
+    },
+    {
+      "type": "organization",
+      "value": "集团",
+      "source_text": "请整理成向集团汇报的正式报告",
+      "confidence": 0.98,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": "来源于用户需求，extract阶段只保留原文称谓。"
+    },
+    {
+      "type": "project",
+      "value": "重点任务",
+      "source_text": "相关工作围绕重点任务推进",
+      "confidence": 0.9,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": true,
+      "note": "具体任务名称未提供。"
+    },
+    {
+      "type": "achievement",
+      "value": "完成了前期梳理、资源协调和阶段性复盘",
+      "source_text": "完成了前期梳理、资源协调和阶段性复盘",
+      "confidence": 0.95,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": null
+    },
+    {
+      "type": "project",
+      "value": "重点任务（下一步）",
+      "source_text": "下一步将继续加强统筹，推动重点任务落地",
+      "confidence": 0.88,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": true,
+      "note": "与前述重点任务可能相同，但未明确。"
+    }
+  ],
+  "missing_fields": [
+    {
+      "field": "具体时间范围",
+      "reason": "用户仅写'今年以来'，未提供具体截止时间或阶段",
+      "impact": "影响报告时间表述的精确性",
+      "suggestion": "后续写作前建议确认具体时间节点"
+    },
+    {
+      "field": "重点任务具体名称",
+      "reason": "用户仅写'重点任务'，未提供具体任务名称",
+      "impact": "影响报告主体内容的具体性",
+      "suggestion": "后续写作前建议确认重点任务名称"
+    },
+    {
+      "field": "主送单位",
+      "reason": "用户需求中写'集团'，但未提供正式主送单位全称",
+      "impact": "影响正式公文抬头",
+      "suggestion": "后续由org-title-dictionary.yaml或用户确认"
+    },
+    {
+      "field": "落款单位",
+      "reason": "用户未提供报告落款单位",
+      "impact": "影响报告结尾",
+      "suggestion": "后续写作前建议确认落款单位"
+    }
+  ],
+  "cannot_infer": [
+    {
+      "field": "领导评价",
+      "reason": "用户素材未提供领导评价，不得自动补充"
+    },
+    {
+      "field": "经营数据",
+      "reason": "用户素材未提供任何数据，不得编造"
+    },
+    {
+      "field": "具体工作成效细节",
+      "reason": "用户仅概括性描述，未提供具体成效数据或成果"
+    }
+  ],
+  "risk_flags": [
+    {
+      "type": "missing_required_field",
+      "detail": "缺少重点任务具体名称，影响报告主体内容",
+      "level": "high"
+    },
+    {
+      "type": "missing_required_field",
+      "detail": "缺少具体时间范围，影响报告时效性表述",
+      "level": "medium"
+    }
+  ],
+  "extraction_policy": {
+    "only_user_provided_facts": true,
+    "no_external_knowledge": true,
+    "no_rag_facts": true,
+    "no_invented_data": true
+  }
+}

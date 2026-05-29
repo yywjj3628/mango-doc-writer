@@ -1,0 +1,299 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mango-doc-writer.local/schemas/extract.schema.json",
+  "title": "Mango Doc Writer Extract Result",
+  "description": "事实抽取阶段输出结构，用于从用户输入中抽取明确提供的事实、缺失字段、不可推断内容和风险提示。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "source_summary",
+    "facts",
+    "fact_items",
+    "missing_fields",
+    "cannot_infer",
+    "risk_flags",
+    "extraction_policy"
+  ],
+  "properties": {
+    "source_summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "facts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "time",
+        "location",
+        "organizations",
+        "leaders",
+        "persons",
+        "products",
+        "projects",
+        "events",
+        "data",
+        "achievements",
+        "problems",
+        "requests",
+        "policies",
+        "documents"
+      ],
+      "properties": {
+        "time": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "location": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "organizations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "leaders": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "persons": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "products": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "projects": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "achievements": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "problems": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "requests": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "policies": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "documents": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "fact_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "value",
+          "source_text",
+          "confidence",
+          "can_use_in_draft",
+          "needs_manual_confirmation",
+          "note"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "time",
+              "location",
+              "organization",
+              "leader",
+              "person",
+              "product",
+              "project",
+              "event",
+              "data",
+              "achievement",
+              "problem",
+              "request",
+              "policy",
+              "document",
+              "other"
+            ]
+          },
+          "value": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "can_use_in_draft": {
+            "type": "boolean"
+          },
+          "needs_manual_confirmation": {
+            "type": "boolean"
+          },
+          "note": {
+            "type": ["string", "null"]
+          }
+        }
+      }
+    },
+    "missing_fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "field",
+          "reason",
+          "impact",
+          "suggestion"
+        ],
+        "properties": {
+          "field": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          },
+          "impact": {
+            "type": "string",
+            "minLength": 1
+          },
+          "suggestion": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "cannot_infer": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "field",
+          "reason"
+        ],
+        "properties": {
+          "field": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "risk_flags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "detail",
+          "level"
+        ],
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string",
+            "minLength": 1
+          },
+          "level": {
+            "type": "string",
+            "enum": [
+              "low",
+              "medium",
+              "high",
+              "critical"
+            ]
+          }
+        }
+      }
+    },
+    "extraction_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "only_user_provided_facts",
+        "no_external_knowledge",
+        "no_rag_facts",
+        "no_invented_data"
+      ],
+      "properties": {
+        "only_user_provided_facts": {
+          "type": "boolean",
+          "const": true
+        },
+        "no_external_knowledge": {
+          "type": "boolean",
+          "const": true
+        },
+        "no_rag_facts": {
+          "type": "boolean",
+          "const": true
+        },
+        "no_invented_data": {
+          "type": "boolean",
+          "const": true
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "source_summary": "用户素材涉及项目筹备进展和向集团请求专项预算支持事项。",
+  "facts": {
+    "time": [],
+    "location": [],
+    "organizations": [
+      "集团"
+    ],
+    "leaders": [],
+    "persons": [],
+    "products": [],
+    "projects": [
+      "项目"
+    ],
+    "events": [],
+    "data": [],
+    "achievements": [
+      "项目已完成前期筹备"
+    ],
+    "problems": [
+      "后续推广需要专项预算支持"
+    ],
+    "requests": [
+      "请求集团给予专项预算支持",
+      "拟请集团给予经费保障"
+    ],
+    "policies": [],
+    "documents": []
+  },
+  "fact_items": [
+    {
+      "type": "project",
+      "value": "项目",
+      "source_text": "目前项目已完成前期筹备",
+      "confidence": 0.8,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": true,
+      "note": "项目正式名称未提供。"
+    },
+    {
+      "type": "achievement",
+      "value": "项目已完成前期筹备",
+      "source_text": "目前项目已完成前期筹备",
+      "confidence": 0.95,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": null
+    },
+    {
+      "type": "problem",
+      "value": "后续推广需要专项预算支持",
+      "source_text": "后续推广需要专项预算支持",
+      "confidence": 0.94,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": null
+    },
+    {
+      "type": "request",
+      "value": "请求集团给予专项预算支持",
+      "source_text": "请求集团给予专项预算支持",
+      "confidence": 0.96,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": "该事实支持classify阶段判断为请示。"
+    },
+    {
+      "type": "request",
+      "value": "拟请集团给予经费保障",
+      "source_text": "拟请集团给予经费保障",
+      "confidence": 0.96,
+      "can_use_in_draft": true,
+      "needs_manual_confirmation": false,
+      "note": "该事实支持classify阶段判断为请示。"
+    }
+  ],
+  "missing_fields": [
+    {
+      "field": "项目正式名称",
+      "reason": "用户仅写\"项目\"，未提供正式名称",
+      "impact": "影响标题、请示事项和正文准确性",
+      "suggestion": "后续写作前建议确认项目正式名称"
+    },
+    {
+      "field": "预算金额",
+      "reason": "用户提出专项预算支持，但未提供具体金额",
+      "impact": "影响请示事项的明确性",
+      "suggestion": "后续写作前建议确认预算金额；若无法确认，只能概括性表述"
+    },
+    {
+      "field": "主送单位",
+      "reason": "用户仅写\"集团\"，未提供正式主送单位全称",
+      "impact": "影响正式公文抬头",
+      "suggestion": "后续由org-title-dictionary.yaml或用户确认正式主送单位"
+    }
+  ],
+  "cannot_infer": [
+    {
+      "field": "预算金额",
+      "reason": "用户未提供具体预算金额，不得自动补充"
+    },
+    {
+      "field": "项目审批依据",
+      "reason": "用户未提供政策、会议或文件依据，不得自动补充"
+    },
+    {
+      "field": "项目预期成效",
+      "reason": "用户未提供推广成效或预期指标，不得自动编写"
+    }
+  ],
+  "risk_flags": [
+    {
+      "type": "request_without_amount",
+      "detail": "素材提出专项预算支持，但未提供预算金额",
+      "level": "high"
+    },
+    {
+      "type": "incomplete_project_name",
+      "detail": "素材只写\"项目\"，未提供正式项目名称",
+      "level": "high"
+    },
+    {
+      "type": "possible_doc_type_conflict",
+      "detail": "用户要求写报告，但素材包含请求预算支持，classify阶段已判定为请示冲突",
+      "level": "critical"
+    }
+  ],
+  "extraction_policy": {
+    "only_user_provided_facts": true,
+    "no_external_knowledge": true,
+    "no_rag_facts": true,
+    "no_invented_data": true
+  }
+}

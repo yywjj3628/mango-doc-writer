@@ -1,0 +1,40 @@
+{
+  "doc_type": "领导讲话",
+  "doc_type_confidence": 0.91,
+  "direction": "综合材料",
+  "target_unit": "",
+  "scene": "工作推进会领导讲话",
+  "style_level": 2,
+  "risk_level": "medium",
+  "reason": "用户明确要求整理领导在工作推进会上的讲话稿，素材涉及会议部署和工作要求，符合领导讲话文种特征。",
+  "required_rules": [
+    "领导讲话"
+  ],
+  "required_structure": [
+    "开场与背景",
+    "形势判断",
+    "工作肯定",
+    "重点部署",
+    "具体要求",
+    "结尾号召"
+  ],
+  "forbidden_items": [
+    "不得写成普通新闻稿",
+    "不得编造领导个人表态",
+    "不得新增未经提供的政策判断",
+    "不得使用与领导身份不匹配的口语表达"
+  ],
+  "possible_confusions": [
+    {
+      "candidate": "新闻稿",
+      "reason": "若材料目的是报道会议召开情况，而不是形成领导发言文本，则可能是新闻稿。",
+      "distinguish_rule": "是否以领导第一人称或领导讲话结构展开。"
+    }
+  ],
+  "user_specified_doc_type": "",
+  "conflict_detected": false,
+  "conflict_reason": "",
+  "recommended_action": "",
+  "need_manual_confirmation": false,
+  "manual_confirmation_fields": []
+}

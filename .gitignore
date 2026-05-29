@@ -1,0 +1,5 @@
+.env
+*.env
+logs/*.log
+tests/reports/debug/*
+outputs/*

@@ -1,0 +1,19 @@
+# Mango Doc Writer — 日志轮转配置
+# 安装到 /etc/logrotate.d/mango-doc-writer
+
+/home/ywj/.openclaw/workspace/skills/mango-doc-writer/logs/*.log {
+    daily
+    rotate 30
+    compress
+    missingok
+    notifempty
+    create 0644 ywj ywj
+}
+
+/home/ywj/.openclaw/workspace/skills/mango-doc-writer/tests/reports/debug/* {
+    daily
+    rotate 7
+    compress
+    missingok
+    notifempty
+}

@@ -1,0 +1,101 @@
+{
+  "review_summary": "初稿按通知文种生成，结构完整，事实均来自extract，称谓正确，无禁止内容，风险提示齐全。但缺少发文依据、落款、联系人、发文日期，已使用占位符或注释，需人工确认。总体合规，可进入最终确认阶段。",
+  "pass": true,
+  "score": 95,
+  "rewrite_required": false,
+  "risk_level": "low",
+  "checks": {
+    "doc_type_check": {
+      "status": "pass",
+      "summary": "文种为通知，正文格式符合通知规范，无宣传稿倾向。",
+      "issues_count": 0
+    },
+    "structure_check": {
+      "status": "pass",
+      "summary": "正文按plan的5个section（发文依据、通知事项、具体要求、时间节点、联系方式）顺序生成，结构完整。",
+      "issues_count": 0
+    },
+    "fact_grounding_check": {
+      "status": "pass",
+      "summary": "正文中的所有事实均可追溯到extract_result.fact_items，无新增事实。",
+      "issues_count": 0
+    },
+    "fact_usage_report_check": {
+      "status": "pass",
+      "summary": "fact_usage_report覆盖了正文核心事实，source_text均来自extract。",
+      "issues_count": 0
+    },
+    "rag_usage_check": {
+      "status": "pass",
+      "summary": "RAG未使用，无污染风险。",
+      "issues_count": 0
+    },
+    "terminology_check": {
+      "status": "pass",
+      "summary": "称谓使用正确，无违反org-title-dictionary的称谓。",
+      "issues_count": 0
+    },
+    "blocked_items_check": {
+      "status": "pass",
+      "summary": "所有blocked_items均未进入正文，draft仅使用已有事实或占位符。",
+      "issues_count": 0
+    },
+    "warnings_check": {
+      "status": "pass",
+      "summary": "warnings完整承接了extract和plan中的风险项，包括时间模糊、缺失字段等。",
+      "issues_count": 0
+    },
+    "manual_confirmation_check": {
+      "status": "pass",
+      "summary": "manual_confirmation_fields保留了时间、落款、联系人、发文日期4项待确认字段。",
+      "issues_count": 0
+    },
+    "style_check": {
+      "status": "pass",
+      "summary": "风格等级1（克制正式），正文语言简洁规矩，无过度宣传。",
+      "issues_count": 0
+    },
+    "format_check": {
+      "status": "pass",
+      "summary": "Markdown格式正确，标题、主送、分条、结尾、落款占位均符合通知规范。",
+      "issues_count": 0
+    }
+  },
+  "issues": [],
+  "rewrite_instructions": [],
+  "manual_confirmation_fields": [
+    {
+      "field": "时间节点",
+      "reason": "时间表述为本周五前，属于相对表述，需确认具体日期",
+      "impact": "影响截止日期的准确性",
+      "required_before_final": true
+    },
+    {
+      "field": "落款单位",
+      "reason": "通知必须有落款单位，用户未提供",
+      "impact": "影响公文规范性",
+      "required_before_final": true
+    },
+    {
+      "field": "联系人及联系方式",
+      "reason": "通知通常需提供执行联系人，用户未提供",
+      "impact": "影响材料报送的可操作性",
+      "required_before_final": false
+    },
+    {
+      "field": "发文日期",
+      "reason": "通知需体现发文日期，用户未提供",
+      "impact": "影响公文时效性",
+      "required_before_final": true
+    }
+  ],
+  "review_policy": {
+    "no_body_generation": true,
+    "no_rewrite": true,
+    "no_new_facts": true,
+    "no_rag_call": true,
+    "check_fact_grounding": true,
+    "check_doc_type_rules": true,
+    "check_org_title_dictionary": true
+  }
+}

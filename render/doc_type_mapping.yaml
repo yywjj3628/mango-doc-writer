@@ -1,0 +1,108 @@
+# 文种 → 排版模板映射
+# typeset-engine 只负责排版，不修改正文事实
+#
+# Markdown-first 策略：
+# - 所有文种必须输出 final_markdown.md
+# - default_docx: true 的文种默认同时生成 DOCX
+# - default_docx: false 的文种仅在用户明确 --format docx 时生成 DOCX
+
+doc_type_mapping:
+  请示:
+    template: "official_document"
+    output_style: "formal"
+    theme: "cms"
+    default_docx: true
+    title_required: true
+    addressee_required: true
+    signer_required: true
+    date_required: true
+
+  报告:
+    template: "official_document"
+    output_style: "formal"
+    theme: "cms"
+    default_docx: true
+    title_required: true
+    addressee_required: true
+    signer_required: true
+    date_required: true
+
+  通知:
+    template: "official_document"
+    output_style: "formal"
+    theme: "cms"
+    default_docx: true
+    title_required: true
+    addressee_required: false
+    signer_required: true
+    date_required: true
+
+  函:
+    template: "official_document"
+    output_style: "formal"
+    theme: "cms"
+    default_docx: true
+    title_required: true
+    addressee_required: true
+    signer_required: true
+    date_required: true
+
+  通报:
+    template: "official_document"
+    output_style: "formal"
+    theme: "cms"
+    default_docx: true
+    title_required: true
+    addressee_required: false
+    signer_required: true
+    date_required: true
+
+  会议纪要:
+    template: "meeting_minutes"
+    output_style: "internal"
+    theme: "ms"
+    default_docx: false
+    title_required: true
+    addressee_required: false
+    signer_required: false
+    date_required: false
+
+  新闻稿:
+    template: "news_article"
+    output_style: "publicity"
+    theme: "cicc"
+    default_docx: false
+    title_required: true
+    addressee_required: false
+    signer_required: false
+    date_required: false
+
+  领导讲话:
+    template: "speech"
+    output_style: "speech"
+    theme: "ms"
+    default_docx: false
+    title_required: true
+    addressee_required: false
+    signer_required: false
+    date_required: false
+
+  总结:
+    template: "work_summary"
+    output_style: "formal"
+    theme: "cms"
+    default_docx: false
+    title_required: true
+    addressee_required: false
+    signer_required: false
+    date_required: false
+
+  汇报材料:
+    template: "work_report"
+    output_style: "formal"
+    theme: "cms"
+    default_docx: false
+    title_required: true
+    addressee_required: false
+    signer_required: false
+    date_required: false
