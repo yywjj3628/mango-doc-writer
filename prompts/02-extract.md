@@ -95,9 +95,26 @@ classify 阶段输出：
     "no_external_knowledge": true,
     "no_rag_facts": true,
     "no_invented_data": true
-  }
+  },
+  "minimal_input_mode": false
 }
 ```
+
+## minimal_input_mode 判断（v0.1.4.2 新增）
+
+在输出 extraction_policy 之后，必须额外输出 `minimal_input_mode` 字段。
+
+当以下任意条件满足时，`minimal_input_mode = true`：
+
+1. `fact_items` 数量少于 5；
+2. 用户素材（requirement + draft）少于 150 字；
+3. 没有具体时间 / 地点 / 人物 / 动作 / 数据；
+4. 没有领导讲话原文或明确要求；
+5. 没有活动过程细节；
+6. 没有项目进展细节；
+7. 用户明确要求「素材很少」「克制扩写」「不得编造」。
+
+`minimal_input_mode` 字段将传递给后续阶段，影响 plan、draft、review、rewrite 行为。
 
 ## facts 字段说明
 

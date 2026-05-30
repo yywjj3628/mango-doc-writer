@@ -198,11 +198,44 @@ review 输出中新增 expansion_review 字段：
 }
 ```
 
+### 过度扩写检查（v0.1.4.2 新增）
+
+在 assisted_expansion 模式下，review 必须额外检查以下表达是否在 extract_result 中有事实依据：
+
+**高风险表达（必须检查）**：
+- 与会代表认为
+- 大家一致表示
+- 现场反响热烈
+- 形成广泛共识
+- 领导指出（无原文时）
+- 领导强调（无原文时）
+- 深入了解了具体情况
+- 详细听取了汇报
+- 实地考察了某些点位
+- 取得显著成效
+- 产生积极反响
+- 用户规模持续提升
+- 市场表现良好
+
+如果上述表达在 extract_result 中无对应事实，必须：
+
+1. 标记为 issue（type = `unsafe_expansion`，level = `high`）；
+2. 写入 expansion_review.suspicious_phrases；
+3. 在 rewrite 阶段要求删除或改写。
+
+**minimal_input_mode 下额外检查**：
+
+- 正文是否过长（超过 500 字且素材不足 150 字）？
+- 是否有【待确认】标记？
+- 是否有【可补充方向】？
+- draft_disclaimer 是否使用了更强版本？
+
 ### issue 类型扩展
 
 review issues 的 type 枚举新增：
 - `unsafe_expansion`：危险虚构扩写
 - `expansion_not_labeled`：扩写内容未被 expansion_report 覆盖
+- `over_expansion`：过度扩写（v0.1.4.2 新增）
 
 ## 必须检查的 11 类事项
 

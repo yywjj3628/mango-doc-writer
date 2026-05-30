@@ -397,6 +397,32 @@ rewrite 阶段必须根据 generation_mode 调整修订策略。
 - official_use_allowed 必须保持 false
 - 修订后仍不得新增具体事实
 
+### minimal_input_mode rewrite 规则（v0.1.4.2 新增）
+
+当 rewrite 阶段检测到 minimal_input_mode = true 时（可从 extract_result.missing_fields 数量或 plan_result 中推断）：
+
+1. **删除或改写以下无依据表达**（如果 review 未指出，也应主动检查）：
+   - 与会代表认为
+   - 大家一致表示
+   - 现场反响热烈
+   - 形成广泛共识
+   - 领导指出 / 领导强调（无原文时）
+   - 深入了解了具体情况
+   - 详细听取了汇报
+   - 实地考察了某些点位
+   - 取得显著成效
+   - 产生积极反响
+   - 用户规模持续提升
+   - 市场表现良好
+
+2. **保留所有【待确认】标记**，不得删除；
+
+3. **正文应更短**，如果超过 500 字且素材不足 150 字，应精简；
+
+4. **draft_disclaimer 必须使用更强版本**（见 04-draft.md minimal_input_mode 规则）；
+
+5. **不得删除【可补充方向】**，应保留供人工参考。
+
 ## 示例 1：修复无依据拔高
 
 输入：

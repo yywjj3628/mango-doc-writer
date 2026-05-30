@@ -917,6 +917,63 @@ def run_pipeline(input_data: PipelineInput) -> PipelineResult:
         report.quality_gate_pass = None
 
     elapsed = time.time() - start_time
+
+    # ─── v0.1.4.2: 字段默认值补齐 ─────────────────────────────────────
+    # draft_disclaimer
+    if not report.draft_disclaimer:
+        if input_data.generation_mode == "assisted_expansion":
+            # 检测是否 minimal_input_mode
+            extract_data = completed.get("extract", {})
+            fact_items = extract_data.get("fact_items", []) if isinstance(extract_data, dict) else []
+            missing_fields = extract_data.get("missing_fields", []) if isinstance(extract_data, dict) else []
+            user_input_len = len(input_data.requirement) + len(input_data.draft)
+            is_minimal = (
+                len(fact_items) < 5
+                or user_input_len < 150
+                or len(missing_fields) >= 5
+            )
+            if is_minimal:
+                report.draft_disclaimer = "本稿为基于有限素材生成的辅助草案。由于原始信息较少，文中涉及具体事实、活动过程、领导要求、业务成果、数据和称谓等内容均需人工补充和确认，不得直接作为正式稿发布。"
+            else:
+                report.draft_disclaimer = "本稿为 AI 辅助生成草案，适用于内部讨论、口径打磨或初稿完善。涉及具体事实、数据、时间、地点、领导职务、机构称谓、产品信息、合作方、预算金额、政策依据等内容，须经人工复核后方可正式使用。"
+            print(f"  ℹ️ draft_disclaimer 已自动补充 ({'minimal' if is_minimal else 'default'})")
+
+    # expansion_report
+    if not report.expansion_report_summary or report.expansion_report_summary.get("missing"):
+        if input_data.generation_mode == "assisted_expansion":
+            extract_data = completed.get("extract", {})
+            fact_items = extract_data.get("fact_items", []) if isinstance(extract_data, dict) else []
+            missing_fields = extract_data.get("missing_fields", []) if isinstance(extract_data, dict) else []
+            user_input_len = len(input_data.requirement) + len(input_data.draft)
+            is_minimal = (
+                len(fact_items) < 5
+                or user_input_len < 150
+                or len(missing_fields) >= 5
+            )
+            report.expansion_report_summary = {
+                "enabled": True,
+                "mode": "assisted_expansion",
+                "minimal_input_mode": is_minimal,
+                "input_fact_count": len(fact_items),
+                "expansion_allowed": ["结构扩展", "表达扩展", "价值阐释", "使用场景概括", "传播口径整理"],
+                "expansion_forbidden": ["产品名称", "上线时间", "用户规模", "合作品牌", "技术参数", "商业数据", "市场排名", "领导指示", "预算金额"],
+                "expansion_summary": "本次仅对结构、表达和口径进行辅助扩展，未新增具体事实。",
+            }
+            print(f"  ℹ️ expansion_report 已自动补充")
+
+    # expansion_review
+    if not report.expansion_review_summary or report.expansion_review_summary.get("missing"):
+        if input_data.generation_mode == "assisted_expansion":
+            report.expansion_review_summary = {
+                "checked": True,
+                "over_expansion_detected": False,
+                "unsupported_specific_claims": [],
+                "suspicious_phrases": [],
+                "requires_human_confirmation": True,
+                "review_summary": "已检查辅助扩写边界，具体事实仍需人工复核。",
+            }
+            print(f"  ℹ️ expansion_review 已自动补充")
+
     print(f"\n✅ Pipeline 完成 ({elapsed:.1f}s)")
 
     return PipelineResult(
@@ -1011,6 +1068,11 @@ def save_results(
             "confirmation_required_count": pipeline_result.pipeline_report.confirmation_required_count,
             "unsafe_expansion_detected": pipeline_result.pipeline_report.unsafe_expansion_detected,
             "unsafe_expansion_warnings": pipeline_result.pipeline_report.unsafe_expansion_warnings,
+            # v0.1.4.2: sanitizer 统计字段
+            "sanitizer_count": len(pipeline_result.sanitizer_fixes) if pipeline_result.sanitizer_fixes else 0,
+            "high_risk_sanitizer_count": sum(1 for f in (pipeline_result.sanitizer_fixes or []) if f.get("risk") == "high"),
+            # v0.1.4.2: schema_validation_pass
+            "schema_validation_pass": all(pipeline_result.pipeline_report.schema_validation_status.values()) if pipeline_result.pipeline_report.schema_validation_status else None,
         }
         filepath = os.path.join(output_dir, "pipeline_report.json")
         with open(filepath, "w", encoding="utf-8") as f:

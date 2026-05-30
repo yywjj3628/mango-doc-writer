@@ -456,6 +456,23 @@ plan 输出中可包含 `expansion_boundaries` 字段，汇总三种模式的扩
 }
 ```
 
+### minimal_input_mode 规划规则（v0.1.4.2 新增）
+
+当输入中包含 `minimal_input_mode = true`（来自 extract_result）时，plan 阶段必须：
+
+1. **规划更短的结构**：total_word_count_estimate 建议 200-400 字；
+2. **减少 section 数量**：只规划必要的 2-3 个 section；
+3. **must_avoid 增加以下条目**：
+   - 不得写未提供的调研点位
+   - 不得写未提供的交流内容
+   - 不得写未提供的领导要求
+   - 不得写“与会代表认为”“大家一致表示”“形成共识”
+4. **must_use_facts 只包含 extract 中实际提供的事实**；
+5. **在 risk_flags 中增加**：
+   ```json
+   {"type": "minimal_input", "detail": "素材极少，正文应克制，缺失内容应进入待确认", "level": "high"}
+   ```
+
 ## 示例 1：请示（伪报告真请示）
 
 **输入：**

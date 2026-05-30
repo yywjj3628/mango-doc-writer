@@ -12,7 +12,8 @@
     "missing_fields",
     "cannot_infer",
     "risk_flags",
-    "extraction_policy"
+    "extraction_policy",
+    "minimal_input_mode"
   ],
   "properties": {
     "source_summary": {
@@ -180,7 +181,10 @@
             "type": "boolean"
           },
           "note": {
-            "type": ["string", "null"]
+            "type": [
+              "string",
+              "null"
+            ]
           }
         }
       }
@@ -294,6 +298,10 @@
           "const": true
         }
       }
+    },
+    "minimal_input_mode": {
+      "type": "boolean",
+      "description": "Whether the input has minimal facts and should use restrained expansion"
     }
   }
 }
