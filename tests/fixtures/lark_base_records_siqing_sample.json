@@ -1,0 +1,99 @@
+{
+  "_comment": "mango-doc-writer v0.2.0 A1 fixture: 4 条 Base-like 记录覆盖 strict/bootstrap/review 路径",
+  "_base_token": "JZFrbEs7WaGUEdsVEzeci3vvnLe",
+  "_table_id": "tblo0JA25ejPj0LI",
+  "_view_id": "vewXXXXXXXX",
+  "records": [
+    {
+      "record_id": "recYYYYY001",
+      "fields": {
+        "标题": "集团党委召开2026年党风廉政建设工作会议",
+        "来源": "电广传媒司情",
+        "备注": "2026年第5期司情第1条",
+        "正文": "3月15日，集团（台）在主楼会议室召开2026年党风廉政建设工作会议。集团（台）党委书记、董事长龚政文出席会议并作重要讲话。会议全面总结2025年党风廉政建设工作成绩，深入分析当前形势任务，安排部署2026年重点工作。龚政文强调，要持续深化全面从严治党，以更高标准、更严要求推动党风廉政建设向纵深发展。集团（台）领导班子成员、各部门负责人、各单位纪检干部参加会议。",
+        "概述": "集团召开2026年党风廉政建设工作会议，龚政文出席并讲话。",
+        "时间": 1742160000000,
+        "链接": "",
+        "clean_status": "cleaned",
+        "split_status": "not_split",
+        "needs_manual_review": false,
+        "manual_review_reason": "",
+        "source_type": "weekly_siqing",
+        "issue_no": 5,
+        "total_issue_no": null,
+        "issue_date": 1742160000000,
+        "tags": ["党建纪检", "党风廉政"],
+        "doc_type": "党建材料",
+        "topic": "党风廉政建设",
+        "cleaned_at": 1748373600000
+      }
+    },
+    {
+      "record_id": "recYYYYY002",
+      "fields": {
+        "标题": "芒果青年再获殊荣——这次是因为AI",
+        "来源": "湖南广播电视台办公室",
+        "备注": "芒果日志2025年第42期",
+        "正文": "在刚刚落幕的2025全国人工智能创新应用大赛上，芒果TV「AI+内容」团队凭借「芒果智能剪辑助手」项目斩获一等奖。这是芒果青年连续第三年在国家级AI赛事中获奖。团队成员平均年龄不到28岁，他们将大语言模型与视频理解技术深度融合，实现了从文稿到成片的全链路智能化生产。龚政文在获奖后勉励团队继续探索文化与科技融合新路径，用AI技术为芒果内容创新赋能。",
+        "概述": "芒果TV AI团队斩获全国人工智能创新应用大赛一等奖。",
+        "时间": 1729468800000,
+        "链接": "https://mp.weixin.qq.com/s/example001",
+        "clean_status": "cleaned",
+        "split_status": "not_split",
+        "needs_manual_review": true,
+        "manual_review_reason": "原文涉及具体人名和未公开数据，需确认是否适合作为风格语料",
+        "source_type": "mango_rizhi",
+        "issue_no": null,
+        "total_issue_no": null,
+        "issue_date": null,
+        "tags": ["文化科技融合", "AI", "青年"],
+        "doc_type": "新闻稿",
+        "topic": "AI创新",
+        "cleaned_at": 1748373600000
+      }
+    },
+    {
+      "record_id": "recYYYYY003",
+      "fields": {
+        "标题": "（草稿）关于推进超高清频道建设的初步方案",
+        "来源": "技术中心",
+        "备注": "尚未定稿",
+        "正文": "根据集团战略部署，拟在2026年三季度启动4K超高清频道升级改造。初步方案包括前端采集系统升级、编播系统改造、传输链路优化三个部分。预算规模约800万元，预计工期6个月。",
+        "概述": "超高清频道建设初步方案草稿",
+        "时间": 1742160000000,
+        "链接": "",
+        "clean_status": "draft",
+        "split_status": null,
+        "needs_manual_review": false,
+        "manual_review_reason": "",
+        "source_type": "feishu_doc",
+        "issue_no": null,
+        "total_issue_no": null,
+        "issue_date": null,
+        "tags": ["技术"],
+        "doc_type": "其他",
+        "topic": null,
+        "cleaned_at": null
+      }
+    },
+    {
+      "record_id": "recYYYYY004",
+      "fields": {
+        "标题": "龚政文赴益阳市安化县黄花溪村调研乡村振兴工作",
+        "来源": "电广传媒司情",
+        "备注": "2024年第139期司情第3条，旧表无clean_status字段",
+        "正文": "9月26日，集团（台）党委书记、董事长龚政文赴益阳市安化县黄花溪村调研乡村振兴工作。龚政文一行深入田间地头，详细了解当地产业发展、基础设施建设、村民收入等情况，并与驻村工作队和村干部进行座谈交流。他强调，要充分发挥广电媒体优势，讲好乡村振兴故事，助力黄花溪村实现高质量发展。集团相关部门负责人陪同调研。",
+        "概述": "龚政文赴安化县黄花溪村调研乡村振兴",
+        "时间": 1727289600000,
+        "链接": "",
+        "source_type": "weekly_siqing",
+        "issue_no": 139,
+        "total_issue_no": null,
+        "issue_date": 1727289600000,
+        "tags": ["乡村振兴"],
+        "doc_type": "活动稿",
+        "topic": "乡村振兴"
+      }
+    }
+  ]
+}

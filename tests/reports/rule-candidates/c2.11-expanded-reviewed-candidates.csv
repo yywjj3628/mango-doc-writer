@@ -1,0 +1,16 @@
+candidate_id,candidate_type,key,reviewer_decision,corrected_value,reviewer_note,apply_to_formal_rules
+alias_达晨财智_p1_32,company_alias,达晨财智,approved,,用户确认：达晨财智为正式简称,true
+alias_达晨_p1_33,company_alias,达晨,approved,,用户确认：达晨可用于内部材料；正式公文和对外宣传用达晨财智,true
+alias_圣爵菲斯_p1_34,company_alias,圣爵菲斯,approved,,用户确认：圣爵菲斯为简称,true
+alias_世界之窗_p1_35,company_alias,世界之窗,approved,,用户确认：世界之窗可作简称；涉及与深圳世界之窗区分时用全称,true
+alias_万楼_p1_36,company_alias,万楼,approved,,用户确认：万楼为简称,true
+alias_青春东洲_p1_37,company_alias,青春东洲岛,approved,,用户确认：青春东洲岛为简称,true
+alias_茶马古道_p1_38,company_alias,茶马古道,approved,,用户确认：茶马古道可作简称；涉及与云南茶马古道区分时用全称,true
+alias_芒果文旅_p1_39,company_alias,芒果文旅,approved,,用户确认：芒果文旅为简称,true
+sub_达晨财智_p1_18,subsidiary_affiliation,达晨财智,modified,电广传媒创投板块相关主体,用户确认：按相关主体处理不写隶属于/全资子公司,true
+sub_圣爵菲斯_p1_19,subsidiary_affiliation,圣爵菲斯,modified,电广传媒文旅/酒店板块相关主体,用户确认：按相关主体处理,true
+sub_长沙世界_p1_20,subsidiary_affiliation,长沙世界之窗,modified,电广传媒文旅板块相关主体,用户确认：按相关主体处理,true
+sub_芒果文旅_p1_24,subsidiary_affiliation,芒果文旅,modified,电广传媒文旅板块相关主体,用户确认：按相关主体处理,true
+leader_路颖_p1_15,leader_title,路颖,deferred,,用户确认：领导职务类全部暂缓,false
+leader_刘昼_p1_16,leader_title,刘昼,deferred,,用户确认：领导职务类全部暂缓,false
+leader_肖冰_p1_17,leader_title,肖冰,deferred,,用户确认：领导职务类全部暂缓,false

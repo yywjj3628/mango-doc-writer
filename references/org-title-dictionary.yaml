@@ -1,1081 +1,1081 @@
-# org-title-dictionary.yaml
-# 广电芒果体系称谓与口径继承库
-# 本文件服务于"广电 / 芒果体系内文案"生成系统
-# 数据来源：60篇芒果系旧稿 + mango-writer style-guide + RAG 语料（hunan_mango collection）
-
 metadata:
-  name: "广电芒果体系称谓与口径继承库"
-  version: "0.1"
-  purpose: "用于湖南广电 / 芒果体系内文案生成时统一机构称谓、领导职务、产品名称、战略表达和禁用称谓。"
-  scope: "广电系统内文案、芒果体系文案、公文、新闻稿、汇报材料、讲话稿、总结材料。"
-  source_policy: "优先继承现有 60 篇芒果系旧稿、老板亲自把关稿件、已有 style-guide 和 RAG 语料。"
-
-# ============================================================
-# 称谓来源优先级
-# ============================================================
-
+  name: 广电芒果体系称谓与口径继承库
+  version: '0.1'
+  purpose: 用于湖南广电 / 芒果体系内文案生成时统一机构称谓、领导职务、产品名称、战略表达和禁用称谓。
+  scope: 广电系统内文案、芒果体系文案、公文、新闻稿、汇报材料、讲话稿、总结材料。
+  source_policy: 优先继承现有 60 篇芒果系旧稿、老板亲自把关稿件、已有 style-guide 和 RAG 语料。
 source_priority:
-  - level: 1
-    source: "用户明确指定的当次输入"
-    trust: "highest"
-    usage: "当用户明确指定称谓、领导职务、机构名称时，优先使用。"
-
-  - level: 2
-    source: "现有 60 篇芒果系旧稿 / 老板亲自把关稿件"
-    trust: "high"
-    usage: "可继承其中稳定出现的领导职务、机构称谓、产品名称、战略表达。"
-
-  - level: 3
-    source: "现有 mango-writer style-guide / RAG 语料"
-    trust: "high"
-    usage: "可继承体系称谓、固定表达、产品名称、常用简称。"
-
-  - level: 4
-    source: "doc-type-rules.md"
-    trust: "medium"
-    usage: "只用于文种规则，不用于补充领导职务。"
-
-  - level: 5
-    source: "模型自身知识"
-    trust: "forbidden"
-    usage: "不得使用模型自身知识补充领导职务、机构名称、产品名称。"
-
-# ============================================================
-# 机构称谓（以广电 / 芒果体系为中心）
-# ============================================================
-
+- level: 1
+  source: 用户明确指定的当次输入
+  trust: highest
+  usage: 当用户明确指定称谓、领导职务、机构名称时，优先使用。
+- level: 2
+  source: 现有 60 篇芒果系旧稿 / 老板亲自把关稿件
+  trust: high
+  usage: 可继承其中稳定出现的领导职务、机构称谓、产品名称、战略表达。
+- level: 3
+  source: 现有 mango-writer style-guide / RAG 语料
+  trust: high
+  usage: 可继承体系称谓、固定表达、产品名称、常用简称。
+- level: 4
+  source: doc-type-rules.md
+  trust: medium
+  usage: 只用于文种规则，不用于补充领导职务。
+- level: 5
+  source: 模型自身知识
+  trust: forbidden
+  usage: 不得使用模型自身知识补充领导职务、机构名称、产品名称。
 organizations:
-  # --- 湖南广电集团核心 ---
   hunan_broadcasting_group:
-    full_name: "湖南广播影视集团（台）"
-    short_name: "集团（台）"
+    full_name: 湖南广播影视集团（台）
+    short_name: 集团（台）
     accepted_names:
-      - "湖南广播影视集团（台）"
-      - "湖南广播影视集团"
-      - "集团（台）"
-      - "湖南广电"
+    - 湖南广播影视集团（台）
+    - 湖南广播影视集团
+    - 集团（台）
+    - 湖南广电
     aliases:
-      - "湖南广播电视台"
+    - 湖南广播电视台
     forbidden_names:
-      - "湖南卫视总部"
-      - "芒果总部"
-      - "广电总部"
+    - 湖南卫视总部
+    - 芒果总部
+    - 广电总部
     source:
-      - "60篇旧稿"
-      - "mango-writer style-guide 第2章"
+    - 60篇旧稿
+    - mango-writer style-guide 第2章
     usage_context:
-      - "上行汇报"
-      - "新闻稿"
-      - "领导讲话"
-      - "总结材料"
-      - "公文"
-    notes: "首次出现用全称「湖南广播影视集团（台）」，后续可用「集团（台）」或「湖南广电」。在新闻标题中可简化为「湖南广电」。旧稿中高频稳定使用，可信度最高。"
-
+    - 上行汇报
+    - 新闻稿
+    - 领导讲话
+    - 总结材料
+    - 公文
+    notes: 首次出现用全称「湖南广播影视集团（台）」，后续可用「集团（台）」或「湖南广电」。在新闻标题中可简化为「湖南广电」。旧稿中高频稳定使用，可信度最高。
   hunan_broadcaster:
-    full_name: "湖南广播电视台"
-    short_name: "湖南卫视"  # 注意：此处"湖南卫视"仅指广播电台/电视台机构
+    full_name: 湖南广播电视台
+    short_name: 湖南卫视
     accepted_names:
-      - "湖南广播电视台"
+    - 湖南广播电视台
     aliases:
-      - "湖南广电"  # 与集团合并使用
+    - 湖南广电
     forbidden_names:
-      - "湖南电视台"
+    - 湖南电视台
     source:
-      - "60篇旧稿（source 字段标注：湖南广播电视台办公室）"
+    - 60篇旧稿（source 字段标注：湖南广播电视台办公室）
     usage_context:
-      - "新闻稿"
-      - "上行汇报"
-    notes: "旧稿中常与集团合并使用为「湖南广播影视集团（台）」，独立出现时用「湖南广播电视台」。"
-
-  # --- 芒果超媒系 ---
+    - 新闻稿
+    - 上行汇报
+    notes: 旧稿中常与集团合并使用为「湖南广播影视集团（台）」，独立出现时用「湖南广播电视台」。
   mango_mediainfo:
-    full_name: "芒果超媒股份有限公司"
-    short_name: "芒果超媒"
+    full_name: 芒果超媒股份有限公司
+    short_name: 芒果超媒
     accepted_names:
-      - "芒果超媒股份有限公司"
-      - "芒果超媒"
+    - 芒果超媒股份有限公司
+    - 芒果超媒
     aliases:
-      - "芒果超媒"
+    - 芒果超媒
     forbidden_names:
-      - "芒果"
+    - 芒果
     source:
-      - "60篇旧稿"
-      - "mango-writer style-guide 第2章"
+    - 60篇旧稿
+    - mango-writer style-guide 第2章
     usage_context:
-      - "新闻稿"
-      - "汇报材料"
-      - "经营总结"
-    notes: "首次出现用全称「芒果超媒股份有限公司」，后续可用「芒果超媒」。"
-
+    - 新闻稿
+    - 汇报材料
+    - 经营总结
+    notes: 首次出现用全称「芒果超媒股份有限公司」，后续可用「芒果超媒」。
   mango_tv:
-    full_name: "芒果TV"
-    short_name: "芒果TV"
+    full_name: 芒果TV
+    short_name: 芒果TV
     accepted_names:
-      - "芒果TV"
+    - 芒果TV
     aliases: []
     forbidden_names:
-      - "芒果tv"
-      - "mangotv"
+    - 芒果tv
+    - mangotv
     source:
-      - "60篇旧稿"
-      - "mango-writer style-guide 第2章"
+    - 60篇旧稿
+    - mango-writer style-guide 第2章
     usage_context:
-      - "新闻稿"
-      - "汇报材料"
-      - "总结材料"
-    notes: "直接使用「芒果TV」，大小写固定，不缩写。旧稿中高频出现，与「湖南卫视」常并列提及为「双平台」。"
-
+    - 新闻稿
+    - 汇报材料
+    - 总结材料
+    notes: 直接使用「芒果TV」，大小写固定，不缩写。旧稿中高频出现，与「湖南卫视」常并列提及为「双平台」。
   hunan_satellite_tv:
-    full_name: "湖南卫视"
-    short_name: "湖南卫视"
+    full_name: 湖南卫视
+    short_name: 湖南卫视
     accepted_names:
-      - "湖南卫视"
+    - 湖南卫视
     aliases: []
     forbidden_names:
-      - "卫视"
-      - "湖南台"
+    - 卫视
+    - 湖南台
     source:
-      - "60篇旧稿"
+    - 60篇旧稿
     usage_context:
-      - "新闻稿"
-      - "汇报材料"
-    notes: "直接使用「湖南卫视」。常与芒果TV并称「双平台」。"
-
-  # --- 电广传媒系 ---
+    - 新闻稿
+    - 汇报材料
+    notes: 直接使用「湖南卫视」。常与芒果TV并称「双平台」。
   dgb_media:
-    full_name: "电广传媒"
-    short_name: "电广传媒"
+    full_name: 电广传媒
+    short_name: 电广传媒
     accepted_names:
-      - "电广传媒"
+    - 电广传媒
     aliases:
-      - "湖南电广传媒"
+    - 湖南电广传媒
     forbidden_names:
-      - "电广"
+    - 电广
     source:
-      - "60篇旧稿"
-      - "mango-writer style-guide 第2章"
+    - 60篇旧稿
+    - mango-writer style-guide 第2章
     usage_context:
-      - "新闻稿"
-      - "汇报材料"
-      - "经营总结"
-    notes: "直接使用「电广传媒」。旧稿中高频出现，为广电体系内上市公司。其文旅板块产品包括三湘星光行动等。"
-
-  # --- 潇影集团 ---
+    - 新闻稿
+    - 汇报材料
+    - 经营总结
+    notes: 直接使用「电广传媒」。旧稿中高频出现，为广电体系内上市公司。其文旅板块产品包括三湘星光行动等。在电广传媒司情语境中，「公司」默认指电广传媒本级。
   xiaoying_group:
-    full_name: "潇影集团"
-    short_name: "潇影集团"
+    full_name: 潇影集团
+    short_name: 潇影集团
     accepted_names:
-      - "潇影集团"
+    - 潇影集团
     aliases: []
     forbidden_names:
-      - "潇影"
+    - 潇影
     source:
-      - "60篇旧稿（如「骏业骉骉 前程骎骎 潇影集团电广传媒广播传媒中心2025年度总结表彰大会举行」）"
+    - 60篇旧稿（如「骏业骉骉 前程骎骎 潇影集团电广传媒广播传媒中心2025年度总结表彰大会举行」）
     usage_context:
-      - "新闻稿"
-      - "总结材料"
-    notes: "与电广传媒、广播传媒中心并列提及。"
-
-  # --- 广播传媒中心 ---
+    - 新闻稿
+    - 总结材料
+    notes: 与电广传媒、广播传媒中心并列提及。
   broadcasting_center:
-    full_name: "广播传媒中心"
-    short_name: "广播传媒中心"
+    full_name: 广播传媒中心
+    short_name: 广播传媒中心
     accepted_names:
-      - "广播传媒中心"
+    - 广播传媒中心
     aliases: []
     forbidden_names: []
     source:
-      - "60篇旧稿"
+    - 60篇旧稿
     usage_context:
-      - "新闻稿"
-      - "总结材料"
-    notes: "与潇影集团、电广传媒并列提及。"
-
-  # --- 马栏山系 ---
+    - 新闻稿
+    - 总结材料
+    notes: 与潇影集团、电广传媒并列提及。
   malanshan_park:
-    full_name: "马栏山视频文创产业园"
-    short_name: "马栏山"
+    full_name: 马栏山视频文创产业园
+    short_name: 马栏山
     accepted_names:
-      - "马栏山视频文创产业园"
-      - "马栏山"
+    - 马栏山视频文创产业园
+    - 马栏山
     aliases:
-      - "马栏山文创园"
-      - "视频文创产业园"
+    - 马栏山文创园
+    - 视频文创产业园
     forbidden_names:
-      - "马栏山园区"
+    - 马栏山园区
     source:
-      - "60篇旧稿（如「2025年马栏山视频文创产业园部省共建推进会举行」）"
-      - "mango-writer style-guide 第2章"
+    - 60篇旧稿（如「2025年马栏山视频文创产业园部省共建推进会举行」）
+    - mango-writer style-guide 第2章
     usage_context:
-      - "新闻稿"
-      - "汇报材料"
-      - "领导讲话"
-    notes: "首次出现用全称「马栏山视频文创产业园」，后续可用「马栏山」。为部省共建项目。"
-
+    - 新闻稿
+    - 汇报材料
+    - 领导讲话
+    notes: 首次出现用全称「马栏山视频文创产业园」，后续可用「马栏山」。为部省共建项目。
   malanshan_cup:
-    full_name: "马栏山杯国际音视频算法大赛"
-    short_name: "马栏山杯"
+    full_name: 马栏山杯国际音视频算法大赛
+    short_name: 马栏山杯
     accepted_names:
-      - "马栏山杯国际音视频算法大赛"
-      - "马栏山杯"
+    - 马栏山杯国际音视频算法大赛
+    - 马栏山杯
     aliases: []
     forbidden_names: []
     source:
-      - "60篇旧稿（如「第六届马栏山杯国际音视频算法大赛圆满收官」）"
+    - 60篇旧稿（如「第六届马栏山杯国际音视频算法大赛圆满收官」）
     usage_context:
-      - "新闻稿"
-    notes: "第六届已收官，来自全球4万余支队伍参赛。"
-
-  # --- 上级/省级单位 ---
+    - 新闻稿
+    notes: 第六届已收官，来自全球4万余支队伍参赛。
   hunan_provincial_government:
-    full_name: "湖南省人民政府"
-    short_name: "省政府"
+    full_name: 湖南省人民政府
+    short_name: 省政府
     accepted_names:
-      - "湖南省人民政府"
-      - "省委、省政府"
-      - "省政府"
+    - 湖南省人民政府
+    - 省委、省政府
+    - 省政府
     aliases:
-      - "省委省政府"
+    - 省委省政府
     forbidden_names: []
     source:
-      - "60篇旧稿（间接提及「省委省政府部署」）"
-      - "mango-writer style-guide 第7章"
+    - 60篇旧稿（间接提及「省委省政府部署」）
+    - mango-writer style-guide 第7章
     usage_context:
-      - "上行汇报"
-      - "领导讲话"
-    notes: "在政治锚定三层结构中位于中层。"
-
+    - 上行汇报
+    - 领导讲话
+    notes: 在政治锚定三层结构中位于中层。
   hunan_provincial_committee:
-    full_name: "湖南省委"
-    short_name: "省委"
+    full_name: 湖南省委
+    short_name: 省委
     accepted_names:
-      - "湖南省委"
-      - "省委"
+    - 湖南省委
+    - 省委
     aliases:
-      - "省委"
+    - 省委
     forbidden_names: []
     source:
-      - "mango-writer style-guide 第7章"
+    - mango-writer style-guide 第7章
     usage_context:
-      - "上行汇报"
-      - "领导讲话"
-    notes: "与省政府合称为「省委、省政府」或「省委省政府」。"
-
+    - 上行汇报
+    - 领导讲话
+    notes: 与省政府合称为「省委、省政府」或「省委省政府」。
   provincial_discipline_inspection:
-    full_name: "湖南省纪委监委"
-    short_name: "省纪委监委"
+    full_name: 湖南省纪委监委
+    short_name: 省纪委监委
     accepted_names:
-      - "湖南省纪委监委"
-      - "省纪委监委"
+    - 湖南省纪委监委
+    - 省纪委监委
     aliases: []
     forbidden_names:
-      - "纪委"
+    - 纪委
     source:
-      - "60篇旧稿（如「集团（台）2026年党风廉政建设工作会议」「贯彻中央纪委五次全会精神、落实省纪委监委部署」）"
+    - 60篇旧稿（如「集团（台）2026年党风廉政建设工作会议」「贯彻中央纪委五次全会精神、落实省纪委监委部署」）
     usage_context:
-      - "党风廉政相关公文"
-      - "新闻稿"
-    notes: "旧稿中频繁出现于党风廉政建设工作会议报道。"
-
-  # --- 国家级单位 ---
+    - 党风廉政相关公文
+    - 新闻稿
+    notes: 旧稿中频繁出现于党风廉政建设工作会议报道。
   nrta:
-    full_name: "国家广播电视总局"
-    short_name: "国家广电总局"
+    full_name: 国家广播电视总局
+    short_name: 国家广电总局
     accepted_names:
-      - "国家广播电视总局"
-      - "国家广电总局"
+    - 国家广播电视总局
+    - 国家广电总局
     aliases:
-      - "广电总局"
+    - 广电总局
     forbidden_names: []
     source:
-      - "60篇旧稿（如「2025年马栏山文创产业园部省共建推进会举行 毛伟明曹淑敏出席」，曹淑敏为国家广电总局局长）"
+    - 60篇旧稿（如「2025年马栏山文创产业园部省共建推进会举行 毛伟明曹淑敏出席」，曹淑敏为国家广电总局局长）
     usage_context:
-      - "新闻稿"
-      - "上行汇报"
-    notes: "马栏山部省共建推进会的出席方。"
-
+    - 新闻稿
+    - 上行汇报
+    notes: 马栏山部省共建推进会的出席方。
   central_discipline_inspection:
-    full_name: "中央纪委"
-    short_name: "中央纪委"
+    full_name: 中央纪委
+    short_name: 中央纪委
     accepted_names:
-      - "中央纪委"
-      - "中央纪委五次全会"
+    - 中央纪委
+    - 中央纪委五次全会
     aliases: []
     forbidden_names: []
     source:
-      - "60篇旧稿（如「贯彻中央纪委五次全会精神」）"
+    - 60篇旧稿（如「贯彻中央纪委五次全会精神」）
     usage_context:
-      - "党风廉政相关公文"
-      - "理论学习中心组学习"
-    notes: "旧稿中「中央纪委五次全会」高频出现。"
-
-  # --- 新业务/新公司 ---
+    - 党风廉政相关公文
+    - 理论学习中心组学习
+    notes: 旧稿中「中央纪委五次全会」高频出现。
   mango_chuangzhan:
-    full_name: "湖南芒果创展科技有限公司"
-    short_name: "芒果创展"
+    full_name: 湖南芒果创展科技有限公司
+    short_name: 芒果创展
     accepted_names:
-      - "湖南芒果创展科技有限公司"
-      - "芒果创展"
+    - 湖南芒果创展科技有限公司
+    - 芒果创展
     aliases: []
     forbidden_names: []
     source:
-      - "60篇旧稿（如「打造永不落幕的音视频装备展 芒果创展揭牌启航」）"
+    - 60篇旧稿（如「打造永不落幕的音视频装备展 芒果创展揭牌启航」）
     usage_context:
-      - "新闻稿"
-    notes: "由湖南广电与长沙市、马栏山视频文创产业园共同成立。"
-
-  # --- 久之润（仅作为业务主体之一，不作为本库中心） ---
+    - 新闻稿
+    notes: 由湖南广电与长沙市、马栏山视频文创产业园共同成立。
   jiuyou_run:
-    full_name: "上海久之润信息技术有限公司"
-    short_name: "久之润"
+    full_name: 上海久之润信息技术有限公司
+    short_name: 久之润
     accepted_names:
-      - "上海久之润信息技术有限公司"
-      - "久之润"
+    - 上海久之润信息技术有限公司
+    - 久之润
     aliases: []
     forbidden_names:
-      - "久游"
+    - 久游
     source:
-      - "RAG 语料（jiuyou_docs collection）"
-      - "用户确认"
+    - RAG 语料（jiuyou_docs collection）
+    - 用户确认
     usage_context:
-      - "内部经营汇报"
-      - "久游网相关公文"
-    notes: "电广传媒旗下子公司。本库以广电/芒果体系为中心，久之润仅出现于涉及该公司业务时。不作为本库机构称谓中心。"
-
-# ============================================================
-# 领导称谓（从 60 篇旧稿继承稳定称谓）
-# ============================================================
-
+    - 内部经营汇报
+    - 久游网相关公文
+    notes: 上海久之润隶属于电广传媒。本库以广电/芒果体系为中心，久之润仅出现于涉及该公司业务时。不作为本库机构称谓中心。久之润作为公司主体简称使用。
+  dacheng_caizhi:
+    full_name: 达晨财智创业投资管理有限公司
+    short_name: 达晨财智
+    accepted_names:
+    - 达晨财智创业投资管理有限公司
+    - 达晨财智
+    aliases:
+    - 达晨
+    forbidden_names: []
+    source:
+    - 用户确认（2026-06-03）
+    - C2.11 reviewed candidates
+    usage_context:
+    - 新闻稿
+    - 汇报材料
+    - 领导讲话
+    notes: 电广传媒创投板块相关主体。不作股权归属判断。'达晨'可用于内部材料；正式公文和对外宣传用'达晨财智'或全称。
+  shengjuefeisi:
+    full_name: 圣爵菲斯大酒店
+    short_name: 圣爵菲斯
+    accepted_names:
+    - 圣爵菲斯大酒店
+    - 圣爵菲斯
+    aliases: []
+    forbidden_names: []
+    source:
+    - 用户确认（2026-06-03）
+    - C2.11 reviewed candidates
+    usage_context:
+    - 新闻稿
+    - 汇报材料
+    notes: 电广传媒文旅/酒店板块相关主体。不作为子公司主体，不作股权归属判断。
+  changsha_world_window:
+    full_name: 长沙世界之窗
+    short_name: 世界之窗
+    accepted_names:
+    - 长沙世界之窗
+    - 世界之窗
+    aliases: []
+    forbidden_names: []
+    source:
+    - 用户确认（2026-06-03）
+    - C2.11 reviewed candidates
+    usage_context:
+    - 新闻稿
+    - 汇报材料
+    notes: 电广传媒文旅板块相关主体。不作为子公司主体，不作股权归属判断。'世界之窗'可作简称；涉及与深圳世界之窗区分时用全称'长沙世界之窗'。
+  wanlou:
+    full_name: 湘潭万楼·芒果青年码头
+    short_name: 万楼
+    accepted_names:
+    - 湘潭万楼·芒果青年码头
+    - 万楼
+    aliases: []
+    forbidden_names: []
+    source:
+    - 用户确认（2026-06-03）
+    - C2.11 reviewed candidates
+    usage_context:
+    - 新闻稿
+    - 汇报材料
+    notes: 电广传媒文旅板块相关项目/景区称谓。不作为子公司主体，不作股权归属判断。
+  qingchun_dongzhou:
+    full_name: 衡阳青春东洲岛
+    short_name: 青春东洲岛
+    accepted_names:
+    - 衡阳青春东洲岛
+    - 青春东洲岛
+    aliases: []
+    forbidden_names: []
+    source:
+    - 用户确认（2026-06-03）
+    - C2.11 reviewed candidates
+    usage_context:
+    - 新闻稿
+    - 汇报材料
+    notes: 电广传媒文旅板块相关项目/景区称谓。不作为子公司主体，不作股权归属判断。
+  anhua_chama:
+    full_name: 安化茶马古道
+    short_name: 茶马古道
+    accepted_names:
+    - 安化茶马古道
+    - 茶马古道
+    aliases: []
+    forbidden_names: []
+    source:
+    - 用户确认（2026-06-03）
+    - C2.11 reviewed candidates
+    usage_context:
+    - 新闻稿
+    - 汇报材料
+    notes: 电广传媒文旅板块相关项目/景区称谓。不作为子公司主体，不作股权归属判断。'茶马古道'可作简称；涉及与云南茶马古道区分时用全称'安化茶马古道'。
+  mangguo_wenlv:
+    full_name: 芒果文旅
+    short_name: 芒果文旅
+    accepted_names:
+    - 芒果文旅
+    aliases: []
+    forbidden_names: []
+    source:
+    - 用户确认（2026-06-03）
+    - C2.11 reviewed candidates
+    usage_context:
+    - 新闻稿
+    - 汇报材料
+    notes: 电广传媒文旅板块相关主体，'三湘星光行动'运营主体。不作股权归属判断。
+disambiguation_rules:
+  dianguang_siqing_company_pronoun:
+    rule_name: 电广传媒司情'公司'指代规则
+    rule_text: 在电广传媒司情语境中，「公司」默认指电广传媒本级。撰写子公司动态、子公司亮点工作、子公司活动稿时，不得用「公司」代指子公司，应使用具体子公司名称或明确主体称谓。若必须使用代称，应使用「该单位」「该主体」等更清晰表述，避免与电广传媒本级混淆。
+    applicable_scope:
+    - 新闻稿
+    - 汇报材料
+    - 亮点工作材料
+    - 宣传推文
+    - 工作总结
+    applies_to:
+    - 所有电广传媒旗下子公司
+    examples:
+    - correct: 久之润召开AI内容生产专题交流会
+      incorrect: 公司召开AI内容生产专题交流会（指久之润）
+    - correct: 久之润总经理顾懿出席会议
+      incorrect: 公司总经理顾懿出席会议（指久之润）
+    source:
+    - 用户确认（2026-06-02）
+    confidence: high
 leaders:
-  # --- 集团核心领导（旧稿中高频稳定出现，可直接继承） ---
-
-  - name: "龚政文"
-    title: "湖南广播影视集团（台）党委书记、董事长"
-    organization: "湖南广播影视集团（台）"
-    accepted_titles:
-      - "湖南广播影视集团（台）党委书记、董事长"
-      - "全国人大代表、湖南广播影视集团（台）党委书记、董事长"
-      - "湖南广播影视集团董事长"
-    usage_context:
-      - "新闻稿"
-      - "汇报材料"
-      - "领导讲话"
-      - "上行汇报"
-    source:
-      - "60篇旧稿（高频稳定出现，至少15篇以上涉及）"
-      - "mango-writer style-guide 第2章、第12章"
-      - "老板亲自把关稿件"
-    confidence: "high"
-    inheritance_allowed: true
-    notes: "旧稿中称谓高度稳定。在全国两会报道中使用「全国人大代表、湖南广播影视集团董事长龚政文」。日常报道中使用「龚政文」。首次提及必须带完整职务前缀。新闻标题可省略职务仅用姓名。"
-    priority_in_group: 1
-
-  - name: "蔡怀军"
-    title: "湖南广播影视集团（台）党委副书记、总经理"
-    organization: "湖南广播影视集团（台）"
-    accepted_titles:
-      - "集团（台）党委副书记、总经理"
-      - "湖南广播影视集团（台）党委副书记、总经理"
-      - "芒果超媒总经理"
-    usage_context:
-      - "新闻稿"
-      - "汇报材料"
-      - "领导讲话"
-    source:
-      - "60篇旧稿（高频稳定出现，至少10篇以上涉及）"
-      - "mango-writer style-guide 第2章、第12章"
-    confidence: "high"
-    inheritance_allowed: true
-    notes: "旧稿中称谓稳定。日常报道中常见「蔡怀军出席并讲话」「蔡怀军作工作报告」等用法。也以「芒果超媒总经理」身份出现。首次提及必须带职务前缀。"
-    priority_in_group: 2
-
-  - name: "蒋洪亮"
-    title: "集团（台）党委委员、纪委书记"
-    organization: "湖南广播影视集团（台）"
-    accepted_titles:
-      - "集团（台）党委委员、纪委书记"
-    usage_context:
-      - "党风廉政相关新闻稿"
-      - "纪检监察培训报道"
-    source:
-      - "60篇旧稿（如「集团（台）2026年首期芒果纪法讲堂开班」「集团（台）2025年度纪检监察干部能力提升班开班」）"
-    confidence: "high"
-    inheritance_allowed: true
-    notes: "旧稿中称谓稳定，专门出现在党风廉政/纪检监察场景中。"
-    priority_in_group: 3
-
-  - name: "宋点"
-    title: "湖南卫视 / 芒果TV 相关领导"
-    organization: "湖南卫视 / 芒果TV"
-    accepted_titles:
-      - "（旧稿中仅以姓名出现，未明确完整职务）"
-    usage_context:
-      - "新闻稿"
-      - "导向把关相关报道"
-    source:
-      - "60篇旧稿（如「蔡怀军、宋点出席并讲话」）"
-    confidence: "medium"
-    inheritance_allowed: true
-    notes: "旧稿中多次出现姓名，但未提供完整职务表述。仅知其参与意识形态把关、内容导向相关工作。需结合语境使用，或由用户补充确认。"
-    needs_manual_confirmation: true
-    confirmation_reason: "旧稿中只出现姓名，未明确完整职务。"
-    priority_in_group: null
-
-  - name: "谷良"
-    title: "（相关领导）"
-    organization: "（待确认）"
-    accepted_titles: []
-    usage_context: []
-    source:
-      - "mango-writer style-guide 第2章（仅以「（相关领导）」占位出现）"
-    confidence: "low"
-    inheritance_allowed: false
-    notes: "仅在 style-guide 中以占位形式出现，旧稿中未见明确职务信息。不得自动继承职务。"
-    needs_manual_confirmation: true
-    confirmation_reason: "仅 style-guide 占位出现，旧稿无具体信息。"
-    priority_in_group: null
-
-  # --- 省级领导（旧稿中出现，可直接继承） ---
-
-  - name: "毛伟明"
-    title: "省委副书记、省长"
-    organization: "湖南省人民政府"
-    accepted_titles:
-      - "省委副书记、省长毛伟明"
-    usage_context:
-      - "新闻稿"
-      - "领导活动报道"
-    source:
-      - "60篇旧稿（如「2025年马栏山视频文创产业园部省共建推进会举行 毛伟明曹淑敏出席」）"
-    confidence: "high"
-    inheritance_allowed: true
-    notes: "旧稿中确认其职务为「省委副书记、省长」。仅出现在具体活动报道中。首次提及须带职务。"
-    priority_in_group: null
-
-  - name: "曹淑敏"
-    title: "国家广电总局局长"
-    organization: "国家广播电视总局"
-    accepted_titles:
-      - "国家广电总局局长曹淑敏"
-    usage_context:
-      - "新闻稿"
-      - "领导活动报道"
-    source:
-      - "60篇旧稿（如「2025年马栏山视频文创产业园部省共建推进会举行 毛伟明曹淑敏出席」）"
-    confidence: "high"
-    inheritance_allowed: true
-    notes: "旧稿中确认。仅出现在具体活动报道中。"
-    priority_in_group: null
-
-  - name: "周农"
-    title: "湖南省人大常委会副主任、省总工会主席"
-    organization: "湖南省人大常委会 / 湖南省总工会"
-    accepted_titles:
-      - "湖南省人大常委会副主任、省总工会主席周农"
-    usage_context:
-      - "新闻稿"
-      - "慰问活动报道"
-    source:
-      - "60篇旧稿（如「湖南省人大常委会副主任省总工会主席周农到湖南广电开展元旦春节送温暖慰问活动」）"
-    confidence: "high"
-    inheritance_allowed: true
-    notes: "旧稿中确认完整职务。仅出现在慰问活动报道中。"
-    priority_in_group: null
-
-  - name: "杨兰英"
-    title: "省妇联党组书记、主席"
-    organization: "湖南省妇联"
-    accepted_titles:
-      - "省妇联党组书记、主席杨兰英"
-    usage_context:
-      - "新闻稿"
-      - "荣誉表彰报道"
-    source:
-      - "60篇旧稿（如「省妇联党组书记、主席杨兰英来到湖南广电，为蒋宏杰、魏哲浩家庭颁发荣誉证书」）"
-    confidence: "high"
-    inheritance_allowed: true
-    notes: "旧稿中确认。仅出现在具体活动报道中。"
-    priority_in_group: null
-
-  # --- 省妇联副主席（旧稿中仅出现姓氏，需人工确认） ---
-
-  - name: "（省妇联副主席，姓氏待确认）"
-    title: "省妇联副主席"
-    organization: "湖南省妇联"
-    accepted_titles: []
-    usage_context: []
-    source:
-      - "60篇旧稿（旧稿中「省妇联副主席」出现在标题中，但完整姓名未见）"
-    confidence: "low"
-    inheritance_allowed: false
-    notes: "旧稿中仅出现职务而未出现完整姓名。不得自动继承姓名。"
-    needs_manual_confirmation: true
-    confirmation_reason: "旧稿中仅见职务未见姓名。"
-
-# ============================================================
-# 产品与业务名称（从旧稿和已有知识库继承）
-# ============================================================
-
+- name: 龚政文
+  title: 湖南广播影视集团（台）党委书记、董事长
+  organization: 湖南广播影视集团（台）
+  accepted_titles:
+  - 湖南广播影视集团（台）党委书记、董事长
+  - 全国人大代表、湖南广播影视集团（台）党委书记、董事长
+  - 湖南广播影视集团董事长
+  usage_context:
+  - 新闻稿
+  - 汇报材料
+  - 领导讲话
+  - 上行汇报
+  source:
+  - 60篇旧稿（高频稳定出现，至少15篇以上涉及）
+  - mango-writer style-guide 第2章、第12章
+  - 老板亲自把关稿件
+  confidence: high
+  inheritance_allowed: true
+  notes: 旧稿中称谓高度稳定。在全国两会报道中使用「全国人大代表、湖南广播影视集团董事长龚政文」。日常报道中使用「龚政文」。首次提及必须带完整职务前缀。新闻标题可省略职务仅用姓名。
+  priority_in_group: 1
+- name: 蔡怀军
+  title: 湖南广播影视集团（台）党委副书记、总经理
+  organization: 湖南广播影视集团（台）
+  accepted_titles:
+  - 集团（台）党委副书记、总经理
+  - 湖南广播影视集团（台）党委副书记、总经理
+  - 芒果超媒总经理
+  usage_context:
+  - 新闻稿
+  - 汇报材料
+  - 领导讲话
+  source:
+  - 60篇旧稿（高频稳定出现，至少10篇以上涉及）
+  - mango-writer style-guide 第2章、第12章
+  confidence: high
+  inheritance_allowed: true
+  notes: 旧稿中称谓稳定。日常报道中常见「蔡怀军出席并讲话」「蔡怀军作工作报告」等用法。也以「芒果超媒总经理」身份出现。首次提及必须带职务前缀。
+  priority_in_group: 2
+- name: 蒋洪亮
+  title: 集团（台）党委委员、纪委书记
+  organization: 湖南广播影视集团（台）
+  accepted_titles:
+  - 集团（台）党委委员、纪委书记
+  usage_context:
+  - 党风廉政相关新闻稿
+  - 纪检监察培训报道
+  source:
+  - 60篇旧稿（如「集团（台）2026年首期芒果纪法讲堂开班」「集团（台）2025年度纪检监察干部能力提升班开班」）
+  confidence: high
+  inheritance_allowed: true
+  notes: 旧稿中称谓稳定，专门出现在党风廉政/纪检监察场景中。
+  priority_in_group: 3
+- name: 宋点
+  title: 湖南卫视 / 芒果TV 相关领导
+  organization: 湖南卫视 / 芒果TV
+  accepted_titles:
+  - （旧稿中仅以姓名出现，未明确完整职务）
+  usage_context:
+  - 新闻稿
+  - 导向把关相关报道
+  source:
+  - 60篇旧稿（如「蔡怀军、宋点出席并讲话」）
+  confidence: medium
+  inheritance_allowed: true
+  notes: 旧稿中多次出现姓名，但未提供完整职务表述。仅知其参与意识形态把关、内容导向相关工作。需结合语境使用，或由用户补充确认。
+  needs_manual_confirmation: true
+  confirmation_reason: 旧稿中只出现姓名，未明确完整职务。
+  priority_in_group: null
+- name: 谷良
+  title: （相关领导）
+  organization: （待确认）
+  accepted_titles: []
+  usage_context: []
+  source:
+  - mango-writer style-guide 第2章（仅以「（相关领导）」占位出现）
+  confidence: low
+  inheritance_allowed: false
+  notes: 仅在 style-guide 中以占位形式出现，旧稿中未见明确职务信息。不得自动继承职务。
+  needs_manual_confirmation: true
+  confirmation_reason: 仅 style-guide 占位出现，旧稿无具体信息。
+  priority_in_group: null
+- name: 顾懿
+  title: 久之润总经理
+  organization: 上海久之润信息技术有限公司
+  accepted_titles:
+  - 久之润总经理
+  - 上海久之润信息技术有限公司总经理
+  usage_context:
+  - 久之润相关经营汇报
+  - 久游网相关材料
+  - 电广传媒涉及久之润业务的新闻稿/汇报材料
+  source:
+  - 用户确认（2026-06-02）
+  confidence: high
+  inheritance_allowed: true
+  time_sensitive: true
+  needs_manual_review_on_update: true
+  notes: 顾懿为久之润总经理。首次提及时应带职务前缀。
+  priority_in_group: null
+- name: 毛伟明
+  title: 省委副书记、省长
+  organization: 湖南省人民政府
+  accepted_titles:
+  - 省委副书记、省长毛伟明
+  usage_context:
+  - 新闻稿
+  - 领导活动报道
+  source:
+  - 60篇旧稿（如「2025年马栏山视频文创产业园部省共建推进会举行 毛伟明曹淑敏出席」）
+  confidence: high
+  inheritance_allowed: true
+  notes: 旧稿中确认其职务为「省委副书记、省长」。仅出现在具体活动报道中。首次提及须带职务。
+  priority_in_group: null
+- name: 曹淑敏
+  title: 国家广电总局局长
+  organization: 国家广播电视总局
+  accepted_titles:
+  - 国家广电总局局长曹淑敏
+  usage_context:
+  - 新闻稿
+  - 领导活动报道
+  source:
+  - 60篇旧稿（如「2025年马栏山视频文创产业园部省共建推进会举行 毛伟明曹淑敏出席」）
+  confidence: high
+  inheritance_allowed: true
+  notes: 旧稿中确认。仅出现在具体活动报道中。
+  priority_in_group: null
+- name: 周农
+  title: 湖南省人大常委会副主任、省总工会主席
+  organization: 湖南省人大常委会 / 湖南省总工会
+  accepted_titles:
+  - 湖南省人大常委会副主任、省总工会主席周农
+  usage_context:
+  - 新闻稿
+  - 慰问活动报道
+  source:
+  - 60篇旧稿（如「湖南省人大常委会副主任省总工会主席周农到湖南广电开展元旦春节送温暖慰问活动」）
+  confidence: high
+  inheritance_allowed: true
+  notes: 旧稿中确认完整职务。仅出现在慰问活动报道中。
+  priority_in_group: null
+- name: 杨兰英
+  title: 省妇联党组书记、主席
+  organization: 湖南省妇联
+  accepted_titles:
+  - 省妇联党组书记、主席杨兰英
+  usage_context:
+  - 新闻稿
+  - 荣誉表彰报道
+  source:
+  - 60篇旧稿（如「省妇联党组书记、主席杨兰英来到湖南广电，为蒋宏杰、魏哲浩家庭颁发荣誉证书」）
+  confidence: high
+  inheritance_allowed: true
+  notes: 旧稿中确认。仅出现在具体活动报道中。
+  priority_in_group: null
+- name: （省妇联副主席，姓氏待确认）
+  title: 省妇联副主席
+  organization: 湖南省妇联
+  accepted_titles: []
+  usage_context: []
+  source:
+  - 60篇旧稿（旧稿中「省妇联副主席」出现在标题中，但完整姓名未见）
+  confidence: low
+  inheritance_allowed: false
+  notes: 旧稿中仅出现职务而未出现完整姓名。不得自动继承姓名。
+  needs_manual_confirmation: true
+  confirmation_reason: 旧稿中仅见职务未见姓名。
 products:
-  # --- 芒果平台级产品 ---
   mango_tv_platform:
-    official_name: "芒果TV"
+    official_name: 芒果TV
     accepted_names:
-      - "芒果TV"
+    - 芒果TV
     aliases: []
     forbidden_names:
-      - "mangotv"
-      - "芒果"
+    - mangotv
+    - 芒果
     source:
-      - "60篇旧稿"
-      - "mango-writer style-guide 第2章"
+    - 60篇旧稿
+    - mango-writer style-guide 第2章
     usage_context:
-      - "新闻稿"
-      - "汇报材料"
-      - "经营总结"
-    notes: "会员数达7560万（旧稿数据，仅限用户确认后使用于新稿）。与湖南卫视并称「双平台」。"
-
+    - 新闻稿
+    - 汇报材料
+    - 经营总结
+    notes: 会员数达7560万（旧稿数据，仅限用户确认后使用于新稿）。与湖南卫视并称「双平台」。
   mango_six_platforms:
-    official_name: "芒果六平台"
+    official_name: 芒果六平台
     accepted_names:
-      - "芒果六平台"
+    - 芒果六平台
     aliases:
-      - "六平台"
+    - 六平台
     forbidden_names: []
     source:
-      - "60篇旧稿（如「2月24日，芒果六平台年会在马栏山举行」）"
+    - 60篇旧稿（如「2月24日，芒果六平台年会在马栏山举行」）
     usage_context:
-      - "新闻稿"
-      - "内部总结"
-    notes: "指芒果超媒旗下六大业务平台统称。"
-
-  # --- 业务平台（非广电核心，补充用于历史素材中出现时） ---
+    - 新闻稿
+    - 内部总结
+    notes: 指芒果超媒旗下六大业务平台统称。
   jiuyou_platform:
-    official_name: "久游网"
+    official_name: 久游网
     accepted_names:
-      - "久游网"
+    - 久游网
     aliases:
-      - "久游网平台"
-      - "久游"
+    - 久游网平台
+    - 久游
     forbidden_names: []
     source:
-      - "阶段18真实文章试跑反馈"
-      - "RAG 语料（jiuyou_docs collection）"
+    - 阶段18真实文章试跑反馈
+    - RAG 语料（jiuyou_docs collection）
     usage_context:
-      - "内部经营汇报"
-      - "工作汇报"
-    notes: "上海久之润信息技术有限公司运营的游戏平台。仅作为业务平台称谓补充，不作为本系统中心主体。归属久之润，久之润归属电广传媒。"
+    - 内部经营汇报
+    - 工作汇报
+    notes: 久之润运营的游戏平台。久游网作为业务平台/产品称谓使用；久游不作为组织简称使用，除非原文明确出现。归属久之润，久之润归属电广传媒。
     needs_manual_confirmation: true
     inheritance_allowed: true
     center_role: false
-
-  # --- 品牌活动/项目 ---
   jinzhongzi_plan:
-    official_name: "金种子计划"
+    official_name: 金种子计划
     accepted_names:
-      - "金种子计划"
+    - 金种子计划
     aliases:
-      - "金种子"
+    - 金种子
     forbidden_names: []
     source:
-      - "60篇旧稿（如「收官 金种子扎根湖南 下一个五年之约正式启程」）"
-      - "mango-writer style-guide 第5章（比喻高频词）"
+    - 60篇旧稿（如「收官 金种子扎根湖南 下一个五年之约正式启程」）
+    - mango-writer style-guide 第5章（比喻高频词）
     usage_context:
-      - "新闻稿"
-      - "总结材料"
-    notes: "聚焦全球大学生创业的创新项目品牌。"
-
+    - 新闻稿
+    - 总结材料
+    notes: 聚焦全球大学生创业的创新项目品牌。
   sanxiang_starry_action:
-    official_name: "三湘星光行动"
+    official_name: 三湘星光行动
     accepted_names:
-      - "三湘星光行动"
+    - 三湘星光行动
     aliases:
-      - "星光行动"
+    - 星光行动
     forbidden_names: []
     source:
-      - "60篇旧稿（如「电广传媒三湘星光行动第九颗星榆树湾青春广场正式开业」）"
-      - "mango-writer style-guide 第5章（比喻高频词）"
+    - 60篇旧稿（如「电广传媒三湘星光行动第九颗星榆树湾青春广场正式开业」）
+    - mango-writer style-guide 第5章（比喻高频词）
     usage_context:
-      - "新闻稿"
-      - "经营总结"
-    notes: "电广传媒文旅板块品牌项目，已开业至第九颗星。"
-
+    - 新闻稿
+    - 经营总结
+    notes: 电广传媒文旅板块品牌项目，已开业至第九颗星。
   youth_pi:
-    official_name: "芒果青年π对"
+    official_name: 芒果青年π对
     accepted_names:
-      - "芒果青年π对"
-      - "青年π对"
+    - 芒果青年π对
+    - 青年π对
     aliases:
-      - "青春π对"
+    - 青春π对
     forbidden_names: []
     source:
-      - "60篇旧稿（如「π对归来 2026年第1期芒果青春π对」）"
-      - "mango-writer style-guide 第5章（比喻高频词）"
+    - 60篇旧稿（如「π对归来 2026年第1期芒果青春π对」）
+    - mango-writer style-guide 第5章（比喻高频词）
     usage_context:
-      - "新闻稿"
-    notes: "青年交流品牌活动，已举办多期。"
-
+    - 新闻稿
+    notes: 青年交流品牌活动，已举办多期。
   mango_jifa_tang:
-    official_name: "芒果纪法讲堂"
+    official_name: 芒果纪法讲堂
     accepted_names:
-      - "芒果纪法讲堂"
+    - 芒果纪法讲堂
     aliases: []
     forbidden_names: []
     source:
-      - "60篇旧稿（如「集团（台）2026年首期芒果纪法讲堂开班」）"
+    - 60篇旧稿（如「集团（台）2026年首期芒果纪法讲堂开班」）
     usage_context:
-      - "新闻稿"
-      - "内部公文"
-    notes: "纪检监察培训品牌。"
-
+    - 新闻稿
+    - 内部公文
+    notes: 纪检监察培训品牌。
   mango_chuangzhan_exhibition:
-    official_name: "芒果创展"
+    official_name: 芒果创展
     accepted_names:
-      - "芒果创展"
+    - 芒果创展
     aliases:
-      - "湖南芒果创展"
+    - 湖南芒果创展
     forbidden_names: []
     source:
-      - "60篇旧稿（如「打造永不落幕的音视频装备展 芒果创展揭牌启航」）"
+    - 60篇旧稿（如「打造永不落幕的音视频装备展 芒果创展揭牌启航」）
     usage_context:
-      - "新闻稿"
-    notes: "音视频装备展品牌，由湖南芒果创展科技有限公司运营。"
-
+    - 新闻稿
+    notes: 音视频装备展品牌，由湖南芒果创展科技有限公司运营。
   mango_model:
-    official_name: "芒果大模型"
+    official_name: 芒果大模型
     accepted_names:
-      - "芒果大模型"
+    - 芒果大模型
     aliases: []
     forbidden_names: []
     source:
-      - "60篇旧稿（如「芒果大模型成为广电行业首个通过国家备案的垂类大模型」）"
+    - 60篇旧稿（如「芒果大模型成为广电行业首个通过国家备案的垂类大模型」）
     usage_context:
-      - "新闻稿"
-      - "汇报材料"
-    notes: "广电行业首个通过国家备案的垂类大模型。"
-
+    - 新闻稿
+    - 汇报材料
+    notes: 广电行业首个通过国家备案的垂类大模型。
   duojin_2026:
-    official_name: "《夺金2026》"
+    official_name: 《夺金2026》
     accepted_names:
-      - "《夺金2026》"
+    - 《夺金2026》
     aliases: []
     forbidden_names: []
     source:
-      - "60篇旧稿（如「收官 金种子扎根湖南」文中提及）"
+    - 60篇旧稿（如「收官 金种子扎根湖南」文中提及）
     usage_context:
-      - "新闻稿"
-    notes: "聚焦全球大学生创业的创新综艺节目。"
-
-  # --- 电广传媒文旅产品 ---
+    - 新闻稿
+    notes: 聚焦全球大学生创业的创新综艺节目。
   dgb_wenlv_products:
-    official_name: "电广传媒文旅板块"
+    official_name: 电广传媒文旅板块
     accepted_names:
-      - "电广传媒文旅板块"
-      - "芒果文旅"
+    - 电广传媒文旅板块
+    - 芒果文旅
     aliases:
-      - "文旅板块"
+    - 文旅板块
     forbidden_names: []
     source:
-      - "60篇旧稿（如「文旅板块五一再添佳绩 电广传媒差异化供给升级假日体验」）"
+    - 60篇旧稿（如「文旅板块五一再添佳绩 电广传媒差异化供给升级假日体验」）
     usage_context:
-      - "新闻稿"
-      - "经营总结"
-    notes: "电广传媒旗下文旅业务统称，包括长沙世界之窗、湘潭万楼·芒果青年码头、怀化榆树湾·青春广场、衡阳青春东洲岛等。"
-
-  # --- 久之润产品（仅作为业务产品之一） ---
+    - 新闻稿
+    - 经营总结
+    notes: 电广传媒旗下文旅业务统称，包括长沙世界之窗、湘潭万楼·芒果青年码头、怀化榆树湾·青春广场、衡阳青春东洲岛等。
   audition_online:
-    official_name: "《劲舞团》"
+    official_name: 《劲舞团》
     accepted_names:
-      - "《劲舞团》"
+    - 《劲舞团》
     aliases:
-      - "劲舞团"
+    - 劲舞团
     forbidden_names: []
     source:
-      - "RAG 语料（jiuyou_docs collection）"
-      - "用户确认"
+    - RAG 语料（jiuyou_docs collection）
+    - 用户确认
     usage_context:
-      - "久游网相关经营汇报"
-    notes: "久之润核心产品，运营20年+。仅出现于涉及久之润业务的文案中。"
-
-  # --- 芒果日志 ---
+    - 久游网相关经营汇报
+    notes: 久之润核心产品，运营20年+。仅出现于涉及久之润业务的文案中。
   mango_log:
-    official_name: "芒果日志"
+    official_name: 芒果日志
     accepted_names:
-      - "芒果日志"
+    - 芒果日志
     aliases: []
     forbidden_names: []
     source:
-      - "60篇旧稿（全部稿件来源标注为「芒果日志」）"
-      - "mango-writer SKILL.md"
+    - 60篇旧稿（全部稿件来源标注为「芒果日志」）
+    - mango-writer SKILL.md
     usage_context:
-      - "新闻稿"
-    notes: "湖南广电官方新媒体发布品牌。所有旧稿均为芒果日志原文。"
-
-# ============================================================
-# 战略表达（从旧稿和 style-guide 继承）
-# ============================================================
-
+    - 新闻稿
+    notes: 湖南广电官方新媒体发布品牌。所有旧稿均为芒果日志原文。
 strategic_terms:
   recommended:
-    - term: "文化和科技融合"
-      source: "旧稿（高频出现）+ style-guide 第5章"
-      usage_context:
-        - "汇报材料"
-        - "新闻稿"
-        - "领导讲话"
-      style_level: [2, 3]
-      sample: "推动文化和科技深度融合，技术优势持续巩固。"
-
-    - term: "数智化平台型媒体集团"
-      source: "旧稿 + style-guide 第5章"
-      usage_context:
-        - "汇报材料"
-        - "领导讲话"
-        - "总结材料"
-      style_level: [2, 3]
-      sample: "锚定数智化平台型媒体集团总体目标。"
-
-    - term: "五新战略"
-      source: "旧稿（2026年核心战略）+ style-guide 第5章"
-      usage_context:
-        - "汇报材料"
-        - "新闻稿"
-        - "领导讲话"
-      style_level: [2, 3]
-      sample: "以五新战略为牵引接续奋斗。"
-      components:
-        - "新内容"
-        - "新赛道"
-        - "新技术"
-        - "新传播"
-        - "新商业"
-        - "新芒果"
-
-    - term: "系统性变革"
-      source: "旧稿 + style-guide 第5章"
-      usage_context:
-        - "新闻稿"
-        - "汇报材料"
-        - "领导讲话"
-      style_level: [2, 3]
-      sample: "从六个方面阐述湖南广电的系统性变革。"
-
-    - term: "双前锋"
-      source: "旧稿 + style-guide 第5章"
-      usage_context:
-        - "新闻稿"
-        - "汇报材料"
-      style_level: [2, 3]
-      sample: "内容技术双前锋深融，从工具应用到智媒跃升。"
-
-    - term: "融合创新"
-      source: "doc-type-rules.md + 旧稿"
-      usage_context:
-        - "新闻稿"
-        - "总结材料"
-      style_level: [2, 3]
-      sample: "在服务大局中找准坐标。"
-
-    - term: "内容生态"
-      source: "style-guide + 旧稿"
-      usage_context:
-        - "新闻稿"
-        - "总结材料"
-      style_level: [2, 3]
-
-    - term: "主流引领"
-      source: "style-guide 第5章"
-      usage_context:
-        - "新闻稿"
-        - "汇报材料"
-      style_level: [2, 3]
-
-    - term: "顶压前行 / 顶压作战"
-      source: "旧稿 + style-guide 第5章"
-      usage_context:
-        - "新闻稿"
-        - "总结材料"
-        - "领导讲话"
-      style_level: [2, 3]
-      sample: "逆风而行、顶压作战完成年度目标。"
-
-    - term: "蝶变焕新"
-      source: "style-guide 第5章"
-      usage_context:
-        - "新闻稿"
-        - "总结材料"
-      style_level: [2, 3]
-
-    - term: "跃马扬鞭"
-      source: "旧稿 + style-guide 第5章"
-      usage_context:
-        - "新闻稿"
-        - "总结材料"
-      style_level: [2, 3]
-      sample: "跃马扬鞭赴新程。"
-
-    - term: "智媒跃升"
-      source: "旧稿 + style-guide 第5章"
-      usage_context:
-        - "新闻稿"
-        - "汇报材料"
-      style_level: [2, 3]
-      sample: "从工具应用到智媒跃升。"
-
-    - term: "AI+ / AIGC"
-      source: "旧稿 + style-guide 第5章"
-      usage_context:
-        - "新闻稿"
-        - "汇报材料"
-      style_level: [2, 3]
-
+  - term: 文化和科技融合
+    source: 旧稿（高频出现）+ style-guide 第5章
+    usage_context:
+    - 汇报材料
+    - 新闻稿
+    - 领导讲话
+    style_level:
+    - 2
+    - 3
+    sample: 推动文化和科技深度融合，技术优势持续巩固。
+  - term: 数智化平台型媒体集团
+    source: 旧稿 + style-guide 第5章
+    usage_context:
+    - 汇报材料
+    - 领导讲话
+    - 总结材料
+    style_level:
+    - 2
+    - 3
+    sample: 锚定数智化平台型媒体集团总体目标。
+  - term: 五新战略
+    source: 旧稿（2026年核心战略）+ style-guide 第5章
+    usage_context:
+    - 汇报材料
+    - 新闻稿
+    - 领导讲话
+    style_level:
+    - 2
+    - 3
+    sample: 以五新战略为牵引接续奋斗。
+    components:
+    - 新内容
+    - 新赛道
+    - 新技术
+    - 新传播
+    - 新商业
+    - 新芒果
+  - term: 系统性变革
+    source: 旧稿 + style-guide 第5章
+    usage_context:
+    - 新闻稿
+    - 汇报材料
+    - 领导讲话
+    style_level:
+    - 2
+    - 3
+    sample: 从六个方面阐述湖南广电的系统性变革。
+  - term: 双前锋
+    source: 旧稿 + style-guide 第5章
+    usage_context:
+    - 新闻稿
+    - 汇报材料
+    style_level:
+    - 2
+    - 3
+    sample: 内容技术双前锋深融，从工具应用到智媒跃升。
+  - term: 融合创新
+    source: doc-type-rules.md + 旧稿
+    usage_context:
+    - 新闻稿
+    - 总结材料
+    style_level:
+    - 2
+    - 3
+    sample: 在服务大局中找准坐标。
+  - term: 内容生态
+    source: style-guide + 旧稿
+    usage_context:
+    - 新闻稿
+    - 总结材料
+    style_level:
+    - 2
+    - 3
+  - term: 主流引领
+    source: style-guide 第5章
+    usage_context:
+    - 新闻稿
+    - 汇报材料
+    style_level:
+    - 2
+    - 3
+  - term: 顶压前行 / 顶压作战
+    source: 旧稿 + style-guide 第5章
+    usage_context:
+    - 新闻稿
+    - 总结材料
+    - 领导讲话
+    style_level:
+    - 2
+    - 3
+    sample: 逆风而行、顶压作战完成年度目标。
+  - term: 蝶变焕新
+    source: style-guide 第5章
+    usage_context:
+    - 新闻稿
+    - 总结材料
+    style_level:
+    - 2
+    - 3
+  - term: 跃马扬鞭
+    source: 旧稿 + style-guide 第5章
+    usage_context:
+    - 新闻稿
+    - 总结材料
+    style_level:
+    - 2
+    - 3
+    sample: 跃马扬鞭赴新程。
+  - term: 智媒跃升
+    source: 旧稿 + style-guide 第5章
+    usage_context:
+    - 新闻稿
+    - 汇报材料
+    style_level:
+    - 2
+    - 3
+    sample: 从工具应用到智媒跃升。
+  - term: AI+ / AIGC
+    source: 旧稿 + style-guide 第5章
+    usage_context:
+    - 新闻稿
+    - 汇报材料
+    style_level:
+    - 2
+    - 3
   cautious:
-    - term: "重大突破"
-      reason: "需有事实依据，不得凭空使用。用户素材或旧稿明确提及方可使用。"
-
-    - term: "历史最好"
-      reason: "需有数据支撑和来源确认。"
-
-    - term: "全国领先"
-      reason: "需有权威排名或奖项支撑。"
-
-    - term: "行业标杆"
-      reason: "需有具体案例和依据。"
-
+  - term: 重大突破
+    reason: 需有事实依据，不得凭空使用。用户素材或旧稿明确提及方可使用。
+  - term: 历史最好
+    reason: 需有数据支撑和来源确认。
+  - term: 全国领先
+    reason: 需有权威排名或奖项支撑。
+  - term: 行业标杆
+    reason: 需有具体案例和依据。
   forbidden_without_evidence:
-    - term: "领导高度肯定"
-      reason: "除非用户素材或旧稿明确提供，否则不得新增。"
-
-    - term: "领导指出/强调"
-      reason: "除非用户素材或旧稿明确提供领导讲话内容，否则不得编造领导评价。"
-
-    - term: "取得突破性成效"
-      reason: "需有事实或数据支撑，用户素材未提供则不得使用。"
-
-    - term: "荣获XX奖"
-      reason: "除非用户素材或旧稿明确提及，否则不得编造获奖信息。"
-
-    - term: "参会人数超千人/万人"
-      reason: "除非用户提供具体数据，否则不得编造参与规模。"
-
-# ============================================================
-# 固定替换规则（从旧稿和 style-guide 提炼）
-# ============================================================
-
+  - term: 领导高度肯定
+    reason: 除非用户素材或旧稿明确提供，否则不得新增。
+  - term: 领导指出/强调
+    reason: 除非用户素材或旧稿明确提供领导讲话内容，否则不得编造领导评价。
+  - term: 取得突破性成效
+    reason: 需有事实或数据支撑，用户素材未提供则不得使用。
+  - term: 荣获XX奖
+    reason: 除非用户素材或旧稿明确提及，否则不得编造获奖信息。
+  - term: 参会人数超千人/万人
+    reason: 除非用户提供具体数据，否则不得编造参与规模。
 fixed_replacements:
-  # --- 称谓替换 ---
-  - wrong: "龚政文说"
-    right: "龚政文指出 / 龚政文表示 / 龚政文强调"
-    source: "mango-writer style-guide 第11章、第12章"
-    level: "high"
-    context: "所有文种"
-    note: "口语化动词须替换为正式公文动词。"
-
-  - wrong: "咱们 / 咱们公司 / 我们 / 我"
-    right: "湖南广电 / 集团（台） / 芒果超媒（根据具体语境选用）"
-    source: "mango-writer style-guide 第11章、第12章"
-    level: "high"
-    context: "所有文种"
-    note: "第一人称口语须替换为机构名称。"
-
-  - wrong: "搞得不错 / 真的牛 / 超赞"
-    right: "取得显著成效 / 稳步推进 / 实现多点突破"
-    source: "mango-writer style-guide 第11章"
-    level: "high"
-    context: "所有文种"
-    note: "口语化评价须替换为正式表达。"
-
-  - wrong: "涨了24%"
-    right: "同比增长24% / 增幅达24%"
-    source: "mango-writer style-guide 第11章"
-    level: "high"
-    context: "新闻稿 / 汇报材料"
-    note: "口语化增长描述须使用规范表述。"
-
-  - wrong: "这季度"
-    right: "2026年第一季度 / 本季度（须明确时间）"
-    source: "mango-writer style-guide 第11章"
-    level: "high"
-    context: "所有文种"
-    note: "时间表述须明确具体。"
-
-  # --- 机构称谓替换 ---
-  - wrong: "芒果总部"
-    right: "湖南广播影视集团（台） / 集团（台）"
-    source: "mango-writer style-guide 第2章、SKILL.md 禁止事项"
-    level: "high"
-    context: "所有文种"
-    note: "「芒果总部」为禁用称谓。"
-
-  - wrong: "湖南卫视总部"
-    right: "湖南广播影视集团（台） / 湖南广播电视台"
-    source: "mango-writer SKILL.md 禁止事项"
-    level: "high"
-    context: "所有文种"
-    note: "「湖南卫视总部」为禁用称谓。"
-
-  - wrong: "电广"
-    right: "电广传媒"
-    source: "本库 organizations.dgb_media"
-    level: "medium"
-    context: "所有文种"
-    note: "不得将「电广传媒」简称为「电广」。"
-
-  - wrong: "卫视"
-    right: "湖南卫视"
-    source: "本库 organizations.hunan_satellite_tv"
-    level: "medium"
-    context: "正式文案"
-    note: "正式文案中不得将「湖南卫视」简称为「卫视」。"
-
-  # --- 格式替换 ---
-  - wrong: "AI方面也搞得不错"
-    right: "人工智能领域持续深耕"
-    source: "mango-writer style-guide 第11章"
-    level: "medium"
-    context: "所有文种"
-    note: "口语化缩写须替换为正式表达，可能依赖上下文。"
-
-  - wrong: "说要把AI当水电煤用"
-    right: "推动AI基础设施化 / 将AI打造为行业水电煤"
-    source: "mango-writer style-guide 第11章"
-    level: "medium"
-    context: "新闻稿 / 汇报材料"
-    note: "口语化表述须转换为正式战略表达。"
-
-# ============================================================
-# 禁用称谓
-# ============================================================
-
+- wrong: 龚政文说
+  right: 龚政文指出 / 龚政文表示 / 龚政文强调
+  source: mango-writer style-guide 第11章、第12章
+  level: high
+  context: 所有文种
+  note: 口语化动词须替换为正式公文动词。
+- wrong: 咱们 / 咱们公司 / 我们 / 我
+  right: 湖南广电 / 集团（台） / 芒果超媒（根据具体语境选用）
+  source: mango-writer style-guide 第11章、第12章
+  level: high
+  context: 所有文种
+  note: 第一人称口语须替换为机构名称。
+- wrong: 搞得不错 / 真的牛 / 超赞
+  right: 取得显著成效 / 稳步推进 / 实现多点突破
+  source: mango-writer style-guide 第11章
+  level: high
+  context: 所有文种
+  note: 口语化评价须替换为正式表达。
+- wrong: 涨了24%
+  right: 同比增长24% / 增幅达24%
+  source: mango-writer style-guide 第11章
+  level: high
+  context: 新闻稿 / 汇报材料
+  note: 口语化增长描述须使用规范表述。
+- wrong: 这季度
+  right: 2026年第一季度 / 本季度（须明确时间）
+  source: mango-writer style-guide 第11章
+  level: high
+  context: 所有文种
+  note: 时间表述须明确具体。
+- wrong: 芒果总部
+  right: 湖南广播影视集团（台） / 集团（台）
+  source: mango-writer style-guide 第2章、SKILL.md 禁止事项
+  level: high
+  context: 所有文种
+  note: 「芒果总部」为禁用称谓。
+- wrong: 湖南卫视总部
+  right: 湖南广播影视集团（台） / 湖南广播电视台
+  source: mango-writer SKILL.md 禁止事项
+  level: high
+  context: 所有文种
+  note: 「湖南卫视总部」为禁用称谓。
+- wrong: 电广
+  right: 电广传媒
+  source: 本库 organizations.dgb_media
+  level: medium
+  context: 所有文种
+  note: 不得将「电广传媒」简称为「电广」。
+- wrong: 卫视
+  right: 湖南卫视
+  source: 本库 organizations.hunan_satellite_tv
+  level: medium
+  context: 正式文案
+  note: 正式文案中不得将「湖南卫视」简称为「卫视」。
+- wrong: AI方面也搞得不错
+  right: 人工智能领域持续深耕
+  source: mango-writer style-guide 第11章
+  level: medium
+  context: 所有文种
+  note: 口语化缩写须替换为正式表达，可能依赖上下文。
+- wrong: 说要把AI当水电煤用
+  right: 推动AI基础设施化 / 将AI打造为行业水电煤
+  source: mango-writer style-guide 第11章
+  level: medium
+  context: 新闻稿 / 汇报材料
+  note: 口语化表述须转换为正式战略表达。
 forbidden_names:
   organizations:
-    - name: "芒果总部"
-      reason: "非正式称谓，旧稿和 style-guide 均明确禁止。"
-    - name: "湖南卫视总部"
-      reason: "非正式称谓，混淆机构层级。"
-    - name: "广电总部"
-      reason: "非正式称谓。"
-
+  - name: 芒果总部
+    reason: 非正式称谓，旧稿和 style-guide 均明确禁止。
+  - name: 湖南卫视总部
+    reason: 非正式称谓，混淆机构层级。
+  - name: 广电总部
+    reason: 非正式称谓。
   leaders: []
-  # 领导称谓禁用规则在 leaders 字段中通过 forbidden_titles 处理
-
   expressions:
-    - expression: "咱们 / 咱们公司"
-      reason: "第一人称口语，所有文种禁止。"
-    - expression: "真的牛 / 超赞 / 绝绝子"
-      reason: "网络用语，所有文种禁止。"
-    - expression: "破防 / YYDS"
-      reason: "网络用语，所有文种禁止。"
-    - expression: "领导高度肯定（无来源时）"
-      reason: "编造领导评价，除非用户素材或旧稿明确提供。"
-    - expression: "取得突破性成效（无依据时）"
-      reason: "夸大成果，须有事实或数据支撑。"
-
-# ============================================================
-# 旧稿继承规则
-# ============================================================
-
+  - expression: 咱们 / 咱们公司
+    reason: 第一人称口语，所有文种禁止。
+  - expression: 真的牛 / 超赞 / 绝绝子
+    reason: 网络用语，所有文种禁止。
+  - expression: 破防 / YYDS
+    reason: 网络用语，所有文种禁止。
+  - expression: 领导高度肯定（无来源时）
+    reason: 编造领导评价，除非用户素材或旧稿明确提供。
+  - expression: 取得突破性成效（无依据时）
+    reason: 夸大成果，须有事实或数据支撑。
 inheritance_policy:
   allow_inherit_from_old_drafts:
     enabled: true
     sources:
-      - "60篇芒果系旧稿（/home/ywj/rag-server/docs/hunan_mango/）"
-      - "老板亲自把关稿件"
-      - "已有 mango-writer 风格手册（style-guide.md）"
-      - "已有 RAG 语料（collection: hunan_mango）"
-
+    - 60篇芒果系旧稿（/home/ywj/rag-server/docs/hunan_mango/）
+    - 老板亲自把关稿件
+    - 已有 mango-writer 风格手册（style-guide.md）
+    - '已有 RAG 语料（collection: hunan_mango）'
   inheritable_items:
-    - "机构正式名称"
-    - "机构规范简称"
-    - "领导姓名"
-    - "领导职务"
-    - "领导排序习惯"
-    - "产品正式名称"
-    - "业务板块称谓"
-    - "战略表达"
-    - "固定搭配"
-    - "标题风格"
-    - "常用结尾"
-    - "排比句式模板"
-    - "开头句式模板"
-    - "比喻金句"
-    - "高频动词（赋能、助推、深耕等）"
-    - "政治锚定三层结构"
-
+  - 机构正式名称
+  - 机构规范简称
+  - 领导姓名
+  - 领导职务
+  - 领导排序习惯
+  - 产品正式名称
+  - 业务板块称谓
+  - 战略表达
+  - 固定搭配
+  - 标题风格
+  - 常用结尾
+  - 排比句式模板
+  - 开头句式模板
+  - 比喻金句
+  - 高频动词（赋能、助推、深耕等）
+  - 政治锚定三层结构
   not_inheritable_items_without_current_input:
-    - "具体数据（如营收数字、用户数量）"
-    - "当次会议时间"
-    - "当次活动地点"
-    - "当次出席人员"
-    - "当次表态内容"
-    - "当次批示内容"
-    - "当次经营成果"
-    - "当次获奖信息"
-    - "当次合作签约细节"
-    - "当次调研成果"
-
+  - 具体数据（如营收数字、用户数量）
+  - 当次会议时间
+  - 当次活动地点
+  - 当次出席人员
+  - 当次表态内容
+  - 当次批示内容
+  - 当次经营成果
+  - 当次获奖信息
+  - 当次合作签约细节
+  - 当次调研成果
   rule:
-    - "稳定称谓可以继承。旧稿中同一称谓在 3 篇以上稿件中稳定出现，视为可继承。"
-    - "稳定职务可以继承。旧稿中同一领导职务在多篇稿件中一致出现，视为可继承。"
-    - "稳定机构名称可以继承。旧稿中首次用全称、后续用简称的模式，视为可继承。"
-    - "具体事实不能从旧稿迁移到新稿，除非用户本次素材明确提供。"
-    - "旧稿中的数据（如「芒果TV会员达7560万」）不能直接迁移到新稿，除非用户本次素材确认。"
-    - "旧稿中的事件描述不能作为新稿的事实依据，只能借鉴表达方式。"
-
-# ============================================================
-# 口径冲突处理规则
-# ============================================================
-
+  - 稳定称谓可以继承。旧稿中同一称谓在 3 篇以上稿件中稳定出现，视为可继承。
+  - 稳定职务可以继承。旧稿中同一领导职务在多篇稿件中一致出现，视为可继承。
+  - 稳定机构名称可以继承。旧稿中首次用全称、后续用简称的模式，视为可继承。
+  - 具体事实不能从旧稿迁移到新稿，除非用户本次素材明确提供。
+  - 旧稿中的数据（如「芒果TV会员达7560万」）不能直接迁移到新稿，除非用户本次素材确认。
+  - 旧稿中的事件描述不能作为新稿的事实依据，只能借鉴表达方式。
 conflict_policy:
   same_leader_multiple_titles:
-    action: "mark_for_manual_review"
-    note: "同一领导在旧稿中存在多个职务版本时，不自动选择。标记【需人工确认】并列出所有版本。"
-
+    action: mark_for_manual_review
+    note: 同一领导在旧稿中存在多个职务版本时，不自动选择。标记【需人工确认】并列出所有版本。
   user_input_conflicts_with_dictionary:
-    action: "prefer_user_input_but_warn"
-    note: "用户当次明确输入优先，但提示与口径库不一致。如：口径库中龚政文为「党委书记、董事长」，但用户本次要求写为其他职务，则使用用户指定职务，同时在稿件中标注提示。"
-
+    action: prefer_user_input_but_warn
+    note: 用户当次明确输入优先，但提示与口径库不一致。如：口径库中龚政文为「党委书记、董事长」，但用户本次要求写为其他职务，则使用用户指定职务，同时在稿件中标注提示。
   rag_conflicts_with_dictionary:
-    action: "prefer_dictionary"
-    note: "RAG 仅作风格参考，口径以 org-title-dictionary.yaml 为准。RAG 中出现的领导职务/机构名称如与本库不一致，以本库为准。"
-
+    action: prefer_dictionary
+    note: RAG 仅作风格参考，口径以 org-title-dictionary.yaml 为准。RAG 中出现的领导职务/机构名称如与本库不一致，以本库为准。
   old_drafts_conflict_with_each_other:
-    action: "choose_high_frequency_if_stable_else_manual_review"
-    note: "多个旧稿出现差异时，若高频版本明显稳定（如3篇以上一致），可标记 high 并直接继承；否则标记【需人工确认】。"
-
+    action: choose_high_frequency_if_stable_else_manual_review
+    note: 多个旧稿出现差异时，若高频版本明显稳定（如3篇以上一致），可标记 high 并直接继承；否则标记【需人工确认】。
   style_guide_conflicts_with_old_drafts:
-    action: "prefer_old_drafts_for_facts_style_guide_for_patterns"
-    note: "事实性信息（领导职务、机构名称）以旧稿为准；表达模式（句式模板、排比结构）以 style-guide 为准。"
-
+    action: prefer_old_drafts_for_facts_style_guide_for_patterns
+    note: 事实性信息（领导职务、机构名称）以旧稿为准；表达模式（句式模板、排比结构）以 style-guide 为准。
   missing_leader_title:
-    action: "use_placeholder_mark_for_confirmation"
-    note: "旧稿中只出现领导姓名而无职务时，使用【需确认职务】占位，不使用模型自身知识补全。"
-
-# ============================================================
-# 质检提示
-# ============================================================
-
+    action: use_placeholder_mark_for_confirmation
+    note: 旧稿中只出现领导姓名而无职务时，使用【需确认职务】占位，不使用模型自身知识补全。
 review_notes:
   pre_draft_checks:
-    - "检查所有领导首次提及是否带完整职务前缀。"
-    - "检查机构首次出现是否使用全称。"
-    - "检查是否存在本库 forbidden_names 中的禁用称谓。"
-    - "检查是否存在本库 forbidden_without_evidence 中的无依据表达。"
-
+  - 检查所有领导首次提及是否带完整职务前缀。
+  - 检查机构首次出现是否使用全称。
+  - 检查是否存在本库 forbidden_names 中的禁用称谓。
+  - 检查是否存在本库 forbidden_without_evidence 中的无依据表达。
   post_draft_checks:
-    - "核对领导称谓是否与 org-title-dictionary.yaml 一致。"
-    - "核对机构称谓是否与 org-title-dictionary.yaml 一致。"
-    - "核对是否存在编造领导评价（如「领导高度肯定」无来源）。"
-    - "核对是否存在编造成果数据（用户素材未提供但稿件中出现）。"
-    - "核对是否存在从旧稿迁移的具体事实数据（未经用户确认）。"
-    - "核对是否存在 needs_manual_confirmation 标记的未确认内容。"
-
+  - 核对领导称谓是否与 org-title-dictionary.yaml 一致。
+  - 核对机构称谓是否与 org-title-dictionary.yaml 一致。
+  - 核对是否存在编造领导评价（如「领导高度肯定」无来源）。
+  - 核对是否存在编造成果数据（用户素材未提供但稿件中出现）。
+  - 核对是否存在从旧稿迁移的具体事实数据（未经用户确认）。
+  - 核对是否存在 needs_manual_confirmation 标记的未确认内容。
   manual_confirmation_protocol:
-    - "当称谓库中某领导标记 needs_manual_confirmation 时，初稿中须用【需确认职务：XXX】占位。"
-    - "当用户素材中领导职务与本库不一致时，使用用户指定职务，但附注说明。"
-    - "当出现未在本库中的领导姓名时，标记【需确认职务】，不使用模型知识补全。"
-
-# 文档信息
-# 创建日期：2026-05-28
-# 数据来源：60篇芒果日志原文 + mango-writer style-guide.md + RAG hunan_mango collection
-# 版本：0.1
+  - 当称谓库中某领导标记 needs_manual_confirmation 时，初稿中须用【需确认职务：XXX】占位。
+  - 当用户素材中领导职务与本库不一致时，使用用户指定职务，但附注说明。
+  - 当出现未在本库中的领导姓名时，标记【需确认职务】，不使用模型知识补全。

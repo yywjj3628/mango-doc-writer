@@ -1,0 +1,514 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "mango-doc-writer Rule Candidate Schema v0.2.0",
+  "description": "规则候选 JSONL schema，用于 C2.2+ 语料萃取和人工确认流程",
+  "type": "object",
+  "required": ["candidate_id", "candidate_type", "key", "value", "evidence", "review"],
+  "properties": {
+    "candidate_id": {
+      "type": "string",
+      "description": "候选唯一 ID，格式：{type}_{short_hash}，如 leader_顾懿_a3f2"
+    },
+    "candidate_type": {
+      "type": "string",
+      "enum": ["leader_title", "subsidiary_affiliation", "company_alias", "doc_type_rule", "style_phrase", "risk_rule", "field_hint_rule"],
+      "description": "候选规则类型"
+    },
+    "key": {
+      "type": "string",
+      "description": "候选的主键/名称，如人名、组织名、文种名"
+    },
+    "value": {
+      "type": "object",
+      "description": "候选的结构化值，格式因 candidate_type 而异"
+    },
+    "evidence": {
+      "type": "object",
+      "required": ["evidence_text", "source_doc"],
+      "properties": {
+        "evidence_text": {
+          "type": "string",
+          "description": "原始语料中的证据文本（原文摘录）"
+        },
+        "source_doc": {
+          "type": "string",
+          "description": "证据来源文档路径或名称"
+        },
+        "source_date": {
+          "type": ["string", "null"],
+          "description": "来源文档日期，ISO 8601 格式，可为空"
+        },
+        "evidence_count": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "该候选在语料中出现的次数"
+        }
+      }
+    },
+    "review": {
+      "type": "object",
+      "required": ["confidence", "needs_manual_review", "suggested_action"],
+      "properties": {
+        "confidence": {
+          "type": "string",
+          "enum": ["high", "medium", "low"],
+          "description": "萃取置信度"
+        },
+        "is_time_sensitive": {
+          "type": "boolean",
+          "default": false,
+          "description": "是否时效敏感（如领导职务变动）"
+        },
+        "needs_manual_review": {
+          "type": "boolean",
+          "description": "是否需要人工确认"
+        },
+        "conflict_with_existing": {
+          "type": ["string", "null"],
+          "description": "与现有规则的冲突描述，无冲突为 null"
+        },
+        "suggested_action": {
+          "type": "string",
+          "enum": ["auto_import", "human_confirm", "defer", "discard"],
+          "description": "建议动作：auto_import=直接导入, human_confirm=需人工确认, defer=暂缓, discard=弃用"
+        },
+        "reviewer_decision": {
+          "type": ["string", "null"],
+          "enum": ["approved", "modified", "rejected", "deferred", null],
+          "description": "人工审核决定，未审核时为 null"
+        },
+        "reviewer_note": {
+          "type": ["string", "null"],
+          "description": "人工审核备注"
+        },
+        "reviewed_at": {
+          "type": ["string", "null"],
+          "description": "审核时间，ISO 8601 格式"
+        },
+        "corrected_value": {
+          "type": ["object", "null"],
+          "description": "人工修正后的正确值，仅在 reviewer_decision=modified 时填写"
+        },
+        "apply_to_formal_rules": {
+          "type": ["boolean", "null"],
+          "description": "是否合并进正式规则库，仅在审核完成后填写"
+        }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "description": "候选创建时间，ISO 8601 格式"
+    }
+  },
+  "definitions": {
+    "leader_title": {
+      "description": "领导姓名与职务候选",
+      "value_schema": {
+        "person_name": "string - 领导姓名",
+        "title": "string - 职务",
+        "organization_scope": "string - 组织范围标识（如 jiuzhirun, dianguang_media）",
+        "organization_name": "string - 所属组织全称",
+        "accepted_titles": "string[] - 可接受的职务表述列表"
+      },
+      "example": {
+        "candidate_id": "leader_顾懿_a3f2",
+        "candidate_type": "leader_title",
+        "key": "顾懿",
+        "value": {
+          "person_name": "顾懿",
+          "title": "久之润总经理",
+          "organization_scope": "jiuzhirun",
+          "organization_name": "上海久之润信息技术有限公司",
+          "accepted_titles": ["久之润总经理", "上海久之润信息技术有限公司总经理"]
+        },
+        "evidence": {
+          "evidence_text": "久之润总经理顾懿出席会议并讲话",
+          "source_doc": "久之润2025年目标责任书.md",
+          "source_date": "2025-01-01",
+          "evidence_count": 1
+        },
+        "review": {
+          "confidence": "high",
+          "is_time_sensitive": true,
+          "needs_manual_review": true,
+          "conflict_with_existing": null,
+          "suggested_action": "human_confirm",
+          "reviewer_decision": null,
+          "reviewer_note": null,
+          "reviewed_at": null,
+          "corrected_value": null,
+          "apply_to_formal_rules": null
+        },
+        "created_at": "2026-06-02T14:34:00Z"
+      }
+    },
+    "subsidiary_affiliation": {
+      "description": "子公司/关联主体归属口径候选",
+      "value_schema": {
+        "entity_name": "string - 主体名称",
+        "parent_entity": "string - 上级/归属主体名称",
+        "relation_type": "string - 关系类型：subsidiary_of(全资子公司), affiliated_to(关联), managed_by(管理关系)",
+        "organization_scope": "string - 组织范围标识",
+        "business_type": "string|null - 业务类型",
+        "short_name": "string|null - 简称"
+      },
+      "example": {
+        "candidate_id": "sub_久之润_b7d1",
+        "candidate_type": "subsidiary_affiliation",
+        "key": "久之润",
+        "value": {
+          "entity_name": "上海久之润信息技术有限公司",
+          "parent_entity": "湖南电广传媒股份有限公司",
+          "relation_type": "subsidiary_of",
+          "organization_scope": "jiuzhirun",
+          "business_type": "网络游戏",
+          "short_name": "久之润"
+        },
+        "evidence": {
+          "evidence_text": "久之润作为电广传媒全资子公司",
+          "source_doc": "久之润2025年目标责任书.md",
+          "source_date": "2025-01-01",
+          "evidence_count": 1
+        },
+        "review": {
+          "confidence": "high",
+          "is_time_sensitive": false,
+          "needs_manual_review": true,
+          "conflict_with_existing": null,
+          "suggested_action": "human_confirm",
+          "reviewer_decision": null,
+          "reviewer_note": null,
+          "reviewed_at": null
+        },
+        "created_at": "2026-06-02T14:34:00Z"
+      }
+    },
+    "company_alias": {
+      "description": "公司简称、别称、适用口径候选",
+      "value_schema": {
+        "full_name": "string - 全称",
+        "alias": "string - 简称/别称",
+        "allowed_context": "string[] - 适用场景（如：新闻稿, 汇报材料, 领导讲话）",
+        "forbidden_context": "string[] - 禁用场景",
+        "organization_scope": "string - 组织范围标识"
+      },
+      "example": {
+        "candidate_id": "alias_久之润_c4e9",
+        "candidate_type": "company_alias",
+        "key": "久之润",
+        "value": {
+          "full_name": "上海久之润信息技术有限公司",
+          "alias": "久之润",
+          "allowed_context": ["新闻稿", "汇报材料", "领导讲话", "总结材料"],
+          "forbidden_context": ["正式公文首次出现"],
+          "organization_scope": "jiuzhirun"
+        },
+        "evidence": {
+          "evidence_text": "久之润2025年经营目标",
+          "source_doc": "久之润2025年目标责任书.md",
+          "source_date": "2025-01-01",
+          "evidence_count": 3
+        },
+        "review": {
+          "confidence": "high",
+          "is_time_sensitive": false,
+          "needs_manual_review": false,
+          "conflict_with_existing": null,
+          "suggested_action": "auto_import",
+          "reviewer_decision": null,
+          "reviewer_note": null,
+          "reviewed_at": null
+        },
+        "created_at": "2026-06-02T14:34:00Z"
+      }
+    },
+    "doc_type_rule": {
+      "description": "新增文种规则候选",
+      "value_schema": {
+        "output_doc_type": "string - 文种名称",
+        "rule_name": "string - 规则名称",
+        "structure": "string - 建议结构",
+        "tone": "string - 语调要求",
+        "required_elements": "string[] - 必须包含的元素",
+        "forbidden_elements": "string[] - 禁止的元素",
+        "length_guidance": "string - 篇幅建议",
+        "example_source": "string|null - 示例来源"
+      },
+      "examples": [
+        {
+          "candidate_id": "doctype_亮点工作材料_d1a5",
+          "candidate_type": "doc_type_rule",
+          "key": "亮点工作材料",
+          "value": {
+            "output_doc_type": "亮点工作材料",
+            "rule_name": "亮点工作材料结构规则",
+            "structure": "背景 → 主要亮点 → 具体举措 → 阶段成效 → 经验启示 → 下一步计划",
+            "tone": "正式、务实、有数据支撑，突出创新和成效",
+            "required_elements": ["标题", "至少3个亮点", "数据支撑", "阶段成效"],
+            "forbidden_elements": ["流水账式罗列", "空洞口号", "无数据支撑的成果"],
+            "length_guidance": "600-900字（司情），1000-1500字（集团级）",
+            "example_source": null
+          },
+          "evidence": {
+            "evidence_text": "久之润2025年亮点工作材料",
+            "source_doc": "久之润2025年目标责任书.md",
+            "source_date": "2025-01-01",
+            "evidence_count": 1
+          },
+          "review": {
+            "confidence": "medium",
+            "is_time_sensitive": false,
+            "needs_manual_review": true,
+            "conflict_with_existing": "doc-type-rules.md 未覆盖此文种",
+            "suggested_action": "human_confirm",
+            "reviewer_decision": null,
+            "reviewer_note": null,
+            "reviewed_at": null
+          },
+          "created_at": "2026-06-02T14:34:00Z"
+        },
+        {
+          "candidate_id": "doctype_宣传推文_e2b8",
+          "candidate_type": "doc_type_rule",
+          "key": "宣传推文",
+          "value": {
+            "output_doc_type": "宣传推文",
+            "rule_name": "宣传推文结构规则",
+            "structure": "传播性标题 → 活动导语 → 现场/亮点 → 主体价值 → 意义提升 → 行动/展望",
+            "tone": "活泼、有传播力，兼顾正式与生动",
+            "required_elements": ["传播性标题", "活动/事件核心", "价值提炼"],
+            "forbidden_elements": ["纯公文语调", "无传播点的平铺直叙", "过长段落"],
+            "length_guidance": "800-1200字（公众号推文）",
+            "example_source": null
+          },
+          "evidence": {
+            "evidence_text": "芒果TV宣传推文",
+            "source_doc": "60篇旧稿",
+            "source_date": "2026-01-01",
+            "evidence_count": 5
+          },
+          "review": {
+            "confidence": "medium",
+            "is_time_sensitive": false,
+            "needs_manual_review": true,
+            "conflict_with_existing": "doc-type-rules.md 未覆盖此文种",
+            "suggested_action": "human_confirm",
+            "reviewer_decision": null,
+            "reviewer_note": null,
+            "reviewed_at": null
+          },
+          "created_at": "2026-06-02T14:34:00Z"
+        },
+        {
+          "candidate_id": "doctype_工作方案_f3c7",
+          "candidate_type": "doc_type_rule",
+          "key": "工作方案",
+          "value": {
+            "output_doc_type": "工作方案",
+            "rule_name": "工作方案结构规则",
+            "structure": "背景依据 → 总体目标 → 重点任务 → 责任分工 → 时间安排 → 保障措施",
+            "tone": "严谨、可操作，强调责任和时间节点",
+            "required_elements": ["背景依据", "总体目标", "重点任务", "责任分工", "时间安排"],
+            "forbidden_elements": ["空泛目标", "无责任人的任务", "无时间节点的安排"],
+            "length_guidance": "1500-3000字",
+            "example_source": null
+          },
+          "evidence": {
+            "evidence_text": "久之润2025年工作方案",
+            "source_doc": "久之润2025年目标责任书.md",
+            "source_date": "2025-01-01",
+            "evidence_count": 1
+          },
+          "review": {
+            "confidence": "medium",
+            "is_time_sensitive": false,
+            "needs_manual_review": true,
+            "conflict_with_existing": "doc-type-rules.md 未覆盖此文种",
+            "suggested_action": "human_confirm",
+            "reviewer_decision": null,
+            "reviewer_note": null,
+            "reviewed_at": null
+          },
+          "created_at": "2026-06-02T14:34:00Z"
+        }
+      ]
+    },
+    "style_phrase": {
+      "description": "风格表达/常用句式候选",
+      "value_schema": {
+        "style_domain": "string - 风格域标识",
+        "phrase": "string - 表达/句式",
+        "use_case": "string - 使用场景",
+        "risk_level": "string - 风险等级：low/medium/high",
+        "category": "string|null - 分类：opening(开头), transition(过渡), closing(结尾), title(标题), data(数据)"
+      },
+      "example": {
+        "candidate_id": "phrase_司情开头_g4h2",
+        "candidate_type": "style_phrase",
+        "key": "司情新闻稿开头",
+        "value": {
+          "style_domain": "dianguang_siqing",
+          "phrase": "时间 + 事件 + 人物 + 核心动作",
+          "use_case": "司情新闻稿开头段",
+          "risk_level": "low",
+          "category": "opening"
+        },
+        "evidence": {
+          "evidence_text": "5月26日，电广传媒召开2026年度工作会议，党委书记、董事长龚政文出席会议并讲话。",
+          "source_doc": "2026-05-26-电广传媒工作会议.md",
+          "source_date": "2026-05-26",
+          "evidence_count": 10
+        },
+        "review": {
+          "confidence": "high",
+          "is_time_sensitive": false,
+          "needs_manual_review": false,
+          "conflict_with_existing": null,
+          "suggested_action": "auto_import",
+          "reviewer_decision": null,
+          "reviewer_note": null,
+          "reviewed_at": null
+        },
+        "created_at": "2026-06-02T14:34:00Z"
+      }
+    },
+    "risk_rule": {
+      "description": "事实安全/禁忌规则候选",
+      "value_schema": {
+        "risk_type": "string - 风险类型：factual_accuracy(事实准确性), political_sensitivity(政治敏感), brand_consistency(品牌一致性), legal_compliance(合规)",
+        "forbidden_pattern": "string - 禁止的内容模式",
+        "safe_alternative": "string - 安全替代方案",
+        "applicable_scope": "string[] - 适用范围",
+        "severity": "string - 严重程度：low/medium/high/critical"
+      },
+      "example": {
+        "candidate_id": "risk_领导评价_i5j3",
+        "candidate_type": "risk_rule",
+        "key": "领导评价编造",
+        "value": {
+          "risk_type": "factual_accuracy",
+          "forbidden_pattern": "编造领导评价（除非用户素材或旧稿明确提供）",
+          "safe_alternative": "引用用户提供的原始素材，或省略领导评价",
+          "applicable_scope": ["所有文种"],
+          "severity": "high"
+        },
+        "evidence": {
+          "evidence_text": "领导高度肯定（无来源时）",
+          "source_doc": "org-title-dictionary.yaml",
+          "source_date": "2026-01-01",
+          "evidence_count": 1
+        },
+        "review": {
+          "confidence": "high",
+          "is_time_sensitive": false,
+          "needs_manual_review": false,
+          "conflict_with_existing": null,
+          "suggested_action": "auto_import",
+          "reviewer_decision": null,
+          "reviewer_note": null,
+          "reviewed_at": null
+        },
+        "created_at": "2026-06-02T14:34:00Z"
+      }
+    },
+    "field_hint_rule": {
+      "description": "C1.13 五字段 hints 迁出规则库的候选",
+      "value_schema": {
+        "field_name": "string - 字段名：style_domain, organization_scope, content_type, output_doc_type, length_mode",
+        "field_value": "string - 字段值",
+        "hint_text": "string - 提示文本",
+        "applicable_scope": "string[] - 适用范围",
+        "source": "string - 当前来源（如 run_gray.py）"
+      },
+      "examples": [
+        {
+          "candidate_id": "hint_style_domain_dianguang_k6l4",
+          "candidate_type": "field_hint_rule",
+          "key": "style_domain:dianguang_siqing",
+          "value": {
+            "field_name": "style_domain",
+            "field_value": "dianguang_siqing",
+            "hint_text": "参考电广传媒司情风格，保持正式、简洁、信息密度高",
+            "applicable_scope": ["plan", "draft", "review"],
+            "source": "run_gray.py:_STYLE_DOMAIN_HINTS"
+          },
+          "evidence": {
+            "evidence_text": "run_gray.py L201-220",
+            "source_doc": "scripts/run_gray.py",
+            "source_date": "2026-06-01",
+            "evidence_count": 1
+          },
+          "review": {
+            "confidence": "high",
+            "is_time_sensitive": false,
+            "needs_manual_review": false,
+            "conflict_with_existing": null,
+            "suggested_action": "human_confirm",
+            "reviewer_decision": null,
+            "reviewer_note": null,
+            "reviewed_at": null
+          },
+          "created_at": "2026-06-02T14:34:00Z"
+        },
+        {
+          "candidate_id": "hint_org_scope_jiuzhirun_m7n5",
+          "candidate_type": "field_hint_rule",
+          "key": "organization_scope:jiuzhirun",
+          "value": {
+            "field_name": "organization_scope",
+            "field_value": "jiuzhirun",
+            "hint_text": "久之润（电广传媒旗下），需注意与集团级口径区分",
+            "applicable_scope": ["plan", "draft", "review"],
+            "source": "run_gray.py:_ORG_SCOPE_HINTS"
+          },
+          "evidence": {
+            "evidence_text": "run_gray.py L222-240",
+            "source_doc": "scripts/run_gray.py",
+            "source_date": "2026-06-01",
+            "evidence_count": 1
+          },
+          "review": {
+            "confidence": "high",
+            "is_time_sensitive": false,
+            "needs_manual_review": false,
+            "conflict_with_existing": null,
+            "suggested_action": "human_confirm",
+            "reviewer_decision": null,
+            "reviewer_note": null,
+            "reviewed_at": null
+          },
+          "created_at": "2026-06-02T14:34:00Z"
+        },
+        {
+          "candidate_id": "hint_content_type_highlights_o8p6",
+          "candidate_type": "field_hint_rule",
+          "key": "content_type:highlights",
+          "value": {
+            "field_name": "content_type",
+            "field_value": "highlights",
+            "hint_text": "亮点工作，重点突出成效和创新",
+            "applicable_scope": ["plan", "draft", "review"],
+            "source": "run_gray.py:_CONTENT_TYPE_HINTS"
+          },
+          "evidence": {
+            "evidence_text": "run_gray.py L223-240",
+            "source_doc": "scripts/run_gray.py",
+            "source_date": "2026-06-01",
+            "evidence_count": 1
+          },
+          "review": {
+            "confidence": "high",
+            "is_time_sensitive": false,
+            "needs_manual_review": false,
+            "conflict_with_existing": null,
+            "suggested_action": "human_confirm",
+            "reviewer_decision": null,
+            "reviewer_note": null,
+            "reviewed_at": null
+          },
+          "created_at": "2026-06-02T14:34:00Z"
+        }
+      ]
+    }
+  }
+}

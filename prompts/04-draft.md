@@ -219,6 +219,23 @@ markdown_draft 字段中放 Markdown 正文初稿。
 - 如果 plan_result 中有 `blocked_items`（各 section 内）：不得写入对应内容。
 - 如果 plan_result 中有 `manual_confirmation_fields`：正文中可以使用概括性表达，但 warnings 中必须提示。
 
+### 2.1 篇幅遵循规则
+
+如果 requirement 或 draft_directives 中包含目标篇幅（如 total_word_count_estimate、expected_word_range、target_words、length_mode）：
+
+1. **正文应尽量达到目标下限**，不要把目标字数只当作参考信息。
+2. **差异化处理**：
+   - 如果是电广传媒司情普通新闻稿、子公司动态、活动短讯，允许短小精悍，不机械拉长。
+   - 如果是领导讲话、汇报材料、亮点工作材料、宣传推文、long 模式，应充分展开，正文尽量达到目标下限。
+3. **内容展开方式**：
+   - 可以补充背景承接、工作逻辑、意义表达、推进要求、下一步安排。
+   - 领导讲话中每项部署不应全部单句化，应至少有 2 句展开。
+   - 汇报材料每个小节应有事实描述和分析判断。
+   - 宣传推文应有活动现场感、亮点表达和意义提升。
+4. **事实安全边界**：
+   - 不得为凑字编造姓名、职务、数据、时间、地点、机构、具体发言。
+   - 如果素材事实不足以达到目标篇幅，应保持事实安全，并在 warnings 中说明“素材不足，部分扩展为结构性表达/工作逻辑表达”。
+
 ### 3. 事实必须服从 extract_result
 
 正文中所有事实必须来自 extract_result.facts 或 extract_result.fact_items。

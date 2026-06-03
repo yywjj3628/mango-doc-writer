@@ -1,0 +1,6 @@
+candidate_id,output_doc_type,reviewer_decision,corrected_value_summary,reviewer_note,apply_to_formal_rules
+doctype_亮点工作材料_c3_01,亮点工作材料,modified,亮点数量1-3个/有数据则保留无数据不编造/定性成效可写/篇幅分层司情500-900集团1000-1500,放宽硬性要求增加灵活性,true
+doctype_宣传推文_c3_02,宣传推文,modified,按style_domain拆分两种风格/dianguang_siqing克制正式500-800字/mango_official_account传播感800-1200字,核心修正为风格分域,true
+doctype_工作方案_c3_03,工作方案,modified,篇幅三档简版800-1200/标准1500-2500/复杂3000+/缺失信息标注待确认不编造,篇幅拆分+缺失信息处理规则,true
+doctype_会议新闻_c3_04,会议新闻,modified,领导讲话降为可选/增加输出目的判断规则/篇幅司情400-800集团800-1200,领导讲话不再必须,true
+doctype_会议纪要边界_c3_05,会议纪要,modified,判断逻辑改为输出目的而非关键词/增加双向边界规则和禁止交叉规则,从关键词匹配改为目的判断,true

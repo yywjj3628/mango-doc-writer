@@ -196,6 +196,10 @@ final_markdown 中的事实只能来自：
 2. 如 classify_result.doc_type = 请示，则全文按请示结构修正；
 3. 不得混用报告和请示结尾。
 
+### 4.1 不得无理由压缩已达标正文
+
+如果 draft 阶段的正文已达到目标篇幅（来自 requirement 或 draft_directives 中的 total_word_count_estimate / expected_word_range），rewrite 阶段不得无理由压缩正文。如果必须删减，优先删除重复空话，不删除核心事实和必要展开。
+
 ### 5. 必须修正 RAG 事实污染
 
 如果 review_result 指出 RAG 事实污染，必须删除相关事实。

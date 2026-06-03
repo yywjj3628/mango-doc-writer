@@ -1,0 +1,174 @@
+# C2.12 Proposed Patch: references/org-title-dictionary.yaml
+# 基于 C2.11 已确认候选生成
+# 日期：2026-06-03
+# 状态：DRY-RUN — 不实际应用
+
+# ============================================================
+# 现有匹配情况
+# ============================================================
+# 达晨财智: ❌ 不存在 → new_entry
+# 达晨: ❌ 不存在 → new_entry（作为达晨财智别名）
+# 圣爵菲斯: ❌ 不存在 → new_entry
+# 长沙世界之窗/世界之窗: ❌ 不存在 → new_entry
+# 万楼: ❌ 不存在 → new_entry
+# 青春东洲岛: ❌ 不存在 → new_entry
+# 茶马古道: ❌ 不存在 → new_entry
+# 芒果文旅: ⚠️ 已存在于 products.dgb_wenlv_products.accepted_names → 需新增独立条目
+
+# ============================================================
+# PATCH 1: 新增达晨财智（organizations）
+# ============================================================
+# 位置：organizations 部分，dgb_media 之后
+
+  dacheng_caizhi:
+    full_name: "达晨财智创业投资管理有限公司"
+    short_name: "达晨财智"
+    accepted_names:
+      - "达晨财智创业投资管理有限公司"
+      - "达晨财智"
+    aliases:
+      - "达晨"
+    forbidden_names: []
+    source:
+      - "用户确认（2026-06-03）"
+      - "C2.11 reviewed candidates"
+    usage_context:
+      - "新闻稿"
+      - "汇报材料"
+      - "领导讲话"
+    notes: "电广传媒创投板块相关主体。'达晨'可用于内部材料；正式公文和对外宣传用'达晨财智'。不写'隶属于''全资子公司'。"
+
+# ============================================================
+# PATCH 2: 新增圣爵菲斯（organizations）
+# ============================================================
+# 位置：organizations 部分
+
+  shengjuefeisi:
+    full_name: "圣爵菲斯大酒店"
+    short_name: "圣爵菲斯"
+    accepted_names:
+      - "圣爵菲斯大酒店"
+      - "圣爵菲斯"
+    aliases: []
+    forbidden_names: []
+    source:
+      - "用户确认（2026-06-03）"
+      - "C2.11 reviewed candidates"
+    usage_context:
+      - "新闻稿"
+      - "汇报材料"
+    notes: "电广传媒文旅/酒店板块相关主体。不写'隶属于''全资子公司'。"
+
+# ============================================================
+# PATCH 3: 新增长沙世界之窗（organizations）
+# ============================================================
+# 位置：organizations 部分
+
+  changsha_world_window:
+    full_name: "长沙世界之窗"
+    short_name: "世界之窗"
+    accepted_names:
+      - "长沙世界之窗"
+      - "世界之窗"
+    aliases: []
+    forbidden_names: []
+    source:
+      - "用户确认（2026-06-03）"
+      - "C2.11 reviewed candidates"
+    usage_context:
+      - "新闻稿"
+      - "汇报材料"
+    notes: "电广传媒文旅板块相关主体。'世界之窗'可作简称；涉及与深圳世界之窗区分时用全称'长沙世界之窗'。不写'隶属于''全资子公司'。"
+
+# ============================================================
+# PATCH 4: 新增万楼·芒果青年码头（organizations）
+# ============================================================
+# 位置：organizations 部分
+
+  wanlou:
+    full_name: "湘潭万楼·芒果青年码头"
+    short_name: "万楼"
+    accepted_names:
+      - "湘潭万楼·芒果青年码头"
+      - "万楼"
+    aliases: []
+    forbidden_names: []
+    source:
+      - "用户确认（2026-06-03）"
+      - "C2.11 reviewed candidates"
+    usage_context:
+      - "新闻稿"
+      - "汇报材料"
+    notes: "电广传媒文旅板块项目/景区。不写'隶属于''全资子公司'。"
+
+# ============================================================
+# PATCH 5: 新增青春东洲岛（organizations）
+# ============================================================
+# 位置：organizations 部分
+
+  qingchun_dongzhou:
+    full_name: "衡阳青春东洲岛"
+    short_name: "青春东洲岛"
+    accepted_names:
+      - "衡阳青春东洲岛"
+      - "青春东洲岛"
+    aliases: []
+    forbidden_names: []
+    source:
+      - "用户确认（2026-06-03）"
+      - "C2.11 reviewed candidates"
+    usage_context:
+      - "新闻稿"
+      - "汇报材料"
+    notes: "电广传媒文旅板块项目/景区。不写'隶属于''全资子公司'。"
+
+# ============================================================
+# PATCH 6: 新增安化茶马古道（organizations）
+# ============================================================
+# 位置：organizations 部分
+
+  anhua_chama:
+    full_name: "安化茶马古道"
+    short_name: "茶马古道"
+    accepted_names:
+      - "安化茶马古道"
+      - "茶马古道"
+    aliases: []
+    forbidden_names: []
+    source:
+      - "用户确认（2026-06-03）"
+      - "C2.11 reviewed candidates"
+    usage_context:
+      - "新闻稿"
+      - "汇报材料"
+    notes: "电广传媒文旅板块项目/景区。'茶马古道'可作简称；涉及与云南茶马古道区分时用全称'安化茶马古道'。不写'隶属于''全资子公司'。"
+
+# ============================================================
+# PATCH 7: 新增芒果文旅（organizations）
+# ============================================================
+# 位置：organizations 部分
+# 说明：芒果文旅已存在于 products.dgb_wenlv_products.accepted_names，
+#       但需要独立条目作为组织/业务主体
+
+  mangguo_wenlv:
+    full_name: "芒果文旅"
+    short_name: "芒果文旅"
+    accepted_names:
+      - "芒果文旅"
+    aliases: []
+    forbidden_names: []
+    source:
+      - "用户确认（2026-06-03）"
+      - "C2.11 reviewed candidates"
+    usage_context:
+      - "新闻稿"
+      - "汇报材料"
+    notes: "电广传媒文旅板块相关主体，'三湘星光行动'运营主体。不写'隶属于''全资子公司'。"
+
+# ============================================================
+# PATCH 汇总
+# ============================================================
+# 文件：references/org-title-dictionary.yaml
+# 修改点：7 处新增
+# 冲突：无
+# deferred（不合并）：3 条领导职务

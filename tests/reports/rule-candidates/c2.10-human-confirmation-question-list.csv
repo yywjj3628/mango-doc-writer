@@ -1,0 +1,16 @@
+candidate_id,candidate_type,key,group,proposed_value,recommended_value,scope,forbidden,risk,reason,suggested_action
+alias_达晨财智_p1_32,company_alias,达晨财智,1_简称,达晨财智,达晨财智,新闻稿/汇报材料/领导讲话,正式公文首次用全称,低,,approved
+alias_达晨_p1_33,company_alias,达晨,1_简称,达晨,达晨,内部材料,正式公文/对外宣传,低,需确认简称是否通用,approved
+alias_圣爵菲斯_p1_34,company_alias,圣爵菲斯,1_简称,圣爵菲斯,圣爵菲斯,新闻稿/汇报材料,正式公文首次用全称,低,,approved
+alias_世界之窗_p1_35,company_alias,世界之窗,1_简称,世界之窗,世界之窗,新闻稿/汇报材料,正式公文首次/深圳世界之窗,中,地名混淆风险,approved
+alias_万楼_p1_36,company_alias,万楼,1_简称,万楼,万楼,新闻稿/汇报材料,正式公文首次用全称,低,,approved
+alias_青春东洲_p1_37,company_alias,青春东洲岛,1_简称,青春东洲岛,青春东洲岛,新闻稿/汇报材料,正式公文首次用全称,低,,approved
+alias_茶马古道_p1_38,company_alias,茶马古道,1_简称,茶马古道,茶马古道,新闻稿/汇报材料,正式公文首次/云南茶马古道,中,地名混淆风险,approved
+alias_芒果文旅_p1_39,company_alias,芒果文旅,1_简称,芒果文旅,芒果文旅,新闻稿/汇报材料,—,低,,approved
+sub_达晨财智_p1_18,subsidiary_affiliation,达晨财智,2_关系,隶属于电广传媒/business_unit_of,电广传媒创投板块相关主体,,,低,不做复杂股权穿透,modified
+sub_圣爵菲斯_p1_19,subsidiary_affiliation,圣爵菲斯,2_关系,隶属于电广传媒/affiliated_to,电广传媒文旅/酒店板块相关主体,,,低,不做复杂股权穿透,modified
+sub_长沙世界_p1_20,subsidiary_affiliation,长沙世界之窗,2_关系,隶属于电广传媒/affiliated_to,电广传媒文旅板块相关主体,,,低,不做复杂股权穿透,modified
+sub_芒果文旅_p1_24,subsidiary_affiliation,芒果文旅,2_关系,隶属于电广传媒/business_unit_of,电广传媒文旅板块相关主体,,,低,不做复杂股权穿透,modified
+leader_路颖_p1_15,leader_title,路颖,3_领导,达晨财智资产管理部高级副总监,,达晨财智,,高,时效敏感/来源不够权威,deferred
+leader_刘昼_p1_16,leader_title,刘昼,3_领导,达晨财智创始合伙人/董事长,,达晨财智,,高,时效敏感/仅1次出现,deferred
+leader_肖冰_p1_17,leader_title,肖冰,3_领导,达晨财智执行合伙人,,达晨财智,,高,时效敏感/仅1次出现,deferred

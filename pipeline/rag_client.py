@@ -31,6 +31,56 @@ ENABLE_MULTI_COLLECTION = os.environ.get(
 # 总返回上限
 TOP_K_TOTAL = int(os.environ.get("RAG_TOP_K_TOTAL", "6"))
 
+# ─── Metadata Rerank 配置 ────────────────────────────────────────────────
+
+RERANK_ENABLED = os.environ.get("RAG_METADATA_RERANK_ENABLED", "false").lower() == "true"
+RERANK_EXPAND_FACTOR = int(os.environ.get("RAG_RERANK_EXPAND_FACTOR", "4"))
+RERANK_EXPAND_MIN = int(os.environ.get("RAG_RERANK_EXPAND_MIN", "12"))
+RERANK_BONUS_SCALE = float(os.environ.get("RAG_RERANK_BONUS_SCALE", "0.03"))
+
+# 需要 rerank 的 style collection 名称
+STYLE_COLLECTIONS = {"mango_style_docs", "mango_style_docs_v020_candidate_rebuild_459"}
+
+# ─── Rerank 权重表 ──────────────────────────────────────────────────────
+
+RERANK_WEIGHTS: Dict[str, Dict[str, float]] = {
+    "领导讲话": {
+        "source_family:hunan_mango": 2.0,
+        "style_weight:high": 1.5,
+        "corpus_tier:core": 1.0,
+        "doc_type:leader_speech": 1.0,
+        "corpus_tier:archive": -2.0,
+        "source_family:dianguang_media": -1.0,
+    },
+    "汇报材料": {
+        "source_family:hunan_mango": 1.5,
+        "style_weight:high": 1.0,
+        "corpus_tier:core": 1.0,
+        "corpus_tier:archive": -2.0,
+        "source_family:dianguang_media": -0.5,
+    },
+    "新闻稿": {
+        "source_family:dianguang_media": 1.0,
+        "source_family:hunan_mango": 0.5,
+        "corpus_tier:archive": -1.0,
+    },
+    "活动稿": {
+        "source_family:dianguang_media": 1.0,
+        "source_family:hunan_mango": 0.5,
+        "corpus_tier:archive": -1.0,
+    },
+    "司情新闻稿": {
+        "source_family:dianguang_media": 1.0,
+        "source_family:hunan_mango": 0.5,
+        "corpus_tier:archive": -1.0,
+    },
+    "_default": {
+        "style_weight:high": 0.5,
+        "corpus_tier:core": 0.5,
+        "corpus_tier:archive": -1.0,
+    },
+}
+
 # 各文种的路由参数
 def _env_int(key: str, default: int) -> int:
     return int(os.environ.get(key, str(default)))
@@ -186,6 +236,70 @@ def _get_route(doc_type: str) -> List[tuple]:
     return ROUTING_TABLE.get(doc_type, DEFAULT_ROUTE)
 
 
+def _rerank_snippets(
+    snippets: List[Dict[str, Any]],
+    doc_type: str,
+    original_top_k: int,
+    collection: str,
+) -> List[Dict[str, Any]]:
+    """对 style collection 的检索结果做 metadata-aware rerank。"""
+    if not RERANK_ENABLED:
+        return snippets[:original_top_k]
+
+    # 只对 style collection 做 rerank
+    base_collection = collection.split("/")[0] if "/" in collection else collection
+    if base_collection not in STYLE_COLLECTIONS:
+        return snippets[:original_top_k]
+
+    weights = RERANK_WEIGHTS.get(doc_type, RERANK_WEIGHTS["_default"])
+
+    reranked = []
+    for s in snippets:
+        meta = s.get("metadata", {})
+        original_score = s.get("score", 0)
+        bonus = 0.0
+
+        # source_family
+        sf = meta.get("source_family", "")
+        bonus += weights.get(f"source_family:{sf}", 0)
+
+        # style_weight
+        sw = meta.get("style_weight", "")
+        bonus += weights.get(f"style_weight:{sw}", 0)
+
+        # corpus_tier
+        ct = meta.get("corpus_tier", "")
+        bonus += weights.get(f"corpus_tier:{ct}", 0)
+
+        # doc_type
+        dt = meta.get("doc_type", "")
+        bonus += weights.get(f"doc_type:{dt}", 0)
+
+        # proposed_doc_subtype（文旅/子公司）
+        sub = meta.get("proposed_doc_subtype", "")
+        if doc_type in ("活动稿", "宣传稿", "司情新闻稿") and sub in ("culture_tourism", "subsidiary_update"):
+            bonus += 1.0
+
+        final_score = original_score + bonus * RERANK_BONUS_SCALE
+        s = dict(s)
+        s["original_score"] = original_score
+        s["metadata_bonus"] = bonus
+        s["final_score"] = final_score
+        reranked.append(s)
+
+    reranked.sort(key=lambda x: x.get("final_score", 0), reverse=True)
+
+    # 调试日志
+    if reranked:
+        print(f"[rerank] enabled=true collection={base_collection} doc_type={doc_type}")
+        print(f"[rerank] original_top_k={original_top_k} expanded={len(snippets)}")
+        for i, s in enumerate(reranked[:original_top_k]):
+            m = s.get("metadata", {})
+            print(f"[rerank] {i+1}. {m.get('title','')[:35]} | sf={m.get('source_family','?')[:10]} sw={m.get('style_weight','?')} tier={m.get('corpus_tier','?')} | orig={s.get('original_score',0):.3f} bonus={s.get('metadata_bonus',0):.1f} final={s.get('final_score',0):.3f}")
+
+    return reranked[:original_top_k]
+
+
 def _dedup(snippets: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     """按 text_preview 去重，优先保留主 collection。"""
     seen = set()
@@ -271,9 +385,14 @@ def retrieve_style_references(
         if collection == COLLECTION_DISABLED:
             continue
 
+        # rerank 模式下扩大召回
+        effective_k = k
+        if RERANK_ENABLED and collection.split("/")[0] in STYLE_COLLECTIONS:
+            effective_k = max(RERANK_EXPAND_MIN, k * RERANK_EXPAND_FACTOR)
+
         for query in queries[:2]:  # 每个文种最多查 2 组 query
             try:
-                results = _query_rag_single(query, collection, top_k=k)
+                results = _query_rag_single(query, collection, top_k=effective_k)
                 for r in results:
                     if isinstance(r, dict):
                         text = r.get("text", r.get("content", ""))
@@ -301,6 +420,24 @@ def retrieve_style_references(
     # 去重 + 按 score 降序
     all_snippets = _dedup(all_snippets)
     all_snippets.sort(key=lambda x: x.get("score", 0), reverse=True)
+
+    # 对 style collection 结果做 metadata rerank
+    # 分离 style 和 business 结果
+    style_snippets = [s for s in all_snippets if s["collection"].split("/")[0] in STYLE_COLLECTIONS]
+    business_snippets = [s for s in all_snippets if s["collection"].split("/")[0] not in STYLE_COLLECTIONS]
+
+    if RERANK_ENABLED and style_snippets:
+        # 找到 style collection 的原始 top_k
+        style_top_k = 3  # 默认
+        for coll, k in route:
+            if coll.split("/")[0] in STYLE_COLLECTIONS:
+                style_top_k = k
+                break
+        style_snippets = _rerank_snippets(style_snippets, doc_type, style_top_k, style_snippets[0]["collection"] if style_snippets else "")
+
+    # 合并 style + business，按 final_score 降序
+    all_snippets = style_snippets + business_snippets
+    all_snippets.sort(key=lambda x: x.get("final_score", x.get("score", 0)), reverse=True)
 
     # 限制总数
     final_snippets = all_snippets[:TOP_K_TOTAL]

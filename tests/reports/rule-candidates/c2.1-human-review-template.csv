@@ -1,0 +1,12 @@
+candidate_id,candidate_type,key,proposed_value,source_doc,evidence_text,confidence,is_time_sensitive,needs_manual_review,suggested_action,reviewer_decision,corrected_value,reviewer_note,apply_to_formal_rules
+leader_顾懿_a3f2,leader_title,顾懿,"久之润总经理 / 上海久之润信息技术有限公司",久之润2025年目标责任书.md,久之润总经理顾懿出席会议并讲话,high,true,true,human_confirm,,, 
+sub_久之润_b7d1,subsidiary_affiliation,久之润,"隶属于电广传媒 / subsidiary_of",久之润2025年目标责任书.md,久之润作为电广传媒全资子公司,high,false,true,human_confirm,,, 
+alias_久之润_c4e9,company_alias,久之润,"全称：上海久之润信息技术有限公司 / 简称：久之润",久之润2025年目标责任书.md,久之润2025年经营目标,high,false,false,auto_import,,, 
+doctype_亮点工作材料_d1a5,doc_type_rule,亮点工作材料,"结构：背景→亮点→举措→成效→启示→计划",久之润2025年目标责任书.md,久之润2025年亮点工作材料,medium,false,true,human_confirm,,, 
+doctype_宣传推文_e2b8,doc_type_rule,宣传推文,"结构：标题→导语→亮点→价值→意义→展望",60篇旧稿,芒果TV宣传推文,medium,false,true,human_confirm,,, 
+doctype_工作方案_f3c7,doc_type_rule,工作方案,"结构：背景→目标→任务→分工→时间→保障",久之润2025年目标责任书.md,久之润2025年工作方案,medium,false,true,human_confirm,,, 
+phrase_司情开头_g4h2,style_phrase,司情新闻稿开头,"时间+事件+人物+核心动作",2026-05-26-电广传媒工作会议.md,5月26日电广传媒召开2026年度工作会议,high,false,false,auto_import,,, 
+risk_领导评价_i5j3,risk_rule,领导评价编造,"禁止：编造领导评价 / 替代：引用原始素材",org-title-dictionary.yaml,领导高度肯定（无来源时）,high,false,false,auto_import,,, 
+hint_style_domain_dianguang_k6l4,field_hint_rule,style_domain:dianguang_siqing,"参考电广传媒司情风格保持正式简洁信息密度高",scripts/run_gray.py,run_gray.py L201-220,high,false,false,human_confirm,,, 
+hint_org_scope_jiuzhirun_m7n5,field_hint_rule,organization_scope:jiuzhirun,"久之润（电广传媒旗下）需注意与集团级口径区分",scripts/run_gray.py,run_gray.py L222-240,high,false,false,human_confirm,,, 
+hint_content_type_highlights_o8p6,field_hint_rule,content_type:highlights,"亮点工作重点突出成效和创新",scripts/run_gray.py,run_gray.py L223-240,high,false,false,human_confirm,,, 

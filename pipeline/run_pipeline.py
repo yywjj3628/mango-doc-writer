@@ -699,6 +699,7 @@ def run_pipeline(input_data: PipelineInput) -> PipelineResult:
 
     # official_use_allowed：以 input_data.generation_mode 为准，不被 draft 模型误判覆盖
     # draft_result 中的 official_use_allowed 仅供参考，仅当 report 未设置时使用
+    draft_official = draft_result.get("official_use_allowed")
     if report.official_use_allowed is None and draft_official is not None:
         report.official_use_allowed = draft_official
 

@@ -1,0 +1,5 @@
+candidate_id,candidate_type,key,proposed_value,source_doc,evidence_text,confidence,is_time_sensitive,conflict_with_existing,reviewer_decision,corrected_value,reviewer_note,apply_to_formal_rules
+leader_顾懿_p0_01,leader_title,顾懿,"久之润总经理 / 上海久之润信息技术有限公司",user_confirmed_note_2026-06-02,用户已确认顾懿为久之润总经理,high,true,, ,  ,需新增到org-title-dictionary.yaml leaders,
+sub_久之润_p0_01,subsidiary_affiliation,久之润,"隶属于电广传媒 / affiliated_to",user_confirmed_note_2026-06-02,用户已确认久之润隶属于电广传媒不做复杂股权穿透,high,false,already_exists (organizations.jiuyou_run),  ,  ,现有描述为'电广传媒旗下子公司'需确认是否更新为affiliated_to,
+alias_久之润_p0_01,company_alias,久之润,"全称：上海久之润信息技术有限公司 / 简称：久之润",references/org-title-dictionary.yaml,org-title-dictionary.yaml jiuyou_run.accepted_names包含久之润,high,false,already_exists (organizations.jiuyou_run.accepted_names),  ,  ,需确认allowed_context是否扩展,
+alias_久游网_p0_01,company_alias,久游网,"全称：上海久之润信息技术有限公司 / 简称：久游网",references/org-title-dictionary.yaml,org-title-dictionary.yaml记载久游网为久之润运营的游戏平台,medium,false,partial_conflict ('久游'在jiuyou_run.forbidden_names和久游网aliases中矛盾),  ,  ,'久游'简称存在矛盾需确认是否可用,
