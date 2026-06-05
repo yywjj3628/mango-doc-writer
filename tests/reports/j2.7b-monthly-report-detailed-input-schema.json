@@ -1,0 +1,169 @@
+{
+  "schema_version": "1.0",
+  "title": "久之润经营月报输入数据 Schema",
+  "description": "基于4份真实月报审计结果设计",
+  "type": "object",
+  "required": ["report_metadata", "monthly_financial_metrics"],
+  "properties": {
+    "report_metadata": {
+      "type": "object",
+      "required": ["reporting_period", "report_month"],
+      "properties": {
+        "reporting_period": {"type": "string", "description": "报告期间，如'2026年4月'", "example": "2026年4月"},
+        "report_month": {"type": "string", "description": "月份编号，如'4月'", "example": "4月"},
+        "report_date": {"type": "string", "description": "报告日期", "example": "2026年5月"}
+      }
+    },
+    "monthly_financial_metrics": {
+      "type": "object",
+      "required": ["revenue", "cost", "revenue_budget", "cost_budget", "last_year_revenue", "last_month_revenue"],
+      "properties": {
+        "revenue": {"type": "number", "unit": "万元", "description": "本月营业收入"},
+        "cost": {"type": "number", "unit": "万元", "description": "本月成本费用总额"},
+        "gross_profit": {"type": "number", "unit": "万元", "description": "毛利"},
+        "operating_profit": {"type": "number", "unit": "万元", "description": "营业利润"},
+        "net_profit": {"type": "number", "unit": "万元", "description": "净利润"},
+        "revenue_budget": {"type": "number", "unit": "万元", "description": "本月收入预算"},
+        "cost_budget": {"type": "number", "unit": "万元", "description": "本月成本预算"},
+        "last_year_revenue": {"type": "number", "unit": "万元", "description": "去年同月收入"},
+        "last_year_cost": {"type": "number", "unit": "万元", "description": "去年同月成本"},
+        "last_month_revenue": {"type": "number", "unit": "万元", "description": "上月收入"},
+        "last_month_cost": {"type": "number", "unit": "万元", "description": "上月成本"}
+      }
+    },
+    "monthly_revenue_breakdown": {
+      "type": "array",
+      "description": "各产品线月度收入明细",
+      "items": {
+        "type": "object",
+        "required": ["product_name", "current_month", "budget"],
+        "properties": {
+          "product_name": {"type": "string", "description": "产品线名称"},
+          "current_month": {"type": "number", "unit": "万元", "description": "本月实际"},
+          "last_month": {"type": "number", "unit": "万元", "description": "上月实际"},
+          "last_year": {"type": "number", "unit": "万元", "description": "去年同月"},
+          "budget": {"type": "number", "unit": "万元", "description": "本月预算"}
+        }
+      }
+    },
+    "cumulative_metrics": {
+      "type": "object",
+      "properties": {
+        "cumulative_revenue": {"type": "number", "unit": "万元", "description": "本年累计收入"},
+        "last_year_cumulative_revenue": {"type": "number", "unit": "万元", "description": "去年累计收入"},
+        "cumulative_budget": {"type": "number", "unit": "万元", "description": "本年累计预算"},
+        "annual_budget": {"type": "number", "unit": "万元", "description": "年度预算"}
+      }
+    },
+    "balance_sheet": {
+      "type": "object",
+      "properties": {
+        "asset_total": {"type": "number", "unit": "万元", "description": "资产总额"},
+        "asset_initial": {"type": "number", "unit": "万元", "description": "期初资产"},
+        "current_assets": {"type": "number", "unit": "万元", "description": "流动资产"},
+        "current_assets_initial": {"type": "number", "unit": "万元", "description": "期初流动资产"},
+        "liability_total": {"type": "number", "unit": "万元", "description": "负债总额"},
+        "equity": {"type": "number", "unit": "万元", "description": "所有者权益"}
+      }
+    },
+    "receivables": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {"type": "string", "description": "客商名称"},
+          "amount": {"type": "number", "unit": "元", "description": "期末余额"},
+          "note": {"type": "string", "description": "备注"}
+        }
+      }
+    },
+    "payables": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {"type": "string", "description": "客商名称"},
+          "amount": {"type": "number", "unit": "元", "description": "期末余额"},
+          "note": {"type": "string", "description": "备注"}
+        }
+      }
+    },
+    "cash_flow": {
+      "type": "object",
+      "properties": {
+        "operating_cash_flow": {"type": "number", "unit": "万元", "description": "经营活动现金流"},
+        "operating_cash_inflow": {"type": "number", "unit": "万元", "description": "经营活动现金流入"},
+        "last_year_operating_cash_flow": {"type": "number", "unit": "万元", "description": "去年同期经营现金流"}
+      }
+    },
+    "tax_metrics": {
+      "type": "object",
+      "properties": {
+        "tax_paid": {"type": "number", "unit": "万元", "description": "本月已缴税费"},
+        "last_year_tax": {"type": "number", "unit": "万元", "description": "去年同期"},
+        "last_month_tax": {"type": "number", "unit": "万元", "description": "上月"},
+        "cumulative_tax": {"type": "number", "unit": "万元", "description": "本年累计"}
+      }
+    },
+    "forecast": {
+      "type": "object",
+      "properties": {
+        "revenue_actual": {"type": "number", "unit": "万元"},
+        "revenue_forecast_next": {"type": "number", "unit": "万元"},
+        "profit_actual": {"type": "number", "unit": "万元"},
+        "profit_forecast_next": {"type": "number", "unit": "万元"}
+      }
+    },
+    "consolidated_entities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {"type": "string"},
+          "level": {"type": "string"},
+          "headcount": {"type": "integer"},
+          "ownership_pct": {"type": "number"}
+        }
+      }
+    },
+    "investment_plan": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {"type": "string"},
+          "planned_date": {"type": "string"},
+          "planned_amount": {"type": "number", "unit": "万元"},
+          "note": {"type": "string"}
+        }
+      }
+    },
+    "investment_execution": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {"type": "string"},
+          "planned_amount": {"type": "number", "unit": "万元"},
+          "actual_amount": {"type": "number", "unit": "万元"},
+          "note": {"type": "string"}
+        }
+      }
+    },
+    "monthly_work_facts": {
+      "type": "string",
+      "description": "本月重点工作（用户必须提供事实）",
+      "allow_model_generate": false
+    },
+    "issues_and_risks": {
+      "type": "string",
+      "description": "问题与风险（仅在用户提供时生成）",
+      "allow_model_generate": false
+    },
+    "next_month_plan": {
+      "type": "string",
+      "description": "下月工作计划（用户提供事实后生成）",
+      "allow_model_generate": false
+    }
+  }
+}

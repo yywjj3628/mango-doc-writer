@@ -23,7 +23,7 @@ VALID_MODES = ["safe_official", "assisted_expansion", "creative_mimic"]
 VALID_DOC_TYPES = [
     "新闻稿", "领导讲话", "汇报材料", "亮点工作材料", "请示",
     "函", "通知", "会议纪要", "总结", "通报", "宣传推文",
-    "工作方案", "会议新闻", "auto",
+    "工作方案", "会议新闻", "经营月报", "理论学习发言", "auto",
 ]
 
 VALID_STYLE_DOMAINS = [

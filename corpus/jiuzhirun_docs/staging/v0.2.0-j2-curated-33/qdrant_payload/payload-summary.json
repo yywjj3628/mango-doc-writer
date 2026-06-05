@@ -1,0 +1,24 @@
+{
+  "total_docs": 32,
+  "total_chunks": 86,
+  "avg_chunks_per_doc": 2.7,
+  "min_chunk_chars": 31,
+  "max_chunk_chars": 1196,
+  "avg_chunk_chars": 886,
+  "theory_study_chunks": 14,
+  "reference_only_chunks": 7,
+  "unsafe_fact_chunks": 0,
+  "doc_type_distribution": {
+    "意识形态工作总结": 5,
+    "纪检工作总结": 10,
+    "党建工作总结": 6,
+    "述职报告": 7,
+    "理论学习发言": 14,
+    "半年度总结": 9,
+    "年度总结": 12,
+    "经营月报": 23
+  },
+  "quarantine_files": [
+    "JIUZHIRUN-C02 (PDF extraction failed)"
+  ]
+}

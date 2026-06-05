@@ -1,0 +1,126 @@
+# L1.4 正式规则 Proposed Patch
+
+> 日期：2026-06-05
+> 状态：dry-run，未实际应用
+
+---
+
+## Patch 1：更新龚政文职务
+
+**文件**：references/org-title-dictionary.yaml
+**位置**：leaders[0]（龚政文）
+
+**现有**：
+```yaml
+- name: 龚政文
+  title: 湖南广播影视集团（台）党委书记、董事长
+  organization: 湖南广播影视集团（台）
+```
+
+**修改为**：
+```yaml
+- name: 龚政文
+  title: 湖南广播影视集团（台）党委书记、董事长、台长、总编辑
+  organization: 湖南广播影视集团（台）
+  organization_level: hunan_broadcasting_leadership
+  preferred_full_title: 集团（台）党委书记、董事长、台长、总编辑龚政文
+  preferred_short_title: 龚政文
+  valid_as_of: "2026-05-22"
+  confirmation_source: user
+  status: user_confirmed
+```
+
+---
+
+## Patch 2：新增杨贇
+
+**文件**：references/org-title-dictionary.yaml
+**位置**：leaders 列表末尾
+
+**新增**：
+```yaml
+- name: 杨贇
+  title: 集团（台）党委委员、副总经理、副台长
+  organization: 湖南广播影视集团（台）
+  organization_level: hunan_broadcasting_leadership
+  preferred_full_title: 集团（台）党委委员、副总经理、副台长杨贇
+  preferred_short_title: 杨贇
+  valid_as_of: "2026-05-22"
+  confirmation_source: user
+  status: user_confirmed
+  notes: 从芒果日志多篇语料确认。
+```
+
+---
+
+## Patch 3：更新蔡怀军补充字段
+
+**文件**：references/org-title-dictionary.yaml
+
+**补充字段**：
+```yaml
+  organization_level: hunan_broadcasting_leadership
+  preferred_full_title: 集团（台）党委副书记、总经理蔡怀军
+  preferred_short_title: 蔡怀军
+  valid_as_of: "2026-05-04"
+```
+
+---
+
+## Patch 4：更新付维刚补充字段
+
+**文件**：references/org-title-dictionary.yaml
+
+**补充字段**：
+```yaml
+  organization_level: dianguang_media_leadership
+  preferred_full_title: 电广传媒党委副书记、总经理付维刚
+  preferred_short_title: 付维刚
+  valid_as_of: "2026-06-03"
+  confirmation_source: user
+```
+
+---
+
+## Patch 5：更新蒋洪亮补充字段
+
+**文件**：references/org-title-dictionary.yaml
+
+**补充字段**：
+```yaml
+  organization_level: hunan_broadcasting_leadership
+  preferred_full_title: 集团（台）党委委员、纪委书记蒋洪亮
+  preferred_short_title: 蒋洪亮
+  valid_as_of: "2026-03-26"
+```
+
+---
+
+## Patch 6：更新顾懿补充字段
+
+**文件**：references/org-title-dictionary.yaml
+
+**补充字段**：
+```yaml
+  organization_level: subsidiary_leadership
+  preferred_full_title: 久之润总经理顾懿
+  preferred_short_title: 顾懿
+  valid_as_of: "2026-04-22"
+```
+
+---
+
+## 冲突检查
+
+| 检查项 | 结果 |
+|--------|------|
+| 同名不同组织 | 无 |
+| 蔡怀军/付维刚消歧 | ✅ 不同组织层级 |
+| 现有规则冲突 | 无 |
+| valid_as_of 覆盖 | 6/6 |
+| preferred_full_title 歧义 | 无 |
+
+---
+
+*Patch 生成时间：2026-06-05 09:58 UTC*
+*状态：dry-run，未实际应用*

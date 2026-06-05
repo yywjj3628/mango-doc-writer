@@ -60,6 +60,12 @@ def run(raw_input, output_dir=None, output_formats=None, stdout_mode=False):
         target_unit=parsed.get("target_unit"),
         scene=parsed.get("scene"),
         generation_mode=parsed.get("generation_mode", "safe_official"),
+        # J2.6C.2F: 五字段传递
+        style_domain=parsed.get("style_domain"),
+        organization_scope=parsed.get("organization_scope"),
+        content_type=parsed.get("content_type"),
+        output_doc_type=parsed.get("output_doc_type"),
+        length_mode=parsed.get("length_mode"),
     )
 
     # generation_mode 警告提示

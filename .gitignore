@@ -24,3 +24,5 @@ stress_summary_analyzer.py
 test_results.json
 tests/stress/
 tests/tests/
+*.bak-*
+inputs/_gray_temp/

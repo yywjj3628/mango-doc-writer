@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "jiuzhirun_docs Metadata Schema",
+  "description": "久之润专项资料库 metadata schema v1.0",
+  "type": "object",
+  "required": ["schema_version", "doc_id", "title", "filename", "organization", "organization_scope", "source_family", "doc_type", "topic", "style_domain", "rag_usage", "is_fact_safe", "sensitivity_level", "source_status"],
+  "properties": {
+    "schema_version": {"type": "string", "const": "1.0"},
+    "doc_id": {"type": "string", "description": "文档唯一标识"},
+    "title": {"type": "string", "description": "文档标题"},
+    "filename": {"type": "string", "description": "原始文件名"},
+    "organization": {"type": "string", "const": "上海久之润"},
+    "organization_scope": {"type": "string", "const": "subsidiary"},
+    "source_family": {"type": "string", "const": "jiuzhirun"},
+    "doc_type": {"type": "string", "enum": ["经营月报", "年度总结", "半年度总结", "工作计划", "党建工作总结", "纪检工作总结", "意识形态工作总结", "领导讲话", "理论学习发言", "目标责任书", "经营分析材料", "其他"]},
+    "topic": {"type": "string", "enum": ["business_operation", "annual_summary", "work_planning", "party_building", "discipline_inspection", "ideology", "leadership_speech", "theory_study", "headquarters_requirement", "other"]},
+    "speaker": {"type": ["string", "null"], "description": "发言人"},
+    "speaker_title": {"type": ["string", "null"], "description": "发言人职务"},
+    "audience": {"type": ["string", "null"], "description": "受众"},
+    "source_date": {"type": ["string", "null"], "description": "来源日期（ISO 8601）"},
+    "reporting_period": {"type": ["string", "null"], "description": "报告期间"},
+    "style_domain": {"type": "string", "const": "official_doc"},
+    "rag_usage": {"type": "string", "enum": ["style_and_reference", "style_only", "reference_only", "hold"]},
+    "is_fact_safe": {"type": "boolean", "description": "历史材料统一 false"},
+    "sensitivity_level": {"type": "string", "enum": ["normal", "internal", "sensitive", "restricted"]},
+    "source_status": {"type": "string", "enum": ["historical", "current_confirmed", "superseded", "unknown"]},
+    "content_hash": {"type": ["string", "null"], "description": "内容哈希"},
+    "chunk_hash": {"type": ["string", "null"], "description": "chunk 哈希"},
+    "needs_manual_review": {"type": ["boolean", "null"], "description": "是否需要人工复核"}
+  }
+}

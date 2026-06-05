@@ -1,0 +1,10 @@
+{
+  "total_chunks": 459,
+  "legacy_chunks": 144,
+  "siqing_chunks": 315,
+  "total_docs": 359,
+  "generated_at": "2026-05-31T18:47:33.490099+08:00",
+  "batch_id": "v0.2.0-b4.2-unified-candidate",
+  "snapshot_id": "v0.2.0-b4-unified-mango-style-candidate",
+  "target_collection": "mango_style_docs_v020_candidate"
+}

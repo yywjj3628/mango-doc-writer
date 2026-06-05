@@ -23,6 +23,14 @@ COLLECTION_STYLE = os.environ.get("RAG_COLLECTION_STYLE", "mango_style_docs")
 COLLECTION_BUSINESS = os.environ.get("RAG_COLLECTION_BUSINESS", "jiuyou_docs")
 COLLECTION_DISABLED = os.environ.get("RAG_COLLECTION_DISABLED", "openclaw_memory")
 
+# J2.6B: jiuzhirun_docs 灰度配置（默认关闭）
+JIUZHIRUN_ENABLED = os.environ.get("RAG_JIUZHIRUN_ENABLED", "false").lower() == "true"
+JIUZHIRUN_COLLECTION = os.environ.get("RAG_JIUZHIRUN_COLLECTION", "jiuzhirun_docs_v020_candidate")
+JIUZHIRUN_STRICT_FILTER = os.environ.get("RAG_JIUZHIRUN_STRICT_FILTER", "true").lower() == "true"
+
+# 久之润主体信号关键词
+JIUZHIRUN_SIGNALS = {"上海久之润", "久之润"}
+
 # 是否启用多 collection
 ENABLE_MULTI_COLLECTION = os.environ.get(
     "RAG_ENABLE_MULTI_COLLECTION", "true"
@@ -197,7 +205,168 @@ RISK_NOTES_GENERIC = [
     "不得将旧稿中的领导出席、领导评价、时间地点当作事实。",
 ]
 
-# ─── 核心函数 ─────────────────────────────────────────────────────────────
+# ─── J2.6B: jiuzhirun_docs 路由与过滤 ──────────────────────────────────
+
+def _detect_jiuzhirun_signal(
+    requirement: str,
+    draft: str,
+    plan_result: dict,
+) -> tuple:
+    """检测久之润主体信号。返回 (matched: bool, source: str)。"""
+    # 优先从 plan_result 结构化字段检测
+    org = (plan_result.get("organization", "") or "").strip()
+    if "久之润" in org:
+        return True, "plan_result.organization"
+
+    # 从用户需求和初稿文本检测
+    text = f"{requirement} {draft}"
+    for signal in JIUZHIRUN_SIGNALS:
+        if signal in text:
+            return True, f"text_signal:{signal}"
+
+    return False, "none"
+
+
+def _is_jiuzhirun_writing_task(
+    doc_type: str,
+    content_type: str,
+    plan_result: dict,
+    style_domain: str = "",
+) -> bool:
+    """判断是否为久之润正式材料写作场景。"""
+    # J2.6C.2A: 使用直接传递的 style_domain，fallback 到 plan_result
+    effective_style_domain = style_domain or (plan_result.get("style_domain", "") or "").strip()
+
+    # J2.6C.2F: Fail-closed - 明确 style_domain 时强制阻止 jiuzhirun
+    if effective_style_domain in ("dianguang_siqing", "mango_official_account"):
+        return False
+
+    return True
+
+
+def _build_jiuzhirun_filter(
+    doc_type: str,
+    task_mode: str,
+    plan_result: dict,
+) -> Optional[Dict[str, Any]]:
+    """为 jiuzhirun_docs 构建 Qdrant metadata filter。"""
+    if not JIUZHIRUN_STRICT_FILTER:
+        return None
+
+    must = []
+    must_not = []
+
+    # 基础过滤：rag_usage
+    if task_mode == "writing":
+        must_not.append({"key": "rag_usage", "match": {"value": "hold"}})
+
+    # 按文种精确过滤
+    if doc_type == "经营月报":
+        must.append({"key": "doc_type", "match": {"value": "经营月报"}})
+        must.append({"key": "rag_usage", "match": {"value": "style_and_reference"}})
+
+    elif doc_type in ("年度总结", "半年度总结"):
+        must.append({"key": "doc_type", "match": {"any": ["年度总结", "半年度总结"]}})
+        must_not.append({"key": "rag_usage", "match": {"value": "reference_only"}})
+
+    elif doc_type == "党建工作总结":
+        must.append({"key": "topic", "match": {"value": "party_building"}})
+
+    elif doc_type == "纪检工作总结":
+        must.append({"key": "topic", "match": {"value": "discipline_inspection"}})
+
+    elif doc_type == "意识形态工作总结":
+        must.append({"key": "topic", "match": {"value": "ideology"}})
+
+    elif doc_type == "理论学习发言":
+        must.append({"key": "doc_type", "match": {"value": "理论学习发言"}})
+        must.append({"key": "topic", "match": {"value": "theory_study"}})
+        must.append({"key": "not_for_general_leadership_speech", "match": {"value": True}})
+
+    elif doc_type == "经营月报":
+        must.append({"key": "doc_type", "match": {"value": "经营月报"}})
+        must.append({"key": "rag_usage", "match": {"value": "style_and_reference"}})
+
+    elif doc_type == "领导讲话":
+        # 普通领导讲话：排除理论学习发言和 reference_only
+        must_not.append({"key": "not_for_general_leadership_speech", "match": {"value": True}})
+        must_not.append({"key": "rag_usage", "match": {"value": "reference_only"}})
+        must_not.append({"key": "doc_type", "match": {"value": "理论学习发言"}})
+
+    else:
+        # 其他文种：排除 reference_only 和 hold
+        must_not.append({"key": "rag_usage", "match": {"value": "reference_only"}})
+
+    if not must and not must_not:
+        return None
+
+    qdrant_filter = {}
+    if must:
+        qdrant_filter["must"] = must
+    if must_not:
+        qdrant_filter["must_not"] = must_not
+    return qdrant_filter
+
+
+def _get_jiuzhirun_route(
+    doc_type: str,
+    requirement: str,
+    draft: str,
+    plan_result: dict,
+    style_domain: str = "",
+) -> Optional[tuple]:
+    """判断是否应路由至 jiuzhirun_docs。返回 (collection, top_k, filter, reason) 或 None。"""
+    if not JIUZHIRUN_ENABLED:
+        return None
+
+    # 检测久之润主体信号
+    signal_matched, signal_source = _detect_jiuzhirun_signal(requirement, draft, plan_result)
+    if not signal_matched:
+        return None
+
+    # J2.6C.2A: 使用直接传递的 style_domain，fallback 到 plan_result
+    effective_style_domain = style_domain or (plan_result.get("style_domain", "") or "").strip()
+
+    # 判断是否为写作任务
+    content_type = (plan_result.get("content_type", "") or "").strip()
+    if not _is_jiuzhirun_writing_task(doc_type, content_type, plan_result, style_domain=effective_style_domain):
+        # J2.6C.2F: 记录被阻止的原因
+        if effective_style_domain in ("dianguang_siqing", "mango_official_account"):
+            return None  # style_domain 阻止 jiuzhirun 路由
+        return None
+
+    # 构建 filter
+    task_mode = "writing"
+    metadata_filter = _build_jiuzhirun_filter(doc_type, task_mode, plan_result)
+
+    reason = f"jiuzhirun_signal={signal_source}, doc_type={doc_type}"
+    return (JIUZHIRUN_COLLECTION, 6, metadata_filter, reason)
+
+
+def _query_rag_with_filter(
+    query: str,
+    collection: str,
+    top_k: int,
+    metadata_filter: Optional[Dict] = None,
+) -> List[Dict[str, Any]]:
+    """调用 RAG 端点查询，支持 Qdrant metadata filter。"""
+    payload = {
+        "question": query,
+        "collection": collection,
+        "top_k": top_k,
+    }
+    if metadata_filter:
+        payload["filter"] = metadata_filter
+
+    req = urllib.request.Request(
+        RAG_BASE_URL,
+        data=json.dumps(payload).encode("utf-8"),
+        headers={"Content-Type": "application/json"},
+    )
+
+    with urllib.request.urlopen(req, timeout=15) as resp:
+        data = json.loads(resp.read().decode("utf-8"))
+        return data.get("matches", data.get("results", data.get("documents", [])))
 
 
 def _query_rag_single(
@@ -341,6 +510,12 @@ def retrieve_style_references(
     draft: str,
     plan_result: dict,
     top_k: int = 3,
+    # J2.6C.2A: 五字段直接传递
+    style_domain: str = "",
+    organization_scope: str = "",
+    content_type: str = "",
+    output_doc_type: str = "",
+    length_mode: str = "",
 ) -> Dict[str, Any]:
     """
     获取风格参考（仅用于 draft 阶段）。
@@ -372,10 +547,24 @@ def retrieve_style_references(
     route = _get_route(doc_type)
     queries = DOC_TYPE_QUERIES.get(doc_type, DEFAULT_QUERY)
 
+    # J2.6C.2A: 检查 jiuzhirun_docs 路由（使用直接传递的 style_domain）
+    jiuzhirun_route = _get_jiuzhirun_route(doc_type, requirement, draft, plan_result, style_domain=style_domain)
+    jiuzhirun_rag_enabled = JIUZHIRUN_ENABLED
+    jiuzhirun_route_matched = jiuzhirun_route is not None
+    jiuzhirun_route_reason = jiuzhirun_route[3] if jiuzhirun_route else "not_matched"
+    organization_signal, organization_signal_source = _detect_jiuzhirun_signal(requirement, draft, plan_result)
+
+    if jiuzhirun_route:
+        # 将 jiuzhirun_docs 插入路由首位
+        jz_collection, jz_top_k, jz_filter, jz_reason = jiuzhirun_route
+        route = [(jz_collection, jz_top_k)] + route
+
     all_snippets: List[Dict[str, Any]] = []
     collections_used: List[str] = []
     errors: List[str] = []
     actual_queries: List[str] = []
+    filters_applied: List[str] = []
+    filters_excluded: List[str] = []
 
     primary_collection = route[0][0] if route else COLLECTION_BUSINESS
     fallback_collection = route[1][0] if len(route) > 1 else None
@@ -392,7 +581,15 @@ def retrieve_style_references(
 
         for query in queries[:2]:  # 每个文种最多查 2 组 query
             try:
-                results = _query_rag_single(query, collection, top_k=effective_k)
+                # J2.6B: jiuzhirun_docs 使用 filter 查询
+                if collection == JIUZHIRUN_COLLECTION and jiuzhirun_route:
+                    jz_filter = jiuzhirun_route[2]
+                    results = _query_rag_with_filter(query, collection, top_k=effective_k, metadata_filter=jz_filter)
+                    if jz_filter:
+                        filters_applied.append(f"{collection}:{json.dumps(jz_filter, ensure_ascii=False)}")
+                else:
+                    results = _query_rag_single(query, collection, top_k=effective_k)
+
                 for r in results:
                     if isinstance(r, dict):
                         text = r.get("text", r.get("content", ""))
@@ -416,6 +613,18 @@ def retrieve_style_references(
             except Exception as e:
                 errors.append(f"RAG 查询失败 ({collection}/{query}): {e}")
             actual_queries.append(f"{collection}:{query}")
+
+    # J2.6C.2A: 普通讲话语料不足时安全 fallback
+    fallback_reason = ""
+    if jiuzhirun_route_matched and doc_type in ("领导讲话", "领导讲话"):
+        # 检查 jiuzhirun_docs 结果是否充足
+        jz_snippets = [s for s in all_snippets if s["collection"] == JIUZHIRUN_COLLECTION]
+        if len(jz_snippets) < 2:
+            fallback_reason = "jiuzhirun_general_speech_corpus_insufficient"
+            # 从 primary 中移除 jiuzhirun_docs
+            all_snippets = [s for s in all_snippets if s["collection"] != JIUZHIRUN_COLLECTION]
+            primary_collection = COLLECTION_STYLE
+            print(f"[fallback] jiuzhirun_docs 普通讲话语料不足，回退至 {COLLECTION_STYLE}")
 
     # 去重 + 按 score 降序
     all_snippets = _dedup(all_snippets)
@@ -443,6 +652,23 @@ def retrieve_style_references(
     final_snippets = all_snippets[:TOP_K_TOTAL]
 
     # 错误处理
+    # J2.6B: jiuzhirun audit fields
+    _jiuzhirun_audit = {
+        "jiuzhirun_rag_enabled": jiuzhirun_rag_enabled,
+        "jiuzhirun_route_matched": jiuzhirun_route_matched,
+        "jiuzhirun_route_reason": jiuzhirun_route_reason,
+        "organization_signal": organization_signal,
+        "organization_signal_source": organization_signal_source,
+        "rag_filters_applied": filters_applied,
+        "rag_fallback_reason": fallback_reason,
+        # J2.6C.2A: 五字段审计
+        "effective_style_domain": style_domain,
+        "effective_organization_scope": organization_scope,
+        "effective_content_type": content_type,
+        "effective_output_doc_type": output_doc_type,
+        "effective_length_mode": length_mode,
+    }
+
     if errors and not final_snippets:
         return {
             "style_references": [],
@@ -454,6 +680,7 @@ def retrieve_style_references(
             "rag_fallback_collection": fallback_collection,
             "rag_query": " | ".join(actual_queries),
             "rag_sources": [],
+            **_jiuzhirun_audit,
         }
 
     if not final_snippets:
@@ -467,6 +694,7 @@ def retrieve_style_references(
             "rag_fallback_collection": fallback_collection,
             "rag_query": " | ".join(actual_queries),
             "rag_sources": [],
+            **_jiuzhirun_audit,
         }
 
     # 按 collection 分组，每组生成一条 style_reference
@@ -493,4 +721,5 @@ def retrieve_style_references(
         "rag_fallback_collection": fallback_collection,
         "rag_query": " | ".join(actual_queries),
         "rag_sources": [s["query"] for s in final_snippets[:5]],
+        **_jiuzhirun_audit,
     }

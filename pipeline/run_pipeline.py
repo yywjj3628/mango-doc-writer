@@ -514,6 +514,12 @@ def run_pipeline(input_data: PipelineInput) -> PipelineResult:
                 requirement=input_data.requirement,
                 draft=input_data.draft,
                 plan_result=completed.get("plan", {}),
+                # J2.6C.2A: 五字段直接传递
+                style_domain=getattr(input_data, 'style_domain', '') or '',
+                organization_scope=getattr(input_data, 'organization_scope', '') or '',
+                content_type=getattr(input_data, 'content_type', '') or '',
+                output_doc_type=getattr(input_data, 'output_doc_type', '') or '',
+                length_mode=getattr(input_data, 'length_mode', '') or '',
             )
 
             rag_info["status"] = rag_result["rag_status"]

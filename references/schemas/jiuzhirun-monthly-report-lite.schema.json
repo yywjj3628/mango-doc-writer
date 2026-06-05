@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "久之润经营月报Lite输入",
+  "type": "object",
+  "required": ["reporting_period", "monthly_work_facts", "next_month_plan"],
+  "properties": {
+    "reporting_period": {
+      "type": "string",
+      "description": "报告期间，如'2026年5月'",
+      "example": "2026年5月"
+    },
+    "report_date": {
+      "type": "string",
+      "description": "报告日期",
+      "example": "2026年6月"
+    },
+    "monthly_work_facts": {
+      "type": "string",
+      "description": "本月重点工作事实，必须来自本月真实工作",
+      "minLength": 10
+    },
+    "next_month_plan": {
+      "type": "string",
+      "description": "下月工作计划，必须来自用户明确提供的计划",
+      "minLength": 10
+    },
+    "financial_tables_or_summary": {
+      "type": "string",
+      "description": "已填写表格或表格摘要，仅作为输入参考"
+    },
+    "monthly_revenue_analysis_facts": {
+      "type": "string",
+      "description": "月度收入分析事实，只能使用用户本次提供的摘要和数据"
+    },
+    "cumulative_analysis_facts": {
+      "type": "string",
+      "description": "累计收入分析事实"
+    },
+    "balance_sheet_analysis_facts": {
+      "type": "string",
+      "description": "资产负债分析事实"
+    },
+    "cash_flow_analysis_facts": {
+      "type": "string",
+      "description": "现金流分析事实"
+    },
+    "issues_and_risks": {
+      "type": "string",
+      "description": "问题与风险，未提供时不得推断且隐藏该章节"
+    }
+  },
+  "additionalProperties": false
+}

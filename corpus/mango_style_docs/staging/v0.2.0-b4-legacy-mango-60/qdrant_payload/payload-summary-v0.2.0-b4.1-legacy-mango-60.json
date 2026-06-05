@@ -1,0 +1,9 @@
+{
+  "input_documents": 60,
+  "total_chunks": 144,
+  "avg_chunks_per_doc": 2.4,
+  "generated_at": "2026-05-31T18:18:38.812611+08:00",
+  "batch_id": "v0.2.0-b4.1-legacy-mango-60",
+  "snapshot_id": "v0.2.0-b4-legacy-mango-60",
+  "target_collection": "mango_style_docs_v020_candidate"
+}

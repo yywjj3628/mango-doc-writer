@@ -1,0 +1,183 @@
+======================================================================
+C1.11 assisted_expansion 极简事实灰度测试 人工复核清单
+生成时间：2026-06-02 05:50 UTC
+======================================================================
+
+==== Case 1：文旅节假日经营 ====
+generation_mode: assisted_expansion
+official_use_allowed: requires_human_confirmation
+QG: pass (overall=8.7 | fac=9 doc=10 style=8 logic=9 lang=8 risk=8)
+RAG: success, candidate=mango_style_docs_v020_candidate_rebuild_459, rerank=true
+expansion_report: style=3 structure=1 rhetoric=1 policy=2 confirmation=3 unsafe=0
+expansion_review: status=pass acceptable=6 unsafe=0 confirmation=3
+draft_disclaimer: 本稿为 AI 辅助生成草案，适用于内部讨论、口径打磨或初稿完善。涉及具体事实、数据、时间、地点、领导职务、机构称谓、产品...
+待人工确认项:
+  - 公司正式全称: 正文中'公司'指代不明，需确认后统一替换。
+  - 主观评价'经营情况较好': 需确认是否符合事实，或改为更客观表述。
+正文:
+
+# 文旅板块假日经营业绩亮眼——接待游客约57万人次，同比增长26%
+
+6月3日，公司文旅板块节假日经营情况表现亮眼，景区和酒店累计接待游客约57万人次，同比增长26%，展现出强劲的复苏势头。
+
+万楼、青春东洲岛、长沙世界之窗、安化茶马古道等文旅项目均结合自身特色策划了主题活动，通过丰富多元的体验内容吸引游客，持续提升假日旅游热度。公司依托文旅+媒体联动模式，有效将媒体传播势能转化为客流和营收增长动力，进一步拓展了文旅消费新场景。
+
+数据显示，本次节假日文旅板块接待游客约57万人次，同比增长26%，在客流增长的同时带动了相关营收提升，为后续业务发展奠定了良好基础。
+
+文旅+媒体的深度融合，不仅为景区和酒店赋能引流，也成为公司探索文旅产业转型升级的重要路径。公司将持续深化文旅+媒体融合发展，优化假日产品供给，为游客带来更丰富的体验。
+
+
+
+==== Case 2：双声道开工动员 ====
+generation_mode: assisted_expansion
+official_use_allowed: requires_human_confirmation
+QG: pass (overall=9.0 | fac=9 doc=10 style=9 logic=8 lang=8 risk=10)
+RAG: success, candidate=mango_style_docs_v020_candidate_rebuild_459, rerank=true
+expansion_report: style=2 structure=1 rhetoric=0 policy=3 confirmation=4 unsafe=0
+expansion_review: status=warning acceptable=4 unsafe=0 confirmation=4
+draft_disclaimer: 本稿为 AI 辅助生成草案，适用于内部讨论、口径打磨或初稿完善。涉及具体事实、数据、时间、地点、领导职务、机构称谓、产品...
+待人工确认项:
+  - 活动年份: 素材仅提供月日
+  - 活动具体地点: 素材未提供
+  - 王艳忠职务: extract标记missing_leader_title
+  - 双声道称谓: extract中双声道confidence低
+正文:
+
+# 电广传媒与湖南经视双声道联合举办开工动员活动
+
+6月4日，电广传媒与湖南经视双声道联合举办了开工动员活动。多名班子成员和员工参加，现场氛围务实热烈。
+
+王艳忠在讲话中强调，要坚决守住安全生产底线，深化产业融合，强化大屏小屏协同赋能，牢固树立产品意识，保持战斗姿态，以昂扬斗志投入到新阶段的工作中。
+
+此次开工动员活动，进一步凝聚了团队战斗力量，为推动产业融合与创新赋能注入了新的动力。大家表示，将以此次活动为契机，以更加饱满的姿态开启新征程。
+
+
+
+==== Case 3：韶山项目洽谈 ====
+generation_mode: assisted_expansion
+official_use_allowed: requires_human_confirmation
+QG: fail (overall=8.2 | fac=9 doc=9 style=8 logic=9 lang=8 risk=6)
+RAG: success, candidate=mango_style_docs_v020_candidate_rebuild_459, rerank=true
+expansion_report: style=2 structure=1 rhetoric=0 policy=0 confirmation=3 unsafe=0
+expansion_review: status=fail acceptable=5 unsafe=4 confirmation=4
+draft_disclaimer: 本稿为 AI 辅助生成草案，适用于内部讨论、口径打磨或初稿完善。涉及具体事实、数据、时间、地点、领导职务、机构称谓、产品...
+待人工确认项:
+  - 王艳忠职务: 用户未提供，需人工确认
+  - 邓望军完整职务: 仅写'市长'，需确认是否韶山市市长
+  - 会见地点: 缺失基本信息
+正文:
+
+# 深化政企合作 共促文旅发展——王艳忠与韶山市委书记曹伟宏一行交流
+
+6月5日，王艳忠会见韶山市委书记曹伟宏、市长邓望军一行。双方围绕第六届湖南旅发大会重点项目推进、韶山文旅合作、文创产品开发等方面进行深入交流，并就深化合作进行了交流。
+
+韶山作为红色文旅重镇，与湖南广电在文旅产业、内容创意等领域具有广阔的合作空间。文创产品开发作为文旅产业链的重要延伸，有助于提升文化影响力和消费体验。
+
+双方表达了进一步深化合作的意愿。
+
+此次交流有助于双方进一步拓展合作领域、创新合作模式。未来，双方将携手共进，为湖南文旅产业注入新活力。
+
+
+
+==== Case 4：情景喜剧调研 ====
+generation_mode: assisted_expansion
+official_use_allowed: requires_human_confirmation
+QG: pass (overall=8.8 | fac=9 doc=10 style=8 logic=9 lang=9 risk=8)
+RAG: success, candidate=mango_style_docs_v020_candidate_rebuild_459, rerank=true
+expansion_report: style=2 structure=3 rhetoric=3 policy=0 confirmation=2 unsafe=0
+expansion_review: status=warning acceptable=6 unsafe=0 confirmation=2
+draft_disclaimer: 本稿为基于有限素材生成的辅助草案。由于原始信息较少，文中涉及具体事实、活动过程、领导要求、业务成果、数据和称谓等内容均需...
+待人工确认项:
+  - 领导职务: 素材中贺辉职务缺失
+  - 新化高新区相关公司正式名称: 素材中仅写'新化高新区相关公司'，需确认全称
+  - 肯定工作具体内容: 素材仅写'肯定团队工作'，无具体内容
+正文:
+
+# 贺辉赴情景喜剧《笑起来真好看》拍摄现场调研
+
+6月6日，贺辉赴情景喜剧《笑起来真好看》拍摄现场调研，看望创作团队，了解拍摄进度。
+
+该剧由湖南经视与新化高新区相关公司联合出品，主题聚焦乡村振兴，以情景喜剧形式讲述乡土故事，展现新时代乡村风貌。
+
+在调研中，贺辉对创作团队的辛勤付出给予肯定，并围绕三个传承提出工作要求：一是做好乡土文化传承，挖掘地域特色，展现乡村文化底蕴；二是做好情景喜剧创作传承，在守正创新中推动类型发展；三是做好老艺术家与新人传承，以老带新、薪火相传，为行业注入新鲜血液。
+
+此次调研充分体现了对基层创作团队的关心与支持，也为剧目后续创作指明了方向。下一步，剧组将认真领会传承要求，力争打造一部有温度、有深度的精品力作。
+
+
+
+==== Case 5：芒果研习调研 ====
+generation_mode: assisted_expansion
+official_use_allowed: requires_human_confirmation
+QG: pass (overall=9.0 | fac=9 doc=10 style=8 logic=9 lang=9 risk=9)
+RAG: success, candidate=mango_style_docs_v020_candidate_rebuild_459, rerank=true
+expansion_report: style=3 structure=1 rhetoric=0 policy=0 confirmation=1 unsafe=0
+expansion_review: status=pass acceptable=3 unsafe=0 confirmation=1
+draft_disclaimer: 本稿为 AI 辅助生成草案，适用于内部讨论、口径打磨或初稿完善。涉及具体事实、数据、时间、地点、领导职务、机构称谓、产品...
+待人工确认项:
+  - 领导职务: extract标记为missing，正文中无法使用正式称谓
+  - 机构全称: 用户使用“芒果研习”，需确认是否为公司注册正式名称
+正文:
+
+# 贺辉带队调研芒果研习 强调文化+科技发展方向
+
+6月7日，贺辉带队到芒果研习调研，深入了解企业运营、产品研发、项目孵化和文化科技融合情况。
+
+座谈会上，贺辉提出芒果研习要围绕文化+科技方向发力。王艳忠提出芒果研习要聚焦核心产品、核心能力和核心业务。
+
+此次调研重点围绕文化+科技融合方向，要求芒果研习聚焦核心产品、核心能力和核心业务，为发展指明了方向。
+
+此次调研为芒果研习进一步明确发展路径提供了重要指导。芒果研习将以此为契机，聚焦核心业务，推动文化科技深度融合，实现高质量发展。
+
+（注：贺辉、王艳忠职务待确认，“芒果研习”全称待确认。）
+
+
+
+==== Case 6：DeepSeek培训 ====
+generation_mode: assisted_expansion
+official_use_allowed: requires_human_confirmation
+QG: pass (overall=9.8 | fac=10 doc=10 style=9 logic=10 lang=10 risk=10)
+RAG: success, candidate=mango_style_docs_v020_candidate_rebuild_459, rerank=true
+expansion_report: style=4 structure=2 rhetoric=0 policy=2 confirmation=2 unsafe=0
+expansion_review: status=fail acceptable=6 unsafe=1 confirmation=2
+draft_disclaimer: 本稿为 AI 辅助生成草案，适用于内部讨论、口径打磨或初稿完善。涉及具体事实、数据、时间、地点、领导职务、机构称谓、产品...
+待人工确认项:
+  - 王艳忠职务: 用户未提供职务，无法在文中使用正式称谓
+  - 活动地点: 用户未提供培训举办地点
+正文:
+
+# 聚焦AI前沿 赋能融合发展——电广传媒与湖南经视双声道参加DeepSeek专题培训
+
+6月8日，电广传媒与湖南经视双声道组织参加达晨财智《出圈的DeepSeek观察与思考》专题培训，共同聚焦人工智能前沿技术，探索融合发展新路径。
+
+培训期间，王艳忠围绕创新驱动、AI应用端落地、传统产业与人工智能深度融合、数据安全、文旅、广告及传统媒体等方向作了分享，为参会人员带来了关于AI赋能业务发展的深刻思考。
+
+达晨财智人工智能投资团队从产业视角分享了DeepSeek相关观察，结合行业趋势与投资实践，为在场人员提供了多元视角和专业洞见。
+
+此次培训不仅是技术知识的更新，更是电广传媒与湖南经视双声道推动文化和科技融合、加快数字化转型的重要举措。此次培训为探索AI技术在业务场景中的创新应用提供了思路，为高质量发展注入新动能。
+
+
+
+==== Case 7：文旅元宵活动 ====
+generation_mode: assisted_expansion
+official_use_allowed: requires_human_confirmation
+QG: pass (overall=8.7 | fac=9 doc=10 style=8 logic=9 lang=8 risk=8)
+RAG: success, candidate=mango_style_docs_v020_candidate_rebuild_459, rerank=true
+expansion_report: style=2 structure=3 rhetoric=1 policy=1 confirmation=2 unsafe=0
+expansion_review: status=pass acceptable=13 unsafe=0 confirmation=2
+draft_disclaimer: 本稿为 AI 辅助生成草案，适用于内部讨论、口径打磨或初稿完善。涉及具体事实、数据、时间、地点、领导职务、机构称谓、产品...
+待人工确认项:
+  - 公司全称: 用户仅写'公司文旅板块'，未提供正式名称
+  - 吸引不少游客的表述: extract标记需人工确认，且无具体数据支撑
+正文:
+
+# 公司文旅板块推出多项元宵主题节庆活动
+
+6月9日，公司文旅板块在长沙世界之窗、万楼·芒果青年码头、衡阳青春东洲岛同步推出多项元宵主题节庆活动，为市民和游客献上一场节日文化盛宴。
+
+在长沙世界之窗，元宵换花节精彩上演，巡游、花灯、非遗等元素为游客带来沉浸式体验；万楼·芒果青年码头推出元宵活动，舞龙舞狮等传统民俗表演吸引众多市民驻足；衡阳青春东洲岛的祈福活动则通过祈福仪式与花灯展示，营造出浓厚的节日氛围。
+
+活动内容涵盖巡游、花灯、非遗、祈福、舞龙舞狮等多个板块，全方位展现传统节日的文化魅力。据初步统计，活动期间吸引了不少游客前来参与体验。
+
+公司文旅板块通过差异化活动供给，丰富了市民和游客的节日生活，进一步彰显了芒果文旅的品牌活力。未来，公司文旅板块将继续深耕节日文化市场，以更多优质活动回馈社会。
+
+

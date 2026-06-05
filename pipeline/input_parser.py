@@ -42,6 +42,14 @@ DOC_TYPE_HINTS = {
     "会议新闻": "会议新闻",
     "会议报道": "会议新闻",
     "召开会议": "会议新闻",
+    # J2.6C.2B 新增文种
+    "经营月报": "经营月报",
+    "月报": "经营月报",
+    "月度经营": "经营月报",
+    "理论学习发言": "理论学习发言",
+    "理论学习": "理论学习发言",
+    "中心组发言": "理论学习发言",
+    "研讨发言": "理论学习发言",
 }
 
 # 主送单位关键词 → 可提取的 target_unit
@@ -80,6 +88,11 @@ def parse_structured_input(data: Dict[str, Any]) -> Dict[str, Any]:
         "generation_mode": gen_mode,
         "generation_mode_valid": gen_valid,
         "generation_mode_warnings": gen_warnings,
+        # J2.6C.2A: 五字段完整传递
+        "style_domain": data.get("style_domain"),
+        "organization_scope": data.get("organization_scope"),
+        "content_type": data.get("content_type"),
+        "length_mode": data.get("length_mode"),
     }
 
 

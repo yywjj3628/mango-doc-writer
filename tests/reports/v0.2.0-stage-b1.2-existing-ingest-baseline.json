@@ -1,0 +1,42 @@
+{
+  "generated": "2026-05-30T08:18:00Z",
+  "stage": "B1.2",
+  "read_only": true,
+  "data_sources": {
+    "qdrant_available": true,
+    "qdrant_collection": "mango_style_docs",
+    "qdrant_points": 148,
+    "qdrant_unique_titles": 60,
+    "base_available": true,
+    "base_records": 109,
+    "manifest_records": 20,
+    "corpus_cleaned_count": 80,
+    "corpus_metadata_count": 20
+  },
+  "classification": {
+    "already_ingested": 40,
+    "premature_synced_hold": 20,
+    "new_cleaned_ready": 0,
+    "pending_cleaning": 49,
+    "needs_manual_review": 0,
+    "rejected": 0,
+    "duplicate_conflict": 0
+  },
+  "key_findings": {
+    "premature_vs_already_ingested_overlap": 0,
+    "qdrant_titles_with_multiple_points": 43,
+    "pending_with_title_and_body": 44,
+    "pending_source_distribution": {
+      "weekly_siqing": 47,
+      "official_account": 1,
+      "empty": 1
+    }
+  },
+  "blockers": [
+    "B1.1 premature batch unresolved",
+    "Qdrant dedup not done (148 pts, 60 unique)",
+    "49 pending records need clean_status backfill",
+    "A1 fixture has no manifest entries"
+  ],
+  "can_proceed_to_B2": false
+}

@@ -424,8 +424,14 @@ disambiguation_rules:
     confidence: high
 leaders:
 - name: 龚政文
-  title: 湖南广播影视集团（台）党委书记、董事长
+  title: 湖南广播影视集团（台）党委书记、董事长、台长、总编辑
   organization: 湖南广播影视集团（台）
+  organization_level: hunan_broadcasting_leadership
+  preferred_full_title: 集团（台）党委书记、董事长、台长、总编辑龚政文
+  preferred_short_title: 龚政文
+  valid_as_of: "2026-05-22"
+  confirmation_source: user
+  status: user_confirmed
   accepted_titles:
   - 湖南广播影视集团（台）党委书记、董事长
   - 全国人大代表、湖南广播影视集团（台）党委书记、董事长
@@ -446,6 +452,12 @@ leaders:
 - name: 蔡怀军
   title: 湖南广播影视集团（台）党委副书记、总经理
   organization: 湖南广播影视集团（台）
+  organization_level: hunan_broadcasting_leadership
+  preferred_full_title: 集团（台）党委副书记、总经理蔡怀军
+  preferred_short_title: 蔡怀军
+  valid_as_of: "2026-05-04"
+  confirmation_source: user
+  status: user_confirmed
   accepted_titles:
   - 集团（台）党委副书记、总经理
   - 湖南广播影视集团（台）党委副书记、总经理
@@ -464,6 +476,12 @@ leaders:
 - name: 蒋洪亮
   title: 集团（台）党委委员、纪委书记
   organization: 湖南广播影视集团（台）
+  organization_level: hunan_broadcasting_leadership
+  preferred_full_title: 集团（台）党委委员、纪委书记蒋洪亮
+  preferred_short_title: 蒋洪亮
+  valid_as_of: "2026-03-26"
+  confirmation_source: user
+  status: user_confirmed
   accepted_titles:
   - 集团（台）党委委员、纪委书记
   usage_context:
@@ -507,6 +525,12 @@ leaders:
 - name: 顾懿
   title: 久之润总经理
   organization: 上海久之润信息技术有限公司
+  organization_level: subsidiary_leadership
+  preferred_full_title: 久之润总经理顾懿
+  preferred_short_title: 顾懿
+  valid_as_of: "2026-04-22"
+  confirmation_source: user
+  status: user_confirmed
   accepted_titles:
   - 久之润总经理
   - 上海久之润信息技术有限公司总经理
@@ -578,6 +602,29 @@ leaders:
   inheritance_allowed: true
   notes: 旧稿中确认。仅出现在具体活动报道中。
   priority_in_group: null
+- name: 付维刚
+  title: 电广传媒党委副书记、总经理
+  organization: 电广传媒
+  organization_level: dianguang_media_leadership
+  preferred_full_title: 电广传媒党委副书记、总经理付维刚
+  preferred_short_title: 付维刚
+  valid_as_of: "2026-06-03"
+  confirmation_source: user
+  status: user_confirmed
+  accepted_titles:
+  - 电广传媒党委副书记、总经理
+  - 电广传媒总经理
+  usage_context:
+  - 新闻稿
+  - 汇报材料
+  - 领导讲话
+  - 司情
+  source:
+  - 用户反馈确认（2026-06-03）
+  confidence: high
+  inheritance_allowed: true
+  notes: 电广传媒本级领导。司情不一定写抬头，但系统必须知道职务。首次提及建议带完整职务前缀。
+  priority_in_group: null
 - name: （省妇联副主席，姓氏待确认）
   title: 省妇联副主席
   organization: 湖南省妇联
@@ -590,6 +637,27 @@ leaders:
   notes: 旧稿中仅出现职务而未出现完整姓名。不得自动继承姓名。
   needs_manual_confirmation: true
   confirmation_reason: 旧稿中仅见职务未见姓名。
+- name: 杨贇
+  title: 集团（台）党委委员、副总经理、副台长
+  organization: 湖南广播影视集团（台）
+  organization_level: hunan_broadcasting_leadership
+  preferred_full_title: 集团（台）党委委员、副总经理、副台长杨贇
+  preferred_short_title: 杨贇
+  valid_as_of: "2026-05-22"
+  confirmation_source: user
+  status: user_confirmed
+  accepted_titles:
+  - 集团（台）党委委员、副总经理、副台长杨贇
+  usage_context:
+  - 新闻稿
+  - 汇报材料
+  - 领导讲话
+  source:
+  - 芒果日志多篇语料（2026-05-22广告人青春π对、2025-12-01新加坡签约）
+  confidence: high
+  inheritance_allowed: true
+  notes: 从芒果日志多篇语料确认。
+  priority_in_group: null
 products:
   mango_tv_platform:
     official_name: 芒果TV

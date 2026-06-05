@@ -41,6 +41,12 @@ class PipelineInput:
     scene: Optional[str] = None
     output_preference: Optional[str] = None
     generation_mode: str = "safe_official"  # v0.1.4: "safe_official" | "assisted_expansion" | "creative_mimic"
+    # J2.6C.2F: 五字段支持
+    style_domain: Optional[str] = None
+    organization_scope: Optional[str] = None
+    content_type: Optional[str] = None
+    output_doc_type: Optional[str] = None
+    length_mode: Optional[str] = None
 
     def to_dict(self) -> dict:
         d = {"requirement": self.requirement, "draft": self.draft}

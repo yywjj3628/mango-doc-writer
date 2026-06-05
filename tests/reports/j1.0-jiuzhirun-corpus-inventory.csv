@@ -1,0 +1,30 @@
+corpus_candidate_id,filename,file_type,readable,estimated_title,estimated_date,estimated_doc_type,estimated_content_type,organization,likely_style_domain,likely_use_for,risk_notes,next_action
+JIUZHIRUN-001,上海久之润信息技术有限公司经营动态信息填报表20260409---04e82564-41cd-4697-8dc4-44cc9e3feab1.docx,.docx,是,上海久之润信息技术有限公司经营动态信息填报表20260409,2026-04-09,内部动态,internal_management,久之润,dianguang_siqing,both,,read_and_extract
+JIUZHIRUN-002,上海久之润信息技术有限公司公司经营情况分析月报_202601---809de64d-fba5-4d67-b671-62f5d031dc5e.docx,.docx,是,上海久之润信息技术有限公司公司经营情况分析月报 202601,2026-01,汇报材料,business_update,久之润,dianguang_siqing,both,含经营数据，需谨慎处理,read_and_extract
+JIUZHIRUN-003,久之润半年报全年报汇总---2e266ee6-06fd-4ed1-87c0-ded31b46f931,,否,久之润半年报全年报汇总,,汇报材料,business_update,久之润,dianguang_siqing,both,,read_and_extract
+JIUZHIRUN-004,上海久之润信息技术有限公司公司经营情况分析月报_202603---2787ff22-7082-4e3c-908a-5282a0218d60.docx,.docx,是,上海久之润信息技术有限公司公司经营情况分析月报 202603,2026-03,汇报材料,business_update,久之润,dianguang_siqing,both,含经营数据，需谨慎处理,read_and_extract
+JIUZHIRUN-005,数字资产领用管理办法_试行_上海久之润V260430---1ccfe4c3-5004-4f3e-8b60-f34b3c101165.docx,.docx,是,数字资产领用管理办法 试行 上海久之润V260430,2026-04-30,管理制度,compliance_management,久之润,dianguang_siqing,both,,read_and_extract
+JIUZHIRUN-006,上海久之润信息技术有限公司经营动态信息填报表20251009---cecbb21f-6992-489c-ae60-882fceffd949.docx,.docx,是,上海久之润信息技术有限公司经营动态信息填报表20251009,2025-10-09,内部动态,internal_management,久之润,dianguang_siqing,both,,read_and_extract
+JIUZHIRUN-007,上海久之润信息技术有限公司经营动态信息填报表20251016---640c734b-66ec-41f8-ad76-95b73bf1a674.docx,.docx,是,上海久之润信息技术有限公司经营动态信息填报表20251016,2025-10-16,内部动态,internal_management,久之润,dianguang_siqing,both,,read_and_extract
+JIUZHIRUN-008,上海久之润信息技术有限公司经营动态信息填报表20250911---fff69204-8177-43cb-b578-93a3749c33db.docx,.docx,是,上海久之润信息技术有限公司经营动态信息填报表20250911,2025-09-11,内部动态,internal_management,久之润,dianguang_siqing,both,,read_and_extract
+JIUZHIRUN-009,上海久之润荣誉统计-V250318---158a7ab1-411f-4213-a202-4d6cbd293c07.xlsx,.xlsx,是,上海久之润荣誉统计-V250318,2025-03-18,其他,business_update,久之润,dianguang_siqing,hold,,read_and_extract
+JIUZHIRUN-010,上海久之润信息技术有限公司公司经营情况分析月报_202602---a044b0c8-0960-4dcf-8d03-8897cc37b67b.docx,.docx,是,上海久之润信息技术有限公司公司经营情况分析月报 202602,2026-02,汇报材料,business_update,久之润,dianguang_siqing,both,含经营数据，需谨慎处理,read_and_extract
+JIUZHIRUN-011,上海久之润信息技术有限公司经营动态信息填报表20260402---7471e1e8-c704-40e0-a2c2-949443d95f4e.docx,.docx,是,上海久之润信息技术有限公司经营动态信息填报表20260402,2026-04-02,内部动态,internal_management,久之润,dianguang_siqing,both,,read_and_extract
+JIUZHIRUN-012,上海久之润信息技术有限公司经营动态信息填报表20260226.docx,.docx,是,上海久之润信息技术有限公司经营动态信息填报表20260226.docx,2026-02-26,内部动态,internal_management,久之润,dianguang_siqing,both,,read_and_extract
+JIUZHIRUN-013,上海久之润信息技术有限公司经营动态信息填报表20250828---d69f629a-3dae-4bba-b4ed-a1b509ee9233.docx,.docx,是,上海久之润信息技术有限公司经营动态信息填报表20250828,2025-08-28,内部动态,internal_management,久之润,dianguang_siqing,both,,read_and_extract
+JIUZHIRUN-014,久之润2025年度总结_v2---4c950f2d-80c8-4a30-bedd-5f4051cb1939.pptx,.pptx,是,久之润2025年度总结 v2,,年度总结,annual_summary,久之润,dianguang_siqing,both,,read_and_extract
+JIUZHIRUN-015,7_上海久之润2025年工作总结和2026年工作计划报告V260106---b9decb73-3cfd-407a-8936-892db9012b50.docx,.docx,是,7 上海久之润2025年工作总结和2026年工作计划报告V260106,2026-01-06,年度总结,annual_summary,久之润,dianguang_siqing,both,,read_and_extract
+JIUZHIRUN-016,上海久之润信息技术有限公司经营动态信息填报表20251023---7b146343-1a0c-4a13-95f8-a43d023de31c.docx,.docx,是,上海久之润信息技术有限公司经营动态信息填报表20251023,2025-10-23,内部动态,internal_management,久之润,dianguang_siqing,both,,read_and_extract
+JIUZHIRUN-017,上海久之润信息技术有限公司经营动态信息填报表20250904---b93f50f1-251e-4cfc-89db-805a0e12e0d7.docx,.docx,是,上海久之润信息技术有限公司经营动态信息填报表20250904,2025-09-04,内部动态,internal_management,久之润,dianguang_siqing,both,,read_and_extract
+JIUZHIRUN-018,上海久之润信息技术有限公司公司经营情况分析月报_202603---2787ff22-7082-4e3c-908a-5282a0218d60.md,.md,是,上海久之润信息技术有限公司公司经营情况分析月报 202603,2026-03,汇报材料,business_update,久之润,dianguang_siqing,both,含经营数据，需谨慎处理,read_and_extract
+JIUZHIRUN-019,总经理办公会议管理制度_试行方案V260408_上海久之润---46ea8cd2-cf60-44d1-9207-1c610557060f.docx,.docx,是,总经理办公会议管理制度 试行方案V260408 上海久之润,2026-04-08,管理制度,compliance_management,久之润,dianguang_siqing,both,,read_and_extract
+JIUZHIRUN-020,上海久之润信息技术有限公司经营动态信息填报表20250918---c9b4f954-b3ba-4c9d-bd74-f8ce578ac89a.docx,.docx,是,上海久之润信息技术有限公司经营动态信息填报表20250918,2025-09-18,内部动态,internal_management,久之润,dianguang_siqing,both,,read_and_extract
+JIUZHIRUN-021,上海久之润信息技术有限公司经营动态信息填报表20250925---8c26d997-aabe-4d6e-bb19-b87bfc68c9b2.docx,.docx,是,上海久之润信息技术有限公司经营动态信息填报表20250925,2025-09-25,内部动态,internal_management,久之润,dianguang_siqing,both,,read_and_extract
+JIUZHIRUN-022,14_2_2025年度纪检监察工作总结及2026年工作计划_上海久之润V251230---fb1fe60f-5b7e-4ed7-a29f-2b2c5e475609.pdf,.pdf,是,14 2 2025年度纪检监察工作总结及2026年工作计划 上海久之润V251230,2025-12-30,年度总结,annual_summary,久之润,dianguang_siqing,both,,read_and_extract
+JIUZHIRUN-023,上海久之润信息技术有限公司公司经营情况分析月报_202603---f8c6f2ae-50f1-4da1-a319-86ca8613c6ee.docx,.docx,是,上海久之润信息技术有限公司公司经营情况分析月报 202603,2026-03,汇报材料,business_update,久之润,dianguang_siqing,both,含经营数据，需谨慎处理,read_and_extract
+JIUZHIRUN-024,久之润PPT风格规范提示词---37a5b4c0-113e-4a20-8e6a-16c374366429.md,.md,是,久之润PPT风格规范提示词,,其他,business_update,久之润,dianguang_siqing,hold,,read_and_extract
+JIUZHIRUN-025,久之润部门经营绩效承诺书,,否,久之润部门经营绩效承诺书,,内部动态,business_update,久之润,dianguang_siqing,both,,read_and_extract
+JIUZHIRUN-026,2026年度目标责任书（久之润）.pdf,.pdf,是,2026年度目标责任书（久之润）.pdf,,目标责任书,business_update,久之润,dianguang_siqing,both,,read_and_extract
+JIUZHIRUN-027,上海久之润信息技术有限公司公司经营情况分析月报-202604.docx,.docx,是,上海久之润信息技术有限公司公司经营情况分析月报-202604.docx,2026-04,汇报材料,business_update,久之润,dianguang_siqing,both,含经营数据，需谨慎处理,read_and_extract
+JIUZHIRUN-028,2026年度目标责任书（久之润）.pdf.ocr.txt,.txt,是,2026年度目标责任书（久之润）.pdf.ocr.txt,,目标责任书,business_update,久之润,dianguang_siqing,both,,read_and_extract
+JIUZHIRUN-029,研发投入-上海久之润.docx,.docx,是,研发投入-上海久之润.docx,,汇报材料,business_update,久之润,dianguang_siqing,both,,read_and_extract

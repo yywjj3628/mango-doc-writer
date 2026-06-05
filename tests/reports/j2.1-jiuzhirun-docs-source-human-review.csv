@@ -1,0 +1,14 @@
+编号,filename,category,doc_type,topic,speaker,audience,sensitivity,rag_usage,is_fact_safe,jiuyou_docs_match,suggestion,reason
+1,7_上海久之润2025年工作总结和2026年工作计划报告V260106.docx,writing_reference_core,年度总结,annual_summary,顾懿,电广传媒总部,normal,style_and_reference,false,probable_match,approve,核心年度总结
+2,久之润2025年度总结_v2.pptx,writing_reference_core,年度总结,annual_summary,—,—,normal,style_only,false,probable_match,approve,年度总结PPT
+3,久之润半年报全年报汇总,writing_reference_core,半年度总结,annual_summary,—,—,normal,style_and_reference,false,not_found,approve,半年度/全年报汇总
+4,2025年意识形态工作会议发言稿-上海久之润V250826.docx,writing_reference_core,意识形态工作总结,ideology,—,—,internal,style_and_reference,false,not_found,approve,意识形态工作总结
+5,2024年度党风廉政建设和纪检监察工作总结V241224-上海久之润.docx,writing_reference_core,纪检工作总结,discipline_inspection,—,—,internal,style_and_reference,false,probable_match,approve,纪检工作总结
+6,2026年度 司情供稿.md,writing_reference_core,司情简报,business_operation,—,—,normal,style_and_reference,false,not_found,approve,真实司情供稿
+7,2026-05-09.md,writing_reference_core,其他,other,—,—,normal,style_only,false,not_found,approve,日常记录
+8,2026年度目标责任书（久之润）.pdf,business_reference_only,目标责任书,headquarters_requirement,—,久之润,normal,reference_only,false,probable_match,approve,总部下发目标
+9,2026年度目标责任书（久之润）.pdf.ocr.txt,business_reference_only,目标责任书,headquarters_requirement,—,久之润,normal,reference_only,false,probable_match,approve,OCR版本
+10,14-文锦子-2026年久之润部门负责人经营绩效承诺书-V260331.docx,business_reference_only,目标责任书,business_operation,—,—,internal,reference_only,false,exact_match,approve,部门绩效承诺
+11,17-陈佳-2026年久之润部门负责人经营绩效承诺书-V260331.docx,business_reference_only,目标责任书,business_operation,—,—,internal,reference_only,false,exact_match,approve,部门绩效承诺
+12,研发投入-上海久之润.docx,business_reference_only,经营分析材料,business_operation,—,—,normal,reference_only,false,exact_match,approve,研发投入报告
+13,久之润部门经营绩效承诺书,business_reference_only,目标责任书,business_operation,—,—,internal,reference_only,false,exact_match,approve,部门绩效承诺目录

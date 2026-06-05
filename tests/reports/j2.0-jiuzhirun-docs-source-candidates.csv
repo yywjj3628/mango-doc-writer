@@ -1,0 +1,78 @@
+# J2.0 jiuzhirun_docs 候选源文件清单
+
+> 日期：2026-06-04
+> 来源：J1.0/J1.0.1/J1.0.2 盘点结果整合
+> 总文件数：29（去重后）
+
+---
+
+## A. writing_reference_core（写作结构与风格学习）
+
+| # | filename | category | estimated_doc_type | topic | source_date | speaker | audience | sensitivity | rag_usage | decision | reason |
+|---|----------|----------|-------------------|-------|-------------|---------|----------|-------------|-----------|----------|--------|
+| 1 | 7_上海久之润2025年工作总结和2026年工作计划报告V260106.docx | 年度总结 | 年度总结 | annual_summary | 2026-01-06 | 顾懿 | 电广传媒总部 | normal | style_and_reference | include | 核心年度总结，含顾懿和完整经营数据 |
+| 2 | 久之润2025年度总结_v2.pptx | 年度总结 | 年度总结 | annual_summary | 2025 | — | — | normal | style_only | include | 年度总结PPT，适合结构学习 |
+| 3 | 久之润半年报全年报汇总 | 半年报 | 半年度总结 | annual_summary | — | — | — | normal | style_and_reference | include | 半年度/全年报汇总 |
+| 4 | 2025年意识形态工作会议发言稿-上海久之润V250826.docx | 意识形态 | 意识形态工作总结 | ideology | 2025-08-26 | — | — | internal | style_and_reference | include | 意识形态工作总结 |
+| 5 | 2024年度党风廉政建设和纪检监察工作总结V241224-上海久之润.docx | 纪检 | 纪检工作总结 | discipline_inspection | 2024-12-24 | — | — | internal | style_and_reference | include | 纪检工作总结 |
+| 6 | 2026年度 司情供稿.md | 司情 | 司情简报 | business_operation | 2026 | — | — | normal | style_and_reference | include | 真实司情供稿 |
+| 7 | 2026-05-09.md | 其他 | 其他 | other | 2026-05-09 | — | — | normal | style_only | include | 日常记录 |
+
+**小计：7 个文件**
+
+---
+
+## B. business_reference_only（历史查询参考）
+
+| # | filename | category | estimated_doc_type | topic | source_date | speaker | audience | sensitivity | rag_usage | decision | reason |
+|---|----------|----------|-------------------|-------|-------------|---------|----------|-------------|-----------|----------|--------|
+| 8 | 2026年度目标责任书（久之润）.pdf | 目标责任书 | 目标责任书 | headquarters_requirement | 2026 | — | 久之润 | normal | reference_only | include | 总部下发目标 |
+| 9 | 2026年度目标责任书（久之润）.pdf.ocr.txt | 目标责任书 | 目标责任书 | headquarters_requirement | 2026 | — | 久之润 | normal | reference_only | include | OCR版本 |
+| 10 | 14-文锦子-2026年久之润部门负责人经营绩效承诺书-V260331.docx | 绩效承诺 | 目标责任书 | business_operation | 2026-03-31 | — | — | internal | reference_only | include | 部门绩效承诺 |
+| 11 | 17-陈佳-2026年久之润部门负责人经营绩效承诺书-V260331.docx | 绩效承诺 | 目标责任书 | business_operation | 2026-03-31 | — | — | internal | reference_only | include | 部门绩效承诺 |
+| 12 | 研发投入-上海久之润.docx | 研发 | 经营分析材料 | business_operation | — | — | — | normal | reference_only | include | 研发投入报告 |
+| 13 | 久之润部门经营绩效承诺书 | 绩效承诺 | 目标责任书 | business_operation | — | — | — | internal | reference_only | include | 部门绩效承诺目录 |
+
+**小计：6 个文件**
+
+---
+
+## C. hold_sensitive（暂缓入库）
+
+| # | filename | category | estimated_doc_type | topic | sensitivity | decision | reason |
+|---|----------|----------|-------------------|-------|-------------|----------|--------|
+| 14 | 14_2_2025年度纪检监察工作总结及2026年工作计划_上海久之润V251230.pdf | 纪检监察 | 纪检工作总结 | discipline_inspection | sensitive | hold | 敏感材料，需用户确认 |
+| 15 | 上海久之润荣誉统计.xlsx | 荣誉 | 其他 | other | normal | hold | 用途待确认 |
+| 16 | 久之润PPT风格规范提示词.md | 规范 | 其他 | other | normal | hold | 用途待确认 |
+
+**小计：3 个文件**
+
+---
+
+## D. exclude（不进入 jiuzhirun_docs）
+
+| # | filename | category | decision | reason |
+|---|----------|----------|----------|--------|
+| 17-29 | 经营月报（4个）+ 经营动态信息填报表（11个）+ 管理制度（2个） | 月报/动态/制度 | exclude | J1.0.1 已确认排除或已在 jiuyou_docs |
+
+**小计：13 个文件**
+
+---
+
+## 汇总
+
+| 分类 | 数量 | 占比 |
+|------|------|------|
+| writing_reference_core | 7 | 24% |
+| business_reference_only | 6 | 21% |
+| hold_sensitive | 3 | 10% |
+| exclude | 13 | 45% |
+| **合计** | **29** | **100%** |
+
+**建议入库：13 个文件（A+B）**
+**暂缓：3 个文件（C）**
+**排除：13 个文件（D）**
+
+---
+
+*清单生成时间：2026-06-04 23:24 UTC*
